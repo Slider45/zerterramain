@@ -48,7 +48,7 @@ include 'PagesFunction/connection.php';
 
   <div class="parallax" style="background: url(images/Banner.jpeg); ">
     <div class="hero-text" id="hero-text">
-      <p class="first">SIOMAI</p>
+      <p class="first">TAKE CARE OF NATURE</p>
       <p class="second">recycle your food scraps and help us protect our environment</p>
       <a href="Log-in.php"><button class="parallax-btn">GET IN TOUCH</button></a>
     </div>

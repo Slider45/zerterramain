@@ -190,7 +190,7 @@ include 'Buttons/pendingButtonFunction.php'
                         <p class="modal-card-title">CUSTOMER INFORMATION</p>
                         <button class="modal-close" aria-label="close"></button>
                       </header>
-                       <form method="POST" class="modal-card-body">
+                       <form method="POST" action="pending.php" class="modal-card-body">
               
                        <div class="field">
                         <div class="control">
@@ -199,84 +199,77 @@ include 'Buttons/pendingButtonFunction.php'
                     </div>
                       </div>
                       <div class="control" >
-                        <input class="input1" type="text"  name="efname"  disabled value="<?php echo $fname; ?>" required="">
+                        <input class="input1" type="text"  name="edit_fname"  value="<?php echo $fname; ?>" required="" readonly >
                       </div>
                       <div class="control">
-                        <input class="input1" type="text" name="elname" disabled value="<?php echo $lname; ?>" required="">
+                        <input class="input1" type="text" name="edit_lname" readonly value="<?php echo $lname; ?>" required="">
                       </div>
                       <div class="control">
-                        <input class="input1" type="email" name="eemail"  disabled value="<?php echo $email; ?>"   required="">
+                        <input class="input1" type="email" name="edit_email"  readonly value="<?php echo $email; ?>"   required="">
                       </div>
                       <div class="control">
-                        <input class="input1" type="text" name="eaddress" disabled value="<?php echo $Address; ?>"  required="">
+                        <input class="input1" type="text" name="edit_address" readonly value="<?php echo $Address; ?>"  required="">
                       </div>
                       <div class="control">
-                        <input class="input1" type="number" name="econtact" disabled value="<?php echo $Contact; ?>"  required="">
+                        <input class="input1" type="number" name="edit_contact" readonly value="<?php echo $Contact; ?>"  required="">
                       </div>
                       <div class="control">
-                        <input class="input1" type="text" name="emessage" disabled value="<?php echo $Message; ?>"  required="">
+                        <input class="input1" type="text" name="edit_message" readonly value="<?php echo $Message; ?>"  required="">
                       </div>
                         <div class="control" style="margin-top: 10px;">                  
                       </div>
                       </div>
                       <div style = " margin-left: 500px; margin-right: auto;">
                          <button  class="button is-success" name="btnapproved">APPROVE</button>
-                          
                       </div>
-                      
-
                     </form>
 
                     </div>
                   </div>
                     </div>
-
-
-
-
                       </td>
                       
+
+  
 
 </tr>
 
         <?php 
-        }
-    }
-                        if(isset($_POST['btnapproved'])){
-                            echo "<script>window.alert('$id');</script>";
-                        }
-                        //   $id = $_POST['id'];
-                        //   $fname = $_POST['efname'];
-                        //   $lname = $_POST['elname'];
-                        //   $email = $_POST['eemail'];
-                        //   $Contact = $_POST['econtact'];
-                        //   $Address = $_POST['eaddress'];
-                        //   $Message = $_POST['emessage'];
-                  
-                  
-                  
-                  
-                        //   $sql = "UPDATE pending_list SET FirstName='$fname',LastName='$lname',Message='$Message', Address='$Address' ,ContactNumber='$Contact',Email='$email', is_pending='1' WHERE id='$id'";
-                        //   if($con->query($sql) === TRUE){
-                  
-                  
-                        // //  $sql ="INSERT INTO approve_list(pendingID,FirstName,LastName,Email,ContactNumber,Address,Message) VALUES ('$id','$fname','$lname','$email','$Address','$Contact','$Message')";
-                        // //         if($con->query($sql) === TRUE){
-                                  
-                        //         // }else{
-                                  
-                        //         //   echo "<script>window.alert('Saving new record failed!');</script>";
-                        //         // }
-                  
-                        //     echo "<script>window.alert('RECORD IS UPDATED!');</script>";
-                        //   //   echo '<script>window.location.href="pending.php"</script>';
-                        //         }else{
-                        //           echo "<script>window.alert('SOMETHING WENT WRONG, PLEASE TRY AGAIN!');</script>";
-                        //         }
-                  
-                              
-                        //     }
-                      
+      
+  }
+}    
+   
+    if(isset($_POST['btnapproved'])){
+      $edit_id = $_POST['edit_id'];
+      $fname = $_POST['edit_fname'];
+      $lname = $_POST['edit_lname'];
+      $email= $_POST['edit_email'];
+      $Address = $_POST['edit_address'];
+      $Contact= $_POST['edit_contact'];
+      $Message= $_POST['edit_message'];
+      // echo "<script>window.alert('$email');</script>";
+  
+  
+  
+      $sql = "UPDATE pending_list SET FirstName='$fname',LastName='$lname',Message='$Message', Address='$Address' ,ContactNumber='$Contact',Email='$email', is_pending='1' WHERE id='$edit_id'";
+      if($con->query($sql) === TRUE){
+  
+  
+     $sql ="INSERT INTO approve_list(pendingID,FirstName,LastName,Email,ContactNumber,Address,Message) VALUES ('$id','$fname','$lname','$email','$Address','$Contact','$Message')";
+            if($con->query($sql) === TRUE){
+              
+            }else{
+              
+              echo "<script>window.alert('Saving new record failed!');</script>";
+            }
+  
+        echo "<script>window.alert('RECORD IS UPDATED!');</script>";
+        echo '<script>window.location.href="pending.php"</script>';
+            } else{
+              echo "<script>window.alert('SOMETHING WENT WRONG, PLEASE TRY AGAIN!');</script>";
+            }
+         
+        }         
                   ?>
 
                         </tbody>

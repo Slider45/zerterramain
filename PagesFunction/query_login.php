@@ -10,17 +10,38 @@ $sql = "SELECT * FROM tblusers_list WHERE email = '$email' AND password = '$pass
 
 $result = $con->query($sql);
 if($result->num_rows > 0){
-	$_SESSION['email'] = $email;
-	?>
-	<div id="toast">
-		<div id="img"><img src="images/plainlogo.png"></div>
-		<div id="desc">Login Successful!</div>
-	</div>
+$_SESSION['email'] = $email;
+
+ if(!empty($_POST["remember"]))   
+   {  
+    setcookie ("email",$email,time()+ (10 * 365 * 24 * 60 * 60));  
+    setcookie ("password",$password,time()+ (10 * 365 * 24 * 60 * 60));
 
 
-	<?php
-	echo "<script>alert('PASSWORD ENTERED!'); </script>";
-	//header('location: status.php');
+	
+} else  
+   {  
+   
+    if(isset($_COOKIE["email"]))   
+    {  
+     setcookie ("email",""); 
+
+    }  
+    if(isset($_COOKIE["password"]))   
+    {  
+     setcookie ("password","");  
+    } 
+    
+   }  
+   echo "<script>alert('PASSWORD ENTERED!'); </script>";
+   header('location: zerterraph_user/');
+
+
+
+
+
+
+	
 }else{
 
 	$sql = "SELECT * FROM tblusers_list WHERE email = '$email' AND Serial_Number = '$password' ";
@@ -58,7 +79,7 @@ if($result->num_rows > 0){
 			
 			// header( "Refresh: 5; url=../User/index.php" );
 			
-		// header('location: status.php');
+		header('location: zerterra_cms/');
 		}else{
 			// echo "<script>alert('Email not found!'); </script>";
 

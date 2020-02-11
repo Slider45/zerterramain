@@ -63,7 +63,7 @@ include 'PagesFunction/connection.php';
 
         <div class="field">
             <p class="control has-icons-left has-icons-right">
-                <input class="input" type="email" name="email" placeholder="Email" required>
+                <input class="input" type="email" name="email" placeholder="Email" value="<?php if(isset($_COOKIE["email"])) { echo $_COOKIE["email"]; } ?>">
                 <span class="icon is-small is-left">
                 <i class="fas fa-envelope"></i>
                 </span>
@@ -75,7 +75,7 @@ include 'PagesFunction/connection.php';
 
         <div class="field">
             <p class="control has-icons-left">
-                <input class="input" type="password" name="password" placeholder="Password" required>
+                <input class="input" type="password" name="password" placeholder="Password" value="<?php if(isset($_COOKIE["password"])) { echo $_COOKIE["password"]; } ?>">
                 <span class="icon is-small is-left">
                 <i class="fas fa-lock"></i>
                 </span>
@@ -85,7 +85,7 @@ include 'PagesFunction/connection.php';
         <div class="columns">
             <div class="column">
             <label class="checkbox">
-                <input type="checkbox">
+                <input type="checkbox" name="remember">
                 Remember me
             </label>
             </div>

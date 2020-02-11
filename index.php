@@ -1,4 +1,7 @@
 <?php
+session_start();
+$_SESSION['email'] = "";
+
 include 'PagesFunction/connection.php';
 
 ?>

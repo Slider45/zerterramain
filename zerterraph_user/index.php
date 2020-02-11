@@ -2,6 +2,11 @@
 
 session_start();
 
+    if($_SESSION['email']){
+          echo "<script>alert('Login Expired!'); </script>";
+        header("location:../");
+        exit();
+    }
 
 include '../PagesFunction/connection.php';
 ?>

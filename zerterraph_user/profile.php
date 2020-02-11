@@ -1,3 +1,12 @@
+
+<?php
+
+session_start();
+
+
+include '../PagesFunction/connection.php';
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -54,7 +63,7 @@
 
         <div id="navMenu" class="navbar-menu">
             <div class="navbar-end">
-                <a class="navbar-item" id="userid"> &nbsp<i class="fas fa-user"></i></a>
+                <a class="navbar-item" id="userid"> <?= $_SESSION['email']?> &nbsp<i class="fas fa-user"></i></a>
                 <a class="navbar-item" href="index.php"><i class="fas fa-sign-out-alt"></i>&nbspLogout</a>
             </div>
         </div>
@@ -83,7 +92,7 @@
 
     <!-- SIDE BAR -->
     <div class="w3-sidebar w3-bar-block w3-card">
-    <a href="status.php" class="w3-bar-item w3-button w3-hover-white"><h3 class="w3-bar-item">Name</h3></a> 
+    <a class="w3-bar-item w3-button w3-hover-white"><h3 class="w3-bar-item">Name</h3></a> 
     <hr class="hr"></hr>
     <a href="profile.php" class="w3-bar-item w3-button w3-hover-white" id="profile"><i class="fas fa-user"></i> &nbsp&nbspProfile</a>
     
@@ -160,7 +169,7 @@
             <hr class="underline"></hr>
         </div>
 
-        <a href="status.php"><button class="button is-rounded">Back</button></a>
+        <a href="index.php"><button class="button is-rounded">Back</button></a>
     </div>
 
     <div>

@@ -74,7 +74,7 @@
 
     <!-- SIDE BAR -->
     <div class="w3-sidebar w3-bar-block w3-card">
-    <a href="status.php" class="w3-bar-item w3-button w3-hover-white"><h3 class="w3-bar-item">Name</h3></a> 
+    <a href="index.php" class="w3-bar-item w3-button w3-hover-white"><h3 class="w3-bar-item">Name</h3></a> 
     <hr class="hr"></hr>
     <a href="profile.php" class="w3-bar-item w3-button w3-hover-white" id="profile"><i class="fas fa-user"></i> &nbsp&nbspProfile</a>
     
@@ -154,7 +154,7 @@
                 <label for="address">Username </label>
                 </div>
                 <div class="col-75">
-                <input type="text" id="username" name="lastname" placeholder="">
+                <input type="text" id="username" name="username" placeholder="">
                 </div>
             </div>
             <div class="row">
@@ -162,7 +162,7 @@
                 <label for="contact">Contact Number </label>
                 </div>
                 <div class="col-75">
-                <input type="text" id="contact" name="lastname" placeholder="">
+                <input type="text" id="contact" name="contact" placeholder="">
                 </div>
             </div>
             <div class="row">
@@ -170,11 +170,11 @@
                 <label for="address">Address </label>
                 </div>
                 <div class="col-75">
-                <input type="text" id="address" name="lastname" placeholder="">
+                <input type="text" id="address" name="address" placeholder="">
                 </div>
             </div>
             <div class="row">
-                <button class="button is-rounded" id="save">Save</button>
+                <button class="button is-rounded" id="save">Save Changes</button>
             </div>
             <div class="row">
                 <button class="button is-danger is-rounded" id="cancel">Cancel</button>

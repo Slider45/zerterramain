@@ -1,0 +1,280 @@
+html, body{
+    font-family: Montserrat;
+    background-color: #f2f1f6;
+}
+
+
+
+// navbar
+.navbar{
+    background-color: white;
+    color:#333;
+    font-size: 12pt;
+}
+
+.navbar-end{
+    padding-right: 20px;
+}
+.navbar-item img{
+    max-height: 2.5rem;
+}
+
+.img-logo{
+    height: auto;
+    width: 100%;
+    max-width: 130px;
+    margin-left:20px;
+}
+
+.btn-user, .btn-logout {
+    border: none;
+    color: #03495a; 
+}
+
+.btn-user:hover{
+    border: none;
+    color: #03495a; 
+}
+
+.btn-logout:hover{
+    background-color: #1faa74;
+    color: white;
+}
+
+
+
+
+// sidebar
+.w3-sidebar{
+    background-color: #1faa74;
+    position: fixed; /* Fixed Sidebar (stay in place on scroll) */
+    
+}
+
+.w3-hide-large{
+    margin-left: 10px;
+}
+
+.w3-bar-block .w3-bar-item{
+    padding:20px;
+    color: white;
+    font-weight: normal;
+    text-align:left;
+   font-family: montserrat;
+   font-size: 12pt;
+   padding-left:25px;
+}
+
+#item-hover:hover{
+    margin: 0;
+    background-color: #80cbae !important;
+    padding: 20px;
+    color:white !important;
+    padding-left:25px;
+   }
+
+  
+   #sendmodal:hover{
+    margin: 0;
+    background-color: #80cbae !important;
+    padding: 20px;
+    color:white !important;
+    padding-left:25px;
+   }
+
+   
+// sidebar item
+#dashboard{  
+    margin: 0;
+    background-color: #85c184;
+    border-left: solid 8px;
+    border-color: #a1e5a0;
+    padding: 20px;
+    
+    
+    
+    
+    &:hover{
+            margin: 0;
+            background-color: #85c184 !important;
+            border-left: solid 8px;
+            border-color: #a1e5a0 !important;
+            padding: 20px;
+            color: white !important;
+    }
+}
+
+.w3-teal{
+    background-color: #1faa74 !important;
+
+    &:hover{
+        background-color: #1faa74 !important;
+    }
+}
+
+// hamburger close button
+#close{
+    padding-left: 150px;
+
+
+    &:hover{
+        background-color:#1faa74 !important;
+    }
+}
+
+//body container
+
+.w3-container{
+    background-color: #f2f1f6;
+}
+
+.button-category{
+    background-color: #f2f1f6;
+    font-size: 35px;
+    color: #333;
+    font-weight: bold;
+    border-left: solid #fcc174 6px;
+    padding-left: 10px;
+    height: 50px;
+    border-radius:0;
+    margin-bottom:20px;
+    margin-top: 20px;
+    margin-left:10px;
+}
+
+#add-admin{
+    background-color: #1faa74;
+    border: none;
+    font-size:14pt;
+    font-weight: bold; 
+    color: white;
+    margin-top: 20px;
+    margin-left: 450px;
+}
+
+
+
+// media query
+
+
+@media only screen and (max-width: 320px) {
+    #add-admin {
+        margin-left:0;
+        margin-top:0;
+    }
+  }
+@media only screen and (min-width: 360px) {
+    #add-admin {
+        margin-left:450px;
+    }
+  }
+  @media only screen and (max-width: 360px) {
+    #add-admin {
+        margin-left:0;
+    }
+  }
+  @media only screen and (max-width: 460px) {
+    #add-admin {
+        margin-left:0;
+        margin-top: 0;
+    }
+  }
+
+
+
+  @media only screen and (max-width: 320px) {
+    #input {
+       
+    }
+  }
+@media only screen and (min-width: 360px) {
+    #input{
+        width: 150px;
+    }
+  }
+  @media only screen and (max-width: 360px) {
+    #input {
+      
+    }
+  }
+  @media only screen and (max-width: 460px) {
+    #input {
+        
+    }
+  }
+
+
+
+
+// card
+
+
+#input{
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid #333;
+    color: #333;
+    height: 50px;
+    width: 400px;
+    font-size: 16pt;
+    padding: 5px;
+    font-family: montserrat;
+
+}
+
+#search{
+    background-color: transparent;
+    border:none;
+}
+
+
+// table
+
+.section{
+    padding-top: 0;
+    padding-left:10px !important;
+}
+
+thead th{
+    background-color: #fcc174;
+    border-right-width: 5px;
+}
+
+.table{
+    width: 100%;
+}
+
+table,th,td{
+    text-align: center !important;
+}
+
+
+
+// modal
+
+
+#modal-card{
+    border-radius: 10px;
+}
+
+#trans-content{
+    width: 100%;
+    max-width:900px;
+    height: 180px;
+    padding-top: 10px;
+}
+
+#card-pending, #card-approve{
+    border: solid 2px;
+    margin-top: 15px;
+    border-radius: 8px;
+    width: 400px;
+}
+
+
+#pending{
+    font-size: 24pt;
+    color: white;
+    padding-left:50%;   
+    font-family: montserrat;
+}

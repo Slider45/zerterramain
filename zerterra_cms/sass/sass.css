@@ -1,0 +1,258 @@
+html, body {
+  font-family: Montserrat;
+  background-color: #f2f1f6;
+}
+
+.navbar {
+  background-color: white;
+  color: #333;
+  font-size: 12pt;
+}
+
+.navbar-end {
+  padding-right: 20px;
+}
+
+.navbar-item img {
+  max-height: 2.5rem;
+}
+
+.img-logo {
+  height: auto;
+  width: 100%;
+  max-width: 130px;
+  margin-left: 20px;
+}
+
+.btn-user, .btn-logout {
+  border: none;
+  color: #03495a;
+}
+
+.btn-user:hover {
+  border: none;
+  color: #03495a;
+}
+
+.btn-logout:hover {
+  background-color: #1faa74;
+  color: white;
+}
+
+.w3-sidebar {
+  background-color: #1faa74;
+  position: fixed;
+  /* Fixed Sidebar (stay in place on scroll) */
+}
+
+.w3-hide-large {
+  margin-left: 10px;
+}
+
+.w3-bar-block .w3-bar-item {
+  padding: 20px;
+  color: white;
+  font-weight: normal;
+  text-align: left;
+  font-family: montserrat;
+  font-size: 12pt;
+  padding-left: 25px;
+}
+
+#item-hover:hover {
+  margin: 0;
+  background-color: #80cbae !important;
+  padding: 20px;
+  color: white !important;
+  padding-left: 25px;
+}
+
+#sendmodal:hover {
+  margin: 0;
+  background-color: #80cbae !important;
+  padding: 20px;
+  color: white !important;
+  padding-left: 25px;
+}
+
+#dashboard {
+  margin: 0;
+  background-color: #85c184;
+  border-left: solid 8px;
+  border-color: #a1e5a0;
+  padding: 20px;
+}
+
+#dashboard:hover {
+  margin: 0;
+  background-color: #85c184 !important;
+  border-left: solid 8px;
+  border-color: #a1e5a0 !important;
+  padding: 20px;
+  color: white !important;
+}
+
+.w3-teal {
+  background-color: #1faa74 !important;
+}
+
+#close {
+  padding-left: 150px;
+}
+
+#close:hover {
+  background-color: #1faa74 !important;
+}
+
+.w3-container {
+  background-color: #f2f1f6;
+}
+
+.button-category {
+  background-color: #f2f1f6;
+  font-size: 35px;
+  color: #333;
+  font-weight: bold;
+  border-left: solid #f28281 6px;
+  padding-left: 10px;
+  height: 50px;
+  border-radius: 0;
+  margin-bottom: 20px;
+  margin-top: 20px;
+  margin-left: 10px;
+}
+
+.box {
+  height: 100%;
+  max-height: 120px;
+  font-size: 18pt;
+}
+
+.card-header-title {
+  background-color: #f28281;
+  color: white !important;
+  border-top-right-radius: 6px;
+  border-top-left-radius: 6px;
+}
+
+.card-content {
+  border-top-right-radius: 8px;
+  border-top-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+  border-bottom-left-radius: 8px;
+}
+
+.card-footer-item {
+  border-bottom-right-radius: 8px;
+  border-bottom-left-radius: 8px;
+}
+
+.pagination-next, .pagination-previous {
+  border: none;
+}
+
+@media only screen and (max-width: 320px) {
+  .box {
+    font-size: 14pt;
+    max-height: 130px;
+  }
+}
+
+@media only screen and (min-width: 360px) {
+  .box {
+    font-size: 14pt;
+  }
+}
+
+@media only screen and (max-width: 360px) {
+  .box {
+    font-size: 14pt;
+    max-height: 140px;
+  }
+}
+
+@media only screen and (min-width: 480px) {
+  .box {
+    font-size: 16pt;
+  }
+}
+
+@media only screen and (max-width: 320px) {
+  .buttons {
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+}
+
+@media only screen and (min-width: 360px) {
+  .buttons {
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+}
+
+@media only screen and (max-width: 360px) {
+  .buttons {
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+}
+
+@media only screen and (min-width: 480px) {
+  .buttons {
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+}
+
+.section {
+  padding-top: 10px;
+  padding-left: 10px !important;
+}
+
+thead th {
+  border-right-width: 5px;
+}
+
+.table {
+  width: 100%;
+}
+
+table, th, td {
+  text-align: left !important;
+}
+
+#userinfo {
+  color: #8e8e8e;
+  font-size: 10pt;
+}
+
+#modal-card {
+  border-radius: 10px;
+}
+
+#trans-content {
+  width: 100%;
+  max-width: 900px;
+  height: 180px;
+  padding-top: 10px;
+}
+
+#card-pending, #card-approve {
+  border: solid 2px;
+  margin-top: 15px;
+  border-radius: 8px;
+  width: 400px;
+}
+
+#pending {
+  font-size: 24pt;
+  color: white;
+  padding-left: 50%;
+  font-family: montserrat;
+}
+/*# sourceMappingURL=sass.css.map */

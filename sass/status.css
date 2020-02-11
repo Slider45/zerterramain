@@ -7,7 +7,6 @@ body {
   background-color: #f2f1f6 !important;
 }
 
-
 /* navbar */
 .navbar-item {
   font-family: 'Montserrat', sans-serif;
@@ -45,12 +44,12 @@ td {
 
 #serialno {
   padding: 0;
-    font-family: 'Montserrat', sans-serif;
+  font-family: 'Montserrat', sans-serif;
 }
 
 #userinfo {
   padding: 0;
-    font-family: 'Montserrat', sans-serif;
+  font-family: 'Montserrat', sans-serif;
 }
 
 .w3-bar-block .w3-bar-item {
@@ -81,5 +80,9 @@ td {
 #alrights {
   text-align: center !important;
   font-size: 12px;
+}
+
+.w3 {
+  font-family: 'Montserrat', sans-serif;
 }
 /*# sourceMappingURL=status.css.map */

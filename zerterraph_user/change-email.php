@@ -1,11 +1,3 @@
-<?php
-
-session_start();
-
-
-include '../PagesFunction/connection.php';
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -19,7 +11,7 @@ include '../PagesFunction/connection.php';
     <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css">
     <script src="js/homeJS.js"></script>
-    <link rel="stylesheet" type="text/css" href="sass/acc_setting.css">
+    <link rel="stylesheet" type="text/css" href="sass/change-email.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
     <link href="http://fonts.googleapis.com/css?family=Cookie" rel="stylesheet" type="text/css">
@@ -53,7 +45,7 @@ include '../PagesFunction/connection.php';
 
         <div id="navMenu" class="navbar-menu">
             <div class="navbar-end">
-                <a class="navbar-item" id="userid"> <?= $_SESSION['email']?>&nbsp<i class="fas fa-user"></i></a>
+                <a class="navbar-item" id="userid"> &nbsp<i class="fas fa-user"></i></a>
                 <a class="navbar-item" href="index.php"><i class="fas fa-sign-out-alt"></i>&nbspLogout</a>
             </div>
         </div>
@@ -88,10 +80,10 @@ include '../PagesFunction/connection.php';
     
     <button class="w3-button w3-block w3-left-align w3-hover-white" id="acc_setting" onclick="myAccFunc()"><i class="fas fa-cog"></i> &nbsp&nbspAccount Settings <i class="fa fa-caret-down"></i></button>
     <div id="demoAcc" class="w3-hide w3-white w3-card">
-        <a href="" class="w3-bar-item w3-button w3-hover-white"><i class="fas fa-pen-nib"></i> &nbsp&nbspPersonal Information</a>
+        <a href="acc_setting.php" class="w3-bar-item w3-button w3-hover-white"><i class="fas fa-pen-nib"></i> &nbsp&nbspPersonal Information</a>
         <a href="login_setting.php" class="w3-bar-item w3-button w3-hover-white"><i class="fas fa-lock"></i> &nbsp&nbspSecurity and Login</a>
-        <a href="" class="w3-bar-item w3-button w3-hover-white"><i class="fas fa-file-signature"></i> &nbsp&nbspTerms of Service</a>
-        <a href="" class="w3-bar-item w3-button w3-hover-white"><i class="fas fa-user-shield"></i> &nbsp&nbspData Policy</a>
+        <a href="#" class="w3-bar-item w3-button w3-hover-white"><i class="fas fa-file-signature"></i> &nbsp&nbspTerms of Service</a>
+        <a href="#" class="w3-bar-item w3-button w3-hover-white"><i class="fas fa-user-shield"></i> &nbsp&nbspData Policy</a>
     </div>
 
     <button class="w3-button w3-block w3-left-align w3-hover-white" onclick="myAccFunc1()"><i class="fas fa-question-circle"></i> &nbsp&nbspHelp & Support <i class="fa fa-caret-down"></i>
@@ -132,64 +124,37 @@ include '../PagesFunction/connection.php';
 
     <!-- END OF SIDE BAR -->
     <section class="section">
-    <div class="container" id="form_edit">
+
+    <div class="container">
         <div class="header">
-            <h1 class="title">
-             PERSONAL INFORMATION
+            <h1 class="head">
+            Change E-mail Address
             </h1>
         </div>
+    </div>
 
-        <div class="container1">
-            <form>
-            <div class="row">
-                <div class="col-25">
-                <label for="fname">First Name </label>
-                </div>
-                <div class="col-75">
-                <input type="text" id="fname" name="firstname" placeholder="">
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-25">
-                <label for="lname">Last Name </label>
-                </div>
-                <div class="col-75">
-                <input type="text" id="lname" name="lastname" placeholder="">
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-25">
-                <label for="address">Username </label>
-                </div>
-                <div class="col-75">
-                <input type="text" id="username" name="username" placeholder="">
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-25">
-                <label for="contact">Contact Number </label>
-                </div>
-                <div class="col-75">
-                <input type="text" id="contact" name="contact" placeholder="">
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-25">
-                <label for="address">Address </label>
-                </div>
-                <div class="col-75">
-                <input type="text" id="address" name="address" placeholder="">
-                </div>
-            </div>
-            <div class="row">
-                <button class="button is-rounded" id="save">Save Changes</button>
-            </div>
-            <div class="row">
-                <button class="button is-danger is-rounded" id="cancel">Cancel</button>
-            </div>
-            </form>
+    <div class="container1">
+    <form action="/action_page.php">
+    <div class="row">
+        <div class="col-25">
+        <label for="fname">New E-mail</label>
         </div>
-
+        <div class="col-75">
+        <input type="text" id="fname" name="firstname" placeholder="">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-25">
+        <label for="lname">Enter Password</label>
+        </div>
+        <div class="col-75">
+        <input type="text" id="lname" name="lastname" placeholder="">
+        </div>
+    </div>
+    <div class="row">
+        <input type="submit" value="Save Changes">
+    </div>
+    </form>
     </div>
     </section>
 

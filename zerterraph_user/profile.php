@@ -92,7 +92,9 @@ include '../PagesFunction/connection.php';
 
     <!-- SIDE BAR -->
     <div class="w3-sidebar w3-bar-block w3-card">
+
     <a class="w3-bar-item w3-button w3-hover-white"><h3 class="w3-bar-item">Name</h3></a> 
+
     <hr class="hr"></hr>
     <a href="profile.php" class="w3-bar-item w3-button w3-hover-white" id="profile"><i class="fas fa-user"></i> &nbsp&nbspProfile</a>
     

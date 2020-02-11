@@ -29,17 +29,17 @@ if($result->num_rows > 0){
 	if($result->num_rows > 0){
 		$_SESSION['email'] = $email;
 
-		header( "Refresh: 5; url=User/index.php" );
-		echo '<div id="toast">';
-		echo	'<div id="img"><img src="images/plainlogo.png"></div>';
-		echo '<div id="desc">Login Successful!</div>';
-		echo '</div>';
+		// header( "Refresh: 5; url=User/index.php" );
+		// echo '<div id="toast">';
+		// echo	'<div id="img"><img src="images/plainlogo.png"></div>';
+		// echo '<div id="desc">Login Successful!</div>';
+		// echo '</div>';
 
 		
 
 		
-		// echo "<script>alert('SERIAL NUMBER ENTERED!'); </script>";
-		//header('location: status.php');
+		 echo "<script>alert('SERIAL NUMBER ENTERED!'); </script>";
+		header('location: zerterraph_user/');
 	}else{
 		$sql = "SELECT * FROM admin_list WHERE Email = '$email' AND Password = '$password' ";
 

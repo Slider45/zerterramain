@@ -105,7 +105,7 @@ echo '<script>window.location.href="?"</script>';
  include 'searchFunction/searchAdminFunction.php';
 }
 }else{     
-  $sql = "SELECT * FROM admin_list WHERE is_active='1' LIMIT $offset, $no_of_records_per_page";
+  $sql = "SELECT * FROM admin_list WHERE is_active='1' ORDER BY ID DESC LIMIT $offset, $no_of_records_per_page" ;
 $res_data = $con->query($sql);
 while($row = mysqli_fetch_array($res_data)){
     $id = $row['ID'];

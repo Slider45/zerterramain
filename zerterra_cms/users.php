@@ -93,28 +93,28 @@ include 'Pages/salesViewPage.php';
                      
                       <tbody>
 
-<?php 
+            <?php 
 
-      if (isset($_POST['search_btn'])){
-    $searchValue = $_POST['searchValue'];
+                  if (isset($_POST['search_btn'])){
+                $searchValue = $_POST['searchValue'];
 
-      if ($searchValue===''){
-echo '<script>window.location.href="?"</script>';
-}else{
- include 'searchFunction/searchUsersFunction.php';
-}
-}else{     
-  $sql = "SELECT * FROM sales_list WHERE is_active='1' LIMIT $offset, $no_of_records_per_page";
-$res_data = $con->query($sql);
-while($row = mysqli_fetch_array($res_data)){
-          $id = $row['id'];
-          $fname = $row['FirstName'];
-          $lname = $row['LastName'];
-          $rdays = $row['RemainingDays'];
-          $email = $row['email'];
-          $Address = $row['Address'];
-          $contact = $row['Contact'];   
-    ?>
+                  if ($searchValue===''){
+            echo '<script>window.location.href="?"</script>';
+            }else{
+            include 'searchFunction/searchUsersFunction.php';
+            }
+            }else{     
+              $sql = "SELECT * FROM sales_list WHERE is_active='1' LIMIT $offset, $no_of_records_per_page";
+            $res_data = $con->query($sql);
+            while($row = mysqli_fetch_array($res_data)){
+                      $id = $row['id'];
+                      $fname = $row['FirstName'];
+                      $lname = $row['LastName'];
+                      $rdays = $row['RemainingDays'];
+                      $email = $row['email'];
+                      $Address = $row['Address'];
+                      $contact = $row['Contact'];   
+                ?>
                   <tbody>
                      <tr>
                      <td>
@@ -135,7 +135,7 @@ while($row = mysqli_fetch_array($res_data)){
                      <?php
                      include 'Buttons/usersEditModal.php';
                      ?>
-                    <button data-target="#delete<?php echo $id;?>" class="button is-danger is-small modal-button"  id="btn_delete" name="btn-delete"><i class="fas fa-trash-alt"></i>
+                    <button data-target="#delete<?php echo $id;?>" class="button is-danger is-small modal-button"  id="btn_delete" name="acnt_remove"><i class="fas fa-trash-alt"></i>
                     </button>
                     <?php
                      include 'Buttons/usersRemoveModal.php';

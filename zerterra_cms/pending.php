@@ -1,7 +1,8 @@
 <?php
 session_start();
 include 'connection.php';
-include 'Buttons/pendingButtonFunction.php'
+include 'Buttons/pendingButtonFunction.php';
+include 'Buttons/pendingApproveQuery.php';
 ?>
 <!DOCTYPE html>
 <html>
@@ -103,14 +104,10 @@ include 'Buttons/pendingButtonFunction.php'
                           $email = $row['Email'];
                           $Contact = $row['ContactNumber'];
                           $Address = $row['Address'];
-                          $Message = $row['Message'];
-                          
-                       
+                          $Message = $row['Message'];                 
                         ?>
                         
-                          <tr>
-                   
-
+              <tr>
                     <td>
                         <?php echo $id; ?>
                     </td>
@@ -131,146 +128,23 @@ include 'Buttons/pendingButtonFunction.php'
                     </td>
                     <td>
                     <button data-target="#edit<?php echo $id;?>" class="button is-primary is-small modal-button" id="btn_update" name="btn-update"><i class="far fa-edit"></i>
-                           </button>
-
-                             <div id="edit<?php echo $id; ?>" class="modal" role="dialog">
-                               <div class="modal-background"></div>
-                      <div class="modal-card">
-                        <header class="modal-card-head">
-                          <p class="modal-card-title">EDIT ACCOUNT</p>
-                          <button class="modal-close" aria-label="close"></button>
-                        </header>
-                         <form method="POST" class="modal-card-body" style="padding-bottom: 10px;">
-              
-                         <div class="field">
-                        <div class="control">
-                        <div class="field">
-                      <input type="hidden" name="id" value="<?php echo $id; ?>">
-                      </div>
-                      </div>
-                      <div class="control" >
-                        <input class="input2" type="text"  name="fname"  value="<?php echo $fname; ?>" required="">
-                      </div>
-                      <div class="control">
-                        <input class="input2" type="text" name="lname" value="<?php echo $lname; ?>" required="">
-                      </div>
-                      <div class="control">
-                        <input class="input2" type="email" name="email" value="<?php echo $email; ?>"   required="">
-                      </div>
-                      <div class="control">
-                        <input class="input2" type="text" name="address" value="<?php echo $Address; ?>"  required="">
-                      </div>
-                      <div class="control">
-                        <input class="input2" type="number" name="contact" value="<?php echo $Contact; ?>"  required="">
-                      </div>
-                      <div class="control">
-                        <input class="input2" type="text" name="message" value="<?php echo $Message; ?>"  required="">
-                      </div>
-                        <div class="control" style="margin-top: 10px;">
-                        
-                      </div>
-                      </div>
-                      
-                      <button type="submit" name="updated_id" class="button is-success">Save</button>
-                      <button class="button is-danger">Cancel</button>
-
-                    </form>
-
-                    </div>
-                             </div>
+                    </button>
+                    <?php
+                    include 'Buttons/pendingEditModal.php';
+                    ?>  
                     <button data-target="#delete<?php echo $id;?>" class="button is-danger is-small modal-button"  id="btn_delete" name="btn-delete"><i class="fas fa-eye"></i>
-                          </button></a>
+                    </button>
+                    <?php
+                    include 'Buttons/pendingApproveModal.php';
+                    ?>
+                    </td>
+              </tr>
 
-
-                    <div id="delete<?php echo $id; ?>" class="modal" role="dialog">
-
-                    <div class="modal-background"></div>
-                    <div class="modal-card">
-                      <header class="modal-card-head">
-                        <p class="modal-card-title">CUSTOMER INFORMATION</p>
-                        <button class="modal-close" aria-label="close"></button>
-                      </header>
-                       <form method="POST" action="pending.php" class="modal-card-body">
-              
-                       <div class="field">
-                        <div class="control">
-                        <div class="field">
-                      <input type="hidden" name="edit_id" value="<?php echo $id; ?>">
-                    </div>
-                      </div>
-                      <div class="control" >
-                        <input class="input1" type="text"  name="edit_fname"  value="<?php echo $fname; ?>" required="" readonly >
-                      </div>
-                      <div class="control">
-                        <input class="input1" type="text" name="edit_lname" readonly value="<?php echo $lname; ?>" required="">
-                      </div>
-                      <div class="control">
-                        <input class="input1" type="email" name="edit_email"  readonly value="<?php echo $email; ?>"   required="">
-                      </div>
-                      <div class="control">
-                        <input class="input1" type="text" name="edit_address" readonly value="<?php echo $Address; ?>"  required="">
-                      </div>
-                      <div class="control">
-                        <input class="input1" type="number" name="edit_contact" readonly value="<?php echo $Contact; ?>"  required="">
-                      </div>
-                      <div class="control">
-                        <input class="input1" type="text" name="edit_message" readonly value="<?php echo $Message; ?>"  required="">
-                      </div>
-                        <div class="control" style="margin-top: 10px;">                  
-                      </div>
-                      </div>
-                      <div style = " margin-left: 500px; margin-right: auto;">
-                         <button  class="button is-success" name="btnapproved">APPROVE</button>
-                      </div>
-                    </form>
-
-                    </div>
-                  </div>
-                    </div>
-                      </td>
-                      
-
-  
-
-</tr>
-
-        <?php 
+    <?php
+            }
+}  
+?>
       
-  }
-}    
-   
-    if(isset($_POST['btnapproved'])){
-      $edit_id = $_POST['edit_id'];
-      $fname = $_POST['edit_fname'];
-      $lname = $_POST['edit_lname'];
-      $email= $_POST['edit_email'];
-      $Address = $_POST['edit_address'];
-      $Contact= $_POST['edit_contact'];
-      $Message= $_POST['edit_message'];
-      // echo "<script>window.alert('$email');</script>";
-  
-  
-  
-      $sql = "UPDATE pending_list SET FirstName='$fname',LastName='$lname',Message='$Message', Address='$Address' ,ContactNumber='$Contact',Email='$email', is_pending='1' WHERE id='$edit_id'";
-      if($con->query($sql) === TRUE){
-  
-  
-     $sql ="INSERT INTO approve_list(pendingID,FirstName,LastName,Email,ContactNumber,Address,Message) VALUES ('$id','$fname','$lname','$email','$Address','$Contact','$Message')";
-            if($con->query($sql) === TRUE){
-              
-            }else{
-              
-              echo "<script>window.alert('Saving new record failed!');</script>";
-            }
-  
-        echo "<script>window.alert('RECORD IS UPDATED!');</script>";
-        echo '<script>window.location.href="pending.php"</script>';
-            } else{
-              echo "<script>window.alert('SOMETHING WENT WRONG, PLEASE TRY AGAIN!');</script>";
-            }
-         
-        }         
-                  ?>
 
                         </tbody>
               

@@ -17,22 +17,22 @@ include 'connection.php';
                       </div>
                       </div>
                       <div class="control" >
-                        <input class="input2" type="text"  name="fname"  value="<?php echo $fname; ?>" required="">
+                        <input class="input" type="text"  name="fname"  value="<?php echo $fname; ?>" required="">
                       </div>
                       <div class="control">
-                        <input class="input2" type="text" name="lname" value="<?php echo $lname; ?>" required="">
+                        <input class="input" type="text" name="lname" value="<?php echo $lname; ?>" required="">
                       </div>
                       <div class="control">
-                        <input class="input2" type="email" name="email" value="<?php echo $email; ?>"   required="">
+                        <input class="input" type="email" name="email" value="<?php echo $email; ?>"   required="">
                       </div>
                       <div class="control">
-                        <input class="input2" type="text" name="address" value="<?php echo $Address; ?>"  required="">
+                        <input class="input" type="text" name="address" value="<?php echo $Address; ?>"  required="">
                       </div>
                       <div class="control">
-                        <input class="input2" type="number" name="contact" value="<?php echo $Contact; ?>"  required="">
+                        <input class="input" type="number" name="contact" value="<?php echo $Contact; ?>"  required="">
                       </div>
                       <div class="control">
-                        <input class="input2" type="text" name="message" value="<?php echo $Message; ?>"  required="">
+                        <input class="input" type="text" name="message" value="<?php echo $Message; ?>"  required="">
                       </div>
                         <div class="control" style="margin-top: 10px;">
                         

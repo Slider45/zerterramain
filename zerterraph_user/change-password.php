@@ -1,17 +1,3 @@
-<?php
-
-session_start();
-
-    if($_SESSION['email']){
-          echo "<script>alert('Login Expired!'); </script>";
-        header("location:../");
-        exit();
-    }
-
-include '../PagesFunction/connection.php';
-?>
-
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -25,7 +11,7 @@ include '../PagesFunction/connection.php';
     <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css">
     <script src="js/homeJS.js"></script>
-    <link rel="stylesheet" type="text/css" href="sass/status.css">
+    <link rel="stylesheet" type="text/css" href="sass/login_setting.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
     <link href="http://fonts.googleapis.com/css?family=Cookie" rel="stylesheet" type="text/css">
@@ -59,8 +45,8 @@ include '../PagesFunction/connection.php';
 
         <div id="navMenu" class="navbar-menu">
             <div class="navbar-end">
-                <a class="navbar-item" id="userid"><?= $_SESSION['email']?> &nbsp<i class="fas fa-user"></i></a>
-                <a class="navbar-item" href="../"><i class="fas fa-sign-out-alt"></i>&nbspLogout</a>
+                <a class="navbar-item" id="userid"> &nbsp<i class="fas fa-user"></i></a>
+                <a class="navbar-item" href="index.php"><i class="fas fa-sign-out-alt"></i>&nbspLogout</a>
             </div>
         </div>
 
@@ -88,11 +74,11 @@ include '../PagesFunction/connection.php';
 
     <!-- SIDE BAR -->
     <div class="w3-sidebar w3-bar-block w3-card">
-    <h3 class="w3-bar-item">Name</h3> 
+    <a href="index.php" class="w3-bar-item w3-button w3-hover-white"><h3 class="w3-bar-item">Name</h3></a> 
     <hr class="hr"></hr>
     <a href="profile.php" class="w3-bar-item w3-button w3-hover-white" id="profile"><i class="fas fa-user"></i> &nbsp&nbspProfile</a>
     
-    <button class="w3-button w3-block w3-left-align w3-hover-white" onclick="myAccFunc()"><i class="fas fa-cog"></i> &nbsp&nbspAccount Settings <i class="fa fa-caret-down"></i></button>
+    <button class="w3-button w3-block w3-left-align w3-hover-white" id="acc_setting" onclick="myAccFunc()"><i class="fas fa-cog"></i> &nbsp&nbspAccount Settings <i class="fa fa-caret-down"></i></button>
     <div id="demoAcc" class="w3-hide w3-white w3-card">
         <a href="acc_setting.php" class="w3-bar-item w3-button w3-hover-white"><i class="fas fa-pen-nib"></i> &nbsp&nbspPersonal Information</a>
         <a href="login_setting.php" class="w3-bar-item w3-button w3-hover-white"><i class="fas fa-lock"></i> &nbsp&nbspSecurity and Login</a>
@@ -138,33 +124,14 @@ include '../PagesFunction/connection.php';
 
     <!-- END OF SIDE BAR -->
     <section class="section">
-        <div class="container">
-            <table class="table">
-                <thead>
-                    <tr>
-                        <th>DATA STATUS</th>
 
-                    </tr>
-                </thead>
-
-                <tbody>
-                    <tr>
-                        <td id="serialno">
-                            <p style="padding:0; font-size: 60pt;"></p>
-                            <span id="userinfo"></span>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td id="serialno">
-                            <p style="padding:0; font-size: 40pt;">100 days</p>
-                            <span id="userinfo">Remaining Days</span>
-                        </td>
-                    </tr>
-
-
-                </tbody>
-            </table>
+    <div class="container">
+        <div class="header">
+            <h1 class="head">
+            Change Password
+            </h1>
         </div>
+    </div>
     </section>
 
     <div>

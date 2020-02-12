@@ -1,3 +1,11 @@
+<?php
+
+session_start();
+
+
+include '../PagesFunction/connection.php';
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -74,7 +82,7 @@
 
     <!-- SIDE BAR -->
     <div class="w3-sidebar w3-bar-block w3-card">
-    <a href="status.php" class="w3-bar-item w3-button w3-hover-white"><h3 class="w3-bar-item">Name</h3></a> 
+    <a href="index.php" class="w3-bar-item w3-button w3-hover-white"><h3 class="w3-bar-item">Name</h3></a> 
     <hr class="hr"></hr>
     <a href="profile.php" class="w3-bar-item w3-button w3-hover-white" id="profile"><i class="fas fa-user"></i> &nbsp&nbspProfile</a>
     
@@ -124,25 +132,30 @@
 
     <!-- END OF SIDE BAR -->
     <section class="section">
+
     <div class="container">
         <div class="header">
-            <h1 class="title">
+            <h1 class="head">
             SECURITY AND LOGIN
             </h1>
         </div>
     </div>
 
     <div class="container">
-        <div class="email">
-            <button class="button is-success is-outlined">Change E-mail Address</button>
-        </div>
+        <a href="change-email.php"><button class="button button1" id="email">
+            <p style="font-size: 30px;">Change E-mail Address</p>
+            <p>Changes your email address while keeping all emails and settings. 
+            <!-- It's possible to change only the name of your email at any time. -->
+            </p>
+        </button></a>
+
+        <a href="change-password.php"><button class="button button1" id="password">
+            <p style="font-size: 30px;">Change Password</p>
+            <!-- <p>Sets a new password for your email account. -->
+            It's a good idea to use a strong password that you're not using elsewhere.</p>
+        </button></a>
     </div>
 
-    <div class="container">
-        <div class="password">
-            <button class="button is-success is-outlined">Change Password</button>
-        </div>
-    </div>
     </section>
 
     <div>

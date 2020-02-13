@@ -49,6 +49,9 @@
                   </div>
                 </div>
               </div>
+
+             
+            
               <div class="column  is-3" id="serv-column">
                 <button class="card" id="serv-RR">
                   <img src="images\RequestRepairIcon.png" id="title-img">
@@ -57,6 +60,10 @@
                   </div>
                 </button>
                
+</div>
+
+<form action="index.php" method="POST" accept-charset="utf-8">
+  
 
 
                   <div class="container" id="app">
@@ -71,26 +78,13 @@
                         <section class="modal-card-body2">
                           <!-- Content ... -->
                           <div class="field">
-                            <div <?php if (isset($name_error)): ?> class="control1" id="form_error" <?php endif ?> >
-                              <input class="input2" type="text" name="SerialNumber" placeholder="Serial Number" required  value="<?php echo $serialNum; ?>" >
-                              <?php if (isset($name_error)): ?>
-                                <span><?php echo $name_error; ?></span>
-                              <?php endif ?>
+                            <div  class="control1" id="form_error" >
+                              <input class="input2" type="text" name="SerialNumber" placeholder="Serial Number" required >
+                             
                             </div>
 
 
-                            <style >
-                              #form_error span {
-                                width: 80%;
-                                height: 35px;
-                                margin: 3px 10%;
-                                font-size: 1.1em;
-                                color: #D83D5A;
-                              }
-                              #form_error input {
-                                border: 1px solid #D83D5A;
-                              }
-                            </style>
+                        
 
                             <div class="control1">
                               <input class="input2" type="text" name="Fname" placeholder="Firstname" required>
@@ -117,10 +111,8 @@
                       </footer>
                     </div></div></div>
                   </div>
-                </div>
-
-
-          
+       
+</form>
 
               <?php 
 
@@ -129,15 +121,21 @@
 
                  // include 'PagesFuction/query_request.php';
                 $serialNum = $_POST['SerialNumber'];
+                $fname = 
+
+
+
                 $sql = "SELECT * FROM tblusers_list WHERE Serial_Number='$serialNum'";
                 $result = $con->query($sql);
                 if($result->num_rows > 0){
 
 
-                  $name_error = "serial number taken";
+               echo "<script>alert('data found!');</script>";
+
+
 
                 }else{
-                  $name_error = "serial number not found!";
+                   echo "<script>alert('data NOT found!');</script>";
                 }
 
               }

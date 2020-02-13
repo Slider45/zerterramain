@@ -73,7 +73,7 @@ include 'Pages/salesViewPage.php';
                 <button style="margin-top: 30px ; margin-left: 430px;" id="btn-add" class="button modal-button" data-target="#myModal" aria-haspopup="true">
                 <i class="fas fa-user-plus"></i> &nbspADD</button>
                    <?php 
-                   include 'Buttons/addAdminModal.php';
+                   include 'Buttons/addUsersModal.php';
                    ?>
                 </div>
               </div>
@@ -104,7 +104,7 @@ include 'Pages/salesViewPage.php';
             include 'searchFunction/searchUsersFunction.php';
             }
             }else{     
-              $sql = "SELECT * FROM sales_list WHERE is_active='1' LIMIT $offset, $no_of_records_per_page";
+              $sql = "SELECT * FROM sales_list WHERE is_active='1' ORDER BY id DESC LIMIT $offset, $no_of_records_per_page";
             $res_data = $con->query($sql);
             while($row = mysqli_fetch_array($res_data)){
                       $id = $row['id'];

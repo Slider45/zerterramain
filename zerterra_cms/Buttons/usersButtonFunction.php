@@ -6,11 +6,8 @@ if(isset($_POST['btn-update'])){
     $email = $_POST['email'];
     $address = $_POST['address'];
     $contact = $_POST['contact'];
-    $time=strtotime($dateValue);
-    $month=date("F",$time);
-    $year=date("Y",$time);
 
-          $sql ="INSERT INTO sales_list (FirstName,LastName,email,Address,Contact,RemainingDays) VALUES ('$fname','$lname','$email','$address','$contact')";
+          $sql ="INSERT INTO sales_list (FirstName,LastName,email,Address,Contact) VALUES ('$fname','$lname','$email','$address','$contact')";
           if($con->query($sql) === TRUE){
             echo "<script>window.alert('New Users is added!');</script>";
             echo '<script>window.location.href="users.php"</script>';
@@ -24,7 +21,7 @@ if(isset($_POST['btn-update'])){
           
        
   
-          $sql= "UPDATE sales_list SET is_active='1' WHERE id='$delete_id'";
+          $sql= "UPDATE sales_list SET is_active='0' WHERE id='$delete_id'";
           if($con->query($sql) === TRUE){
                   echo "<script>window.alert('RECORD IS DELETED!');</script>";
                   echo '<script>window.location.href="users.php"</script>';

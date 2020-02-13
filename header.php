@@ -49,6 +49,9 @@
                   </div>
                 </div>
               </div>
+
+              <form action="" method="POST" accept-charset="utf-8">
+            
               <div class="column  is-3" id="serv-column">
                 <button class="card" id="serv-RR">
                   <img src="images\RequestRepairIcon.png" id="title-img">
@@ -74,7 +77,7 @@
                             <div <?php if (isset($name_error)): ?> class="control1" id="form_error" <?php endif ?> >
                               <input class="input2" type="text" name="SerialNumber" placeholder="Serial Number" required  value="<?php echo $serialNum; ?>" >
                               <?php if (isset($name_error)): ?>
-                                <span><?php echo $name_error; ?></span>
+                                <span>hello</span>
                               <?php endif ?>
                             </div>
 
@@ -120,7 +123,7 @@
                 </div>
 
 
-          
+          </form>
 
               <?php 
 

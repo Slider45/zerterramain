@@ -63,7 +63,11 @@ include 'connection.php';
 
   $sql = "SELECT id FROM sales_list";
   $result=mysqli_query($con,$sql);
-  $salesCount=mysqli_num_rows($result); 
+  $salesCount=mysqli_num_rows($result);
+
+  $sql = "SELECT id FROM request_list";
+  $result=mysqli_query($con,$sql);
+  $requestCount=mysqli_num_rows($result);
 
 
   ?>
@@ -116,9 +120,17 @@ include 'connection.php';
         
       </div>
       <div class="column is-half">
-        <div class="box" style="background:url(images/violet_bg.png); background-repeat: no-repeat; background-size: cover;">
-          <p>4:00 GISINGIN AKO</p>
+        <div class="box" style="background:url(images/blue_bg.png); background-repeat: no-repeat; background-size: cover;">
+        <div class="columns">
+            <div class="column">
+              REQUEST LIST
+            </div>
+            <div class="column">
+              <span class="is-right"><?php echo $requestCount;?></span>
+            </div>
+          </div>
         </div>
+        
       </div>
       <div class="column is-7">
         <div class="card">

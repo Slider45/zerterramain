@@ -1,3 +1,7 @@
+<?php
+session_start();
+include 'connection.php';
+?>
 <!DOCTYPE html>
 <html>
 <title>Request</title>
@@ -9,19 +13,23 @@
 
 <link rel="stylesheet" href="sass/request.css">
 <body>
+<?php
+include 'Pages/requestViewPage.php'; 
+?>
         <nav class="navbar" role="navigation" aria-label="main navigation">
                 <div class="navbar-brand navbar-start">
-                  <a class="navbar-item" href="dashboard.php">
+                  <a class="navbar-item" href="request.php">
                     <img src="images/logowhite.png" width="112" height="28" class="img-logo">
                   </a>
                 </div>
               <!-- search button -->
-                <!-- <div>
-                  <form action="/action_page.php">
-                         <input type="text" placeholder="Search.." name="search" id="input">
-                        <span> <button type="submit" id="search"><i class="fa fa-search"></i></button></span>
+                <div>
+                  <form action="request.php" method="POST">
+                  <input class="input" type="text" id=input name="searchValue" placeholder="Search...">
+                  <span><button id="search-btn" name="search_btn" value="submit"><i class="fa fa-search"></i></button></span>
+
                  </form>
-              </div> -->
+              </div>
               
                   <div class="navbar-end">
                     <div class="navbar-item">
@@ -71,52 +79,88 @@
                    <table class = "table">
                       <thead>
                          <tr>
-                            <th>ID</th>
-                            <th>Name</th>
-                            <th>Country</th>
-                            <th>City</th>
-                            <th>zip code</th>
-                            <th>Options</th>
+                          <th>ID</th>
+                          <th>Serial Number</th>
+                          <th>Firstname</th>
+                          <th>Lastname</th>
+                          <th>Email</th>
+                          <th>Contact</th>
+                          <th>Request Number</th>
+                          <th>Actions</th>
                          </tr>
                       </thead>
-                     
                       <tbody>
-                         <tr>
-                            <td>1</td>
-                            <td>Sachin</td>
-                            <td>India</td>
-                            <td>England</td>
-                            <td>England</td>
-                            <td><button class="button is-primary is-small modal-button" id="btn_update" name="btn-update"><i class="far fa-edit"></i>
-                            </button>
-                            <button class="button is-primary is-small modal-button is-danger" id="btn_update" name="btn-update"><i class="fas fa-trash"></i>
-                            </button></td>
-                         </tr>
-                         <tr>
-                            <td>2</td>
-                            <td>Smith</td>
-                            <td>Australia</td>
-                            <td>England</td>
-                            <td>England</td>
-                            <td><button class="button is-primary is-small modal-button" id="btn_update" name="btn-update"><i class="far fa-edit"></i>
-                            </button>
-                            <button class="button is-primary is-small modal-button is-danger" id="btn_update" name="btn-update"><i class="fas fa-trash"></i>
-                            </button></td>
-                         </tr>
-                         <tr>
-                            <td>3</td>
-                            <td>Joe Root</td>
-                            <td>England</td>
-                            <td>England</td>
-                            <td>England</td>
-                            <td><button class="button is-primary is-small modal-button" id="btn_update" name="btn-update"><i class="far fa-edit"></i>
-                            </button>
-                            <button class="button is-primary is-small modal-button is-danger" id="btn_update" name="btn-update"><i class="fas fa-trash"></i>
-                            </button></td>
-                         </tr>
+        <?php 
+
+              if (isset($_POST['search_btn'])){
+              $searchValue = $_POST['searchValue'];
+
+              if ($searchValue===''){
+              echo '<script>window.location.href="?"</script>';
+              }else{
+                include 'searchFunction/searchRequestFunction.php';
+              }
+              }else{
+              $sql = "SELECT * FROM request_list WHERE is_approved='1'  LIMIT $offset, $no_of_records_per_page";
+              $res_data = $con->query($sql);
+              while($row = mysqli_fetch_array($res_data)){
+                    $id = $row['id'];
+                    $fname = $row['FirstName'];
+                    $lname = $row['LastName'];
+                    $contact = $row['contact'];
+                    $Email = $row['email'];
+                    $serialNo = $row['serial_no'];
+                    $reqNo = $row['request_number'];
+                ?>
+                      <tbody>
+                     <tr>
+                      <td>
+                      <?php echo $id; ?>
+                    </td>
+                    <td>
+                      <?php echo $serialNo; ?>
+                    </td>
+                    <td>
+                      <?php echo $fname; ?>
+                    </td>
+                    <td>
+                      <?php echo $lname; ?>
+                    </td>
+                    <td>
+                      <?php echo $Email; ?>
+                    </td>
+                    <td>
+                      <?php echo $contact; ?>
+                    </td>
+                    <td>
+                      <?php echo $reqNo; ?>
+                       </td>
+                       <td>
+              <button data-target="#edit<?php echo $id;?>" class="button is-primary is-small modal-button" id="btn_update" name="btn-update"><i class="fas fa-pencil-alt"></i>
+              </button>
+
+              <button data-target="#delete<?php echo $id;?>" class="button is-danger is-small modal-button"  id="btn_delete" name="btn-delete"><i class="fas fa-trash-alt"></i>
+              </button>
+              </td>
+              </tr>
+<?php 
+}  
+}        
+?>                        
                          
                       </tbody>
                    </table>
+                   <nav class="pagination is-small" role="navigation" aria-label="pagination">
+  <a href="<?php if($page <= 1){ echo '#'; } else { echo "?page=".($page - 1); } ?>" class="pagination-previous" >Previous</a>
+  <a href="<?php if($page >= $total_pages){ echo '#'; } else { echo "?page=".($page + 1); } ?>" class="pagination-next">Next page</a>
+  <ul class="pagination-list">
+    <li><a href="?page=1" class="pagination-link" >1</a></li>
+    <li>
+      <span class="pagination-ellipsis">&hellip;</span>
+    </li>
+    <li><a href="?page=<?php echo $total_pages; ?>" class="pagination-link"><?php echo $total_pages; ?></a></li>
+  </ul>
+</nav>
                 </div>
              </section>
 

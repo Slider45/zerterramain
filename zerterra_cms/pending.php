@@ -52,7 +52,7 @@ include 'Buttons/pendingApproveQuery.php';
         <a href="admin.php" class="w3-bar-item w3-button" id="item-hover"> <i class="fas fa-user-shield"></i> &nbsp
             Admin</a>
         <a href="users.php" class="w3-bar-item w3-button" id="item-hover"><i class="fas fa-user"></i> &nbsp Users</a>
-        <a class="w3-bar-item w3-button w3-dropdown-hover" id="sendmodal"><i class="fas fa-cubes"></i> &nbsp Orders</a>
+        <a class="w3-bar-item w3-button w3-dropdown-hover" id="sendmodal" ><i class="fas fa-cubes"></i> &nbsp Orders</a>
         <a href="request.php" class="w3-bar-item w3-button" id="item-hover"><i class="fas fa-envelope-open-text"></i>
             &nbsp Request</a>
         <a href="" class="w3-bar-item w3-button" id="item-hover"><i class="fas fa-hand-holding-usd"></i> &nbsp

@@ -104,7 +104,7 @@ include 'Pages/salesViewPage.php';
             include 'searchFunction/searchUsersFunction.php';
             }
             }else{     
-              $sql = "SELECT * FROM sales_list WHERE is_active='1' LIMIT $offset, $no_of_records_per_page";
+              $sql = "SELECT * FROM sales_list WHERE is_active='1' ORDER BY id DESC LIMIT $offset, $no_of_records_per_page";
             $res_data = $con->query($sql);
             while($row = mysqli_fetch_array($res_data)){
                       $id = $row['id'];

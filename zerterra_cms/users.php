@@ -73,7 +73,7 @@ include 'Pages/salesViewPage.php';
                 <button style="margin-top: 30px ; margin-left: 430px;" id="btn-add" class="button modal-button" data-target="#myModal" aria-haspopup="true">
                 <i class="fas fa-user-plus"></i> &nbspADD</button>
                    <?php 
-                   include 'Buttons/addAdminModal.php';
+                   include 'Buttons/addUsersModal.php';
                    ?>
                 </div>
               </div>

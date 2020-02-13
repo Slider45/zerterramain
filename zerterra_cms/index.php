@@ -1,3 +1,7 @@
+<?php
+session_start();
+include 'connection.php';
+?>
 <!DOCTYPE html>
 <html>
 <title>Dashboard</title>
@@ -44,7 +48,25 @@
   <a href="#" class="w3-bar-item w3-button" id="item-hover"><i class="fas fa-print"></i> &nbsp Consolidate</a>
 </div>
 
+<?php
+  $sql = "SELECT id FROM approve_list";
+  $result=mysqli_query($con,$sql);
+  $regUserCount=mysqli_num_rows($result);
 
+  $sql = "SELECT id FROM pending_list";
+  $result=mysqli_query($con,$sql);
+  $penUserCount=mysqli_num_rows($result);
+
+  $sql = "SELECT id FROM admin_list";
+  $result=mysqli_query($con,$sql);
+  $adminUserCount=mysqli_num_rows($result);
+
+  $sql = "SELECT id FROM sales_list";
+  $result=mysqli_query($con,$sql);
+  $salesCount=mysqli_num_rows($result); 
+
+
+  ?>
 
 
 <div class="w3-main" style="margin-left:200px">
@@ -70,13 +92,28 @@
       </div>
       <div class="column is-half">
         <div class="box" style="background:url(images/yellow_bg.png); background-repeat: no-repeat; background-size: cover;">
-          <p>ADMIN</p>
+        <div class="columns">
+            <div class="column">
+              ADMIN
+            </div>
+            <div class="column">
+              <span class="is-right"><?php echo $adminUserCount;?></span>
+            </div>
+          </div>
         </div>
       </div>
       <div class="column is-half">
         <div class="box" style="background:url(images/blue_bg.png); background-repeat: no-repeat; background-size: cover;">
-          <p>USERS</p>
+        <div class="columns">
+            <div class="column">
+              ADMIN
+            </div>
+            <div class="column">
+              <span class="is-right"><?php echo $regUserCount;?></span>
+            </div>
+          </div>
         </div>
+        
       </div>
       <div class="column is-half">
         <div class="box" style="background:url(images/violet_bg.png); background-repeat: no-repeat; background-size: cover;">
@@ -196,6 +233,26 @@
 </div>
 </div>
 </div>
+
+<?php
+  $sql = "SELECT id FROM approve_list";
+  $result=mysqli_query($con,$sql);
+  $regUserCount=mysqli_num_rows($result);
+
+  $sql = "SELECT id FROM pending_list";
+  $result=mysqli_query($con,$sql);
+  $penUserCount=mysqli_num_rows($result);
+
+  $sql = "SELECT id FROM admin_list";
+  $result=mysqli_query($con,$sql);
+  $adminUserCount=mysqli_num_rows($result);
+
+  $sql = "SELECT id FROM sales_list";
+  $result=mysqli_query($con,$sql);
+  $salesCount=mysqli_num_rows($result); 
+
+
+  ?>
 
 <!-- modal script -->
 <script>

@@ -15,12 +15,6 @@
 
 </style>
 
-
-
-
-
-
-
 <div class="modal" id="myModal">
             <div class="modal-background"></div>
             <div class="modal-card">
@@ -61,42 +55,3 @@
   </div>
 </div>
 
-<script>
-  var btn = document.querySelector('#sendmodal');
-  var modalDlg9 = document.querySelector('#serv-modal1');
-  var imageModalCloseBtn9 = document.querySelector('#close9');
-  btn.addEventListener('click', function(){
-    modalDlg9.classList.add('is-active');
-  });
-
-  imageModalCloseBtn9.addEventListener('click', function(){
-    modalDlg9.classList.remove('is-active');
-  });
-    // .click(function() {
-    //   .addClass("is-active");  
-    // });
-
-    // $(".modal-close").click(function() {
-    //    $(".modal").removeClass("is-active");
-    // });
-  </script>        
-
-<script>
-function w3_open() {
-  document.getElementById("mySidebar").style.display = "block";
-}
-function w3_close() {
-  document.getElementById("mySidebar").style.display = "none";
-}
-document.querySelectorAll('.modal-button').forEach(function(el) {
-    el.addEventListener('click', function() {
-      var target = document.querySelector(el.getAttribute('data-target'));
-      
-      target.classList.add('is-active');
-      
-      target.querySelector('.modal-close').addEventListener('click', function(){
-        target.classList.remove('is-active');
-      });
-    });
-  });
-</script>

@@ -85,180 +85,93 @@ include 'Pages/requestViewPage.php';
                     <th>Name</th>
                     <th>Email</th>
                     <th>Contact</th>
-                    <th>Address</th>
                     <th>Options</th>
                   </tr>
                 </thead>
-
-
-
-                <?php
-
-
-                if (isset($_POST['search_btn'])){
-                 $searchValue = $_POST['searchValue'];
-
-                 if ($searchValue===''){
-                  echo '<script>window.location.href="?"</script>';
-                }else{
-                  include 'searchFunction/searchRequestFunction.php';
-                }
-
-
-              }else{
-               $sql = "SELECT * FROM request_list  WHERE is_approved='0' ORDER BY id DESC LIMIT $offset, $no_of_records_per_page";
-               $res_data = $con->query($sql);
-               while($row = mysqli_fetch_array($res_data)){
-                $id = $row['id'];
-                $serialNum = $row['serial_no'];
-                $requstNum =$row['request_number'];
-                $fname = $row['FirstName'];
-                $lname = $row['LastName'];
-                $email = $row['email'];
-                $contact = $row['contact'];
-                $address = $row['address'];
-                $wname = $fname;
-                $wname .=" " .$lname;
-
-
-                ?>
-                <tbody>
-
-                  <tr>
-
-                    <td><?php echo $id; ?></td>
-                    <td><?php echo $serialNum; ?></td>
-                    <td><?php echo $requstNum; ?></td>
-                    <td><?php echo $wname; ?></td>
-                    <td><?php echo $email; ?></td>
-                    <td><?php echo $contact; ?></td>
-                    <td><?php echo $address; ?></td>
-                    <td>
-                     <button data-target="#edit<?php echo $id;?>" class="button is-primary is-small modal-button" id="btn_update" name="btn-update"><i class="far fa-edit"></i>
-                     </button>
-                     <?php
-                     include 'Buttons/adminEditModal.php';
-                     ?>
-                     <button data-target="#delete<?php echo $id;?>" class="button is-danger is-small modal-button"  id="btn_delete" name="btn-delete"><i class="fas fa-trash-alt"></i>
-                     </button>
-                     <?php
-                     include 'Buttons/requestRemoveModal.php';
-                     ?>
-                   </td>
+  
+ </table>
 
 
 
 
-                 </tr>
+ <nav class="pagination is-small" role="navigation" aria-label="pagination">
+  <a href="<?php if($page <= 1){ echo '#'; } else { echo "?page=".($page - 1); } ?>" class="pagination-previous" >Previous</a>
+  <a href="<?php if($page >= $total_pages){ echo '#'; } else { echo "?page=".($page + 1); } ?>" class="pagination-next">Next page</a>
+  <ul class="pagination-list">
+    <li><a href="?page=1" class="pagination-link" >1</a></li>
+    <li>
+      <span class="pagination-ellipsis">&hellip;</span>
+    </li>
+    <li><a href="?page=<?php echo $total_pages; ?>" class="pagination-link"><?php echo $total_pages; ?></a></li>
+  </ul>
+</nav>
+</div>
+
+</section>
 
 
-
-               </tbody>
-
+</div>
 
 
+<!-- modal transaction -->
 
-               <?php
-}
+<div class="container" id="modal-container">
 
+  <div id="serv-modal1" class="modal  modal-fx-slideTop">
+    <div class="modal-background"></div>
+    <div class="modal-content1">
+     <div class="modal-card1">
 
-             }
-
-             ?>
-
-
-
-
-           </table>
-           <nav class="pagination is-small" role="navigation" aria-label="pagination">
-            <a href="<?php if($page <= 1){ echo '#'; } else { echo "?page=".($page - 1); } ?>" class="pagination-previous" >Previous</a>
-            <a href="<?php if($page >= $total_pages){ echo '#'; } else { echo "?page=".($page + 1); } ?>" class="pagination-next">Next page</a>
-            <ul class="pagination-list">
-              <li><a href="?page=1" class="pagination-link" >1</a></li>
-              <li>
-                <span class="pagination-ellipsis">&hellip;</span>
-              </li>
-              <li><a href="?page=<?php echo $total_pages; ?>" class="pagination-link"><?php echo $total_pages; ?></a></li>
-            </ul>
-          </nav>
-        </div>
-
-      </section>
-
-
-    </div>
-
-
-    <!-- modal transaction -->
-
-    <div class="container" id="modal-container">
-
-      <div id="serv-modal1" class="modal  modal-fx-slideTop">
-        <div class="modal-background"></div>
-        <div class="modal-content1">
-         <div class="modal-card1">
-
-          <section class="modal-card-body1" id="modal-card-body">
-            <!-- Content ... -->
-            <div class="field">
-              <div class="control">
-                <div class="card" id="modal-card">
-                  <div class="card-content" id="trans-content">
-                    <button class="delete" aria-label="close" id="close9"></button>
-                    <div class="columns is-mobile">
-                      <div class="column is-6">
-                        <a href="dashboard.html">
-                          <div class="card" id="card-pending" style="background:url(images/pendingicon.png);  background-size: 100% 100%; background-repeat: no-repeat; background-size: cover;">
-                            <div class="card-content" >
-                              <a href="pending.php" id="pending">
-                               PENDING
-                             </a>
-                           </div>
-                         </div>
-                       </a>
+      <section class="modal-card-body1" id="modal-card-body">
+        <!-- Content ... -->
+        <div class="field">
+          <div class="control">
+            <div class="card" id="modal-card">
+              <div class="card-content" id="trans-content">
+                <button class="delete" aria-label="close" id="close9"></button>
+                <div class="columns is-mobile">
+                  <div class="column is-6">
+                    <a href="dashboard.html">
+                      <div class="card" id="card-pending" style="background:url(images/pendingicon.png);  background-size: 100% 100%; background-repeat: no-repeat; background-size: cover;">
+                        <div class="card-content" >
+                          <a href="pending.php" id="pending">
+                           PENDING
+                         </a>
+                       </div>
                      </div>
-                     <div class="column is-6">
-                      <a href="dashboard.html">
-                        <div class="card" id="card-approve" style="background:url(images/approvedicon.png);  background-size: 100% 100%; background-repeat: no-repeat; background-size: cover;">
-                          <div class="card-content" >
-                            <a href="approved.php" id="pending">
-                              APPROVED
-                            </a>
-                          </div>
-                        </div>
-                      </a>
+                   </a>
+                 </div>
+                 <div class="column is-6">
+                  <a href="dashboard.html">
+                    <div class="card" id="card-approve" style="background:url(images/approvedicon.png);  background-size: 100% 100%; background-repeat: no-repeat; background-size: cover;">
+                      <div class="card-content" >
+                        <a href="approved.php" id="pending">
+                          APPROVED
+                        </a>
+                      </div>
                     </div>
-                  </div>
+                  </a>
                 </div>
               </div>
-              <!-- <button class="button is-success is-medium"  aria-label="close" id="close9">Close</button> -->
             </div>
-          </section>
-
+          </div>
+          <!-- <button class="button is-success is-medium"  aria-label="close" id="close9">Close</button> -->
         </div>
-      </div>
+      </section>
+
     </div>
+  </div>
+</div>
 
-    <!-- modal script -->
-    <script>
-      var btn = document.querySelector('#sendmodal');
-      var modalDlg9 = document.querySelector('#serv-modal1');
-      var imageModalCloseBtn9 = document.querySelector('#close9');
-      btn.addEventListener('click', function(){
-        modalDlg9.classList.add('is-active');
-      });
 
-      imageModalCloseBtn9.addEventListener('click', function(){
-        modalDlg9.classList.remove('is-active');
-      });
-    // .click(function() {
-    //   .addClass("is-active");  
-    // });
 
-    // $(".modal-close").click(function() {
-    //    $(".modal").removeClass("is-active");
-    // });
-  </script>        
+
+
+  
+
+
+
+<!-- modal script -->
 
   <!-- end script -->
 

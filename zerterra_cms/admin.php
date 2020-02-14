@@ -29,10 +29,10 @@ include 'Buttons/adminButtonFunction.php';
       <form action="admin.php" method="POST">
         <input class="input" type="text" id=input name="searchValue" placeholder="Search...">
         <span><button id="search-btn" name="search_btn" value="submit"><i class="fa fa-search"></i></button></span>
-        
+
       </form>
     </div>
-    
+
     <div class="navbar-end">
       <div class="navbar-item">
         <div class="buttons">
@@ -92,8 +92,8 @@ include 'Buttons/adminButtonFunction.php';
             <th>Action</th>
           </tr>
         </thead>
-        
-        
+
+
 
         <?php 
 
@@ -114,7 +114,7 @@ include 'Buttons/adminButtonFunction.php';
           $contact = $row['contact'];
           $Email = $row['Email'];
           $role = $row['role'];
-          
+
           ?>
           <tbody>
            <tr>
@@ -135,7 +135,7 @@ include 'Buttons/adminButtonFunction.php';
             </td>
             <td>
 
-              
+
               <button data-target="#edit<?php echo $id;?>" class="button is-primary is-small modal-button" id="btn_update" name="btn-update"><i class="far fa-edit"></i>
               </button>
               <?php
@@ -186,12 +186,12 @@ include 'Buttons/adminButtonFunction.php';
 <!-- modal transaction -->
 
 <div class="container" id="modal-container">
- 
+
   <div id="serv-modal1" class="modal  modal-fx-slideTop">
     <div class="modal-background"></div>
     <div class="modal-content1">
      <div class="modal-card1">
-       
+
       <section class="modal-card-body1" id="modal-card-body">
         <!-- Content ... -->
         <div class="field">
@@ -234,25 +234,7 @@ include 'Buttons/adminButtonFunction.php';
   </div>
 
   <!-- modal script -->
-  <script>
-    var btn = document.querySelector('#sendmodal');
-    var modalDlg9 = document.querySelector('#serv-modal1');
-    var imageModalCloseBtn9 = document.querySelector('#close9');
-    btn.addEventListener('click', function(){
-      modalDlg9.classList.add('is-active');
-    });
-
-    imageModalCloseBtn9.addEventListener('click', function(){
-      modalDlg9.classList.remove('is-active');
-    });
-    // .click(function() {
-    //   .addClass("is-active");  
-    // });
-
-    // $(".modal-close").click(function() {
-    //    $(".modal").removeClass("is-active");
-    // });
-  </script>        
+ 
 
   <!-- end script -->
 
@@ -266,15 +248,15 @@ include 'Buttons/adminButtonFunction.php';
     document.querySelectorAll('.modal-button').forEach(function(el) {
       el.addEventListener('click', function() {
         var target = document.querySelector(el.getAttribute('data-target'));
-        
+
         target.classList.add('is-active');
-        
+
         target.querySelector('.modal-close').addEventListener('click', function(){
           target.classList.remove('is-active');
         });
       });
     });
   </script>
-  
+
 </body>
 </html>

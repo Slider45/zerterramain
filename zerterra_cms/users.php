@@ -39,7 +39,7 @@ include 'Pages/salesViewPage.php';
                                 <i class="far fa-user"></i> &nbspUser
                         </a>
                         <a class="button btn-logout">
-                                <i class="fas fa-sign-out-alt"></i> &nbspLogoutt
+                                <i class="fas fa-sign-out-alt"></i> &nbspLogout
                         </a>
                       </div>
                     </div>

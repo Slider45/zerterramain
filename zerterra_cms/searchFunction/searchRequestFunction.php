@@ -1,4 +1,7 @@
 <?php
+
+
+
 include 'connection.php';
  
 $sql= "SELECT * FROM request_list WHERE CONCAT(`serial_no`, `request_number`, `FirstName`, `LastName`, `email`) LIKE '%".$searchValue."%' AND is_approved='1'";
@@ -111,7 +114,12 @@ if ($result->num_rows > 0) {
 
 
 
+
+
+ 
+
 <?php }
+
 
 
 
@@ -130,5 +138,5 @@ else{
 
 
 
-
 </tbody>
+

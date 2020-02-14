@@ -10,11 +10,19 @@
                   
                   <div class="field">
                     <input type="hidden" name="delete_id" value="<?php echo $id; ?>">
+<<<<<<< HEAD
                     <input type="hidden" name="role_id" value="<?php echo $role; ?>">
                   </div>
 
                   <div class="is-danger">Are you Sure you want Delete <strong>
                     "<?php echo $fname.' '.$lname;?>"?</strong> </div>
+=======
+                    
+                  </div>
+
+                  <div class="is-danger">Are you Sure you want Delete <strong>
+                    "<?php echo $fame. $lname;?>"?</strong> </div>
+>>>>>>> 14898cbf40bfe5d8f85671625442f434096c1e58
                     <div class="modal-footer">
                     </div>
                     <div style = "margin-bottom: 10px; margin-top: 20px; margin-left: 400px; margin-right: auto;">

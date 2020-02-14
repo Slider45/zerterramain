@@ -1,5 +1,5 @@
 <?php
-include 'connection.php';
+
 
 $sql= "SELECT * FROM admin_list WHERE CONCAT(`name`, `contact`, `Email`) LIKE '%".$searchValue."%' AND is_active='1'";
  //$sql = "SELECT * FROM request_list WHERE is_approved='0'" ;

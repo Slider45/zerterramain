@@ -34,6 +34,7 @@ $subject = $_POST['subject'] ;
 $message = $_POST['msg_body'] ;
 
 $to = "support@zerterra.com";
+$subject = $subject ;
 
 function clean_string($string)
 {
@@ -49,8 +50,8 @@ $header = array(
 	'Reply-To' => 'support@zerterra.com',
 	'X-Mailer' => 'PHP/' . phpversion()
 );
- //  $headers[] = 'MIME-Version: 1.0';
-//  $headers[] = 'Content-type: text/html; charset=iso-8859-1';
+$headers[] = 'MIME-Version: 1.0';
+$headers[] = 'Content-type: text/html; charset=iso-8859-1';
 
 if(!empty($fname) && !empty($lname) && !empty($email) && !empty($message)){
 

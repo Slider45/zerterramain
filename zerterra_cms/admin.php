@@ -1,6 +1,6 @@
 <?php
 session_start();
-include 'connection.php';
+include '../PagesFunction/connection.php';
 include 'Buttons/adminButtonFunction.php';
 ?>
 <!DOCTYPE html>
@@ -11,9 +11,11 @@ include 'Buttons/adminButtonFunction.php';
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css">
 <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
 <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+<link rel="icon" href="../images/plainlogo.png" type="image/x-icon" />
 
 <link rel="stylesheet" href="sass/admin.css">
 <body>
+
 <?php
 include 'Pages/adminViewPage.php'; 
 ?>
@@ -48,6 +50,7 @@ include 'Pages/adminViewPage.php';
               </nav>
 
 
+
 <div class="w3-sidebar w3-bar-block w3-collapse w3-card w3-animate-left" style="width:200px;" id="mySidebar">
   <button class="w3-bar-item w3-button w3-large w3-hide-large" onclick="w3_close()" id="close">&times;</button>
   <a href="index.php" class="w3-bar-item w3-button" id="item-hover"><i class="fas fa-th-large"></i> &nbsp Dashboard</a>
@@ -60,220 +63,202 @@ include 'Pages/adminViewPage.php';
 </div>
 
 <div class="w3-main" style="margin-left:200px">
-<div class="w3-teal">
-  <button class="w3-button w3-teal w3-xlarge w3-hide-large" onclick="w3_open()">&#9776;</button>
+  <div class="w3-teal">
+    <button class="w3-button w3-teal w3-xlarge w3-hide-large" onclick="w3_open()">&#9776;</button>
+  </div>
+
+  <div class="w3-container">
+    <div class="columns">
+      <div class="column">
+        <h1 class="button-category">ADMIN</h1>
+      </div>
+      <div class="column">
+        <button style="margin-top: 30px ; margin-left: 430px;" id="btn-add" class="button modal-button" data-target="#myModal" aria-haspopup="true">
+          <i class="fas fa-user-plus"></i> &nbspADD</button>
+          <?php 
+          include 'Buttons/addAdminModal.php';
+          ?>
+        </div>
+      </div>
+
+      <section class="section">
+        <div class="container"> 
+         <table class="table">
+          <thead>
+           <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Contact</th>
+            <th>Email</th>
+            <th>Role</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+
+
+
+        <?php 
+
+        if (isset($_POST['search_btn'])){
+          $searchValue = $_POST['searchValue'];
+
+          if ($searchValue===''){
+            echo '<script>window.location.href="?"</script>';
+          }else{
+           include 'searchFunction/searchAdminFunction.php';
+         }
+       }else{     
+        $sql = "SELECT * FROM admin_list  WHERE is_active='1' ORDER BY ID DESC LIMIT $offset, $no_of_records_per_page";
+        $res_data = $con->query($sql);
+        while($row = mysqli_fetch_array($res_data)){
+          $id = $row['ID'];
+          $name = $row['name'];
+          $contact = $row['contact'];
+          $Email = $row['Email'];
+          $role = $row['role'];
+
+          ?>
+          <tbody>
+           <tr>
+             <td>
+               <?php echo $id; ?>
+             </td>
+             <td>
+              <?php echo $name; ?>
+            </td>
+            <td>
+              <?php echo $contact; ?>
+            </td>
+            <td>
+              <?php echo $Email; ?>
+            </td>
+            <td>
+              <?php echo $role; ?>
+            </td>
+            <td>
+
+
+              <button data-target="#edit<?php echo $id;?>" class="button is-primary is-small modal-button" id="btn_update" name="btn-update"><i class="far fa-edit"></i>
+              </button>
+              <?php
+              include 'Buttons/adminEditModal.php';
+              ?>
+              <button data-target="#delete<?php echo $id;?>" class="button is-danger is-small modal-button"  id="btn_delete" name="btn-delete"><i class="fas fa-trash-alt"></i>
+              </button>
+              <?php
+              include 'Buttons/adminRemoveModal.php';
+              ?>
+            </td>
+          </tr>
+
+          <?php 
+        }  
+      }        
+      ?>
+    </tbody>
+  </table>
+  <nav class="pagination is-small" role="navigation" aria-label="pagination">
+    <a href="<?php if($page <= 1){ echo '#'; } else { echo "?page=".($page - 1); } ?>" class="pagination-previous" >Previous</a>
+    <a href="<?php if($page >= $total_pages){ echo '#'; } else { echo "?page=".($page + 1); } ?>" class="pagination-next">Next page</a>
+    <ul class="pagination-list">
+      <li><a href="?page=1" class="pagination-link" >1</a></li>
+      <li>
+        <span class="pagination-ellipsis">&hellip;</span>
+      </li>
+      <li><a href="?page=<?php echo $total_pages; ?>" class="pagination-link"><?php echo $total_pages; ?></a></li>
+    </ul>
+  </nav>
 </div>
+</section>
 
-<div class="w3-container">
-        <div class="columns">
-                <div class="column">
-                        <h1 class="button-category">ADMIN</h1>
-                </div>
-                <div class="column">
-                <button style="margin-top: 30px ; margin-left: 430px;" id="btn-add" class="button modal-button" data-target="#myModal" aria-haspopup="true">
-                <i class="fas fa-user-plus"></i> &nbspADD</button>
-                   <?php 
-                   include 'Buttons/addAdminModal.php';
-                   ?>
-                </div>
-              </div>
 
-              <section class="section">
-                <div class="container"> 
-                   <table class="table">
-                      <thead>
-                         <tr>
-                            <th>ID</th>
-                            <th>Name</th>
-                            <th>Contact</th>
-                            <th>Email</th>
-                            <th>Role</th>
-                            <th>Action</th>
-                         </tr>
-                      </thead>
-                     
-                      
-
-<?php 
-
-      if (isset($_POST['search_btn'])){
-    $searchValue = $_POST['searchValue'];
-
-      if ($searchValue===''){
-echo '<script>window.location.href="?"</script>';
-}else{
- include 'searchFunction/searchAdminFunction.php';
-}
-}else{     
-  $sql = "SELECT * FROM admin_list  WHERE is_active='1' ORDER BY ID DESC LIMIT $offset, $no_of_records_per_page";
-$res_data = $con->query($sql);
-while($row = mysqli_fetch_array($res_data)){
-    $id = $row['ID'];
-    $name = $row['name'];
-    $contact = $row['contact'];
-    $Email = $row['Email'];
-    $role = $row['role'];
-    
-    ?>
-                  <tbody>
-                     <tr>
-                     <td>
-                         <?php echo $id; ?>
-                    </td>
-                    <td>
-                        <?php echo $name; ?>
-                    </td>
-                    <td>
-                        <?php echo $contact; ?>
-                    </td>
-                    <td>
-                        <?php echo $Email; ?>
-                    </td>
-                    <td>
-                        <?php echo $role; ?>
-                    </td>
-                    <td>
-
-              
-                    <button data-target="#edit<?php echo $id;?>" class="button is-primary is-small modal-button" id="btn_update" name="btn-update"><i class="far fa-edit"></i>
-                    </button>
-                     <?php
-                     include 'Buttons/adminEditModal.php';
-                     ?>
-                    <button data-target="#delete<?php echo $id;?>" class="button is-danger is-small modal-button"  id="btn_delete" name="btn-delete"><i class="fas fa-trash-alt"></i>
-                    </button>
-                    <?php
-                     include 'Buttons/adminRemoveModal.php';
-                    ?>
-                    </td>
-                     </tr>
-
-<?php 
-}  
-}        
-?>
-                      </tbody>
-                   </table>
-                   <nav class="pagination is-small" role="navigation" aria-label="pagination">
-  <a href="<?php if($page <= 1){ echo '#'; } else { echo "?page=".($page - 1); } ?>" class="pagination-previous" >Previous</a>
-  <a href="<?php if($page >= $total_pages){ echo '#'; } else { echo "?page=".($page + 1); } ?>" class="pagination-next">Next page</a>
-  <ul class="pagination-list">
-    <li><a href="?page=1" class="pagination-link" >1</a></li>
-    <li>
-      <span class="pagination-ellipsis">&hellip;</span>
-    </li>
-    <li><a href="?page=<?php echo $total_pages; ?>" class="pagination-link"><?php echo $total_pages; ?></a></li>
-  </ul>
-</nav>
-                </div>
-             </section>
-
-   
 </div>
 
 <script>
-function w3_open() {
-  document.getElementById("mySidebar").style.display = "block";
-}
+  function w3_open() {
+    document.getElementById("mySidebar").style.display = "block";
+  }
 
-function w3_close() {
-  document.getElementById("mySidebar").style.display = "none";
-}
+  function w3_close() {
+    document.getElementById("mySidebar").style.display = "none";
+  }
 </script>
 
 
 <!-- modal transaction -->
 
 <div class="container" id="modal-container">
-                         
+
   <div id="serv-modal1" class="modal  modal-fx-slideTop">
     <div class="modal-background"></div>
     <div class="modal-content1">
      <div class="modal-card1">
-     
+
       <section class="modal-card-body1" id="modal-card-body">
         <!-- Content ... -->
         <div class="field">
           <div class="control">
             <div class="card" id="modal-card">
               <div class="card-content" id="trans-content">
-                  <button class="delete" aria-label="close" id="close9"></button>
-                  <div class="columns is-mobile">
-                      <div class="column is-6">
-                        <a href="pending.php">
-                          <div class="card" id="card-pending" style="background:url(images/pendingicon.png);  background-size: 100% 100%; background-repeat: no-repeat; background-size: cover;">
-                              <div class="card-content" >
-                              <a href="pending.php" id="pending">
-                                  PENDING
-                               </a>
-                              </div>
-                            </div>
+                <button class="delete" aria-label="close" id="close9"></button>
+                <div class="columns is-mobile">
+                  <div class="column is-6">
+                    <a href="pending.php">
+                      <div class="card" id="card-pending" style="background:url(images/pendingicon.png);  background-size: 100% 100%; background-repeat: no-repeat; background-size: cover;">
+                        <div class="card-content" >
+                          <a href="pending.php" id="pending">
+                            PENDING
                           </a>
+                        </div>
                       </div>
-                      <div class="column is-6">
-                          <a href="approved.php">
-                              <div class="card" id="card-approve" style="background:url(images/approvedicon.png);  background-size: 100% 100%; background-repeat: no-repeat; background-size: cover;">
-                                  <div class="card-content" >
-                                  <a href="approved.php" id="pending">
-                                      APPROVED
-                                   </a>
-                                  </div>
-                                </div>
-                              </a>
-                     </div>
-                   </div>
+                    </a>
+                  </div>
+                  <div class="column is-6">
+                    <a href="approved.php">
+                      <div class="card" id="card-approve" style="background:url(images/approvedicon.png);  background-size: 100% 100%; background-repeat: no-repeat; background-size: cover;">
+                        <div class="card-content" >
+                          <a href="approved.php" id="pending">
+                            APPROVED
+                          </a>
+                        </div>
+                      </div>
+                    </a>
+                  </div>
+                </div>
               </div>
             </div>
-         <!-- <button class="button is-success is-medium"  aria-label="close" id="close9">Close</button> -->
-       </div>
-     </section>
+            <!-- <button class="button is-success is-medium"  aria-label="close" id="close9">Close</button> -->
+          </div>
+        </section>
 
-</div>
-</div>
-</div>
+      </div>
+    </div>
+  </div>
 
-<!-- modal script -->
-<script>
-  var btn = document.querySelector('#sendmodal');
-  var modalDlg9 = document.querySelector('#serv-modal1');
-  var imageModalCloseBtn9 = document.querySelector('#close9');
-  btn.addEventListener('click', function(){
-    modalDlg9.classList.add('is-active');
-  });
+  <!-- modal script -->
+ 
 
-  imageModalCloseBtn9.addEventListener('click', function(){
-    modalDlg9.classList.remove('is-active');
-  });
-    // .click(function() {
-    //   .addClass("is-active");  
-    // });
+  <!-- end script -->
 
-    // $(".modal-close").click(function() {
-    //    $(".modal").removeClass("is-active");
-    // });
-  </script>        
+  <script>
+    function w3_open() {
+      document.getElementById("mySidebar").style.display = "block";
+    }
+    function w3_close() {
+      document.getElementById("mySidebar").style.display = "none";
+    }
+    document.querySelectorAll('.modal-button').forEach(function(el) {
+      el.addEventListener('click', function() {
+        var target = document.querySelector(el.getAttribute('data-target'));
 
-<!-- end script -->
+        target.classList.add('is-active');
 
-<script>
-function w3_open() {
-  document.getElementById("mySidebar").style.display = "block";
-}
-function w3_close() {
-  document.getElementById("mySidebar").style.display = "none";
-}
-document.querySelectorAll('.modal-button').forEach(function(el) {
-    el.addEventListener('click', function() {
-      var target = document.querySelector(el.getAttribute('data-target'));
-      
-      target.classList.add('is-active');
-      
-      target.querySelector('.modal-close').addEventListener('click', function(){
-        target.classList.remove('is-active');
+        target.querySelector('.modal-close').addEventListener('click', function(){
+          target.classList.remove('is-active');
+        });
       });
     });
-  });
-</script>
-     
+  </script>
+
 </body>
 </html>

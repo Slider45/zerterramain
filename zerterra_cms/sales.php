@@ -1,3 +1,6 @@
+<?php include '../PagesFunction/connection.php';?>
+
+
 <!DOCTYPE html>
 <html>
 <title>Sales</title>

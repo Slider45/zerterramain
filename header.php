@@ -120,31 +120,11 @@
 
               <?php 
 
-              if (isset($_POST['sndRequest'])) {
+           
 
 
-                 // include 'PagesFuction/query_request.php';
-                $serialNum = $_POST['SerialNumber'];
-                $fname = 
-
-
-
-                $sql = "SELECT * FROM tblusers_list WHERE Serial_Number='$serialNum'";
-                $result = $con->query($sql);
-                if($result->num_rows > 0){
-
-
-               echo "<script>alert('data found!');</script>";
-
-
-
-                }else{
-                   echo "<script>alert('data NOT found!');</script>";
-                }
-
-              }
-
-
+                 include 'PagesFunction/query_request.php';
+              
               ?>
 
               <div class="column  is-3" id="serv-column">

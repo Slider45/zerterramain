@@ -16,7 +16,7 @@ if (isset($_POST['sndRequest'])) {
 	
 
 
-	$sql = "SELECT * FROM tblusers_list WHERE Serial_Number='$serialNum'";
+	$sql = "SELECT * FROM tblusers_list WHERE Serial_Number='$serialNum' AND is_active='1'";
 	$result = $con->query($sql);
 	if($result->num_rows > 0){
 

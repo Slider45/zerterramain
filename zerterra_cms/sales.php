@@ -15,7 +15,7 @@
 <body>
     <nav class="navbar" role="navigation" aria-label="main navigation">
         <div class="navbar-brand navbar-start">
-            <a class="navbar-item" href="dashboard.php">
+            <a class="navbar-item" href="index.php">
                 <img src="images/logowhite.png" width="112" height="28" class="img-logo">
             </a>
         </div>

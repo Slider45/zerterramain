@@ -15,38 +15,40 @@ include 'Buttons/adminButtonFunction.php';
 
 <link rel="stylesheet" href="sass/admin.css">
 <body>
-  <?php
-  include 'Pages/adminViewPage.php'; 
-  ?>
-  <nav class="navbar" role="navigation" aria-label="main navigation">
-    <div class="navbar-brand navbar-start">
-      <a class="navbar-item" href="dashboard.php">
-        <img src="images/logowhite.png" width="112" height="28" class="img-logo">
-      </a>
-    </div>
-    <!-- search button -->
-    <div>
-      <form action="admin.php" method="POST">
-        <input class="input" type="text" id=input name="searchValue" placeholder="Search...">
-        <span><button id="search-btn" name="search_btn" value="submit"><i class="fa fa-search"></i></button></span>
 
-      </form>
-    </div>
+<?php
+include 'Pages/adminViewPage.php'; 
+?>
+        <nav class="navbar" role="navigation" aria-label="main navigation">
+                <div class="navbar-brand navbar-start">
+                  <a class="navbar-item" href="index.php">
+                    <img src="images/logowhite.png" width="112" height="28" class="img-logo">
+                  </a>
+                </div>
+              <!-- search button -->
+                <div>
+                  <form action="admin.php" method="POST">
+                    <input class="input" type="text" id=input name="searchValue" placeholder="Search...">
+                    <span><button id="search-btn" name="search_btn" value="submit"><i class="fa fa-search"></i></button></span>
+                   
+                 </form>
+              </div>
+              
+                  <div class="navbar-end">
+                    <div class="navbar-item">
+                      <div class="buttons">
+                        <a class="button btn-user">
+                                <i class="far fa-user"></i> &nbspUser
+                        </a>
+                        <a class="button btn-logout">
+                                <i class="fas fa-sign-out-alt"></i> &nbspLogout
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </nav>
 
-    <div class="navbar-end">
-      <div class="navbar-item">
-        <div class="buttons">
-          <a class="button btn-user">
-            <i class="far fa-user"></i> &nbspUser
-          </a>
-          <a class="button btn-logout">
-            <i class="fas fa-sign-out-alt"></i> &nbspLogout
-          </a>
-        </div>
-      </div>
-    </div>
-  </div>
-</nav>
 
 
 <div class="w3-sidebar w3-bar-block w3-collapse w3-card w3-animate-left" style="width:200px;" id="mySidebar">

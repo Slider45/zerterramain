@@ -185,6 +185,12 @@ html, body {
   border: none;
 }
 
+#search-btn {
+  padding-top: 15px;
+  border: none;
+  background-color: transparent;
+}
+
 .section {
   padding-top: 0;
   padding-left: 10px !important;

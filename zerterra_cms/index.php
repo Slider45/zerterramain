@@ -123,7 +123,7 @@ include 'connection.php';
         <div class="box" style="background:url(images/blue_bg.png); background-repeat: no-repeat; background-size: cover;">
         <div class="columns">
             <div class="column">
-              REQUEST LIST
+              REQUEST REPAIRS
             </div>
             <div class="column">
               <span class="is-right"><?php echo $requestCount;?></span>

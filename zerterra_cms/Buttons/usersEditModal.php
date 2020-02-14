@@ -14,19 +14,19 @@
                       </div>
                       </div>
                       <div class="control">
-                        <input class="input1" type="text" name="edit_fname" value="<?php echo $fname; ?>" required="">
+                        <input class="input" type="text" name="edit_fname" value="<?php echo $fname; ?>" required="">
                       </div>
                       <div class="control">
-                        <input class="input1" type="text" name="edit_lname" value="<?php echo $lname; ?>" required="">
+                        <input class="input" type="text" name="edit_lname" value="<?php echo $lname; ?>" required="">
                       </div>
                       <div class="control">
-                        <input class="input1" type="email" name="edit_email" value="<?php echo $email; ?>"   required="">
+                        <input class="input" type="email" name="edit_email" value="<?php echo $email; ?>"   required="">
                       </div>
                       <div class="control">
-                        <input class="input1" type="text" name="edit_address" value="<?php echo $Address; ?>"  required="">
+                        <input class="input" type="text" name="edit_address" value="<?php echo $Address; ?>"  required="">
                       </div>
                       <div class="control">
-                        <input class="input1" type="number" name="edit_contact" value="<?php echo $contact; ?>"  required="">
+                        <input class="input" type="number" name="edit_contact" value="<?php echo $contact; ?>"  required="">
                       </div>
                       
                         <div class="control" style="margin-top: 10px;">

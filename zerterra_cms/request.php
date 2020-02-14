@@ -1,6 +1,7 @@
 <?php
 session_start();
 include 'connection.php';
+include 'Buttons/requestButtonFunction.php';
 ?>
 <!DOCTYPE html>
 <html>
@@ -138,9 +139,14 @@ include 'Pages/requestViewPage.php';
                        <td>
               <button data-target="#edit<?php echo $id;?>" class="button is-primary is-small modal-button" id="btn_update" name="btn-update"><i class="fas fa-pencil-alt"></i>
               </button>
-
+              <?php
+                     include 'Buttons/requestEditModal.php';
+              ?>
               <button data-target="#delete<?php echo $id;?>" class="button is-danger is-small modal-button"  id="btn_delete" name="btn-delete"><i class="fas fa-trash-alt"></i>
               </button>
+              <?php
+                     include 'Buttons/usersRemoveModal.php';
+              ?>
               </td>
               </tr>
 <?php 
@@ -245,11 +251,20 @@ include 'Pages/requestViewPage.php';
 function w3_open() {
   document.getElementById("mySidebar").style.display = "block";
 }
-
 function w3_close() {
   document.getElementById("mySidebar").style.display = "none";
 }
+document.querySelectorAll('.modal-button').forEach(function(el) {
+    el.addEventListener('click', function() {
+      var target = document.querySelector(el.getAttribute('data-target'));
+      
+      target.classList.add('is-active');
+      
+      target.querySelector('.modal-close').addEventListener('click', function(){
+        target.classList.remove('is-active');
+      });
+    });
+  });
 </script>
-     
 </body>
 </html>

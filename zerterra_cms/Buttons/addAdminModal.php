@@ -5,6 +5,14 @@
     font-weight:bold;
   }
 
+  .modal-card-body{
+    border-bottom-right-radius: 6px;
+    border-bottom-left-radius: 6px;
+  }
+
+#adminbtnsave{
+font-family: Montserrat;
+}
   /* textbox */
 
   .input{
@@ -49,7 +57,7 @@
        </div>
      </div>
    </div>         
-   <button type="submit" class="button is-success" name="btn_add_admin">Save</button>
+   <button type="submit" class="button is-success" name="btn_add_admin" id="adminbtnsave">Save</button>
  </form>
 
 </div>

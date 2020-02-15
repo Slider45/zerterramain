@@ -17,7 +17,7 @@
                     "<?php echo $fname.' '.$lname;?>"?</strong> </div>
                     <div class="modal-footer">
                     </div>
-                    <div style = "margin-bottom: 10px; margin-top: 20px; margin-left: 400px; margin-right: auto;">
+                    <div style = "margin-bottom: 10px; margin-top: 20px;  margin-right: auto;">
                      <button  class="button is-success" name="acnt_remove">REMOVE</button>
                      <button class="button is-danger">Cancel</button>
                    </div>

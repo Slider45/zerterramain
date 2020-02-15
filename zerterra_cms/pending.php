@@ -37,6 +37,9 @@ include 'Buttons/pendingApproveQuery.php';
         <div class="navbar-end">
             <div class="navbar-item">
                 <div class="buttons">
+                <a class="button btn-logout modal-button" data-target="#pendingSearchModal" aria-haspopup="true">
+                        <i class="fa fa-search"></i></i> &nbspSearch
+                </a>
                     <a class="button btn-user">
                         <i class="far fa-user"></i> &nbspUser
                     </a>
@@ -49,6 +52,7 @@ include 'Buttons/pendingApproveQuery.php';
         </div>
     </nav>
 
+    <?php include 'Buttons/pendingSearch.php'?>
 
     <div class="w3-sidebar w3-bar-block w3-collapse w3-card w3-animate-left" style="width:200px;" id="mySidebar">
   <button class="w3-bar-item w3-button w3-large w3-hide-large" onclick="w3_close()" id="close">&times;</button>
@@ -100,7 +104,7 @@ include 'Buttons/pendingApproveQuery.php';
                         if ($searchValue===''){
                         echo '<script>window.location.href="?"</script>';
                         }else{
-                        include 'searchFunction/searchUserFunction.php';
+                        include 'searchFunction/searchPendingFunction.php';
                     }
                     }else{     
                     $sql = "SELECT * FROM pending_list  WHERE is_pending='0' ORDER BY id DESC LIMIT $offset, $no_of_records_per_page";

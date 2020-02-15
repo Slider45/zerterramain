@@ -1,3 +1,7 @@
+<?php
+include 'connection.php';
+?>
+
 <?php 
       
       if(isset($_POST['btnapproved'])){
@@ -16,7 +20,7 @@
         if($con->query($sql) === TRUE){
     
     
-       $sql ="INSERT INTO approve_list(pendingID,FirstName,LastName,Email,ContactNumber,Address) VALUES ('$id','$fname','$lname','$email','$Address','$Contact')";
+       $sql ="INSERT INTO approve_list(pendingID,FirstName,LastName,Email,ContactNumber,Address) VALUES ('$edit_id','$fname','$lname','$email','$Address','$Contact')";
               if($con->query($sql) === TRUE){
                 
               }else{

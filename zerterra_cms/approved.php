@@ -14,6 +14,9 @@ include 'connection.php';
 <link rel="stylesheet" href="sass/approved.css">
 
 <body>
+<?php
+  include 'Pages/approvedViewPage.php'; 
+  ?>
     <nav class="navbar" role="navigation" aria-label="main navigation">
         <div class="navbar-brand navbar-start">
             <a class="navbar-item" href="dashboard.php">
@@ -31,6 +34,9 @@ include 'connection.php';
         <div class="navbar-end">
             <div class="navbar-item">
                 <div class="buttons">
+                <a class="button btn-logout modal-button" data-target="#approvedSearchModal" aria-haspopup="true">
+                     <i class="fa fa-search"></i></i> &nbspSearch
+                </a>
                     <a class="button btn-user">
                         <i class="far fa-user"></i> &nbspUser
                     </a>
@@ -43,6 +49,7 @@ include 'connection.php';
         </div>
     </nav>
 
+<?php include 'Buttons/approvedSearch.php'?>
 
     <div class="w3-sidebar w3-bar-block w3-collapse w3-card w3-animate-left" style="width:200px;" id="mySidebar">
   <button class="w3-bar-item w3-button w3-large w3-hide-large" onclick="w3_close()" id="close">&times;</button>
@@ -89,10 +96,18 @@ include 'connection.php';
                         <tbody>
                         <?php
 
-                        $sql = "SELECT * FROM approve_list" ;
-                        $result = $con->query($sql);
-                        if ($result->num_rows > 0) {
-                        while($row = $result->fetch_assoc()) 
+            if (isset($_POST['search_btn'])){
+                $searchValue = $_POST['searchValue'];
+
+                if ($searchValue===''){
+                echo '<script>window.location.href="?"</script>';
+                }else{
+                include 'searchFunction/searchPendingFunction.php';
+            }
+            }else{     
+            $sql = "SELECT * FROM approve_list ORDER BY id DESC LIMIT $offset, $no_of_records_per_page";
+            $res_data = $con->query($sql);
+            while($row = mysqli_fetch_array($res_data)){ 
                         {
                             $id = $row['id'];
                             $id1 = $row['pendingID'];
@@ -134,12 +149,24 @@ include 'connection.php';
 
 
                             </tr>
-                        </tbody>
 <?php 
 }  
-}        
+}
+}
 ?>
+                        </tbody>
                     </table>
+<nav class="pagination is-small" role="navigation" aria-label="pagination">
+    <a href="<?php if($page <= 1){ echo '#'; } else { echo "?page=".($page - 1); } ?>" class="pagination-previous" >Previous</a>
+    <a href="<?php if($page >= $total_pages){ echo '#'; } else { echo "?page=".($page + 1); } ?>" class="pagination-next">Next page</a>
+    <ul class="pagination-list">
+      <li><a href="?page=1" class="pagination-link" >1</a></li>
+      <li>
+        <span class="pagination-ellipsis">&hellip;</span>
+      </li>
+      <li><a href="?page=<?php echo $total_pages; ?>" class="pagination-link"><?php echo $total_pages; ?></a></li>
+    </ul>
+</nav>
                 </div>
             </section>
 
@@ -201,36 +228,24 @@ include 'connection.php';
 
             <!-- modal script -->
             <script>
-                var btn = document.querySelector('#sendmodal');
-                var modalDlg9 = document.querySelector('#serv-modal1');
-                var imageModalCloseBtn9 = document.querySelector('#close9');
-                btn.addEventListener('click', function () {
-                    modalDlg9.classList.add('is-active');
-                });
+    function w3_open() {
+      document.getElementById("mySidebar").style.display = "block";
+    }
+    function w3_close() {
+      document.getElementById("mySidebar").style.display = "none";
+    }
+    document.querySelectorAll('.modal-button').forEach(function(el) {
+      el.addEventListener('click', function() {
+        var target = document.querySelector(el.getAttribute('data-target'));
 
-                imageModalCloseBtn9.addEventListener('click', function () {
-                    modalDlg9.classList.remove('is-active');
-                });
-    // .click(function() {
-    //   .addClass("is-active");  
-    // });
+        target.classList.add('is-active');
 
-    // $(".modal-close").click(function() {
-    //    $(".modal").removeClass("is-active");
-    // });
-            </script>
-
-            <!-- end script -->
-
-            <script>
-                function w3_open() {
-                    document.getElementById("mySidebar").style.display = "block";
-                }
-
-                function w3_close() {
-                    document.getElementById("mySidebar").style.display = "none";
-                }
-            </script>
+        target.querySelector('.modal-close').addEventListener('click', function(){
+          target.classList.remove('is-active');
+        });
+      });
+    });
+  </script>
 
 </body>
 </html>

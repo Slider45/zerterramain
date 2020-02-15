@@ -90,7 +90,7 @@ include 'Buttons/adminButtonFunction.php';
          <table class="table">
           <thead>
            <tr>
-            <th>#</th>
+            <th>ID</th>
             <th>Name</th>
             <th>Contact</th>
             <th>Email</th>
@@ -125,7 +125,7 @@ include 'Buttons/adminButtonFunction.php';
           <tbody>
            <tr>
              <td>
-               #<?php echo $id; ?>
+               <?php echo $id; ?>
              </td>
              <td>
               <?php echo $name; ?>

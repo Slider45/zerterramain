@@ -31,9 +31,6 @@ include 'connection.php';
                       <div class="control">
                         <input class="input" type="number" name="edit_contact" readonly value="<?php echo $Contact; ?>"  required="">
                       </div>
-                      <div class="control">
-                        <input class="input" type="text" name="edit_message" readonly value="<?php echo $Message; ?>"  required="">
-                      </div>
                         <div class="control" style="margin-top: 10px;">                  
                       </div>
                       </div>

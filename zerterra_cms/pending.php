@@ -16,6 +16,10 @@ include 'Buttons/pendingApproveQuery.php';
 <link rel="stylesheet" href="sass/approved.css">
 
 <body>
+<?php
+  include 'Pages/pendingViewPage.php'; 
+  ?>
+
     <nav class="navbar" role="navigation" aria-label="main navigation">
         <div class="navbar-brand navbar-start">
             <a class="navbar-item" href="index.php">
@@ -47,18 +51,15 @@ include 'Buttons/pendingApproveQuery.php';
 
 
     <div class="w3-sidebar w3-bar-block w3-collapse w3-card w3-animate-left" style="width:200px;" id="mySidebar">
-        <button class="w3-bar-item w3-button w3-large w3-hide-large" onclick="w3_close()" id="close">&times;</button>
-        <a href="index.php" class="w3-bar-item w3-button" id="item-hover"><i class="fas fa-th-large"></i> &nbsp Dashboard</a>
-        <a href="admin.php" class="w3-bar-item w3-button" id="item-hover"> <i class="fas fa-user-shield"></i> &nbsp
-            Admin</a>
-        <a href="users.php" class="w3-bar-item w3-button" id="item-hover"><i class="fas fa-user"></i> &nbsp Users</a>
-        <a class="w3-bar-item w3-button w3-dropdown-hover" id="sendmodal" ><i class="fas fa-cubes"></i> &nbsp Orders</a>
-        <a href="request.php" class="w3-bar-item w3-button" id="item-hover"><i class="fas fa-envelope-open-text"></i>
-            &nbsp Request</a>
-        <a href="" class="w3-bar-item w3-button" id="item-hover"><i class="fas fa-hand-holding-usd"></i> &nbsp
-            sales</a>
-        <a href="#" class="w3-bar-item w3-button" id="item-hover"><i class="fas fa-print"></i> &nbsp Consolidate</a>
-    </div>
+  <button class="w3-bar-item w3-button w3-large w3-hide-large" onclick="w3_close()" id="close">&times;</button>
+  <a href="index.php" class="w3-bar-item w3-button" id="item-hover"><i class="fas fa-th-large"></i> &nbsp Dashboard</a>
+  <a href="admin.php" class="w3-bar-item w3-button" id="dashboard"> <i class="fas fa-user-shield"></i> &nbsp Admin</a>
+  <a href="users.php" class="w3-bar-item w3-button" id="item-hover"><i class="fas fa-user"></i> &nbsp Users</a>
+  <a class="w3-bar-item w3-button w3-dropdown-hover" id="sendmodal" ><i class="fas fa-cubes"></i> &nbsp Orders</a>
+  <a href="request.php" class="w3-bar-item w3-button" id="item-hover"><i class="fas fa-envelope-open-text"></i> &nbsp Request</a>
+  <a href="sales.php" class="w3-bar-item w3-button" id="item-hover"><i class="fas fa-hand-holding-usd"></i> &nbsp sales</a>
+  <a href="#" class="w3-bar-item w3-button" id="item-hover"><i class="fas fa-print"></i> &nbsp Consolidate</a>
+</div>
 
     <div class="w3-main" style="margin-left:200px">
         <div class="w3-teal">
@@ -93,18 +94,25 @@ include 'Buttons/pendingApproveQuery.php';
                         <tbody>
                         <?php
 
-                         $sql = "SELECT * FROM pending_list WHERE is_pending='0'" ;
-                          $result = $con->query($sql);
-                            if ($result->num_rows > 0) {
-                       while($row = $result->fetch_assoc()) 
+                    if (isset($_POST['search_btn'])){
+                        $searchValue = $_POST['searchValue'];
+
+                        if ($searchValue===''){
+                        echo '<script>window.location.href="?"</script>';
+                        }else{
+                        include 'searchFunction/searchUserFunction.php';
+                    }
+                    }else{     
+                    $sql = "SELECT * FROM pending_list  WHERE is_pending='0' ORDER BY id DESC LIMIT $offset, $no_of_records_per_page";
+                    $res_data = $con->query($sql);
+                    while($row = mysqli_fetch_array($res_data)){
                         {
                           $id = $row['id'];
                           $fname = $row['FirstName'];
                           $lname = $row['LastName'];
                           $email = $row['Email'];
                           $Contact = $row['ContactNumber'];
-                          $Address = $row['Address'];
-                          $Message = $row['Message'];                 
+                          $Address = $row['Address'];                 
                         ?>
                         
               <tr>
@@ -142,17 +150,27 @@ include 'Buttons/pendingApproveQuery.php';
 
     <?php
             }
-}  
+    } 
+}
+
 ?>
       
 
                         </tbody>
-              
                     </table>
+  <nav class="pagination is-small" role="navigation" aria-label="pagination">
+    <a href="<?php if($page <= 1){ echo '#'; } else { echo "?page=".($page - 1); } ?>" class="pagination-previous" >Previous</a>
+    <a href="<?php if($page >= $total_pages){ echo '#'; } else { echo "?page=".($page + 1); } ?>" class="pagination-next">Next page</a>
+    <ul class="pagination-list">
+      <li><a href="?page=1" class="pagination-link" >1</a></li>
+      <li>
+        <span class="pagination-ellipsis">&hellip;</span>
+      </li>
+      <li><a href="?page=<?php echo $total_pages; ?>" class="pagination-link"><?php echo $total_pages; ?></a></li>
+    </ul>
+  </nav>
                 </div>
             </section>
-
-        
         </div>
         
         <!-- modal transaction -->

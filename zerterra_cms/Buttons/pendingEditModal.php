@@ -37,7 +37,7 @@ include 'connection.php';
                       </div>
                       
                       <button type="submit" name="updated_id" class="button is-success">Save</button>
-                      <button class="button is-danger">Cancel</button>
+                      <button class="button is-danger"><i class="fas fa-ban"></i>&nbspCancel</button>
 
                     </form>
 

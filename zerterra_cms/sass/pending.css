@@ -130,7 +130,7 @@ html, body {
   font-size: 35px;
   color: #333;
   font-weight: bold;
-  border-left: solid #f28281  6px;
+  border-left: solid #f14668  6px;
   padding-left: 10px;
   height: 50px;
   border-radius: 0;
@@ -204,7 +204,7 @@ html, body {
 }
 
 thead th {
-  background-color: #f28281;
+  background-color: #f14668;
   border-right-width: 5px;
   color: white !important;
 }

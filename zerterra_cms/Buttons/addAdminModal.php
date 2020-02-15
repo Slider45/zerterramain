@@ -10,9 +10,9 @@
     border-bottom-left-radius: 6px;
   }
 
-#adminbtnsave{
-font-family: Montserrat;
-}
+  #adminbtnsave{
+    font-family: Montserrat;
+  }
   /* textbox */
 
   .input{
@@ -57,9 +57,11 @@ font-family: Montserrat;
        </div>
      </div>
    </div>         
-   <button type="submit" class="button is-success" name="btn_add_admin" id="adminbtnsave">Save</button>
- </form>
+   <button type="submit" class="button is-success" name="btn_add_admin" id="adminbtnsave">
+     <i class="far fa-save"></i>&nbspSave</button>
+    
+   </form>
 
-</div>
+ </div>
 </div>
 

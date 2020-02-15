@@ -209,24 +209,20 @@ include 'Buttons/adminButtonFunction.php';
                 <button class="modal-close" id="close9"></button>
                 <div class="columns is-mobile">
                   <div class="column is-6">
-                    <a href="dashboard.html">
+                    <a href="pending.php">
                       <div class="card" id="card-pending" style="background:url(images/pendingicon.png);  background-size: 100% 100%; background-repeat: no-repeat; background-size: cover;">
-                        <div class="card-content" >
-                          <a href="pending.php" id="pending">
-                            PENDING
-                          </a>
-                        </div>
+                       <!-- PENDING -->
                       </div>
                     </a>
                   </div>
                   <div class="column is-6">
-                    <a href="dashboard.html">
+                    <a href="approved.php">
                       <div class="card" id="card-approve" style="background:url(images/approvedicon.png);  background-size: 100% 100%; background-repeat: no-repeat; background-size: cover;">
-                        <div class="card-content" >
+                        <!-- <div class="card-content" >
                           <a href="approved.php" id="pending">
                             APPROVED
                           </a>
-                        </div>
+                        </div> -->
                       </div>
                     </a>
                   </div>
@@ -240,8 +236,6 @@ include 'Buttons/adminButtonFunction.php';
       </div>
     </div>
   </div>
-
-
   <!-- modal script -->
 
 

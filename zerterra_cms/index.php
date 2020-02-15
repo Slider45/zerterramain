@@ -43,18 +43,18 @@ include 'connection.php';
   <a href="index.php" class="w3-bar-item w3-button" id="dashboard"><i class="fas fa-th-large"></i> &nbsp Dashboard</a>
   <a href="admin.php" class="w3-bar-item w3-button" id="item-hover"> <i class="fas fa-user-shield"></i> &nbsp Admin</a>
   <a href="users.php" class="w3-bar-item w3-button" id="item-hover"><i class="fas fa-user"></i> &nbsp Users</a>
-  <a class="w3-bar-item w3-button w3-dropdown-hover" id="sendmodal" ><i class="fas fa-cubes"></i> &nbsp Orders</a>
+  <a class="w3-bar-item w3-button w3-dropdown-hover modal-button" id="sendmodal" data-target="#ordersModal" aria-haspopup="true"><i class="fas fa-cubes"></i> &nbsp Orders</a>
   <a href="request.php" class="w3-bar-item w3-button" id="item-hover"><i class="fas fa-envelope-open-text"></i> &nbsp Request</a>
   <a href="sales.php" class="w3-bar-item w3-button" id="item-hover"><i class="fas fa-hand-holding-usd"></i> &nbsp Sales</a>
   <a href="#" class="w3-bar-item w3-button" id="item-hover"><i class="fas fa-print"></i> &nbsp Consolidate</a>
 </div>
 
 <?php
-$sql = "SELECT id FROM approve_list";
+$sql = "SELECT id FROM approveorders_list";
 $result=mysqli_query($con,$sql);
 $regUserCount=mysqli_num_rows($result);
 
-$sql = "SELECT id FROM pending_list";
+$sql = "SELECT id FROM pendingorders_list";
 $result=mysqli_query($con,$sql);
 $penUserCount=mysqli_num_rows($result);
 
@@ -89,7 +89,7 @@ $requestCount=mysqli_num_rows($result);
             <div class="column">
               SALES
             </div>
-            <div class="column" style="text-align: right;">
+            <div class="column" style="text-align: center;">
               <span class="is-right">Php 123,456</span>
             </div>
           </div>
@@ -104,7 +104,7 @@ $requestCount=mysqli_num_rows($result);
             <div class="column">
               ADMIN
             </div>
-            <div class="column" style="text-align: right;">
+            <div class="column" style="text-align: center;">
               <span class="is-right"><?php echo $adminUserCount;?></span>
             </div>
           </div>
@@ -120,7 +120,7 @@ $requestCount=mysqli_num_rows($result);
             <div class="column">
               USERS
             </div>
-            <div class="column" style="text-align: right;">
+            <div class="column" style="text-align: center;">
               <span class="is-right"><?php echo $regUserCount;?></span>
             </div>
           </div>
@@ -131,17 +131,17 @@ $requestCount=mysqli_num_rows($result);
 
     <div class="column is-half">
       <a href="request.php">
-      <div class="box" style="background:url(images/request_bg.png); background-repeat: no-repeat; background-size: cover;">
-        <div class="columns">
-          <div class="column">
-            REQUEST LIST
-          </div>
-          <div class="column" style="text-align: right;">
-            <span class="is-right"><?php echo $requestCount;?></span>
+        <div class="box" style="background:url(images/request_bg.png); background-repeat: no-repeat; background-size: cover;">
+          <div class="columns">
+            <div class="column">
+              REQUEST LIST
+            </div>
+            <div class="column" style="text-align: center;">
+              <span class="is-right"><?php echo $requestCount;?></span>
+            </div>
           </div>
         </div>
-      </div>
-    </a>
+      </a>
     </div>
 
     <div class="column is-7">
@@ -212,7 +212,7 @@ $requestCount=mysqli_num_rows($result);
 
 <div class="container" id="modal-container">
 
-  <div id="serv-modal1" class="modal  modal-fx-slideTop">
+  <div id="ordersModal" class="modal  modal-fx-slideTop">
     <div class="modal-background"></div>
     <div class="modal-content1">
      <div class="modal-card1">
@@ -223,27 +223,23 @@ $requestCount=mysqli_num_rows($result);
           <div class="control">
             <div class="card" id="modal-card">
               <div class="card-content" id="trans-content">
-                <button class="delete" aria-label="close" id="close9"></button>
+                <button class="modal-close" id="close9"></button>
                 <div class="columns is-mobile">
                   <div class="column is-6">
-                    <a href="dashboard.html">
+                    <a href="pending.php">
                       <div class="card" id="card-pending" style="background:url(images/pendingicon.png);  background-size: 100% 100%; background-repeat: no-repeat; background-size: cover;">
-                        <div class="card-content" >
-                          <a href="pending.php" id="pending">
-                            PENDING
-                          </a>
-                        </div>
-                      </div>
-                    </a>
-                  </div>
-                  <div class="column is-6">
-                    <a href="dashboard.html">
-                      <div class="card" id="card-approve" style="background:url(images/approvedicon.png);  background-size: 100% 100%; background-repeat: no-repeat; background-size: cover;">
-                        <div class="card-content" >
+                       <!-- PENDING -->
+                     </div>
+                   </a>
+                 </div>
+                 <div class="column is-6">
+                  <a href="approved.php">
+                    <div class="card" id="card-approve" style="background:url(images/approvedicon.png);  background-size: 100% 100%; background-repeat: no-repeat; background-size: cover;">
+                        <!-- <div class="card-content" >
                           <a href="approved.php" id="pending">
                             APPROVED
                           </a>
-                        </div>
+                        </div> -->
                       </div>
                     </a>
                   </div>
@@ -309,6 +305,18 @@ $requestCount=mysqli_num_rows($result);
     function w3_close() {
       document.getElementById("mySidebar").style.display = "none";
     }
+
+    document.querySelectorAll('.modal-button').forEach(function(el) {
+      el.addEventListener('click', function() {
+        var target = document.querySelector(el.getAttribute('data-target'));
+
+        target.classList.add('is-active');
+
+        target.querySelector('.modal-close').addEventListener('click', function(){
+          target.classList.remove('is-active');
+        });
+      });
+    });
   </script>
 
 </body>

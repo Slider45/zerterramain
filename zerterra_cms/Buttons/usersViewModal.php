@@ -26,32 +26,38 @@
 
 </style>
 
-<div id="edit<?php echo $id; ?>" class="modal" role="dialog">
+<div id="view<?php echo $id; ?>" class="modal" role="dialog">
  <div class="modal-background"></div>
  <div class="modal-card">
   <header class="modal-card-head">
-    <p class="modal-card-title">EDIT ACCOUNT</p>
-    <button class="modal-close" aria-label="close"></button>
+    <p class="modal-card-title">USER INFORMATIONS</p>
+ <!--    <button class="modal-close" aria-label="close"></button> -->
   </header>
   <form method="POST" class="modal-card-body" style="padding-bottom: 10px;">
     
     <div class="field">
       <div class="control">
         <div class="field">
-          <input type="hidden" name="edit_id" value="<?php echo $id; ?>">
+          <input type="hidden"  value="<?php echo $id; ?>">
         </div>
       </div>
       <div class="control">
-        <input class="input" type="text" name="edit_fname" value="<?php echo $fname; ?>" required="">
+       Firstname:<input class="input"   value="<?php echo $fname; ?>" disabled="disabled">
       </div>
       <div class="control">
-        <input class="input" type="text" name="edit_lname" value="<?php echo $lname; ?>" required="">
+        Lastname:<input class="input"   value="<?php echo $lname; ?>"  disabled="disabled">
       </div>
       <div class="control">
-        <input class="input" type="email" name="edit_email" value="<?php echo $email; ?>"   required="">
+        Email:<input class="input"  value="<?php echo $email; ?>"  disabled="disabled">
       </div>
       <div class="control">
-        <input class="input" type="number" name="edit_contact" value="<?php echo $contact; ?>"  required="">
+        Contact #:<input class="input"  value="<?php echo $contact; ?>" disabled="disabled">
+      </div>
+      <div class="control">
+        Date Registered:<input class="input"  value="<?php echo $dateReg; ?>" disabled="disabled">
+      </div>
+      <div class="control">
+        Date End:<input class="input"  value="<?php echo $dateEnd; ?>" disabled="disabled">
       </div>
       
       <div class="control" style="margin-top: 10px;">
@@ -65,9 +71,8 @@
                      </div>
                    </div>
                    
-                   <button type="submit" name="updated_user" class="button is-success">
-                    <i class="far fa-save"></i>&nbspSave</button>
-                   <button class="button is-danger"><i class="fas fa-ban"></i>&nbspCancel</button>
+                  <!--  <button type="submit" name="updated_user" class="button is-success">Save</button> -->
+                   <button class="button is-danger"><i class="far fa-times-circle"></i> &nbspClose</button>
 
                  </form>
 

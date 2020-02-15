@@ -120,7 +120,8 @@ include 'Buttons/usersButtonFunction.php';
               $lname = $row['Lastname'];
               $rdays = $row['remaining_days'];
               $email = $row['email'];
-
+              $dateReg = $row['dateRegistered'];
+              $dateEnd= $row['dateExpired'];
               $contact = $row['ContactNumber'];   
               ?>
               <tbody>
@@ -151,6 +152,11 @@ include 'Buttons/usersButtonFunction.php';
                   </button>
                   <?php
                   include 'Buttons/usersRemoveModal.php';
+                  ?>
+                  <button data-target="#view<?php echo $id;?>" class="button is-success is-small modal-button"  id="btn_delete" name="acnt_view"><i class="far fa-eye"></i>
+                  </button>
+                  <?php
+                  include 'Buttons/usersViewModal.php';
                   ?>
                 </td>
               </tr>
@@ -207,24 +213,20 @@ include 'Buttons/usersButtonFunction.php';
                 <button class="modal-close" id="close9"></button>
                 <div class="columns is-mobile">
                   <div class="column is-6">
-                    <a href="dashboard.html">
+                    <a href="pending.php">
                       <div class="card" id="card-pending" style="background:url(images/pendingicon.png);  background-size: 100% 100%; background-repeat: no-repeat; background-size: cover;">
-                        <div class="card-content" >
-                          <a href="pending.php" id="pending">
-                            PENDING
-                          </a>
-                        </div>
-                      </div>
-                    </a>
-                  </div>
-                  <div class="column is-6">
-                    <a href="dashboard.html">
-                      <div class="card" id="card-approve" style="background:url(images/approvedicon.png);  background-size: 100% 100%; background-repeat: no-repeat; background-size: cover;">
-                        <div class="card-content" >
+                       <!-- PENDING -->
+                     </div>
+                   </a>
+                 </div>
+                 <div class="column is-6">
+                  <a href="approved.php">
+                    <div class="card" id="card-approve" style="background:url(images/approvedicon.png);  background-size: 100% 100%; background-repeat: no-repeat; background-size: cover;">
+                        <!-- <div class="card-content" >
                           <a href="approved.php" id="pending">
                             APPROVED
                           </a>
-                        </div>
+                        </div> -->
                       </div>
                     </a>
                   </div>

@@ -13,7 +13,7 @@ include 'Buttons/pendingApproveQuery.php';
 <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
 <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
 
-<link rel="stylesheet" href="sass/approved.css">
+<link rel="stylesheet" href="sass/pending.css">
 
 <body>
   <?php
@@ -83,188 +83,188 @@ include 'Buttons/pendingApproveQuery.php';
                   <div class="column">
                     <a href="approved.php">
                       <button style="margin-top: 30px ; margin-left: 380px; font-family: unset;" id="btn-add" class="button is-success">
-                      <i class="fas fa-user-plus"></i> &nbspAPPROVED</button></a>
+                        <i class="far fa-thumbs-up"></i> &nbspAPPROVED</button></a>
 
+                      </div>
                     </div>
-                  </div>
 
-                  <section class="section">
-                    <div class="container">
-                      <table class="table">
-                        <thead>
-                          <tr>
-                            <th>#</th>
-                            <th>First Name</th>
-                            <th>Last Name</th>
-                            <th>Email</th>
-                            <th>Contact</th>
-                            <th>Option</th>
-                          </tr>
-                        </thead>
-
-                        <tbody>
-                          <?php
-
-
-                if (isset($_POST['search_btn'])){
-                  $searchValue = $_POST['searchValue'];
-
-                  if ($searchValue===''){
-                    echo '<script>window.location.href="?"</script>';
-                  }else{
-                  include 'searchFunction/searchRequestFunction.php';
-                }
-                }else{     
-                $sql = "SELECT * FROM pending_list WHERE is_pending='0' ORDER BY id DESC LIMIT $offset, $no_of_records_per_page";
-                $res_data = $con->query($sql);
-                while($row = mysqli_fetch_array($res_data)){
-                           
-                            $id = $row['id'];
-                            $fname = $row['FirstName'];
-                            $lname = $row['LastName'];
-                            $email = $row['Email'];
-                            $Contact = $row['ContactNumber'];
-                            $Address = $row['Address'];
-                          // $Message = $row['Message'];                 
-                            ?>
-
+                    <section class="section">
+                      <div class="container">
+                        <table class="table">
+                          <thead>
                             <tr>
-                              <td>
-                               # <?php echo $id; ?>
-                              </td>
-
-                              <td>
-                                <?php echo $fname; ?>
-                              </td>
-
-                              <td>
-                                <?php echo $lname; ?>
-                              </td>
-
-                              <td>
-                                <?php echo $email; ?>
-                              </td>
-                              <td>
-                                <?php echo $Contact; ?>
-                              </td>
-                              <td>
-                                <button data-target="#edit<?php echo $id;?>" class="button is-primary is-small modal-button" id="btn_update" name="btn-update"><i class="far fa-edit"></i>
-                                </button>
-                                <?php
-                                include 'Buttons/pendingEditModal.php';
-                                ?>  
-                                <button data-target="#delete<?php echo $id;?>" class="button is-danger is-small modal-button"  id="btn_delete" name="btn-delete"><i class="fas fa-eye"></i>
-                                </button>
-                                <?php
-                                include 'Buttons/pendingApproveModal.php';
-                                ?>
-                              </td>
+                              <th>#</th>
+                              <th>Firstname</th>
+                              <th>Lastname</th>
+                              <th>Email</th>
+                              <th>Contact</th>
+                              <th>Option</th>
                             </tr>
+                          </thead>
 
+                          <tbody>
                             <?php
-                          }
-                        }  
-                      
-                        ?>
+
+
+                            if (isset($_POST['search_btn'])){
+                              $searchValue = $_POST['searchValue'];
+
+                              if ($searchValue===''){
+                                echo '<script>window.location.href="?"</script>';
+                              }else{
+                                include 'searchFunction/searchPendingFunction.php';
+                              }
+                            }else{     
+                              $sql = "SELECT * FROM pendingorders_list WHERE is_pending='0' ORDER BY id DESC LIMIT $offset, $no_of_records_per_page";
+                              $res_data = $con->query($sql);
+                              while($row = mysqli_fetch_array($res_data)){
+                               
+                                $id = $row['id'];
+                                $fname = $row['FirstName'];
+                                $lname = $row['LastName'];
+                                $email = $row['Email'];
+                                $Contact = $row['ContactNumber'];
+                                $Address = $row['Address'];
+                          // $Message = $row['Message'];                 
+                                ?>
+
+                                <tr>
+                                  <td>
+                                   # <?php echo $id; ?>
+                                 </td>
+
+                                 <td>
+                                  <?php echo $fname; ?>
+                                </td>
+
+                                <td>
+                                  <?php echo $lname; ?>
+                                </td>
+
+                                <td>
+                                  <?php echo $email; ?>
+                                </td>
+                                <td>
+                                  <?php echo $Contact; ?>
+                                </td>
+                                <td>
+                                  <button data-target="#edit<?php echo $id;?>" class="button is-primary is-small modal-button" id="btn_update" name="btn-update"><i class="far fa-edit"></i>
+                                  </button>
+                                  <?php
+                                  include 'Buttons/pendingEditModal.php';
+                                  ?>  
+                                  <button data-target="#delete<?php echo $id;?>" class="button is-danger is-small modal-button"  id="btn_delete" name="btn-delete"><i class="fas fa-eye"></i>
+                                  </button>
+                                  <?php
+                                  include 'Buttons/pendingApproveModal.php';
+                                  ?>
+                                </td>
+                              </tr>
+
+                              <?php
+                            }
+                          }  
+                          
+                          ?>
 
 
 
-                      </tbody>
+                        </tbody>
 
-                    </table>
-<nav class="pagination is-small" role="navigation" aria-label="pagination">
-    <a href="<?php if($page <= 1){ echo '#'; } else { echo "?page=".($page - 1); } ?>" class="pagination-previous" >Previous</a>
-    <a href="<?php if($page >= $total_pages){ echo '#'; } else { echo "?page=".($page + 1); } ?>" class="pagination-next">Next page</a>
-    <ul class="pagination-list">
-      <li><a href="?page=1" class="pagination-link" >1</a></li>
-      <li>
-        <span class="pagination-ellipsis">&hellip;</span>
-      </li>
-      <li><a href="?page=<?php echo $total_pages; ?>" class="pagination-link"><?php echo $total_pages; ?></a></li>
-    </ul>
-  </nav>
-                  </div>
-                </section>
+                      </table>
+                      <nav class="pagination is-small" role="navigation" aria-label="pagination">
+                        <a href="<?php if($page <= 1){ echo '#'; } else { echo "?page=".($page - 1); } ?>" class="pagination-previous" >Previous</a>
+                        <a href="<?php if($page >= $total_pages){ echo '#'; } else { echo "?page=".($page + 1); } ?>" class="pagination-next">Next page</a>
+                        <ul class="pagination-list">
+                          <li><a href="?page=1" class="pagination-link" >1</a></li>
+                          <li>
+                            <span class="pagination-ellipsis">&hellip;</span>
+                          </li>
+                          <li><a href="?page=<?php echo $total_pages; ?>" class="pagination-link"><?php echo $total_pages; ?></a></li>
+                        </ul>
+                      </nav>
+                    </div>
+                  </section>
 
 
-              </div>
+                </div>
 
-              <!-- modal transaction -->
+                <!-- modal transaction -->
 
-              <div class="container" id="modal-container">
+                <div class="container" id="modal-container">
 
-                <div id="serv-modal1" class="modal  modal-fx-slideTop">
-                  <div class="modal-background"></div>
-                  <div class="modal-content1">
-                    <div class="modal-card1">
+                  <div id="serv-modal1" class="modal  modal-fx-slideTop">
+                    <div class="modal-background"></div>
+                    <div class="modal-content1">
+                      <div class="modal-card1">
 
-                      <section class="modal-card-body1" id="modal-card-body">
-                        <!-- Content ... -->
-                        <div class="field">
-                          <div class="control">
-                            <div class="card" id="modal-card">
-                              <div class="card-content" id="trans-content">
-                                <button class="delete" aria-label="close" id="close9"></button>
-                                <div class="columns is-mobile">
+                        <section class="modal-card-body1" id="modal-card-body">
+                          <!-- Content ... -->
+                          <div class="field">
+                            <div class="control">
+                              <div class="card" id="modal-card">
+                                <div class="card-content" id="trans-content">
+                                  <button class="delete" aria-label="close" id="close9"></button>
+                                  <div class="columns is-mobile">
+                                    <div class="column is-6">
+                                      <a href="pending.php">
+                                        <div class="card" id="card-pending"
+                                        style="background:url(images/pendingicon.png);  background-size: 100% 100%; background-repeat: no-repeat; background-size: cover;">
+                                        <div class="card-content">
+                                          <a href="pending.php" id="pending">
+                                            PENDING
+                                          </a>
+                                        </div>
+                                      </div>
+                                    </a>
+                                  </div>
                                   <div class="column is-6">
-                                    <a href="pending.php">
-                                      <div class="card" id="card-pending"
-                                      style="background:url(images/pendingicon.png);  background-size: 100% 100%; background-repeat: no-repeat; background-size: cover;">
+                                    <a href="approved.php">
+                                      <div class="card" id="card-approve"
+                                      style="background:url(images/approvedicon.png);  background-size: 100% 100%; background-repeat: no-repeat; background-size: cover;">
                                       <div class="card-content">
-                                        <a href="pending.php" id="pending">
-                                          PENDING
+                                        <a href="approved.php" id="pending">
+                                          APPROVED
                                         </a>
                                       </div>
                                     </div>
                                   </a>
                                 </div>
-                                <div class="column is-6">
-                                  <a href="approved.php">
-                                    <div class="card" id="card-approve"
-                                    style="background:url(images/approvedicon.png);  background-size: 100% 100%; background-repeat: no-repeat; background-size: cover;">
-                                    <div class="card-content">
-                                      <a href="approved.php" id="pending">
-                                        APPROVED
-                                      </a>
-                                    </div>
-                                  </div>
-                                </a>
                               </div>
                             </div>
                           </div>
+                          <!-- <button class="button is-success is-medium"  aria-label="close" id="close9">Close</button> -->
                         </div>
-                        <!-- <button class="button is-success is-medium"  aria-label="close" id="close9">Close</button> -->
-                      </div>
-                    </section>
+                      </section>
 
+                    </div>
                   </div>
                 </div>
-              </div>
 
 
 
 
-              <script>
-                function w3_open() {
-                  document.getElementById("mySidebar").style.display = "block";
-                }
-                function w3_close() {
-                  document.getElementById("mySidebar").style.display = "none";
-                }
-                document.querySelectorAll('.modal-button').forEach(function(el) {
-                  el.addEventListener('click', function() {
-                    var target = document.querySelector(el.getAttribute('data-target'));
+                <script>
+                  function w3_open() {
+                    document.getElementById("mySidebar").style.display = "block";
+                  }
+                  function w3_close() {
+                    document.getElementById("mySidebar").style.display = "none";
+                  }
+                  document.querySelectorAll('.modal-button').forEach(function(el) {
+                    el.addEventListener('click', function() {
+                      var target = document.querySelector(el.getAttribute('data-target'));
 
-                    target.classList.add('is-active');
+                      target.classList.add('is-active');
 
-                    target.querySelector('.modal-close').addEventListener('click', function(){
-                      target.classList.remove('is-active');
+                      target.querySelector('.modal-close').addEventListener('click', function(){
+                        target.classList.remove('is-active');
+                      });
                     });
                   });
-                });
-              </script>
+                </script>
 
 
 
-            </body>
-            </html>
+              </body>
+              </html>

@@ -16,13 +16,14 @@ include 'connection.php';
     
     
     
-        $sql = "UPDATE pending_list SET FirstName='$fname',LastName='$lname', Address='$Address' ,ContactNumber='$Contact',Email='$email', is_pending='1' WHERE id='$edit_id'";
+        $sql = "UPDATE `pendingorders_list` SET FirstName='$fname',LastName='$lname',Email='$email' ,ContactNumber='$Contact', Address='$Address', is_pending='1' WHERE id='$edit_id'";
         if($con->query($sql) === TRUE){
     
     
-       $sql ="INSERT INTO approve_list(pendingID,FirstName,LastName,Email,Address,ContactNumber) VALUES ('$edit_id','$fname','$lname','$email','$Address','$Contact')";
+       $sql ="INSERT INTO approveorders_list(pendingID,FirstName,LastName,Email,ContactNumber,Address) VALUES ('$edit_id','$fname','$lname','$email','$Contact','$Address')";
               if($con->query($sql) === TRUE){
-                
+                echo "<script>window.alert('Order Approved!');</script>";
+                echo '<script>window.location.href="pending.php"</script>';
               }else{
                 
                 echo "<script>window.alert('Saving new record failed!');</script>";

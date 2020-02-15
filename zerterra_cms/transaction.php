@@ -9,28 +9,28 @@
 
 <link rel="stylesheet" href="sass/transaction.css">
 <body>
-        <nav class="navbar" role="navigation" aria-label="main navigation">
-                <div class="navbar-brand">
-                  <a class="navbar-item" href="https://bulma.io">
-                    <img src="images/logowhite.png" width="112" height="28" class="img-logo">
-                  </a>
-                </div>
-              
-              
-                  <div class="navbar-end">
-                    <div class="navbar-item">
-                      <div class="buttons">
-                        <a class="button btn-user">
-                                <i class="far fa-user"></i> &nbspUser
-                        </a>
-                        <a class="button btn-logout">
-                                <i class="fas fa-sign-out-alt"></i> &nbspLogout
-                        </a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </nav>
+  <nav class="navbar" role="navigation" aria-label="main navigation">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="https://bulma.io">
+        <img src="images/logowhite.png" width="112" height="28" class="img-logo">
+      </a>
+    </div>
+    
+    
+    <div class="navbar-end">
+      <div class="navbar-item">
+        <div class="buttons">
+          <a class="button btn-user">
+            <i class="far fa-user"></i> &nbspUser
+          </a>
+          <a class="button btn-logout">
+            <i class="fas fa-sign-out-alt"></i> &nbspLogout
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>
 
 
 <div class="w3-sidebar w3-bar-block w3-collapse w3-card w3-animate-left" style="width:200px;" id="mySidebar">
@@ -45,35 +45,35 @@
 </div>
 
 <div class="w3-main" style="margin-left:200px">
-<div class="w3-teal">
-  <button class="w3-button w3-teal w3-xlarge w3-hide-large" onclick="w3_open()">&#9776;</button>
-</div>
+  <div class="w3-teal">
+    <button class="w3-button w3-teal w3-xlarge w3-hide-large" onclick="w3_open()">&#9776;</button>
+  </div>
 
-<div class="w3-container">
-        <div class="columns">
-                <div class="column">
-                        <h1 class="button-category">Transactions</h1>
-                </div>
-                <div class="column">
-                  <!-- <input class="input" placeholder="Please Enter Text" type="text" >   -->
-                   <h1 class="button" id="add-admin"><i class="fas fa-user-plus"></i> &nbspADD</h1>  
-                </div>
-              </div>
+  <div class="w3-container">
+    <div class="columns">
+      <div class="column">
+        <h1 class="button-category">Transactions</h1>
+      </div>
+      <div class="column">
+        <!-- <input class="input" placeholder="Please Enter Text" type="text" >   -->
+        <h1 class="button" id="add-admin"><i class="fas fa-user-plus"></i> &nbspADD</h1>  
+      </div>
+    </div>
 
-           
+    
 
-   
-</div>
+    
+  </div>
 
-<script>
-function w3_open() {
-  document.getElementById("mySidebar").style.display = "block";
-}
+  <script>
+    function w3_open() {
+      document.getElementById("mySidebar").style.display = "block";
+    }
 
-function w3_close() {
-  document.getElementById("mySidebar").style.display = "none";
-}
-</script>
-     
+    function w3_close() {
+      document.getElementById("mySidebar").style.display = "none";
+    }
+  </script>
+  
 </body>
 </html>

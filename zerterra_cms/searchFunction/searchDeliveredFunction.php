@@ -1,7 +1,7 @@
 <?php
 
 
-$sql= "SELECT * FROM approveorders_list WHERE CONCAT(`FirstName`, `LastName`, `Email`, `ContactNumber`) LIKE '%".$searchValue."%' AND is_delivered='0'";
+$sql= "SELECT * FROM approveorders_list WHERE CONCAT(`FirstName`, `LastName`, `Email`, `ContactNumber`) LIKE '%".$searchValue."%' AND is_delivered='1'";
  //$sql = "SELECT * FROM request_list WHERE is_approved='0'" ;
 $result = $con->query($sql);
 if ($result->num_rows > 0) {
@@ -18,34 +18,34 @@ if ($result->num_rows > 0) {
     ?>
     
     <tr>
-     
+       
 
-      <td>
-       # <?php echo $id; ?>
+        <td>
+         # <?php echo $id; ?>
      </td>
      
      <td>
-      <?php echo $id1; ?>
+        <?php echo $id1; ?>
     </td>
 
     <td>
-      <?php echo $fname; ?>
+        <?php echo $fname; ?>
     </td>
 
     <td>
-      <?php echo $lname; ?>
+        <?php echo $lname; ?>
     </td>
 
     <td>
-      <?php echo $email; ?>
+        <?php echo $email; ?>
     </td>
 
     <td>
-      <?php echo $Contact; ?>
+        <?php echo $Contact; ?>
     </td>
     
     <td>
-      <?php echo $Address; ?>
+        <?php echo $Address; ?>
     </td>
     
 
@@ -53,7 +53,7 @@ if ($result->num_rows > 0) {
 
 
 
-  <?php }
+<?php }
 
 
 
@@ -62,7 +62,7 @@ if ($result->num_rows > 0) {
 }
 else{
 	echo "<script>window.alert('NO RECORD FOUND!');</script>";
-	echo '<script>window.location.href="approved.php"</script>';
+	echo '<script>window.location.href="delivered.php"</script>';
 }
 
 ?>

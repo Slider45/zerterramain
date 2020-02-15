@@ -7,15 +7,15 @@
 
   #searchbtn{
    font-family: Montserrat;
-  }
+ }
 
-  /* textbox */
+ /* textbox */
 
-  .input{
-    border:solid 1px;
-    margin-bottom:5px;
-    color: #333;
-  }
+ .input{
+  border:solid 1px;
+  margin-bottom:5px;
+  color: #333;
+}
 
 </style>
 <div class="modal" id="approvedSearchModal">
@@ -31,14 +31,14 @@
         <input class="input" type="text" name="searchValue" placeholder="Search..." required="">
       </div>
       <div class="control" >
-     
-      
-     </div>
-   </div>         
-   <button class="button is-primary" id="searchbtn" name="search_btn" value="submit" ><i class="fa fa-search"></i>&nbspSearch</button>
-  
+       
+        
+      </div>
+    </div>         
+    <button class="button is-primary" id="searchbtn" name="search_btn" value="submit" ><i class="fa fa-search"></i>&nbspSearch</button>
+    
 
- </form>
+  </form>
 
 </div>
 </div>

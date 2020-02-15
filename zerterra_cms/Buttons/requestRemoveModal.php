@@ -19,7 +19,7 @@
                     </div>
                     <div style = "margin-bottom: 10px; margin-top: 20px; margin-left: 400px; margin-right: auto;">
                      <button  class="button is-success" name="acnt_remove">REMOVE</button>
-                     <button class="button is-danger">Cancel</button>
+                     <button class="button is-danger"><i class="fas fa-ban"></i>&nbspCancel</button>
                    </div>
                    
 

@@ -39,11 +39,9 @@ html, body {
   color: white;
 }
 
-.is-success{
-    font-family: Montserrat;
-    font-weight: bold;
+#btn-add {
+  font-family: unset;
 }
-
 
 .w3-sidebar {
   background-color: #1faa74;

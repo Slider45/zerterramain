@@ -106,11 +106,19 @@ include 'Buttons/pendingApproveQuery.php';
                           <?php
 
 
-                          $sql = "SELECT * FROM pending_list WHERE is_pending='0'" ;
-                          $result = $con->query($sql);
-                          if ($result->num_rows > 0) {
-                           while($row = $result->fetch_assoc()) 
-                           {
+                if (isset($_POST['search_btn'])){
+                  $searchValue = $_POST['searchValue'];
+
+                  if ($searchValue===''){
+                    echo '<script>window.location.href="?"</script>';
+                  }else{
+                  include 'searchFunction/searchRequestFunction.php';
+                }
+                }else{     
+                $sql = "SELECT * FROM pending_list WHERE is_pending='0' ORDER BY id DESC LIMIT $offset, $no_of_records_per_page";
+                $res_data = $con->query($sql);
+                while($row = mysqli_fetch_array($res_data)){
+                           
                             $id = $row['id'];
                             $fname = $row['FirstName'];
                             $lname = $row['LastName'];
@@ -156,7 +164,7 @@ include 'Buttons/pendingApproveQuery.php';
                             <?php
                           }
                         }  
-
+                      
                         ?>
 
 
@@ -164,7 +172,17 @@ include 'Buttons/pendingApproveQuery.php';
                       </tbody>
 
                     </table>
-
+<nav class="pagination is-small" role="navigation" aria-label="pagination">
+    <a href="<?php if($page <= 1){ echo '#'; } else { echo "?page=".($page - 1); } ?>" class="pagination-previous" >Previous</a>
+    <a href="<?php if($page >= $total_pages){ echo '#'; } else { echo "?page=".($page + 1); } ?>" class="pagination-next">Next page</a>
+    <ul class="pagination-list">
+      <li><a href="?page=1" class="pagination-link" >1</a></li>
+      <li>
+        <span class="pagination-ellipsis">&hellip;</span>
+      </li>
+      <li><a href="?page=<?php echo $total_pages; ?>" class="pagination-link"><?php echo $total_pages; ?></a></li>
+    </ul>
+  </nav>
                   </div>
                 </section>
 

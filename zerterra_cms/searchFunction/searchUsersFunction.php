@@ -21,7 +21,7 @@ if ($result->num_rows > 0) {
 
 
 			<td>
-				#<?php echo $id; ?>
+				# <?php echo $id; ?>
 			</td>
 			<td>
 				<?php echo $serialNum; ?>

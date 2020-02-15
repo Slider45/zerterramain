@@ -221,11 +221,12 @@ table, th, td {
   padding-top: 10px;
 }
 
-#card-pending, #card-approve {
-  border: solid 2px;
-  margin-top: 15px;
-  border-radius: 8px;
-  width: 400px;
+#card-pending, #card-approve{
+    border: solid 2px;
+    margin-top: 15px;
+    border-radius: 10px;
+    width: 400px;
+    height: 130px;
 }
 
 #pending {

@@ -85,9 +85,9 @@ include 'Pages/requestViewPage.php';
                  <table class = "table">
                   <thead>
                    <tr>
-                    <th>ID</th>
-                    <th>Serial Number</th>
-                    <th>Request Number</th>
+                    <th>#</th>
+                    <th>Serial #</th>
+                    <th>Request #</th>
                     <th>Name</th>
                     <th>Email</th>
                     <th>Contact</th>

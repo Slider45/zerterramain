@@ -21,7 +21,7 @@ $sql= "SELECT * FROM admin_list WHERE CONCAT(`name`, `contact`, `Email`) LIKE '%
          
 
                 <td>
-                    <?php echo $id; ?>
+                   # <?php echo $id; ?>
                 </td>
                             
                 <td>

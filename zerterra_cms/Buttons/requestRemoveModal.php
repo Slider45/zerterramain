@@ -1,4 +1,4 @@
-<div id="delete<?php echo $id; ?>" class="modal" role="dialog">
+<div id="deleterequest<?php echo $id; ?>" class="modal" role="dialog">
 
               <div class="modal-background"></div>
               <div class="modal-card">
@@ -14,7 +14,7 @@
                   </div>
 
                   <div class="is-danger">Are you Sure you want Delete <strong>
-                    "<?php echo $fame. $lname;?>"?</strong> </div>
+                    "<?php echo $fname.' '.$lname;?>"?</strong> </div>
                     <div class="modal-footer">
                     </div>
                     <div style = "margin-bottom: 10px; margin-top: 20px; margin-left: 400px; margin-right: auto;">

@@ -3,11 +3,8 @@
 session_start();
 // include '../PagesFunction/connection.php';
 include 'connection.php';
-include 'Pages/requestViewPage.php'; 
+include 'Buttons/requestButtonFunction.php';
 ?>
-
-
-
 
 <!DOCTYPE html>
 <html>
@@ -22,6 +19,10 @@ include 'Pages/requestViewPage.php';
 <link rel="stylesheet" href="sass/request.css">
 <body>
 
+<?php
+  include 'Pages/requestViewPage.php'; 
+  ?>
+
   <nav class="navbar" role="navigation" aria-label="main navigation">
     <div class="navbar-brand navbar-start">
       <a class="navbar-item" href="dashboard.php">
@@ -29,16 +30,12 @@ include 'Pages/requestViewPage.php';
       </a>
     </div>
     <!-- search button -->
-    <div>
-      <form action="request.php">
-       <input type="text" placeholder="Search.." name="searchValue" id="input">
-       <span> <button type="submit" id="search" name="search_btn"><i class="fa fa-search"></i></button></span>
-     </form>
-   </div>
-
    <div class="navbar-end">
     <div class="navbar-item">
       <div class="buttons">
+        <a class="button btn-logout modal-button" data-target="#requestSearchModal" aria-haspopup="true">
+            <i class="fa fa-search"></i></i> &nbspSearch
+        </a>
         <a class="button btn-user">
           <i class="far fa-user"></i> &nbspUser
         </a>
@@ -51,6 +48,7 @@ include 'Pages/requestViewPage.php';
 </div>
 </nav>
 
+<?php include 'Buttons/requestSearch.php'?>
 
 <div class="w3-sidebar w3-bar-block w3-collapse w3-card w3-animate-left" style="width:200px;" id="mySidebar">
   <button class="w3-bar-item w3-button w3-large w3-hide-large" onclick="w3_close()" id="close">&times;</button>
@@ -73,10 +71,6 @@ include 'Pages/requestViewPage.php';
       <div class="column">
         <h1 class="button-category">REQUEST</h1>
       </div>
-                <!-- <div class="column">
-                 
-                   <h1 class="button" id="add-admin"><i class="fas fa-user-plus"></i> &nbspADD</h1>  
-                 </div> -->
                </div>
 
                <section class = "section">
@@ -94,13 +88,84 @@ include 'Pages/requestViewPage.php';
                     <th>Options</th>
                   </tr>
                 </thead>
-  
- </table>
 
+        <?php 
 
+              if (isset($_POST['searchRequest_btn'])){
+              $searchValue = $_POST['searchValue'];
 
-
- <nav class="pagination is-small" role="navigation" aria-label="pagination">
+              if ($searchValue===''){
+              echo '<script>window.location.href="?"</script>';
+              }else{
+                include 'searchFunction/searchRequestFunction.php';
+              }
+              }else{
+              $sql = "SELECT * FROM request_list WHERE is_approved='1'  LIMIT $offset, $no_of_records_per_page";
+              $res_data = $con->query($sql);
+              while($row = mysqli_fetch_array($res_data)){
+                    $id = $row['id'];
+                    $fname = $row['FirstName'];
+                    $lname = $row['LastName'];
+                    $contact = $row['contact'];
+                    $Email = $row['email'];
+                    $serialNum = $row['serial_no'];
+                    $requestNum = $row['request_number'];
+                    $address = $row['address'];
+                ?>
+                      <tbody>
+                     <tr>
+                      <td>
+                      <?php echo $id; ?>
+                    </td>
+                    <td>
+                      <?php echo $serialNum; ?>
+                    </td>
+                    <td>
+                      <?php echo $requestNum; ?>
+                    </td>
+                    <td>
+                      <?php echo $fname; ?>
+                    </td>
+                    <td>
+                      <?php echo $Email; ?>
+                    </td>
+                    <td>
+                      <?php echo $contact; ?>
+                    </td>
+                    
+                       <td>
+              <button data-target="#editrequest<?php echo $id;?>" class="button is-primary is-small modal-button" id="btn_update" name="btn-update"><i class="fas fa-pencil-alt"></i>
+              </button>
+              <?php
+                 include 'Buttons/requestEditModal.php';
+              ?>
+              <button data-target="#deleterequest<?php echo $id;?>" class="button is-danger is-small modal-button"  id="btn_delete" name="btn-delete"><i class="fas fa-trash-alt"></i>
+              </button>
+              <?php
+                     include 'Buttons/requestRemoveModal.php';
+              ?>
+              </td>
+              </tr>
+<?php 
+}  
+}        
+?>                        
+                         
+                      </tbody>
+                   </table>
+<nav class="pagination is-small" role="navigation" aria-label="pagination">
+    <a href="<?php if($page <= 1){ echo '#'; } else { echo "?page=".($page - 1); } ?>" class="pagination-previous" >Previous</a>
+    <a href="<?php if($page >= $total_pages){ echo '#'; } else { echo "?page=".($page + 1); } ?>" class="pagination-next">Next page</a>
+    <ul class="pagination-list">
+      <li><a href="?page=1" class="pagination-link" >1</a></li>
+      <li>
+        <span class="pagination-ellipsis">&hellip;</span>
+      </li>
+      <li><a href="?page=<?php echo $total_pages; ?>" class="pagination-link"><?php echo $total_pages; ?></a></li>
+    </ul>
+  </nav>
+</div>
+</section>
 
 </div>
 
@@ -123,7 +188,7 @@ include 'Pages/requestViewPage.php';
                 <button class="delete" aria-label="close" id="close9"></button>
                 <div class="columns is-mobile">
                   <div class="column is-6">
-                    <a href="dashboard.html">
+                    <a href="pending.php">
                       <div class="card" id="card-pending" style="background:url(images/pendingicon.png);  background-size: 100% 100%; background-repeat: no-repeat; background-size: cover;">
                         <div class="card-content" >
                           <a href="pending.php" id="pending">
@@ -134,7 +199,7 @@ include 'Pages/requestViewPage.php';
                    </a>
                  </div>
                  <div class="column is-6">
-                  <a href="dashboard.html">
+                  <a href="approved.php">
                     <div class="card" id="card-approve" style="background:url(images/approvedicon.png);  background-size: 100% 100%; background-repeat: no-repeat; background-size: cover;">
                       <div class="card-content" >
                         <a href="approved.php" id="pending">
@@ -171,10 +236,20 @@ include 'Pages/requestViewPage.php';
     function w3_open() {
       document.getElementById("mySidebar").style.display = "block";
     }
-
     function w3_close() {
       document.getElementById("mySidebar").style.display = "none";
     }
+    document.querySelectorAll('.modal-button').forEach(function(el) {
+      el.addEventListener('click', function() {
+        var target = document.querySelector(el.getAttribute('data-target'));
+
+        target.classList.add('is-active');
+
+        target.querySelector('.modal-close').addEventListener('click', function(){
+          target.classList.remove('is-active');
+        });
+      });
+    });
   </script>
 
 </body>

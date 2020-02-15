@@ -14,25 +14,25 @@
           </div>
         </div>
         <div class="control">
-          <input class="input1" type="text" name="serialNum" value="<?php echo $serialNum; ?>" required="" disabled="disabled">
+          <input class="input" type="text" name="serialNum" value="<?php echo $serialNum; ?>" required="" disabled="disabled">
         </div>
         <div class="control">
-          <input class="input1" type="text" name="reqeustNum" value="<?php echo $requestNum; ?>" required="" disabled="disabled">
+          <input class="input" type="text" name="requestNum" value="<?php echo $requestNum; ?>" required="" disabled="disabled">
         </div>
         <div class="control">
-          <input class="input1" type="text" name="edit_fname" value="<?php echo $fname; ?>" required="">
+          <input class="input" type="text" name="edit_fname" value="<?php echo $fname; ?>" required="">
         </div>
         <div class="control">
-          <input class="input1" type="text" name="edit_lname" value="<?php echo $lname; ?>" required="">
+          <input class="input" type="text" name="edit_lname" value="<?php echo $lname; ?>" required="">
         </div>
         <div class="control">
-          <input class="input1" type="text" name="edit_email" value="<?php echo $email; ?>" required="">
+          <input class="input" type="email" name="edit_email" value="<?php echo $Email; ?>" required="">
         </div>
         <div class="control">
-          <input class="input1" type="number" name="edit_contact" value="<?php echo $contact; ?>"   required="">
+          <input class="input" type="number" name="edit_contact" value="<?php echo $contact; ?>"   required="">
         </div>
         <div class="control">
-          <input class="input1" type="email" name="edit_address" value="<?php echo $address; ?>"  required="">
+          <input class="input" type="text" name="edit_address" value="<?php echo $address; ?>"  required="">
         </div>
         <div class="control" style="margin-top: 10px;">
 
@@ -45,7 +45,7 @@
                      </div>
                    </div>
                    
-                   <button type="submit" name="updated_id" class="button is-success">Save</button>
+                   <button type="submit" name="updated_user" class="button is-success">Save</button>
                    <button class="button is-danger">Cancel</button>
 
                  </form>

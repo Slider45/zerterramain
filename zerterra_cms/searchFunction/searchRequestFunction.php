@@ -1,7 +1,5 @@
 <?php
 
-
-
 include 'connection.php';
  
 $sql= "SELECT * FROM request_list WHERE CONCAT(`serial_no`, `request_number`, `FirstName`, `LastName`, `email`) LIKE '%".$searchValue."%' AND is_approved='1'";
@@ -67,22 +65,22 @@ if ($result->num_rows > 0) {
                                     </div>
                                 </div>
                                 <div class="control">
-                                    <input class="input1" type="text" name="edit_name" value="<?php echo $fname; ?>" required="">
+                                    <input class="input" type="text" name="edit_name" value="<?php echo $fname; ?>" required="">
                                 </div>
 
                                 <div class="control">
-                                    <input class="input1" type="text" name="edit_name" value="<?php echo $lname; ?>" required="">
+                                    <input class="input" type="text" name="edit_name" value="<?php echo $lname; ?>" required="">
                                 </div>
 
                                 <div class="control">
-                                    <input class="input1" type="text" name="edit_name" value="<?php echo $reqNo; ?>" required="">
+                                    <input class="input" type="text" name="edit_name" value="<?php echo $reqNo; ?>" required="">
                                 </div>
 
                                 <div class="control">
-                                    <input class="input1" type="number" name="edit_contact" value="<?php echo $contact; ?>"   required="">
+                                    <input class="input" type="number" name="edit_contact" value="<?php echo $contact; ?>"   required="">
                                 </div>
                                 <div class="control">
-                                    <input class="input1" type="email" name="edit_email" value="<?php echo $Email; ?>"  required="">
+                                    <input class="input" type="email" name="edit_email" value="<?php echo $Email; ?>"  required="">
                                 </div>
                                 <div class="control" style="margin-top: 10px;">
 

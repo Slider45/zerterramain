@@ -15,7 +15,7 @@ if(isset($_POST['userbtn-save'])){
 
   $sql ="INSERT INTO tblusers_list (serial_number,Firstname,Lastname,ContactNumber,email,password,remaining_days,dateRegistered,dateExpired,Hours,Minutes,Seconds,Capacity_Level,Current_Weight,is_active,isEmailConfirmed) VALUES ($serialNum,'$fname','$lname','$contact','$email','$serialNum','365','$dateRegs','$endWarranty','0','0','0','0','0','1','0')";
   if($con->query($sql) === TRUE){
-    echo "<script>window.alert('$endWarranty');</script>";
+    echo "<script>window.alert('NEW USER ADDED!');</script>";
     // echo "<script>window.alert('New User is Added!');</script>";
     // echo '<script>window.location.href="users.php"</script>';
   }else{

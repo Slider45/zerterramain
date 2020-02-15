@@ -16,6 +16,10 @@ include 'Buttons/pendingApproveQuery.php';
 <link rel="stylesheet" href="sass/approved.css">
 
 <body>
+<?php
+  include 'Pages/pendingViewPage.php'; 
+  ?>
+
     <nav class="navbar" role="navigation" aria-label="main navigation">
         <div class="navbar-brand navbar-start">
             <a class="navbar-item" href="index.php">
@@ -28,25 +32,31 @@ include 'Buttons/pendingApproveQuery.php';
                          <input type="text" placeholder="Search.." name="search" id="input">
                         <span> <button type="submit" id="search"><i class="fa fa-search"></i></button></span>
                  </form>
-             </div> -->
 
-             <div class="navbar-end">
-                <div class="navbar-item">
-                    <div class="buttons">
-                        <a class="button btn-user">
-                            <i class="far fa-user"></i> &nbspUser
-                        </a>
-                        <a class="button btn-logout">
-                            <i class="fas fa-sign-out-alt"></i> &nbspLogout
-                        </a>
-                    </div>
+              </div> -->
+
+        <div class="navbar-end">
+            <div class="navbar-item">
+                <div class="buttons">
+                <a class="button btn-logout modal-button" data-target="#pendingSearchModal" aria-haspopup="true">
+                        <i class="fa fa-search"></i></i> &nbspSearch
+                </a>
+                    <a class="button btn-user">
+                        <i class="far fa-user"></i> &nbspUser
+                    </a>
+                    <a class="button btn-logout">
+                        <i class="fas fa-sign-out-alt"></i> &nbspLogout
+                    </a>
+
                 </div>
             </div>
         </div>
     </nav>
 
+    <?php include 'Buttons/pendingSearch.php'?>
 
     <div class="w3-sidebar w3-bar-block w3-collapse w3-card w3-animate-left" style="width:200px;" id="mySidebar">
+
         <button class="w3-bar-item w3-button w3-large w3-hide-large" onclick="w3_close()" id="close">&times;</button>
         <a href="index.php" class="w3-bar-item w3-button" id="item-hover"><i class="fas fa-th-large"></i> &nbsp Dashboard</a>
         <a href="admin.php" class="w3-bar-item w3-button" id="item-hover"> <i class="fas fa-user-shield"></i> &nbsp
@@ -58,6 +68,7 @@ include 'Buttons/pendingApproveQuery.php';
         <a href="" class="w3-bar-item w3-button" id="item-hover"><i class="fas fa-hand-holding-usd"></i> &nbspSales</a>
         <a href="#" class="w3-bar-item w3-button" id="item-hover"><i class="fas fa-print"></i> &nbsp Consolidate</a>
     </div>
+
 
     <div class="w3-main" style="margin-left:200px">
         <div class="w3-teal">
@@ -92,6 +103,7 @@ include 'Buttons/pendingApproveQuery.php';
                     <tbody>
                         <?php
 
+<<<<<<< HEAD
                         $sql = "SELECT * FROM pending_list WHERE is_pending='0'" ;
                         $result = $con->query($sql);
                         if ($result->num_rows > 0) {
@@ -142,12 +154,90 @@ include 'Buttons/pendingApproveQuery.php';
                             <?php
                         }
                     }  
+=======
+                    if (isset($_POST['search_btn'])){
+                        $searchValue = $_POST['searchValue'];
+
+                        if ($searchValue===''){
+                        echo '<script>window.location.href="?"</script>';
+                        }else{
+                        include 'searchFunction/searchPendingFunction.php';
+                    }
+                    }else{     
+                    $sql = "SELECT * FROM pending_list  WHERE is_pending='0' ORDER BY id DESC LIMIT $offset, $no_of_records_per_page";
+                    $res_data = $con->query($sql);
+                    while($row = mysqli_fetch_array($res_data)){
+                        {
+                          $id = $row['id'];
+                          $fname = $row['FirstName'];
+                          $lname = $row['LastName'];
+                          $email = $row['Email'];
+                          $Contact = $row['ContactNumber'];
+                          $Address = $row['Address'];                 
+                        ?>
+                        
+              <tr>
+                    <td>
+                        <?php echo $id; ?>
+                    </td>
+
+                     <td>
+                        <?php echo $fname; ?>
+                    </td>
+
+                     <td>
+                        <?php echo $lname; ?>
+                    </td>
+
+                     <td>
+                        <?php echo $email; ?>
+                    </td>
+                    <td>
+                        <?php echo $Contact; ?>
+                    </td>
+                    <td>
+                    <button data-target="#edit<?php echo $id;?>" class="button is-primary is-small modal-button" id="btn_update" name="btn-update"><i class="far fa-edit"></i>
+                    </button>
+                    <?php
+                    include 'Buttons/pendingEditModal.php';
+                    ?>  
+                    <button data-target="#delete<?php echo $id;?>" class="button is-danger is-small modal-button"  id="btn_delete" name="btn-delete"><i class="fas fa-eye"></i>
+                    </button>
+                    <?php
+                    include 'Buttons/pendingApproveModal.php';
+>>>>>>> 89185173af416b17e158b1717406db2d77d2f37f
                     ?>
 
+<<<<<<< HEAD
 
                 </tbody>
 
             </table>
+=======
+    <?php
+            }
+    } 
+}
+
+?>
+      
+
+                        </tbody>
+                    </table>
+  <nav class="pagination is-small" role="navigation" aria-label="pagination">
+    <a href="<?php if($page <= 1){ echo '#'; } else { echo "?page=".($page - 1); } ?>" class="pagination-previous" >Previous</a>
+    <a href="<?php if($page >= $total_pages){ echo '#'; } else { echo "?page=".($page + 1); } ?>" class="pagination-next">Next page</a>
+    <ul class="pagination-list">
+      <li><a href="?page=1" class="pagination-link" >1</a></li>
+      <li>
+        <span class="pagination-ellipsis">&hellip;</span>
+      </li>
+      <li><a href="?page=<?php echo $total_pages; ?>" class="pagination-link"><?php echo $total_pages; ?></a></li>
+    </ul>
+  </nav>
+                </div>
+            </section>
+>>>>>>> 89185173af416b17e158b1717406db2d77d2f37f
         </div>
     </section>
 

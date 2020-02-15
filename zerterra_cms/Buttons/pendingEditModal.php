@@ -31,9 +31,6 @@ include 'connection.php';
                       <div class="control">
                         <input class="input" type="number" name="contact" value="<?php echo $Contact; ?>"  required="">
                       </div>
-                      <div class="control">
-                        <input class="input" type="text" name="message" value="<?php echo $Message; ?>"  required="">
-                      </div>
                         <div class="control" style="margin-top: 10px;">
                         
                       </div>

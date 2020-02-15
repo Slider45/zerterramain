@@ -1,3 +1,7 @@
+<?php
+include 'connection.php';
+?>
+
 <?php 
       
       if(isset($_POST['btnapproved'])){
@@ -7,16 +11,16 @@
         $email= $_POST['edit_email'];
         $Address = $_POST['edit_address'];
         $Contact= $_POST['edit_contact'];
-        $Message= $_POST['edit_message'];
+        
         // echo "<script>window.alert('$email');</script>";
     
     
     
-        $sql = "UPDATE pending_list SET FirstName='$fname',LastName='$lname',Message='$Message', Address='$Address' ,ContactNumber='$Contact',Email='$email', is_pending='1' WHERE id='$edit_id'";
+        $sql = "UPDATE pending_list SET FirstName='$fname',LastName='$lname', Address='$Address' ,ContactNumber='$Contact',Email='$email', is_pending='1' WHERE id='$edit_id'";
         if($con->query($sql) === TRUE){
     
     
-       $sql ="INSERT INTO approve_list(pendingID,FirstName,LastName,Email,ContactNumber,Address,Message) VALUES ('$id','$fname','$lname','$email','$Address','$Contact','$Message')";
+       $sql ="INSERT INTO approve_list(pendingID,FirstName,LastName,Email,ContactNumber,Address) VALUES ('$edit_id','$fname','$lname','$email','$Address','$Contact')";
               if($con->query($sql) === TRUE){
                 
               }else{

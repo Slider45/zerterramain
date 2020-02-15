@@ -102,7 +102,7 @@ include 'connection.php';
                 if ($searchValue===''){
                 echo '<script>window.location.href="?"</script>';
                 }else{
-                include 'searchFunction/searchPendingFunction.php';
+                include 'searchFunction/searchApprovedFunction.php';
             }
             }else{     
             $sql = "SELECT * FROM approve_list ORDER BY id DESC LIMIT $offset, $no_of_records_per_page";

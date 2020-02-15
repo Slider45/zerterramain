@@ -20,7 +20,7 @@ include 'connection.php';
         if($con->query($sql) === TRUE){
     
     
-       $sql ="INSERT INTO approve_list(pendingID,FirstName,LastName,Email,ContactNumber,Address) VALUES ('$edit_id','$fname','$lname','$email','$Address','$Contact')";
+       $sql ="INSERT INTO approve_list(pendingID,FirstName,LastName,Email,Address,ContactNumber) VALUES ('$edit_id','$fname','$lname','$email','$Address','$Contact')";
               if($con->query($sql) === TRUE){
                 
               }else{

@@ -89,7 +89,7 @@ $requestCount=mysqli_num_rows($result);
             <div class="column">
               SALES
             </div>
-            <div class="column">
+            <div class="column" style="text-align: right;">
               <span class="is-right">Php 123,456</span>
             </div>
           </div>
@@ -104,7 +104,7 @@ $requestCount=mysqli_num_rows($result);
             <div class="column">
               ADMIN
             </div>
-            <div class="column">
+            <div class="column" style="text-align: right;">
               <span class="is-right"><?php echo $adminUserCount;?></span>
             </div>
           </div>
@@ -120,7 +120,7 @@ $requestCount=mysqli_num_rows($result);
             <div class="column">
               USERS
             </div>
-            <div class="column">
+            <div class="column" style="text-align: right;">
               <span class="is-right"><?php echo $regUserCount;?></span>
             </div>
           </div>
@@ -131,12 +131,12 @@ $requestCount=mysqli_num_rows($result);
 
     <div class="column is-half">
       <a href="request.php">
-      <div class="box" style="background:url(images/blue_bg.png); background-repeat: no-repeat; background-size: cover;">
+      <div class="box" style="background:url(images/request_bg.png); background-repeat: no-repeat; background-size: cover;">
         <div class="columns">
           <div class="column">
             REQUEST LIST
           </div>
-          <div class="column">
+          <div class="column" style="text-align: right;">
             <span class="is-right"><?php echo $requestCount;?></span>
           </div>
         </div>

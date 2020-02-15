@@ -79,7 +79,7 @@ include 'connection.php';
                     <table class="table">
                         <thead>
                             <tr>
-                                <th>ID</th>
+                                <th>#</th>
                                 <th>Name</th>
                                 <th>Country</th>
                                 <th>City</th>

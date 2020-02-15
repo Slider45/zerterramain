@@ -39,6 +39,12 @@ html, body {
   color: white;
 }
 
+.is-success{
+    font-family: Montserrat;
+    font-weight: bold;
+}
+
+
 .w3-sidebar {
   background-color: #1faa74;
   position: fixed;

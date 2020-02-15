@@ -21,7 +21,7 @@ if (isset($_POST['sndRequest'])) {
 	if($result->num_rows > 0){
 
 
-		$sqlnames = "SELECT * FROM request_list WHERE serial_no='$serialNum' AND FirstName='$fname' AND LastName = '$lname' AND is_approved = '0'";
+		$sqlnames = "SELECT * FROM request_list WHERE serial_no='$serialNum' AND is_approved = '0'";
 		$result = $con->query($sqlnames);
 		if($result->num_rows > 3){
 

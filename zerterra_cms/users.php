@@ -59,9 +59,9 @@ include 'Buttons/usersButtonFunction.php';
   <a href="index.php" class="w3-bar-item w3-button" id="item-hover"><i class="fas fa-th-large"></i> &nbsp Dashboard</a>
   <a href="admin.php" class="w3-bar-item w3-button" id="item-hover"> <i class="fas fa-user-shield"></i> &nbsp Admin</a>
   <a href="users.php" class="w3-bar-item w3-button" id="dashboard"><i class="fas fa-user"></i> &nbsp Users</a>
-  <a class="w3-bar-item w3-button w3-dropdown-hover" id="sendmodal" ><i class="fas fa-cubes"></i> &nbsp Orders</a>
+  <a class="w3-bar-item w3-button w3-dropdown-hover modal-button" id="sendmodal" data-target="#ordersModal" aria-haspopup="true"><i class="fas fa-cubes"></i> &nbsp Orders</a>
   <a href="request.php" class="w3-bar-item w3-button" id="item-hover"><i class="fas fa-envelope-open-text"></i> &nbsp Request</a>
-  <a href="sales.php" class="w3-bar-item w3-button" id="item-hover"><i class="fas fa-hand-holding-usd"></i> &nbsp sales</a>
+  <a href="sales.php" class="w3-bar-item w3-button" id="item-hover"><i class="fas fa-hand-holding-usd"></i> &nbsp Sales</a>
   <a href="#" class="w3-bar-item w3-button" id="item-hover"><i class="fas fa-print"></i> &nbsp Consolidate</a>
 </div>
 
@@ -89,7 +89,7 @@ include 'Buttons/usersButtonFunction.php';
          <table class="table">
           <thead>
            <tr>
-            <th>ID</th>
+            <th>#</th>
             <th>Serial #</th>
             <th>Firstname</th>
             <th>Lastname</th>
@@ -120,13 +120,13 @@ include 'Buttons/usersButtonFunction.php';
               $lname = $row['Lastname'];
               $rdays = $row['remaining_days'];
               $email = $row['email'];
-              // $Address = $row['Address'];
+
               $contact = $row['ContactNumber'];   
               ?>
               <tbody>
                <tr>
                  <td>
-                   <?php echo $id; ?>
+                   # <?php echo $id; ?>
                  </td>
                  <td>
                   <?php echo $serialNum; ?>
@@ -193,7 +193,7 @@ include 'Buttons/usersButtonFunction.php';
 
 <div class="container" id="modal-container">
 
-  <div id="serv-modal1" class="modal  modal-fx-slideTop">
+  <div id="ordersModal" class="modal  modal-fx-slideTop">
     <div class="modal-background"></div>
     <div class="modal-content1">
      <div class="modal-card1">
@@ -204,7 +204,7 @@ include 'Buttons/usersButtonFunction.php';
           <div class="control">
             <div class="card" id="modal-card">
               <div class="card-content" id="trans-content">
-                <button class="delete" aria-label="close" id="close9"></button>
+                <button class="modal-close" id="close9"></button>
                 <div class="columns is-mobile">
                   <div class="column is-6">
                     <a href="dashboard.html">
@@ -239,28 +239,7 @@ include 'Buttons/usersButtonFunction.php';
     </div>
   </div>
 
-  <!-- modal script -->
-  <script>
-    var btn = document.querySelector('#sendmodal');
-    var modalDlg9 = document.querySelector('#serv-modal1');
-    var imageModalCloseBtn9 = document.querySelector('#close9');
-    btn.addEventListener('click', function(){
-      modalDlg9.classList.add('is-active');
-    });
-
-    imageModalCloseBtn9.addEventListener('click', function(){
-      modalDlg9.classList.remove('is-active');
-    });
-    // .click(function() {
-    //   .addClass("is-active");  
-    // });
-
-    // $(".modal-close").click(function() {
-    //    $(".modal").removeClass("is-active");
-    // });
-  </script>        
-
-  <!-- end script -->
+  
 
   <script>
     function w3_open() {

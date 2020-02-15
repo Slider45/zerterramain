@@ -21,7 +21,7 @@ $sql= "SELECT * FROM approve_list WHERE CONCAT(`FirstName`, `LastName`, `Email`,
          
 
                 <td>
-                    <?php echo $id; ?>
+                   # <?php echo $id; ?>
                 </td>
                             
                 <td>

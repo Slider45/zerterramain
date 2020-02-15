@@ -60,9 +60,9 @@ include 'Buttons/adminButtonFunction.php';
   <a href="index.php" class="w3-bar-item w3-button" id="item-hover"><i class="fas fa-th-large"></i> &nbsp Dashboard</a>
   <a href="admin.php" class="w3-bar-item w3-button" id="dashboard"> <i class="fas fa-user-shield"></i> &nbsp Admin</a>
   <a href="users.php" class="w3-bar-item w3-button" id="item-hover"><i class="fas fa-user"></i> &nbsp Users</a>
-  <a class="w3-bar-item w3-button w3-dropdown-hover" id="sendmodal" ><i class="fas fa-cubes"></i> &nbsp Orders</a>
+  <a class="w3-bar-item w3-button w3-dropdown-hover modal-button" id="sendmodal" data-target="#ordersModal" aria-haspopup="true"><i class="fas fa-cubes"></i> &nbsp Orders</a>
   <a href="request.php" class="w3-bar-item w3-button" id="item-hover"><i class="fas fa-envelope-open-text"></i> &nbsp Request</a>
-  <a href="sales.php" class="w3-bar-item w3-button" id="item-hover"><i class="fas fa-hand-holding-usd"></i> &nbsp sales</a>
+  <a href="sales.php" class="w3-bar-item w3-button" id="item-hover"><i class="fas fa-hand-holding-usd"></i> &nbsp Sales</a>
   <a href="#" class="w3-bar-item w3-button" id="item-hover"><i class="fas fa-print"></i> &nbsp Consolidate</a>
 </div>
 
@@ -77,7 +77,7 @@ include 'Buttons/adminButtonFunction.php';
         <h1 class="button-category">ADMIN</h1>
       </div>
       <div class="column">
-        <button style="margin-top: 30px ; margin-left: 430px;" id="btn-add" class="button modal-button is-success" data-target="#myModal" aria-haspopup="true">
+        <button style="margin-top: 30px ; margin-left: 430px; font-family: unset;" id="btn-add" class="button modal-button is-success" data-target="#myModal" aria-haspopup="true">
           <i class="fas fa-user-plus"></i> &nbspADD</button>
           <?php 
           include 'Buttons/addAdminModal.php';
@@ -90,7 +90,7 @@ include 'Buttons/adminButtonFunction.php';
          <table class="table">
           <thead>
            <tr>
-            <th>ID</th>
+            <th>#</th>
             <th>Name</th>
             <th>Contact</th>
             <th>Email</th>
@@ -125,7 +125,7 @@ include 'Buttons/adminButtonFunction.php';
           <tbody>
            <tr>
              <td>
-               <?php echo $id; ?>
+              # <?php echo $id; ?>
              </td>
              <td>
               <?php echo $name; ?>
@@ -191,9 +191,11 @@ include 'Buttons/adminButtonFunction.php';
 
 <!-- modal transaction -->
 
+<<!-- modal transaction -->
+
 <div class="container" id="modal-container">
 
-  <div id="serv-modal1" class="modal  modal-fx-slideTop">
+  <div id="ordersModal" class="modal  modal-fx-slideTop">
     <div class="modal-background"></div>
     <div class="modal-content1">
      <div class="modal-card1">
@@ -204,10 +206,10 @@ include 'Buttons/adminButtonFunction.php';
           <div class="control">
             <div class="card" id="modal-card">
               <div class="card-content" id="trans-content">
-                <button class="delete" aria-label="close" id="close9"></button>
+                <button class="modal-close" id="close9"></button>
                 <div class="columns is-mobile">
                   <div class="column is-6">
-                    <a href="pending.php">
+                    <a href="dashboard.html">
                       <div class="card" id="card-pending" style="background:url(images/pendingicon.png);  background-size: 100% 100%; background-repeat: no-repeat; background-size: cover;">
                         <div class="card-content" >
                           <a href="pending.php" id="pending">
@@ -218,7 +220,7 @@ include 'Buttons/adminButtonFunction.php';
                     </a>
                   </div>
                   <div class="column is-6">
-                    <a href="approved.php">
+                    <a href="dashboard.html">
                       <div class="card" id="card-approve" style="background:url(images/approvedicon.png);  background-size: 100% 100%; background-repeat: no-repeat; background-size: cover;">
                         <div class="card-content" >
                           <a href="approved.php" id="pending">
@@ -238,6 +240,7 @@ include 'Buttons/adminButtonFunction.php';
       </div>
     </div>
   </div>
+
 
   <!-- modal script -->
 

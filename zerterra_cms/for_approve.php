@@ -24,7 +24,7 @@ $id = $_SESSION['id'];
     ?>
     <nav class="navbar" role="navigation" aria-label="main navigation">
         <div class="navbar-brand navbar-start">
-            <a class="navbar-item" href="dashboard.php">
+            <a class="navbar-item" href="index.php">
                 <img src="images/logowhite.png" width="112" height="28" class="img-logo">
             </a>
         </div>
@@ -186,7 +186,8 @@ $id = $_SESSION['id'];
 
                 <div class="column" id="for-img">
                     <figure class="image" id="Qr-img">
-                        <img src="https://bulma.io/images/placeholders/256x256.png">
+                        <img src="qr.png">
+                        <!-- https://bulma.io/images/placeholders/256x256.png -->
                     </figure>
 
                     <button class="button is-success" id="refresh"><i class="fas fa-sync-alt"></i> &nbspRefresh</button>
@@ -194,6 +195,7 @@ $id = $_SESSION['id'];
              </div>    
              
                 </form>
+                
 
                 <script>
                     function w3_open() {

@@ -126,8 +126,8 @@ include 'Buttons/adminButtonFunction.php';
            <tr>
              <td>
               # <?php echo $id; ?>
-             </td>
-             <td>
+            </td>
+            <td>
               <?php echo $name; ?>
             </td>
             <td>
@@ -191,7 +191,7 @@ include 'Buttons/adminButtonFunction.php';
 
 <!-- modal transaction -->
 
-<<!-- modal transaction -->
+<!-- modal transaction -->
 
 <div class="container" id="modal-container">
 
@@ -212,12 +212,12 @@ include 'Buttons/adminButtonFunction.php';
                     <a href="pending.php">
                       <div class="card" id="card-pending" style="background:url(images/pendingicon.png);  background-size: 100% 100%; background-repeat: no-repeat; background-size: cover;">
                        <!-- PENDING -->
-                      </div>
-                    </a>
-                  </div>
-                  <div class="column is-6">
-                    <a href="approved.php">
-                      <div class="card" id="card-approve" style="background:url(images/approvedicon.png);  background-size: 100% 100%; background-repeat: no-repeat; background-size: cover;">
+                     </div>
+                   </a>
+                 </div>
+                 <div class="column is-6">
+                  <a href="approved.php">
+                    <div class="card" id="card-approve" style="background:url(images/approvedicon.png);  background-size: 100% 100%; background-repeat: no-repeat; background-size: cover;">
                         <!-- <div class="card-content" >
                           <a href="approved.php" id="pending">
                             APPROVED
@@ -253,6 +253,7 @@ include 'Buttons/adminButtonFunction.php';
         var target = document.querySelector(el.getAttribute('data-target'));
 
         target.classList.add('is-active');
+
 
         target.querySelector('.modal-close').addEventListener('click', function(){
           target.classList.remove('is-active');

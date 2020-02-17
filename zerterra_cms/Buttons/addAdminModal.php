@@ -33,24 +33,24 @@
    <form method="POST" class="modal-card-body">
      <div class="field">
       <div class="control">
-        <input class="input" type="text" name="name" placeholder="Name" required="">
+        <input class="input" type="text" name="name" placeholder="Fullname" required autofocus>
       </div>
       <div class="control">
-        <input class="input" type="password" name="password" placeholder="Password" required="">
+        <input class="input" type="password" name="password" placeholder="Password" required>
       </div>
       <div class="control">
-        <input class="input" type="password" name="cpassword" placeholder="Confirm Password" required="">
+        <input class="input" type="password" name="cpassword" placeholder="Confirm Password" required>
       </div>
       <div class="control">
-        <input class="input" type="number" name="contact" placeholder="Contant Number" required="">
+        <input class="input" type="number" name="contact" placeholder="Contant Number" required>
       </div>
       <div class="control">
-        <input class="input" type="email" name="email" placeholder="Email" required="">
+        <input class="input" type="email" name="email" placeholder="Email" required>
       </div>
       <div class="control" >
        <!--  <input class="input1" type="text" name="role" placeholder="Role" required=""> -->
        <div class="select">
-         <select style="width: 1000px; padding-top:5px; border:solid 1px;" name="role"required="">
+         <select style="width: 1000px; padding-top:5px; border:solid 1px;" name="role" required>
            <option value="Admin">Admin</option>
            <option value="Super Admin">Super Admin</option>
          </select>
@@ -59,9 +59,11 @@
    </div>         
    <button type="submit" class="button is-success" name="btn_add_admin" id="adminbtnsave">
      <i class="far fa-save"></i>&nbspSave</button>
-    
+
    </form>
 
  </div>
 </div>
+
+
 

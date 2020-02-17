@@ -78,19 +78,19 @@ $id = $_SESSION['id'];
                 <h1 class="button-category">FOR APPROVE</h1>
             </div>
             <div class="column">
-                 <div class="columns">
+                 <!-- <div class="columns">
                     <div class="column">
                         <a href="pending.php">
                            <button style="margin-top: 30px ; margin-left: 400px; font-family: unset; font-size:16px;" id="btn-add" class="button is-danger is-small">
                             <i class="fas fa-exclamation-circle"></i> &nbspPENDING</button>
                        </a>
-                     </div>
-                    <div class="column">
+                     </div> -->
+                    <!-- <div class="column">
                         <a href="delivered.php">
                              <button style="margin-top: 30px ; font-family: unset; font-size:16px;" id="btn-add" class="button is-primary is-small">
                               <i class="fas fa-truck"></i> &nbspDELIVERED</button>
                         </a>
-                    </div>
+                    </div> -->
             </div>
 
 
@@ -99,10 +99,12 @@ $id = $_SESSION['id'];
 
                       </div>
                   </div>
+
+
                   <div class="container" style="margin-left: 100px; margin-top: 50px;">
 
-
-
+                <div class="columns">
+                    <div class="column is-5">
                     <div class="content">
 
 
@@ -120,25 +122,78 @@ $id = $_SESSION['id'];
                             $Address = $row['Address'];
 
                             ?>
-                            
 
+                            <!-- form -->
+                            <form method="POST">
 
-                            <p class="content-item">Firstname: &nbsp <?php echo $fname;?> </p>
-                            
-                            <p class="content-item">Lastname: &nbsp<?php echo $lname;?></p>
-                           
-                            <p class="content-item">E-mail Address: <?php echo $email;?> </p>
-                           
-                            <p class="content-item">Contact Number:  <?php echo $Contact;?> </p>
-                     
-                            <p class="content-item">Address: <?php echo $Address;?> </p>
+                            <div class="field">
+                                <div class="control">
+                                    <div class="field">
+                                    <input type="hidden"  value="<?php echo $id; ?>">
+                                    </div>
+                                </div>
+                                <div class="control">
+                                    <div class="columns">
+                                        <div class="column is-2" id="label">Firstname:</div>
+                                        <div class="column" id="txtbox"><input class="input"   value="<?php echo $fname; ?>" disabled="disabled"></div>
+                                    </div>
+                                </div>
+                                <div class="control">
+                                    <div class="columns">
+                                        <div class="column is-2" id="label">Lastname:</div>
+                                        <div class="column" id="txtbox"><input class="input"   value="<?php echo $lname; ?>"  disabled="disabled"></div>
+                                    </div>
+                                </div>
+                                <div class="control">
+                                    <div class="columns">
+                                        <div class="column is-2" id="label">Email:</div>
+                                        <div class="column" id="txtbox"><input class="input"  value="<?php echo $email; ?>"  disabled="disabled"></div>
+                                    </div>
+                                </div>
+                                <div class="control">
+                                    <div class="columns">
+                                        <div class="column is-2" id="label">Contact:</div>
+                                        <div class="column" id="txtbox"><input class="input"  value="<?php echo $Contact;?>" disabled="disabled"></div>
+                                    </div>
+                                </div>
+                                <div class="control">
+                                    <div class="columns">
+                                        <div class="column is-2" id="label">Address:</div>
+                                        <div class="column" id="txtbox"><input class="input"  value="<?php echo $Address;?>" disabled="disabled"></div>
+                                    </div>
+                                </div>
                         
                         </div>
                         <?php
                     }
                     ?>
-                    <a href="index.php"><button class="button is-rounded">Back</button></a>
+                 <div class="columns is-multiline">
+                   <div class="column is-8"  id="print-Qr" > 
+                     <a href="pending.php" ><button class="button is-success" ><i class="fas fa-print"></i>&nbspPrint QR/Save</button></a>
+                    </div>
+                    <div class="column is-6">
+                     <a href="pending.php" ><button class="button is-danger"><i class="fas fa-ban"></i>&nbspCancel</button></a>
+                   </div>
                 </div>
+                </div>
+                </div>
+
+                </form>
+
+                <!-- form -->
+
+                <form method="POST">
+
+                <div class="column" id="for-img">
+                    <figure class="image" id="Qr-img">
+                        <img src="https://bulma.io/images/placeholders/256x256.png">
+                    </figure>
+
+                    <button class="button is-success" id="refresh"><i class="fas fa-sync-alt"></i> &nbspRefresh</button>
+                </div>
+             </div>    
+             
+                </form>
 
                 <script>
                     function w3_open() {

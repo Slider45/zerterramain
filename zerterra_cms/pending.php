@@ -153,7 +153,7 @@ include 'Buttons/pendingApproveQuery.php';
                                   <?php
                                   include 'Buttons/pendingEditModal.php';
                                   ?>  
-                                  <button data-target="#delete<?php echo $id;?>" class="button is-danger is-small modal-button"  id="btn_delete" name="btn-delete"><i class="fas fa-eye"></i>
+                                  <button data-target="#view<?php echo $id;?>" class="button is-success is-small modal-button"  id="btn_delete" name="btn-delete"><i class="fas fa-eye"></i>
                                   </button>
                                   <?php
                                   include 'Buttons/pendingApproveModal.php';

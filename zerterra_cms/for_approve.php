@@ -78,14 +78,20 @@ $id = $_SESSION['id'];
                 <h1 class="button-category">FOR APPROVE</h1>
             </div>
             <div class="column">
-                <a href="pending.php">
-                  <button style="margin-top: 30px ; margin-left: 400px; font-family: unset;" id="btn-add" class="button is-danger is-small">
-                      <i class="fas fa-exclamation-circle"></i> &nbspPENDING</button></a>
-                      <a href="delivered.php">
-                          <button style="margin-top: 10px ; margin-left: 400px; font-family: unset;" id="btn-add" class="button is-primary is-small">
-                              <i class="fas fa-truck"></i> &nbspDELIVERED</button></a>
-
-                          </div>
+                 <div class="columns">
+                    <div class="column">
+                        <a href="pending.php">
+                           <button style="margin-top: 30px ; margin-left: 400px; font-family: unset; font-size:16px;" id="btn-add" class="button is-danger is-small">
+                            <i class="fas fa-exclamation-circle"></i> &nbspPENDING</button>
+                       </a>
+                     </div>
+                    <div class="column">
+                        <a href="delivered.php">
+                             <button style="margin-top: 30px ; font-family: unset; font-size:16px;" id="btn-add" class="button is-primary is-small">
+                              <i class="fas fa-truck"></i> &nbspDELIVERED</button>
+                        </a>
+                    </div>
+            </div>
 
 
 
@@ -118,15 +124,15 @@ $id = $_SESSION['id'];
 
 
                             <p class="content-item">Firstname: &nbsp <?php echo $fname;?> </p>
-                            <hr class="underline"><p></p></hr>
+                            
                             <p class="content-item">Lastname: &nbsp<?php echo $lname;?></p>
-                            <hr class="underline"></hr>
+                           
                             <p class="content-item">E-mail Address: <?php echo $email;?> </p>
-                            <hr class="underline"></hr>
+                           
                             <p class="content-item">Contact Number:  <?php echo $Contact;?> </p>
-                            <hr class="underline"></hr>
+                     
                             <p class="content-item">Address: <?php echo $Address;?> </p>
-                            <hr class="underline"></hr>
+                        
                         </div>
                         <?php
                     }

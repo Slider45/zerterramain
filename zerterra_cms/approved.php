@@ -74,12 +74,20 @@ include 'Buttons/approvedQuery.php';
                 <h1 class="button-category">APPROVED</h1>
             </div>
             <div class="column">
-                <a href="pending.php">
-                  <button style="margin-top: 30px ; margin-left: 400px; font-family: unset;" id="btn-add" class="button is-danger is-small">
-                      <i class="fas fa-exclamation-circle"></i> &nbspPENDING</button></a>
-                      <a href="delivered.php">
-                          <button style="margin-top: 10px ; margin-left: 400px; font-family: unset;" id="btn-add" class="button is-primary is-small">
-                              <i class="fas fa-truck"></i> &nbspDELIVERED</button></a>
+                 <div class="columns">
+                    <div class="column">
+                        <a href="pending.php">
+                           <button style="margin-top: 30px ; margin-left: 400px; font-family: unset; font-size:16px;" id="btn-add" class="button is-danger is-small">
+                            <i class="fas fa-exclamation-circle"></i> &nbspPENDING</button>
+                       </a>
+                     </div>
+                    <div class="column">
+                        <a href="delivered.php">
+                             <button style="margin-top: 30px ; font-family: unset; font-size:16px;" id="btn-add" class="button is-primary is-small">
+                              <i class="fas fa-truck"></i> &nbspDELIVERED</button>
+                        </a>
+                    </div>
+            </div>
 
                           </div>
 

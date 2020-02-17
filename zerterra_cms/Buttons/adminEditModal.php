@@ -24,14 +24,24 @@
         </div>
       </div>
       <div class="control">
-        <input class="input" type="text" name="edit_name" value="<?php echo $name; ?>" required="">
+        <div class="columns">
+              <div class="column is-2" id="label">Fullname:</div>
+              <div class="column" id="txtbox"><input class="input" type="text" name="edit_name" value="<?php echo $name; ?>" required=""></div>
+        </div>
       </div>
       <div class="control">
-        <input class="input" type="number" name="edit_contact" value="<?php echo $contact; ?>"   required="">
+        <div class="columns">
+              <div class="column is-2" id="label">Contact:</div>
+              <div class="column" id="txtbox" ><input class="input" type="number" name="edit_contact" value="<?php echo $contact; ?>"   required=""></div>
+        </div>
       </div>
       <div class="control">
-        <input class="input" type="email" name="edit_email" value="<?php echo $Email; ?>"  required="">
+           <div class="columns">
+              <div class="column is-2" id="label">Email:</div>
+              <div class="column" id="txtbox"><input class="input" type="email" name="edit_email" value="<?php echo $Email; ?>"  required=""></div>
+           </div>
       </div>
+
       <div class="control" style="margin-top: 10px;">
       </div>
     </div>

@@ -74,12 +74,29 @@ include 'Buttons/approvedQuery.php';
                 <h1 class="button-category">DELIVERED</h1>
               </div>
               <div class="column">
-                <a href="pending.php">
+                  <div class="columns">
+                    <div class="column">
+                       <a href="pending.php">
+                         <button style="margin-top: 30px ; margin-left: 400px; font-family: unset; font-size:16px; id="btn-add" class="button is-danger is-small">
+                         <i class="fas fa-exclamation-circle"></i> &nbspPENDING</button>
+                       </a>
+                     </div>
+                    <div class="column">
+                        <a href="approved.php">
+                          <button style="margin-top: 30px ; font-family: unset; font-size:16px;" id="btn-add" class="button is-success is-small" name="viewdelivered">
+                          <i class="far fa-thumbs-up"></i> &nbspAPPROVED</button>
+                        </a>
+                    </div>
+                </div>
+
+
+
+                <!-- <a href="pending.php">
                   <button style="margin-top: 30px ; margin-left: 400px; font-family: unset;" id="btn-add" class="button is-danger is-small">
                     <i class="fas fa-exclamation-circle"></i> &nbspPENDING</button></a>
                     <a href="approved.php">
                       <button style="margin-top: 10px ; margin-left: 400px; font-family: unset;" id="btn-add" class="button is-success is-small" name="viewdelivered">
-                       <i class="far fa-thumbs-up"></i> &nbspApproved</button></a>
+                       <i class="far fa-thumbs-up"></i> &nbspApproved</button></a> -->
 
                      </div>
 

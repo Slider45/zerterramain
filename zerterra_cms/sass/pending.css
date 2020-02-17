@@ -241,4 +241,15 @@ table, th, td {
   padding-left: 50%;
   font-family: montserrat;
 }
+
+#label {
+  font-weight: bold;
+  padding-top: 20px;
+  padding-right: 0;
+  font-family: Montserrat;
+}
+
+#txtbox {
+  padding-left: 0;
+}
 /*# sourceMappingURL=pending.css.map */

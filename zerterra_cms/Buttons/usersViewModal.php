@@ -42,22 +42,40 @@
         </div>
       </div>
       <div class="control">
-       Firstname:<input class="input"   value="<?php echo $fname; ?>" disabled="disabled">
+         <div class="columns">
+              <div class="column is-2" id="label">Firstname:</div>
+              <div class="column" id="txtbox"><input class="input"   value="<?php echo $fname; ?>" disabled="disabled"></div>
+         </div>
       </div>
       <div class="control">
-        Lastname:<input class="input"   value="<?php echo $lname; ?>"  disabled="disabled">
+         <div class="columns">
+              <div class="column is-2" id="label">Lastname:</div>
+              <div class="column" id="txtbox"><input class="input"   value="<?php echo $lname; ?>"  disabled="disabled"></div>
+         </div>
       </div>
       <div class="control">
-        Email:<input class="input"  value="<?php echo $email; ?>"  disabled="disabled">
+        <div class="columns">
+              <div class="column is-2" id="label">Email:</div>
+              <div class="column" id="txtbox"><input class="input"  value="<?php echo $email; ?>"  disabled="disabled"></div>
+         </div>
       </div>
       <div class="control">
-        Contact #:<input class="input"  value="<?php echo $contact; ?>" disabled="disabled">
+        <div class="columns">
+              <div class="column is-2" id="label">Contact:</div>
+              <div class="column" id="txtbox"><input class="input"  value="<?php echo $contact; ?>" disabled="disabled"></div>
+         </div>
       </div>
       <div class="control">
-        Date Registered:<input class="input"  value="<?php echo $dateReg; ?>" disabled="disabled">
+        <div class="columns">
+              <div class="column is-2" id="label">Date Start:</div>
+              <div class="column" id="txtbox"><input class="input"  value="<?php echo $dateReg; ?>" disabled="disabled"></div>
+         </div>
       </div>
       <div class="control">
-        Date End:<input class="input"  value="<?php echo $dateEnd; ?>" disabled="disabled">
+        <div class="columns">
+              <div class="column is-2" id="label">Date End:</div>
+              <div class="column" id="txtbox"><input class="input"  value="<?php echo $dateEnd; ?>" disabled="disabled"></div>
+         </div>
       </div>
       
       <div class="control" style="margin-top: 10px;">

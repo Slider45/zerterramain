@@ -19,7 +19,7 @@
   <div class="modal-background"></div>
   <div class="modal-card">
     <header class="modal-card-head">
-     <p class="modal-card-title" id="admin-header">ADD ADMIN</p>
+     <p class="modal-card-title" id="admin-header">ADD USERS</p>
      <button class="modal-close" aria-label="close"></button>
    </header>
    <form method="POST" class="modal-card-body">

@@ -255,11 +255,11 @@ $requestCount=mysqli_num_rows($result);
   </div>
 
   <?php
-  $sql = "SELECT id FROM approve_list";
+  $sql = "SELECT id FROM approveorders_list";
   $result=mysqli_query($con,$sql);
   $regUserCount=mysqli_num_rows($result);
 
-  $sql = "SELECT id FROM pending_list";
+  $sql = "SELECT id FROM pendingorders_list";
   $result=mysqli_query($con,$sql);
   $penUserCount=mysqli_num_rows($result);
 

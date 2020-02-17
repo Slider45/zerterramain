@@ -17,19 +17,39 @@ include 'connection.php';
                     </div>
                       </div>
                       <div class="control" >
-                        <input class="input" type="text"  name="edit_fname"  value="<?php echo $fname; ?>" required="" readonly >
+                          <div class="columns">
+                                <div class="column is-2" id="label">Firstname:</div>
+                                <div class="column" id="txtbox"><input class="input" type="text"  name="edit_fname"  value="<?php echo $fname; ?>" required="" readonly ></div>
+                          </div>
+                        
                       </div>
                       <div class="control">
-                        <input class="input" type="text" name="edit_lname" readonly value="<?php echo $lname; ?>" required="">
+                            <div class="columns">
+                                <div class="column is-2" id="label">Lastname:</div>
+                                <div class="column" id="txtbox"> <input class="input" type="text" name="edit_lname" readonly value="<?php echo $lname; ?>" required=""></div>
+                            </div>
+                       
                       </div>
                       <div class="control">
-                        <input class="input" type="email" name="edit_email"  readonly value="<?php echo $email; ?>"   required="">
+                            <div class="columns">
+                              <div class="column is-2" id="label">Email:</div>
+                              <div class="column" id="txtbox"><input class="input" type="email" name="edit_email"  readonly value="<?php echo $email; ?>" required=""></div>
+                            </div>
+                        
                       </div>
                       <div class="control">
-                        <input class="input" type="text" name="edit_address" readonly value="<?php echo $Address; ?>"  required="">
+                              <div class="columns">
+                                <div class="column is-2" id="label">Address:</div>
+                                <div class="column" id="txtbox"><input class="input" type="text" name="edit_address" readonly value="<?php echo $Address; ?>" required=""></div>
+                              </div>
+                        
                       </div>
                       <div class="control">
-                        <input class="input" type="number" name="edit_contact" readonly value="<?php echo $Contact; ?>"  required="">
+                              <div class="columns">
+                                <div class="column is-2" id="label">Contact:</div>
+                                <div class="column" id="txtbox"><input class="input" type="number" name="edit_contact" readonly value="<?php echo $Contact; ?>"  required=""></div>
+                               </div>
+                        
                       </div>
                         <div class="control" style="margin-top: 10px;">                  
                       </div>

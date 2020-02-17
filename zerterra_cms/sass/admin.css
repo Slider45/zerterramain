@@ -239,4 +239,15 @@ table, th, td {
 #btn-add {
   font-weight: bold;
 }
+
+#label {
+  font-weight: bold;
+  padding-top: 20px;
+  padding-right: 0;
+  font-family: Montserrat;
+}
+
+#txtbox {
+  padding-left: 0;
+}
 /*# sourceMappingURL=admin.css.map */

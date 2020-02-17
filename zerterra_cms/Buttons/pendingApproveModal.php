@@ -1,7 +1,7 @@
 <?php
 include 'connection.php';
 ?>
-<div id="delete<?php echo $id; ?>" class="modal" role="dialog">
+<div id="view<?php echo $id; ?>" class="modal" role="dialog">
                     <div class="modal-background"></div>
                     <div class="modal-card">
                       <header class="modal-card-head">
@@ -42,3 +42,6 @@ include 'connection.php';
                     </div>
                   </div>
                     </div>
+
+
+                  

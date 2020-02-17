@@ -115,7 +115,7 @@ include 'Buttons/approvedQuery.php';
                                     }else{     
                                         $sql = "SELECT * FROM approveorders_list WHERE is_delivered='0' ORDER BY id DESC LIMIT $offset, $no_of_records_per_page";
                                         $res_data = $con->query($sql);
-                                        while($row = mysqli_fetch_array($res_data)){ 
+                                        while($row = mysqli_fetch_array($res_data)) 
                                             {
                                                 $id = $row['id'];
                                                 $id1 = $row['pendingID'];
@@ -166,7 +166,7 @@ include 'Buttons/approvedQuery.php';
 
                                             </tr>
                                             <?php 
-                                        }  
+                                       
                                     }
                                 }
                                 ?>

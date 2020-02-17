@@ -3,7 +3,7 @@ session_start();
 include 'connection.php';
 include 'Buttons/approvedQuery.php';
 
- 
+
 $id = $_SESSION['id'];
 
 ?>
@@ -93,9 +93,48 @@ $id = $_SESSION['id'];
 
                       </div>
                   </div>
+                  <div class="container" style="margin-left: 100px; margin-top: 50px;">
 
 
-                  <script>
+
+                    <div class="content">
+
+
+                        <?php
+                        $sql ="SELECT * FROM pendingorders_list WHERE id= '$id'";
+                        $res_data = $con->query($sql);
+                        while($row = mysqli_fetch_array($res_data)) 
+                        {
+                            // $id = $row['id'];
+                            // $id1 = $row['pendingID'];
+                            $fname = $row['FirstName'];
+                            $lname = $row['LastName'];
+                            $email = $row['Email'];
+                            $Contact = $row['ContactNumber'];
+                            $Address = $row['Address'];
+
+                            ?>
+                            
+
+
+                            <p class="content-item">Firstname: &nbsp <?php echo $fname;?> </p>
+                            <hr class="underline"><p></p></hr>
+                            <p class="content-item">Lastname: &nbsp<?php echo $lname;?></p>
+                            <hr class="underline"></hr>
+                            <p class="content-item">E-mail Address: <?php echo $email;?> </p>
+                            <hr class="underline"></hr>
+                            <p class="content-item">Contact Number:  <?php echo $Contact;?> </p>
+                            <hr class="underline"></hr>
+                            <p class="content-item">Address: <?php echo $Address;?> </p>
+                            <hr class="underline"></hr>
+                        </div>
+                        <?php
+                    }
+                    ?>
+                    <a href="index.php"><button class="button is-rounded">Back</button></a>
+                </div>
+
+                <script>
                     function w3_open() {
                       document.getElementById("mySidebar").style.display = "block";
                   }

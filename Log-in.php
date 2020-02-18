@@ -74,9 +74,9 @@ $message="";
                 <span class="icon is-small is-left">
                   <i class="fas fa-envelope"></i>
                 </span>
-                <span class="icon is-small is-right">
+                <!-- <span class="icon is-small is-right">
                   <i class="fas fa-check"></i>
-                </span>
+                </span> -->
               </p>
             </div>
 
@@ -113,7 +113,18 @@ $message="";
           </div>
 
 
+<!-- login failed -->
+<div class="notification is-danger">
+  <button class="delete"></button>
+<p id="notif"> Login failed! </p>
+</div>
 
+
+<!-- login success -->
+<!-- <div class="notification is-success">
+  <button class="delete"></button>
+<p id="notif"> Login success! </p>
+</div> -->
 
         </div>
       </form>

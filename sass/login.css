@@ -909,4 +909,13 @@ a:hover {
     line-height: 50px;
   }
 }
+
+.notification {
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+
+#notif {
+  text-align: center;
+}
 /*# sourceMappingURL=login.css.map */

@@ -1,12 +1,12 @@
 <?php
 
-session_start();
+session_start();  
+if(!isset($_SESSION["userEmail"]))
+{
+ header("location:../Log-in.php");
+}
 
-    if($_SESSION['email']){
-          echo "<script>alert('Login Expired!'); </script>";
-        header("location:../");
-        exit();
-    }
+
 
 include '../PagesFunction/connection.php';
 ?>
@@ -59,8 +59,8 @@ include '../PagesFunction/connection.php';
 
         <div id="navMenu" class="navbar-menu">
             <div class="navbar-end">
-                <a class="navbar-item" id="userid"><?= $_SESSION['email']?> &nbsp<i class="fas fa-user"></i></a>
-                <a class="navbar-item" href="../"><i class="fas fa-sign-out-alt"></i>&nbspLogout</a>
+                <a class="navbar-item" id="userid"><?= $_SESSION['userEmail']?> &nbsp<i class="fas fa-user"></i></a>
+                <a class="navbar-item" href="logout.php"><i class="fas fa-sign-out-alt"></i>&nbspLogout</a>
             </div>
         </div>
 

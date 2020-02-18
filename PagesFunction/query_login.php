@@ -1,108 +1,109 @@
+
+
+
 <?php
 
 
-
-$email = $_POST['email'];
-$password=$_POST['password'];
-
-$sql = "SELECT * FROM tblusers_list WHERE email = '$email' AND password = '$password' ";
-
-
-$result = $con->query($sql);
-if($result->num_rows > 0){
-$_SESSION['email'] = $email;
-
- if(!empty($_POST["remember"]))   
+if(!empty($_POST["email"]) && !empty($_POST["password"]))
+ {
+  $name = $_POST["email"];
+  $password = $_POST["password"];
+  $sql = "SELECT * FROM tblusers_list where email = '" . $name . "' AND password = '" . $password . "' AND is_active = '1' ";  
+  $result = mysqli_query($con,$sql);  
+  $user = mysqli_fetch_array($result);  
+  if($user)   
+  {  
+   if(!empty($_POST["remember"]))   
    {  
-    setcookie ("email",$email,time()+ (10 * 365 * 24 * 60 * 60));  
-    setcookie ("password",$password,time()+ (10 * 365 * 24 * 60 * 60));
-
-
-	
-} else  
-   {  
-   
-    if(isset($_COOKIE["email"]))   
-    {  
-     setcookie ("email",""); 
-
-    }  
-    if(isset($_COOKIE["password"]))   
-    {  
-     setcookie ("password","");  
-    } 
-    
+    setcookie ("member_email",$name,time()+ (10 * 365 * 24 * 60 * 60));  
+    setcookie ("member_password",$password,time()+ (10 * 365 * 24 * 60 * 60));
+    $_SESSION["userEmail"] = $name;
    }  
-   echo "<script>alert('PASSWORD ENTERED!'); </script>";
-   header('location: zerterraph_user/');
+   else  
+   {  
+    if(isset($_COOKIE["member_email"]))   
+    {  
+     setcookie ("member_email","");  
+    }  
+    if(isset($_COOKIE["member_password"]))   
+    {  
+     setcookie ("member_password","");  
+    }  
+    $_SESSION["userEmail"] = $name;
+   }  
+   header("location:zerterraph_user/"); 
+  }  
+  else  
+  {  
+   $message = "Invalid Login";  
 
-
-
-
-
-
-	
-}else{
-
-	$sql = "SELECT * FROM tblusers_list WHERE email = '$email' AND Serial_Number = '$password' ";
-
-	$result = $con->query($sql);
-	if($result->num_rows > 0){
-		$_SESSION['email'] = $email;
-
-		// header( "Refresh: 5; url=User/index.php" );
-		// echo '<div id="toast">';
-		// echo	'<div id="img"><img src="images/plainlogo.png"></div>';
-		// echo '<div id="desc">Login Successful!</div>';
-		// echo '</div>';
-
-		
-
-		
-		 echo "<script>alert('SERIAL NUMBER ENTERED!'); </script>";
-		header('location: zerterraph_user/');
-	}else{
-		$sql = "SELECT * FROM admin_list WHERE Email = '$email' AND Password = '$password' ";
-
-		$result = $con->query($sql);
-		if($result->num_rows > 0){
-			$_SESSION['email'] = $email;
-
-
-			?>
-
-			<div id="toast">
-				<div id="img"><img src="images/plainlogo.png"></div>
-				<div id="desc">Login Successful!</div>
-			</div>'
-			<?php
-			
-			// header( "Refresh: 5; url=../User/index.php" );
-			
-		header('location: zerterra_cms/');
-		}else{
-			// echo "<script>alert('Email not found!'); </script>";
-
-
-
-			?>
-
-			<div id="toast">
-				<div id="img"><img src="images/plainlogo.png"></div>
-				<div id="desc">Record Not Found!</div>
-			</div>
-
-
-			<?php
-		}
-	}
-}
 ?>
-
 <script>
-	function launch_toast() {
-		var x = document.getElementById("toast")
-		x.className = "show";
-		setTimeout(function(){ x.className = x.className.replace("show", ""); }, 5000);
-	}
-</script>
+   document.querySelectorAll('.modal-button').forEach(function(el) {
+      el.addEventListener('click', function() {
+        var target = document.querySelector(el.getAttribute('data-target'));
+
+        target.classList.add('is-active');
+
+
+        target.querySelector('.modal-close').addEventListener('click', function(){
+          target.classList.remove('is-active');
+        });
+      });
+    });
+
+
+  </script>
+
+<div class="modal" id="modalnotif">
+  <div class="modal-background"></div>
+  <div class="modal-content">
+    <?php if(isset($message)) { echo $message; } ?>->
+    
+  </div>
+  <button class="modal-close is-large" aria-label="close"></button>
+</div>
+
+<?php
+
+
+  } 
+ }
+ else
+ {
+  $message = "Both are Required Fields";
+
+
+?>
+<script>
+   document.querySelectorAll('.modal-button').forEach(function(el) {
+      el.addEventListener('click', function() {
+        var target = document.querySelector(el.getAttribute('data-target'));
+
+        target.classList.add('is-active');
+
+
+        target.querySelector('.modal-close').addEventListener('click', function(){
+          target.classList.remove('is-active');
+        });
+      });
+    });
+
+
+  </script>
+
+<div class="modal" id="modalnotif">
+  <div class="modal-background"></div>
+  <div class="modal-content">
+    <?php if(isset($message)) { echo $message; } ?>->
+    
+  </div>
+  <button class="modal-close is-large" aria-label="close"></button>
+</div>
+
+<?php
+
+
+ }
+
+?>

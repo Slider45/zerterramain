@@ -231,6 +231,11 @@ table, th, td {
   font-size: 10pt;
 }
 
+#view-sales {
+  color: #333;
+  font-size: 8pt;
+}
+
 #modal-card {
   border-radius: 10px;
 }

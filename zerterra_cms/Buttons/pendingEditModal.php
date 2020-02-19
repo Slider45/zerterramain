@@ -17,22 +17,34 @@ include 'connection.php';
                       </div>
                       </div>
                       <div class="control" >
-                        <input class="input2" type="text"  name="fname"  value="<?php echo $fname; ?>" required="">
+                         <div class="columns">
+                           <div class="column is-2" id="label">Firstname:</div>
+                           <div class="column" id="txtbox"><input class="input" type="text"  name="fname"  value="<?php echo $fname; ?>" required=""></div>
+                         </div>
                       </div>
                       <div class="control">
-                        <input class="input2" type="text" name="lname" value="<?php echo $lname; ?>" required="">
+                        <div class="columns">
+                           <div class="column is-2" id="label">Lastname:</div>
+                           <div class="column" id="txtbox"><input class="input" type="text" name="lname" value="<?php echo $lname; ?>" required=""></div>
+                         </div>
                       </div>
                       <div class="control">
-                        <input class="input2" type="email" name="email" value="<?php echo $email; ?>"   required="">
+                         <div class="columns">
+                           <div class="column is-2" id="label">Email:</div>
+                           <div class="column" id="txtbox"><input class="input" type="email" name="email" value="<?php echo $email; ?>" required=""></div>
+                         </div>
                       </div>
                       <div class="control">
-                        <input class="input2" type="text" name="address" value="<?php echo $Address; ?>"  required="">
+                         <div class="columns">
+                           <div class="column is-2" id="label">Address:</div>
+                           <div class="column" id="txtbox"><input class="input" type="text" name="address" value="<?php echo $Address; ?>" required=""></div>
+                         </div>
                       </div>
                       <div class="control">
-                        <input class="input2" type="number" name="contact" value="<?php echo $Contact; ?>"  required="">
-                      </div>
-                      <div class="control">
-                        <input class="input2" type="text" name="message" value="<?php echo $Message; ?>"  required="">
+                         <div class="columns">
+                           <div class="column is-2" id="label">Contact:</div>
+                           <div class="column" id="txtbox"> <input class="input" type="number" name="contact" value="<?php echo $Contact; ?>" required=""></div>
+                         </div>
                       </div>
                         <div class="control" style="margin-top: 10px;">
                         
@@ -40,7 +52,7 @@ include 'connection.php';
                       </div>
                       
                       <button type="submit" name="updated_id" class="button is-success">Save</button>
-                      <button class="button is-danger">Cancel</button>
+                      <button class="button is-danger"><i class="fas fa-ban"></i>&nbspCancel</button>
 
                     </form>
 

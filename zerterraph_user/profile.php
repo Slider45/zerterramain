@@ -1,3 +1,12 @@
+
+<?php
+
+session_start();
+
+
+include '../PagesFunction/connection.php';
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -54,7 +63,7 @@
 
         <div id="navMenu" class="navbar-menu">
             <div class="navbar-end">
-                <a class="navbar-item" id="userid"> &nbsp<i class="fas fa-user"></i></a>
+                <a class="navbar-item" id="userid"> <?= $_SESSION['email']?> &nbsp<i class="fas fa-user"></i></a>
                 <a class="navbar-item" href="index.php"><i class="fas fa-sign-out-alt"></i>&nbspLogout</a>
             </div>
         </div>
@@ -82,8 +91,15 @@
     <!-- END OF NAVBAR -->
 
     <!-- SIDE BAR -->
+<<<<<<< HEAD
     <div class="w3-sidebar w3-bar-block w3-card w3-animate-left">
     <h3 class="w3-bar-item">Name</h3> 
+=======
+    <div class="w3-sidebar w3-bar-block w3-card">
+
+    <a class="w3-bar-item w3-button w3-hover-white"><h3 class="w3-bar-item">Name</h3></a> 
+
+>>>>>>> 38ee023773c840a649c0583f0de5e392fff2027d
     <hr class="hr"></hr>
     <a href="index.php" class="w3-bar-item w3-button w3-hover-white">Dashboard</a>
     <a href="profile.php" class="w3-bar-item w3-button w3-hover-white" id="profile">Profile</a>
@@ -153,7 +169,7 @@
             <hr class="underline"></hr>
         </div>
 
-        <a href="status.php"><button class="button is-rounded">Back</button></a>
+        <a href="index.php"><button class="button is-rounded">Back</button></a>
     </div>
 
     <div>

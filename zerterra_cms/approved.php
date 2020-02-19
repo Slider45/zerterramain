@@ -1,6 +1,7 @@
 <?php
 session_start();
 include 'connection.php';
+include 'Buttons/approvedQuery.php';
 ?>
 <!DOCTYPE html>
 <html>
@@ -14,6 +15,9 @@ include 'connection.php';
 <link rel="stylesheet" href="sass/approved.css">
 
 <body>
+    <?php
+    include 'Pages/approvedViewPage.php'; 
+    ?>
     <nav class="navbar" role="navigation" aria-label="main navigation">
         <div class="navbar-brand navbar-start">
             <a class="navbar-item" href="dashboard.php">
@@ -26,12 +30,15 @@ include 'connection.php';
                          <input type="text" placeholder="Search.." name="search" id="input">
                         <span> <button type="submit" id="search"><i class="fa fa-search"></i></button></span>
                  </form>
-              </div> -->
+             </div> -->
 
-        <div class="navbar-end">
-            <div class="navbar-item">
-                <div class="buttons">
-                    <a class="button btn-user">
+             <div class="navbar-end">
+                <div class="navbar-item">
+                    <div class="buttons">
+                        <a class="button btn-logout modal-button" data-target="#approvedSearchModal" aria-haspopup="true">
+                           <i class="fa fa-search"></i></i> &nbspSearch
+                       </a>
+                       <a class="button btn-user">
                         <i class="far fa-user"></i> &nbspUser
                     </a>
                     <a class="button btn-logout">
@@ -40,112 +47,150 @@ include 'connection.php';
                 </div>
             </div>
         </div>
-        </div>
-    </nav>
+    </div>
+</nav>
 
+<?php include 'Buttons/approvedSearch.php'?>
 
-    <div class="w3-sidebar w3-bar-block w3-collapse w3-card w3-animate-left" style="width:200px;" id="mySidebar">
-        <button class="w3-bar-item w3-button w3-large w3-hide-large" onclick="w3_close()" id="close">&times;</button>
-        <a href="dashboard.php" class="w3-bar-item w3-button" id="item-hover"><i class="fas fa-th-large"></i> &nbsp Dashboard</a>
-        <a href="admin.php" class="w3-bar-item w3-button" id="item-hover"> <i class="fas fa-user-shield"></i> &nbsp
-            Admin</a>
-        <a href="users.php" class="w3-bar-item w3-button" id="item-hover"><i class="fas fa-user"></i> &nbsp Users</a>
-        <a class="w3-bar-item w3-button w3-dropdown-hover" id="sendmodal"><i class="fas fa-cubes"></i> &nbsp Orders</a>
-        <a href="request.php" class="w3-bar-item w3-button" id="item-hover"><i class="fas fa-envelope-open-text"></i>
-            &nbsp Request</a>
-        <a href="" class="w3-bar-item w3-button" id="item-hover"><i class="fas fa-hand-holding-usd"></i> &nbsp
-            sales</a>
-        <a href="#" class="w3-bar-item w3-button" id="item-hover"><i class="fas fa-print"></i> &nbsp Consolidate</a>
+<div class="w3-sidebar w3-bar-block w3-collapse w3-card w3-animate-left" style="width:200px;" id="mySidebar">
+  <button class="w3-bar-item w3-button w3-large w3-hide-large" onclick="w3_close()" id="close">&times;</button>
+  <a href="index.php" class="w3-bar-item w3-button" id="item-hover"><i class="fas fa-th-large"></i> &nbsp Dashboard</a>
+  <a href="admin.php" class="w3-bar-item w3-button" id="item-hover"> <i class="fas fa-user-shield"></i> &nbsp Admin</a>
+  <a href="users.php" class="w3-bar-item w3-button" id="item-hover"><i class="fas fa-user"></i> &nbsp Users</a>
+  <a class="w3-bar-item w3-button" id="sendmodal" ><i class="fas fa-cubes"></i> &nbsp Orders</a>
+  <a href="request.php" class="w3-bar-item w3-button" id="item-hover"><i class="fas fa-envelope-open-text"></i> &nbsp Request</a>
+  <a href="sales.php" class="w3-bar-item w3-button" id="item-hover"><i class="fas fa-hand-holding-usd"></i> &nbsp sales</a>
+  <a href="#" class="w3-bar-item w3-button" id="item-hover"><i class="fas fa-print"></i> &nbsp Consolidate</a>
+</div>
+
+<div class="w3-main" style="margin-left:200px">
+    <div class="w3-teal">
+        <button class="w3-button w3-teal w3-xlarge w3-hide-large" onclick="w3_open()">&#9776;</button>
     </div>
 
-    <div class="w3-main" style="margin-left:200px">
-        <div class="w3-teal">
-            <button class="w3-button w3-teal w3-xlarge w3-hide-large" onclick="w3_open()">&#9776;</button>
-        </div>
-
-        <div class="w3-container">
-            <div class="columns">
-                <div class="column">
-                    <h1 class="button-category">APPROVED</h1>
-                </div>
-                <!-- <div class="column">
-                 
-                   <h1 class="button" id="add-admin"><i class="fas fa-user-plus"></i> &nbspADD</h1>  
-                </div> -->
+    <div class="w3-container">
+        <div class="columns">
+            <div class="column">
+                <h1 class="button-category">APPROVED</h1>
+            </div>
+            <div class="column">
+                 <div class="columns">
+                    <div class="column">
+                        <a href="pending.php">
+                           <button style="margin-top: 30px ; margin-left: 400px; font-family: unset; font-size:16px;" id="btn-add" class="button is-danger is-small">
+                            <i class="fas fa-exclamation-circle"></i> &nbspPENDING</button>
+                       </a>
+                     </div>
+                    <div class="column">
+                        <a href="delivered.php">
+                             <button style="margin-top: 30px ; font-family: unset; font-size:16px;" id="btn-add" class="button is-primary is-small">
+                              <i class="fas fa-truck"></i> &nbspDELIVERED</button>
+                        </a>
+                    </div>
             </div>
 
-            <section class="section">
-                <div class="container">
-                    <table class="table">
-                        <thead>
-                            <tr>
-                            <th >ID</th>
-                            <th >Pending ID</th>
-                            <th>First Name</th>
-                            <th>Last Name</th>
-                            <th>Email</th>
-                            <th>Address</th>
-                            <th>Contact</th>
-                            <th>Message</th>
-                            </tr>
-                        </thead>
+                          </div>
 
-                        <tbody>
-                        <?php
+                      </div>
 
-                        $sql = "SELECT * FROM approve_list" ;
-                        $result = $con->query($sql);
-                        if ($result->num_rows > 0) {
-                        while($row = $result->fetch_assoc()) 
-                        {
-                            $id = $row['id'];
-                            $id1 = $row['pendingID'];
-                            $fname = $row['FirstName'];
-                            $lname = $row['LastName'];
-                            $email = $row['Email'];
-                            $Contact = $row['ContactNumber'];
-                            $Address = $row['Address'];
-                            $Message = $row['Message'];
-                        ?>
-                            <tr>
-                            <td>
-                                <?php echo $id; ?>
-                            </td>
-                            
-                            <td>
-                                <?php echo $id1; ?>
-                            </td>
+                      <section class="section">
+                        <div class="container">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>Pending ID</th>
+                                        <th>Firstname</th>
+                                        <th>Lastname</th>
+                                        <th>Email</th>
+                                        <th>Address</th>
+                                        <th>Contact</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
 
-                            <td>
-                                <?php echo $fname; ?>
-                            </td>
+                                <tbody>
+                                    <?php
 
-                            <td>
-                                <?php echo $lname; ?>
-                            </td>
+                                    if (isset($_POST['search_btn'])){
+                                        $searchValue = $_POST['searchValue'];
 
-                            <td>
-                                <?php echo $email; ?>
-                            </td>
+                                        if ($searchValue===''){
+                                            echo '<script>window.location.href="?"</script>';
+                                        }else{
+                                            include 'searchFunction/searchApprovedFunction.php';
+                                        }
+                                    }else{     
+                                        $sql = "SELECT * FROM approveorders_list WHERE is_delivered='0' ORDER BY id DESC LIMIT $offset, $no_of_records_per_page";
+                                        $res_data = $con->query($sql);
+                                        while($row = mysqli_fetch_array($res_data)) 
+                                            {
+                                                $id = $row['id'];
+                                                $id1 = $row['pendingID'];
+                                                $fname = $row['FirstName'];
+                                                $lname = $row['LastName'];
+                                                $email = $row['Email'];
+                                                $Contact = $row['ContactNumber'];
+                                                $Address = $row['Address'];
 
-                            <td>
-                                <?php echo $Contact; ?>
-                            </td>
-                            
-                            <td>
-                                <?php echo $Address; ?>
-                            </td>
+                                                ?>
+                                                <tr>
+                                                    <td>
+                                                     # <?php echo $id; ?>
+                                                 </td>
 
-                            <td>
-                                <?php echo $Message; ?>
-                            </td>
-                            </tr>
-                        </tbody>
-<?php 
-}  
-}        
-?>
-                    </table>
+                                                 <td>
+                                                    <?php echo $id1; ?>
+                                                </td>
+
+                                                <td>
+                                                    <?php echo $fname; ?>
+                                                </td>
+
+                                                <td>
+                                                    <?php echo $lname; ?>
+                                                </td>
+
+                                                <td>
+                                                    <?php echo $email; ?>
+                                                </td>
+
+                                                <td>
+                                                    <?php echo $Contact; ?>
+                                                </td>
+
+                                                <td>
+                                                    <?php echo $Address; ?>
+                                                </td>
+                                                <td>
+                                                    <button data-target="#delivered<?php echo $id;?>" class="button is-success is-small modal-button" id="btn_update" name="btn-update"><i class="far fa-edit"></i></i>
+                                                    </button>
+                                                    <?php
+                                                    include 'Buttons/markAsDeliveredOrderModal.php';
+                                                    ?> 
+
+
+                                                </td>
+
+                                            </tr>
+                                            <?php 
+                                       
+                                    }
+                                }
+                                ?>
+                            </tbody>
+                        </table>
+                        <nav class="pagination is-small" role="navigation" aria-label="pagination">
+                            <a href="<?php if($page <= 1){ echo '#'; } else { echo "?page=".($page - 1); } ?>" class="pagination-previous" >Previous</a>
+                            <a href="<?php if($page >= $total_pages){ echo '#'; } else { echo "?page=".($page + 1); } ?>" class="pagination-next">Next page</a>
+                            <ul class="pagination-list">
+                              <li><a href="?page=1" class="pagination-link" >1</a></li>
+                              <li>
+                                <span class="pagination-ellipsis">&hellip;</span>
+                            </li>
+                            <li><a href="?page=<?php echo $total_pages; ?>" class="pagination-link"><?php echo $total_pages; ?></a></li>
+                        </ul>
+                    </nav>
                 </div>
             </section>
 
@@ -173,70 +218,64 @@ include 'connection.php';
                                                 <div class="column is-6">
                                                     <a href="pending.php">
                                                         <div class="card" id="card-pending"
-                                                            style="background:url(images/pendingicon.png);  background-size: 100% 100%; background-repeat: no-repeat; background-size: cover;">
-                                                            <div class="card-content">
-                                                                <a href="pending.php" id="pending">
-                                                                    PENDING
-                                                                </a>
-                                                            </div>
+                                                        style="background:url(images/pendingicon.png);  background-size: 100% 100%; background-repeat: no-repeat; background-size: cover;">
+                                                        <div class="card-content">
+                                                            <a href="pending.php" id="pending">
+                                                                PENDING
+                                                            </a>
                                                         </div>
-                                                    </a>
-                                                </div>
-                                                <div class="column is-6">
-                                                    <a href="approved.php">
-                                                        <div class="card" id="card-approve"
-                                                            style="background:url(images/approvedicon.png);  background-size: 100% 100%; background-repeat: no-repeat; background-size: cover;">
-                                                            <div class="card-content">
-                                                            <a href="approved.php" id="pending">
-                                                                    APPROVED
-                                                                </a>
-                                                            </div>
-                                                        </div>
-                                                    </a>
-                                                </div>
+                                                    </div>
+                                                </a>
                                             </div>
+                                            <div class="column is-6">
+                                                <a href="approved.php">
+                                                    <div class="card" id="card-approve"
+                                                    style="background:url(images/approvedicon.png);  background-size: 100% 100%; background-repeat: no-repeat; background-size: cover;">
+                                                    <div class="card-content">
+                                                        <a href="approved.php" id="pending">
+                                                            APPROVED
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </a>
                                         </div>
                                     </div>
-                                    <!-- <button class="button is-success is-medium"  aria-label="close" id="close9">Close</button> -->
                                 </div>
-                        </section>
+                            </div>
+                            <!-- <button class="button is-success is-medium"  aria-label="close" id="close9">Close</button> -->
+                        </div>
+                    </section>
 
-                    </div>
                 </div>
             </div>
+        </div>
 
-            <!-- modal script -->
-            <script>
-                var btn = document.querySelector('#sendmodal');
-                var modalDlg9 = document.querySelector('#serv-modal1');
-                var imageModalCloseBtn9 = document.querySelector('#close9');
-                btn.addEventListener('click', function () {
-                    modalDlg9.classList.add('is-active');
-                });
 
-                imageModalCloseBtn9.addEventListener('click', function () {
-                    modalDlg9.classList.remove('is-active');
-                });
-    // .click(function() {
-    //   .addClass("is-active");  
-    // });
 
-    // $(".modal-close").click(function() {
-    //    $(".modal").removeClass("is-active");
-    // });
-            </script>
 
-            <!-- end script -->
 
-            <script>
-                function w3_open() {
-                    document.getElementById("mySidebar").style.display = "block";
-                }
 
-                function w3_close() {
-                    document.getElementById("mySidebar").style.display = "none";
-                }
-            </script>
 
-</body>
-</html>
+        <!-- modal script -->
+        <script>
+            function w3_open() {
+              document.getElementById("mySidebar").style.display = "block";
+          }
+          function w3_close() {
+              document.getElementById("mySidebar").style.display = "none";
+          }
+          document.querySelectorAll('.modal-button').forEach(function(el) {
+              el.addEventListener('click', function() {
+                var target = document.querySelector(el.getAttribute('data-target'));
+
+                target.classList.add('is-active');
+
+                target.querySelector('.modal-close').addEventListener('click', function(){
+                  target.classList.remove('is-active');
+              });
+            });
+          });
+      </script>
+
+  </body>
+  </html>

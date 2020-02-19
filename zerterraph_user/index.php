@@ -1,3 +1,17 @@
+<?php
+
+session_start();  
+if(!isset($_SESSION["userEmail"]))
+{
+ header("location:../Log-in.php");
+}
+
+
+
+include '../PagesFunction/connection.php';
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -45,8 +59,8 @@
 
         <div id="navMenu" class="navbar-menu">
             <div class="navbar-end">
-                <a class="navbar-item" id="userid"> &nbsp<i class="fas fa-user"></i></a>
-                <a class="navbar-item" href="index.php"><i class="fas fa-sign-out-alt"></i>&nbspLogout</a>
+                <a class="navbar-item" id="userid"><?= $_SESSION['userEmail']?> &nbsp<i class="fas fa-user"></i></a>
+                <a class="navbar-item" href="logout.php"><i class="fas fa-sign-out-alt"></i>&nbspLogout</a>
             </div>
         </div>
 

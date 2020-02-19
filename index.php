@@ -1,4 +1,7 @@
 <?php
+session_start();
+$_SESSION['email'] = "";
+
 include 'PagesFunction/connection.php';
 
 ?>
@@ -8,7 +11,6 @@ include 'PagesFunction/connection.php';
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
- 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.min.css">
   <link href="https://fonts.googleapis.com/css?family=Montserrat:600&display=swap" rel="stylesheet">
   <link rel="icon" href="images/plainlogo.png" type="image/x-icon" />
@@ -391,23 +393,17 @@ if (isset($_POST['sendMSG'])) {
 
 
    <script>
-  var btnmsg = document.querySelector('#SendOrder');
-  var modalDlgmsg = document.querySelector('#thankyouModal');
-  var imageModalCloseBtnmsg = document.querySelector('#msgeClose');
-  btn.addEventListener('click', function(){
-    modalDlgmsg.classList.add('is-active');
-  });
+  document.querySelectorAll('.modal-button').forEach(function(el) {
+      el.addEventListener('click', function() {
+        var target = document.querySelector(el.getAttribute('data-target'));
 
-  imageModalCloseBtnmsg.addEventListener('click', function(){
-    modalDlgmsg.classList.remove('is-active');
-  });
-    // .click(function() {
-    //   .addClass("is-active");  
-    // });
+        target.classList.add('is-active');
 
-    // $(".modal-close").click(function() {
-    //    $(".modal").removeClass("is-active");
-    // });
+        target.querySelector('.modal-close').addEventListener('click', function(){
+          target.classList.remove('is-active');
+        });
+      });
+    });
   </script>  
 
 

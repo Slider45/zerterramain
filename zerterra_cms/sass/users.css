@@ -187,8 +187,9 @@ table, th, td {
 #card-pending, #card-approve {
   border: solid 2px;
   margin-top: 15px;
-  border-radius: 8px;
+  border-radius: 10px;
   width: 400px;
+  height: 130px;
 }
 
 #pending {
@@ -224,5 +225,16 @@ table, th, td {
 
 #btn-add {
   font-weight: bold;
+}
+
+#label {
+  font-weight: bold;
+  padding-top: 20px;
+  padding-right: 0;
+  font-family: Montserrat;
+}
+
+#txtbox {
+  padding-left: 0;
 }
 /*# sourceMappingURL=users.css.map */

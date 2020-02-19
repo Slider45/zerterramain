@@ -62,14 +62,20 @@ $sql = "SELECT id FROM admin_list";
 $result=mysqli_query($con,$sql);
 $adminUserCount=mysqli_num_rows($result);
 
-$sql = "SELECT id FROM sales_list";
-$result=mysqli_query($con,$sql);
-$salesCount=mysqli_num_rows($result);
-
 $sql = "SELECT id FROM request_list";
 $result=mysqli_query($con,$sql);
 $requestCount=mysqli_num_rows($result);
 
+$sql01 = 'SELECT sum(Amount) as price FROM tblusers_list';
+$result01 = mysqli_query($con, $sql01);
+$total=0;
+if (mysqli_num_rows($result01) > 0) 
+    {
+        while($row = mysqli_fetch_assoc($result01)) 
+            {
+                $total = $total + $row['price'];
+            }
+    }
 
 ?>
 
@@ -90,7 +96,7 @@ $requestCount=mysqli_num_rows($result);
               SALES
             </div>
             <div class="column" style="text-align: center;">
-              <span class="is-right">Php 123,456</span>
+              <span class="is-right"><?php echo $total;?></span>
             </div>
           </div>
         </div>
@@ -254,70 +260,10 @@ $requestCount=mysqli_num_rows($result);
     </div>
   </div>
 
-  <?php
-  $sql = "SELECT id FROM approveorders_list";
-  $result=mysqli_query($con,$sql);
-  $regUserCount=mysqli_num_rows($result);
-
-  $sql = "SELECT id FROM pendingorders_list";
-  $result=mysqli_query($con,$sql);
-  $penUserCount=mysqli_num_rows($result);
-
-  $sql = "SELECT id FROM admin_list";
-  $result=mysqli_query($con,$sql);
-  $adminUserCount=mysqli_num_rows($result);
-
-  $sql = "SELECT id FROM sales_list";
-  $result=mysqli_query($con,$sql);
-  $salesCount=mysqli_num_rows($result); 
-
-
-  ?>
+  
 
   <!-- modal script -->
-  <script>
-    var btn = document.querySelector('#sendmodal');
-    var modalDlg9 = document.querySelector('#serv-modal1');
-    var imageModalCloseBtn9 = document.querySelector('#close9');
-    btn.addEventListener('click', function(){
-      modalDlg9.classList.add('is-active');
-    });
 
-    imageModalCloseBtn9.addEventListener('click', function(){
-      modalDlg9.classList.remove('is-active');
-    });
-    // .click(function() {
-    //   .addClass("is-active");  
-    // });
-
-    // $(".modal-close").click(function() {
-    //    $(".modal").removeClass("is-active");
-    // });
-  </script>        
-
-  <!-- end script -->
-
-  <script>
-    function w3_open() {
-      document.getElementById("mySidebar").style.display = "block";
-    }
-
-    function w3_close() {
-      document.getElementById("mySidebar").style.display = "none";
-    }
-
-    document.querySelectorAll('.modal-button').forEach(function(el) {
-      el.addEventListener('click', function() {
-        var target = document.querySelector(el.getAttribute('data-target'));
-
-        target.classList.add('is-active');
-
-        target.querySelector('.modal-close').addEventListener('click', function(){
-          target.classList.remove('is-active');
-        });
-      });
-    });
-  </script>
 
 </body>
 </html>

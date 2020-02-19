@@ -4,7 +4,6 @@ session_start();
 include 'connection.php';
 ?>
 
-
 <!DOCTYPE html>
 <html>
 <title>Sales</title>
@@ -17,12 +16,16 @@ include 'connection.php';
 <link rel="stylesheet" href="sass/sales.css">
 
 <body>
-    <nav class="navbar" role="navigation" aria-label="main navigation">
-        <div class="navbar-brand navbar-start">
-            <a class="navbar-item" href="index.php">
-                <img src="images/logowhite.png" width="112" height="28" class="img-logo">
-            </a>
-        </div>
+<?php
+  include 'Pages/salesViewPage.php'; 
+?>
+
+<nav class="navbar" role="navigation" aria-label="main navigation">
+    <div class="navbar-brand navbar-start">
+        <a class="navbar-item" href="index.php">
+            <img src="images/logowhite.png" width="112" height="28" class="img-logo">
+        </a>
+    </div>
         <!-- search button -->
         <!-- <div>
                   <form action="/action_page.php">
@@ -34,6 +37,9 @@ include 'connection.php';
              <div class="navbar-end">
                 <div class="navbar-item">
                     <div class="buttons">
+                    <a class="button btn-logout modal-button" data-target="#salesSearchModal" aria-haspopup="true">
+            <i class="fa fa-search"></i></i> &nbspSearch
+                    </a>
                         <a class="button btn-user">
                             <i class="far fa-user"></i> &nbspUser
                         </a>
@@ -46,6 +52,7 @@ include 'connection.php';
         </div>
     </nav>
 
+    <?php include 'Buttons/salesSearch.php'?>
 
     <div class="w3-sidebar w3-bar-block w3-collapse w3-card w3-animate-left" style="width:200px;" id="mySidebar">
       <button class="w3-bar-item w3-button w3-large w3-hide-large" onclick="w3_close()" id="close">&times;</button>
@@ -80,57 +87,85 @@ include 'connection.php';
                     <thead>
                         <tr>
                             <th>#</th>
-                            <th>Name</th>
-                            <th>Country</th>
-                            <th>City</th>
-                            <th>zip code</th>
+                            <th>First Name</th>
+                            <th>Last Name</th>
+                            <th>Amount</th>
+                            <th>Email</th>
+                            <th>Contact</th>
+                            
                             <th>Options</th>
                         </tr>
                     </thead>
 
-                    <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td>Sachin</td>
-                            <td>India</td>
-                            <td>England</td>
-                            <td>England</td>
-                            <td><button class="button is-primary is-small modal-button" id="btn_update"
-                                name="btn-update"><i class="far fa-edit"></i>
-                            </button>
-                            <button class="button is-primary is-small modal-button is-danger" id="btn_update"
-                            name="btn-update"><i class="fas fa-trash"></i>
-                        </button></td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>Smith</td>
-                        <td>Australia</td>
-                        <td>England</td>
-                        <td>England</td>
-                        <td><button class="button is-primary is-small modal-button" id="btn_update"
-                            name="btn-update"><i class="far fa-edit"></i>
-                        </button>
-                        <button class="button is-primary is-small modal-button is-danger" id="btn_update"
-                        name="btn-update"><i class="fas fa-trash"></i>
-                    </button></td>
-                </tr>
-                <tr>
-                    <td>3</td>
-                    <td>Joe Root</td>
-                    <td>England</td>
-                    <td>England</td>
-                    <td>England</td>
-                    <td><button class="button is-primary is-small modal-button" id="btn_update"
-                        name="btn-update"><i class="far fa-edit"></i>
-                    </button>
-                    <button class="button is-primary is-small modal-button is-danger" id="btn_update"
-                    name="btn-update"><i class="fas fa-trash"></i>
-                </button></td>
-            </tr>
+                    <?php 
 
-        </tbody>
+            if (isset($_POST['search_btn'])){
+            $searchValue = $_POST['searchValue'];
+
+            if ($searchValue===''){
+                echo '<script>window.location.href="?"</script>';
+            }else{
+            include 'searchFunction/searchSalesFunction.php';
+            }
+            }else{     
+            $sql = "SELECT * FROM tblusers_list WHERE is_active='1' ORDER BY ID DESC LIMIT $offset, $no_of_records_per_page";
+            $res_data = $con->query($sql);
+            while($row = mysqli_fetch_array($res_data)){
+            $id = $row['id'];
+            $fname = $row['Firstname'];
+            $lname = $row['Lastname'];
+            $amount = $row['Amount'];
+            $Email = $row['email'];
+            $contact = $row['ContactNumber'];
+                    ?>
+
+                    <tbody>
+                    <tr>
+                            <td>
+                            # <?php echo $id; ?>
+                            </td>
+                            <td>
+                            <?php echo $fname; ?>
+                            </td>
+                            <td>
+                            <?php echo $lname; ?>
+                            </td>
+                            <td>
+                            <?php echo $amount; ?>
+                            </td>
+                            <td>
+                            <?php echo $Email; ?>
+                            </td>
+                            <td>
+                            <?php echo $contact; ?>
+                            </td>
+                            <td>
+                            <button data-target="#view<?php echo $id;?>" class="button is-success is-small modal-button"  id="btn_delete" name="acnt_view"><i class="far fa-eye"></i>
+                            </button>
+                            <?php
+                            include 'Buttons/salesViewModal.php';
+                            ?>
+                            </td>
+                    </tr>
+
+                    <?php 
+        }  
+      }        
+      ?>
+
+                    </tbody>
     </table>
+    <nav class="pagination is-small" role="navigation" aria-label="pagination">
+    <a href="<?php if($page <= 1){ echo '#'; } else { echo "?page=".($page - 1); } ?>" class="pagination-previous" >Previous</a>
+    <a href="<?php if($page >= $total_pages){ echo '#'; } else { echo "?page=".($page + 1); } ?>" class="pagination-next">Next page</a>
+    <ul class="pagination-list">
+      <li><a href="?page=1" class="pagination-link" >1</a></li>
+      <li>
+        <span class="pagination-ellipsis">&hellip;</span>
+      </li>
+      <li><a href="?page=<?php echo $total_pages; ?>" class="pagination-link"><?php echo $total_pages; ?></a></li>
+    </ul>
+  </nav>
 </div>
 </section>
 
@@ -192,36 +227,25 @@ include 'connection.php';
 
 <!-- modal script -->
 <script>
-    var btn = document.querySelector('#sendmodal');
-    var modalDlg9 = document.querySelector('#serv-modal1');
-    var imageModalCloseBtn9 = document.querySelector('#close9');
-    btn.addEventListener('click', function () {
-        modalDlg9.classList.add('is-active');
-    });
-
-    imageModalCloseBtn9.addEventListener('click', function () {
-        modalDlg9.classList.remove('is-active');
-    });
-    // .click(function() {
-    //   .addClass("is-active");  
-    // });
-
-    // $(".modal-close").click(function() {
-    //    $(".modal").removeClass("is-active");
-    // });
-</script>
-
-<!-- end script -->
-
-<script>
     function w3_open() {
-        document.getElementById("mySidebar").style.display = "block";
+      document.getElementById("mySidebar").style.display = "block";
     }
-
     function w3_close() {
-        document.getElementById("mySidebar").style.display = "none";
+      document.getElementById("mySidebar").style.display = "none";
     }
-</script>
+    document.querySelectorAll('.modal-button').forEach(function(el) {
+      el.addEventListener('click', function() {
+        var target = document.querySelector(el.getAttribute('data-target'));
+
+        target.classList.add('is-active');
+
+
+        target.querySelector('.modal-close').addEventListener('click', function(){
+          target.classList.remove('is-active');
+        });
+      });
+    });
+  </script>
 
 </body>
 

@@ -48,6 +48,11 @@ body {
             padding: 0;
         }
 
+        #contactus {
+            background-color: #80cbae;
+            font-family: 'Montserrat';
+        }
+
         // SIDEBAR
         .w3-bar-block .w3-bar-item {
             font-family: 'Montserrat', sans-serif;
@@ -73,76 +78,76 @@ body {
             margin:0;
         }
 
-        #acc_setting {
-            background-color: #80cbae;
-            font-family: 'Montserrat';
+        #contact-us {
+        background-color: #80cbae;
+        font-family: 'Montserrat';
         }
 
-        // form-edit-email
+        // form 
         .section {
             padding-top: 10px;
             padding-bottom: 0;
         }
-        .head {
+        .header {
+            margin-bottom: 50px;
+        }
+        .title {
             color: #1faa74;
             text-align: left;
             font-size: 40px;
             font-family: 'Montserrat', sans-serif;
             font-weight: bolder;
         }
-        .container {
-            border-radius: 5px;
-            padding: 20px;
-            margin-left: 210px;
-            margin-right: 20px;
-        }
-        input[type=text] {
+        input[type=text]{
+            width: 100%;
+            resize: vertical;
+            height: 40px;
+            border: none;
+            border-bottom: 1px solid #333;
+            padding: 10px;
+            font-size: 16px;
+          }
+
+         textarea {
             width: 100%;
             padding: 12px;
             border: 1px solid #ccc;
             border-radius: 4px;
             resize: vertical;
-            margin-bottom: 10px;
-        }
-        
-        label {
+            resize: none;
+          }
+
+          label {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: bold;
+            font-size: 18px;
             padding: 12px 12px 12px 0;
             display: inline-block;
-        }
-        
-        input[type=submit] {
-            background-color: #4CAF50;
-            color: white;
-            padding: 12px 20px;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            float: right;
-        }
-        
-        input[type=submit]:hover {
-            background-color: #45a049;
-        }
-        .container1 {
+          }
+
+          .container {
             border-radius: 5px;
-            padding: 20px;
-            margin-left: 290px;
-            margin-right: 100px;
+            padding: 50px;
+            margin-left: 210px;
+            margin-right: 80px;
+          }
+          .container1 {
+              margin-left: 70px;
           }
           
-        .col-25 {
+          .col-25 {
             float: left;
             width: 25%;
             margin-top: 6px;
-        }
-        
-        .col-75 {
+          }
+          
+          .col-75 {
             float: left;
             width: 75%;
             margin-top: 6px;
-        }
-        
-        /* Clear floats after the columns */
+          }
+
+          /* Clear floats after the columns */
         .row:after {
             content: "";
             display: table;
@@ -151,12 +156,27 @@ body {
         
         /* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
         @media screen and (max-width: 600px) {
-            .col-25, .col-75, input[type=submit] {
+            .col-25, .col-75, .button {
             width: 100%;
             margin-top: 0;
             }
         }
-
+        .button {
+            background-color: #1faa74;
+            color: white;
+            border: none;
+            cursor: pointer;
+            float: right;
+            width: 200px;
+        }
+        .button:hover {
+            background-color: #99cc67;
+            color: white;
+        }
+        #submit {
+            margin-top: 10px;
+            margin-bottom: 0;
+        }
         // footer
         #alrights {
             text-align: center !important;

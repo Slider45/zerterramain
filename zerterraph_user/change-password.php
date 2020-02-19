@@ -11,7 +11,7 @@
     <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css">
     <script src="js/homeJS.js"></script>
-    <link rel="stylesheet" type="text/css" href="sass/login_setting.css">
+    <link rel="stylesheet" type="text/css" href="sass/change-password.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
     <link href="http://fonts.googleapis.com/css?family=Cookie" rel="stylesheet" type="text/css">
@@ -73,27 +73,20 @@
     <!-- END OF NAVBAR -->
 
     <!-- SIDE BAR -->
-    <div class="w3-sidebar w3-bar-block w3-card">
-    <a href="index.php" class="w3-bar-item w3-button w3-hover-white"><h3 class="w3-bar-item">Name</h3></a> 
+    <div class="w3-sidebar w3-bar-block w3-card w3-animate-left">
+    <h3 class="w3-bar-item">Name</h3> 
     <hr class="hr"></hr>
-    <a href="profile.php" class="w3-bar-item w3-button w3-hover-white" id="profile"><i class="fas fa-user"></i> &nbsp&nbspProfile</a>
-    
-    <button class="w3-button w3-block w3-left-align w3-hover-white" id="acc_setting" onclick="myAccFunc()"><i class="fas fa-cog"></i> &nbsp&nbspAccount Settings <i class="fa fa-caret-down"></i></button>
+    <a href="index.php" class="w3-bar-item w3-button w3-hover-white">Dashboard</a>
+    <a href="profile.php" class="w3-bar-item w3-button w3-hover-white" id="profile">Profile</a>
+
+    <button class="w3-button w3-block w3-left-align w3-hover-white" onclick="myAccFunc()">Account Settings &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<i class="fa fa-caret-down"></i></button>
     <div id="demoAcc" class="w3-hide w3-white w3-card">
-        <a href="acc_setting.php" class="w3-bar-item w3-button w3-hover-white"><i class="fas fa-pen-nib"></i> &nbsp&nbspPersonal Information</a>
-        <a href="login_setting.php" class="w3-bar-item w3-button w3-hover-white"><i class="fas fa-lock"></i> &nbsp&nbspSecurity and Login</a>
-        <a href="#" class="w3-bar-item w3-button w3-hover-white"><i class="fas fa-file-signature"></i> &nbsp&nbspTerms of Service</a>
-        <a href="#" class="w3-bar-item w3-button w3-hover-white"><i class="fas fa-user-shield"></i> &nbsp&nbspData Policy</a>
+        <a href="acc_setting.php" class="w3-bar-item w3-button w3-hover-white"><i class="fas fa-pen-nib"></i> &nbsp&nbspEdit Profile</a>
+        <a href="login_setting.php" class="w3-bar-item w3-button w3-hover-white"><i class="fas fa-lock"></i> &nbsp&nbspChange Password</a>
     </div>
 
-    <button class="w3-button w3-block w3-left-align w3-hover-white" onclick="myAccFunc1()"><i class="fas fa-question-circle"></i> &nbsp&nbspHelp & Support <i class="fa fa-caret-down"></i>
-    </button>
-    <div id="demoAcc1" class="w3-hide w3-white w3-card">
-        <a href="#" class="w3-bar-item w3-button w3-hover-white">Help Center</a>
-        <a href="#" class="w3-bar-item w3-button w3-hover-white">Support Inbox</a>
-        <a href="#" class="w3-bar-item w3-button w3-hover-white">Report a problem</a>
-        <a href="#" class="w3-bar-item w3-button w3-hover-white">Terms & Policies</a>
-    </div>
+    <a href="request-repair.php" class="w3-bar-item w3-button w3-hover-white">Request for Repair</a>
+    <a href="contact-us.php" class="w3-bar-item w3-button w3-hover-white">Contact Us</a>
     </div>
 
     <script>
@@ -124,13 +117,48 @@
 
     <!-- END OF SIDE BAR -->
     <section class="section">
-
-    <div class="container">
+    <div class="container" id="form_edit">
         <div class="header">
-            <h1 class="head">
-            Change Password
+            <h1 class="title">
+            CHANGE PASSWORD
             </h1>
         </div>
+
+        <div class="container1">
+            <form>
+            <div class="row">
+                <div class="col-25">
+                <label for="currentpass">Current Password </label>
+                </div>
+                <div class="col-75">
+                <input type="text" id="currentpass" name="currentpass" placeholder="">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-25">
+                <label for="newpass">New Password </label>
+                </div>
+                <div class="col-75">
+                <input type="text" id="newpass" name="newpass" placeholder="">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-25">
+                <label for="retypepass">Re-type New Password </label>
+                </div>
+                <div class="col-75">
+                <input type="text" id="retypepass" name="retypepass" placeholder="">
+                </div>
+            </div>
+            <div class="row">
+                <button class="button is-rounded" id="save">Save Changes</button>
+            </div>
+            <div class="row">
+                <button class="button is-danger is-rounded" id="cancel">Cancel</button>
+            </div>
+            </form>
+        </div>
+
     </div>
     </section>
 

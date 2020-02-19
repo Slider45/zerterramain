@@ -8,7 +8,7 @@ if(isset($_SESSION["userEmail"]))
 }
 
 
-$message="";
+
 
 ?>
 
@@ -60,7 +60,7 @@ $message="";
 
             <div class="logo">
               <figure class="image is-128x128">
-                <img src="images/plainlogo.png">
+                <img src="images/loginimg.png">
               </figure>
             </div>
 
@@ -92,9 +92,8 @@ $message="";
 
             <div class="columns">
               <div class="column">
-                <label class="checkbox">
-                  <input type="checkbox" name="remember">
-                  Remember me
+                <label class="checkbox"name="remember">
+                  <input type="checkbox" name="remember"> Remember me
                 </label>
               </div>
               <div class="column">
@@ -112,19 +111,18 @@ $message="";
 
           </div>
 
-
-<!-- login failed -->
-<div class="notification is-danger">
-  <button class="delete"></button>
-<p id="notif"> Login failed! </p>
-</div>
+          <?php
+          if (isset($_POST['loginUser'])) {
 
 
-<!-- login success -->
-<!-- <div class="notification is-success">
-  <button class="delete"></button>
-<p id="notif"> Login success! </p>
-</div> -->
+            include 'PagesFunction/query_login.php';
+
+          }
+
+        
+          ?>
+
+
 
         </div>
       </form>
@@ -136,16 +134,7 @@ $message="";
 
 
 
-    <?php
-    if (isset($_POST['loginUser'])) {
 
-
-      include 'PagesFunction/query_login.php';
-
-    }
-
-
-    ?>
 
     <!-- script -->
 

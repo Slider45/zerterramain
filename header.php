@@ -1,5 +1,5 @@
 <?php include 'PagesFunction/connection.php'; 
- $serialNum = "";?>
+$serialNum = "";?>
 
 <div class="menu">
   <ul>
@@ -24,10 +24,10 @@
                         <h2>Service Warranty</h2>
                       </div>
                     </button>
-              </div>
-            
+                  </div>
 
-        <form action="index.php" method="POST" accept-charset="utf-8">
+
+                  <form action="index.php" method="POST" accept-charset="utf-8">
 
                     <div class="container">
                       <div id="serv-modal" class="modal">
@@ -53,9 +53,9 @@
                     </div>
                   </div>
                 </div>
-            
-       </form>
-            
+
+              </form>
+
               <div class="column  is-3" id="serv-column">
                 <button class="card" id="serv-RR">
                   <img src="images\RequestRepairIcon.png" id="title-img">
@@ -63,48 +63,45 @@
                     <h2>Request Repair</h2>
                   </div>
                 </button>
-               
-</div>
 
-<form action="index.php" method="POST" accept-charset="utf-8">
-  
+              </div>
 
+              <form action="index.php" method="POST" accept-charset="utf-8">
+               <div class="container" id="app">
+                  <div id="repair-modal" class="modal">
+                    <div class="modal-background"></div>
+                    <div class="modal-content2" id="repair-modal-content">
+                     <div class="modal-card2">
+                      <header class="modal-card-head2">
+                        <p class="modal-card-title">REQUEST FORM</p>
+                        <button class="delete" aria-label="close" id="image-modal-close5"></button>
+                      </header>
+                      <section class="modal-card-body2">
+                        <!-- Content ... -->
+                        <div class="field">
+                          <div  class="control1" id="form_error" >
+                            <input class="input2" type="text" name="SerialNumber" placeholder="Serial Number" required >
 
-                  <div class="container" id="app">
-                    <div id="repair-modal" class="modal">
-                      <div class="modal-background"></div>
-                      <div class="modal-content2" id="repair-modal-content">
-                       <div class="modal-card2">
-                        <header class="modal-card-head2">
-                          <p class="modal-card-title">REQUEST FORM</p>
-                          <button class="delete" aria-label="close" id="image-modal-close5"></button>
-                        </header>
-                        <section class="modal-card-body2">
-                          <!-- Content ... -->
-                          <div class="field">
-                            <div  class="control1" id="form_error" >
-                              <input class="input2" type="text" name="SerialNumber" placeholder="Serial Number" required >
-                             
-                            </div>
+                          </div>
 
 
-                        
 
-                            <div class="control1">
-                              <input class="input2" type="text" name="Fname" placeholder="Firstname" required>
-                            </div>
-                            <div class="control1">
-                              <input class="input2" type="text" name="Lname" placeholder="Lastname" required>
-                            </div>
-                            <div class="control1">
-                              <input class="input2" type="email" name="email" placeholder="Email" required>
-                            </div>
-                            <div class="control1">
-                              <input class="input2" type="number" name="contactNum" placeholder="Contact Number" required>
-                            </div>
-                            <div class="control1">
-                              <input class="input2" type="text" name="address" placeholder="Address" required>
-                            </div>
+
+                          <div class="control1">
+                            <input class="input2" type="text" name="Fname" placeholder="Firstname" required>
+                          </div>
+                          <div class="control1">
+                            <input class="input2" type="text" name="Lname" placeholder="Lastname" required>
+                          </div>
+                          <div class="control1">
+                            <input class="input2" type="email" name="email" placeholder="Email" required>
+                          </div>
+                          <div class="control1">
+                            <input class="input2" type="number" name="contactNum" placeholder="Contact Number" required>
+                          </div>
+                          <div class="control1">
+                            <input class="input2" type="text" name="address" placeholder="Address" required>
+                          </div>
                           <!-- <div class="control">
                             <textarea class="textarea1" placeholder="Message"></textarea>
                           </div> -->                     
@@ -115,87 +112,87 @@
                       </footer>
                     </div></div></div>
                   </div>
-       
-</form>
 
-              <?php 
+                </form>
 
-           
+                <?php 
 
 
-                 include 'PagesFunction/query_request.php';
-              
-              ?>
 
-              <div class="column  is-3" id="serv-column">
-                <button class="card" id="serv-TAC">
-                  <img src="images\TermandConditionIcon.png" id="title-img">
-                  <div class="card-content" id="title-h2">
-                    <h2>Terms And Condition</h2>
-                  </div>
-                </button>
-                <div id="term-condition-modal" class="modal">
-                  <div class="modal-background"></div>
-                  <div class="modal-content3">
-                    <div class="modal-card3">
-                      <header class="modal-card-head3">
-                        <p class="modal-card-title">Term & Condition</p>
-                        <button class="delete" aria-label="close" id="image-modal-close6"></button>
-                      </header>
-                      <section class="modal-card-body3" id="TAC-css">
-                        <?php
-                        include 'content/termandcondition.php';
-                        ?>
-                      </section>
-                      <footer class="modal-card-foot3">
-                       <button class="button is-medium btn">Accept &nbsp<i class="far fa-thumbs-up"></i></button>
-                     </footer>
+
+                include 'PagesFunction/query_request.php';
+
+                ?>
+
+                <div class="column  is-3" id="serv-column">
+                  <button class="card" id="serv-TAC">
+                    <img src="images\TermandConditionIcon.png" id="title-img">
+                    <div class="card-content" id="title-h2">
+                      <h2>Terms And Condition</h2>
+                    </div>
+                  </button>
+                  <div id="term-condition-modal" class="modal">
+                    <div class="modal-background"></div>
+                    <div class="modal-content3">
+                      <div class="modal-card3">
+                        <header class="modal-card-head3">
+                          <p class="modal-card-title">Term & Condition</p>
+                          <button class="delete" aria-label="close" id="image-modal-close6"></button>
+                        </header>
+                        <section class="modal-card-body3" id="TAC-css">
+                          <?php
+                          include 'content/termandcondition.php';
+                          ?>
+                        </section>
+                        <footer class="modal-card-foot3">
+                         <button class="button is-medium btn">Accept &nbsp<i class="far fa-thumbs-up"></i></button>
+                       </footer>
+                     </div>
                    </div>
                  </div>
                </div>
-             </div>
 
-             <div class="column" id="serv-column">
-              <button class="card" id="serv-download">
-                <img src="images\DownloadIcon.png" id="title-img">
-                <div class="card-content" id="title-h2">
-                  <h2>Download App</h2>
-                </div>
-              </button>
+               <div class="column" id="serv-column">
+                <button class="card" id="serv-download">
+                  <img src="images\DownloadIcon.png" id="title-img">
+                  <div class="card-content" id="title-h2">
+                    <h2>Download App</h2>
+                  </div>
+                </button>
 
-               <div class="container" >
-                      <div id="serv-download-modal" class="modal">
-                        <div class="modal-background"></div>
-                        <div class="modal-content1" style="margin-left:580px;">
-                         <div class="modal-card1">
-                          <header class="modal-card-head3" id="modal-card-head" style="width: 300px; text-align:center;">
-                           <p class="modal-card-title">Download App</p>
-                        <!--    <button class="delete" aria-label="close" id="image-modal-close7"></button> -->
-                         </header>
-                         <section class="modal-card-body1" id="modal-card-body" style="width: 300px;">
-                          <!-- Content ... -->
-                          <div class="field">
-                            <div class="control">
-                              <p style="text-align: center;"> Do you want to download the remote for your machine?</p>
-                            </div>
-                          </div>
-                        </section>
-                        <footer class="modal-card-foot1" id="modal-card-foot" style="width: 300px;">
-                        <a href="download/zerterra.zip" download class="button is-success" style="margin-right: 10px; margin-left: 30px;">Download</a>
-                           <button class="button is-danger" aria-label="close" id="image-modal-close7">Cancel</button>
-                        </footer>
+                <div class="container" >
+                  <div id="serv-download-modal" class="modal">
+                    <div class="modal-background"></div>
+                    <div class="modal-content1" style="margin-left:580px;">
+                     <div class="modal-card1">
+                      <header class="modal-card-head3" id="modal-card-head" style="width: 300px; text-align:center;">
+                       <p class="modal-card-title">Download App</p>
+                       <!--    <button class="delete" aria-label="close" id="image-modal-close7"></button> -->
+                     </header>
+                     <section class="modal-card-body1" id="modal-card-body" style="width: 300px;">
+                      <!-- Content ... -->
+                      <div class="field">
+                        <div class="control">
+                          <p style="text-align: center;"> Do you want to download the remote for your machine?</p>
+                        </div>
                       </div>
-                    </div>
+                    </section>
+                    <footer class="modal-card-foot1" id="modal-card-foot" style="width: 300px;">
+                      <a href="download/zerterra.zip" download class="button is-success" style="margin-right: 10px; margin-left: 30px;">Download</a>
+                      <button class="button is-danger" aria-label="close" id="image-modal-close7">Cancel</button>
+                    </footer>
                   </div>
                 </div>
-
+              </div>
             </div>
+
           </div>
         </div>
       </div>
     </div>
-
   </div>
+
+</div>
 </div>
 </li>
 

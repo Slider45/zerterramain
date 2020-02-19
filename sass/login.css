@@ -180,8 +180,8 @@ body {
 }
 
 .logo img {
-  margin-left: 70px;
-  margin-bottom: 0;
+    position: absolute;
+    margin-left: 15px;
 }
 
 .header h2 {
@@ -223,6 +223,7 @@ body {
   width: 200px;
   margin-top: 20px;
   margin-left: 75px;
+  font-family: 'Montserrat';
 }
 
 .buttons .button:hover {
@@ -732,6 +733,7 @@ a:hover {
     margin-top: 60px;
     margin-left: 50px;
     margin-bottom: 25px;
+    font-family: 'Montserrat';
   }
   .home {
     width: 50px;

@@ -393,23 +393,17 @@ if (isset($_POST['sendMSG'])) {
 
 
    <script>
-  var btnmsg = document.querySelector('#SendOrder');
-  var modalDlgmsg = document.querySelector('#thankyouModal');
-  var imageModalCloseBtnmsg = document.querySelector('#msgeClose');
-  btn.addEventListener('click', function(){
-    modalDlgmsg.classList.add('is-active');
-  });
+  document.querySelectorAll('.modal-button').forEach(function(el) {
+      el.addEventListener('click', function() {
+        var target = document.querySelector(el.getAttribute('data-target'));
 
-  imageModalCloseBtnmsg.addEventListener('click', function(){
-    modalDlgmsg.classList.remove('is-active');
-  });
-    // .click(function() {
-    //   .addClass("is-active");  
-    // });
+        target.classList.add('is-active');
 
-    // $(".modal-close").click(function() {
-    //    $(".modal").removeClass("is-active");
-    // });
+        target.querySelector('.modal-close').addEventListener('click', function(){
+          target.classList.remove('is-active');
+        });
+      });
+    });
   </script>  
 
 

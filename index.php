@@ -201,8 +201,8 @@ include 'PagesFunction/connection.php';
             </header>
             <section class="modal-card-body">
 
-              <div class="field">
-                <div class="control">
+              <div class="field">   
+                           <div class="control">
                   <input class="input1" name="first_name" type="text" placeholder="First Name" required="">
                 </div>
                 <div class="control">

@@ -1,0 +1,174 @@
+html,
+body {
+    width: 100%;
+    height: 100%;
+    font-family: 'Montserrat', sans-serif;
+    scroll-behavior: smooth;
+}
+
+        /* navbar */
+        .navbar-item {
+            font-family: 'Montserrat', sans-serif;
+        }
+        .navbar-item img {
+            margin-left: 30px;
+        }
+
+        #userid :hover {
+            background-color: #363636;
+        }
+
+        /* table */
+        table {
+            width: 70% !important;
+            margin-left: 15%;
+            margin-right: auto;
+            margin-top: 5%;
+            font-size: 26pt;
+            background-color: #f2f1f6 !important;
+        }
+
+        th {
+            background-color: #f2f1f6;
+            text-align: center !important;
+            color: #99cc67 !important;
+        }
+
+        td {
+            text-align: center !important;
+            color: #99cc67;
+            border: solid black !important;
+        }
+
+        #serialno {
+            padding: 0;
+        }
+
+        #userinfo {
+            padding: 0;
+        }
+
+        // SIDEBAR
+        .w3-bar-block .w3-bar-item {
+            font-family: 'Montserrat', sans-serif;
+        }
+        .w3-sidebar {
+            height: 100%;
+            width: 200px;
+            background-color: #1faa74 !important;
+            color: white;
+            position: fixed!important;
+            z-index: 1;
+            overflow: auto;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .w3-button {
+            font-family: 'Montserrat', sans-serif;
+            padding-left: 15px;
+        }
+
+        .hr {
+            height:1px; 
+            margin:0;
+        }
+
+        #request-repair{
+            background-color: #80cbae;
+            font-family: 'Montserrat';
+        }
+
+        // form 
+        .section {
+            padding-top: 10px;
+            padding-bottom: 0;
+        }
+        .header {
+            margin-bottom: 50px;
+        }
+        .title {
+            color: #1faa74;
+            text-align: left;
+            font-size: 40px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: bolder;
+        }
+        input[type=text] {
+            width: 100%;
+            resize: vertical;
+            height: 40px;
+            border: none;
+            border-bottom: 1px solid #333;
+            padding: 10px;
+            font-size: 16px;
+          }
+          
+          label {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: bold;
+            font-size: 18px;
+            padding: 12px 12px 12px 0;
+            display: inline-block;
+          }
+
+          .container {
+            border-radius: 5px;
+            padding: 50px;
+            margin-left: 210px;
+            margin-right: 80px;
+          }
+          .container1 {
+              margin-left: 70px;
+          }
+          
+          .col-25 {
+            float: left;
+            width: 25%;
+            margin-top: 6px;
+          }
+          
+          .col-75 {
+            float: left;
+            width: 75%;
+            margin-top: 6px;
+          }
+
+          /* Clear floats after the columns */
+        .row:after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+        
+        /* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
+        @media screen and (max-width: 600px) {
+            .col-25, .col-75, .button {
+            width: 100%;
+            margin-top: 0;
+            }
+        }
+        .button {
+            background-color: #1faa74;
+            color: white;
+            border: none;
+            cursor: pointer;
+            float: right;
+            width: 200px;
+        }
+        .button:hover {
+            background-color: #99cc67;
+            color: white;
+        }
+        #save {
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+        #cancel {
+            margin-bottom: 0;
+        }
+
+        // footer
+        #alrights {
+            text-align: center !important;
+            font-size: 12px;
+        }

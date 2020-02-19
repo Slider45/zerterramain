@@ -26,16 +26,17 @@ table {
   margin-right: auto;
   margin-top: 5%;
   font-size: 26pt;
-  background-color: #f2f1f6 !important;
+  background-color: white !important;
 }
 
 th {
-  background-color: #f2f1f6;
+  background-color: white;
   text-align: center !important;
   color: #99cc67 !important;
 }
 
 td {
+  background-color: white;
   text-align: center !important;
   color: #99cc67;
   border: solid black !important;
@@ -72,6 +73,11 @@ td {
 .hr {
   height: 1px;
   margin: 0;
+}
+
+#dashboard {
+  background-color: #80cbae;
+  font-family: 'Montserrat';
 }
 
 #alrights {

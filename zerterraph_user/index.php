@@ -1,12 +1,12 @@
 <?php
 
-session_start();
+session_start();  
+if(!isset($_SESSION["userEmail"]))
+{
+ header("location:../Log-in.php");
+}
 
-    if($_SESSION['email']){
-          echo "<script>alert('Login Expired!'); </script>";
-        header("location:../");
-        exit();
-    }
+
 
 include '../PagesFunction/connection.php';
 ?>
@@ -59,8 +59,8 @@ include '../PagesFunction/connection.php';
 
         <div id="navMenu" class="navbar-menu">
             <div class="navbar-end">
-                <a class="navbar-item" id="userid"><?= $_SESSION['email']?> &nbsp<i class="fas fa-user"></i></a>
-                <a class="navbar-item" href="../"><i class="fas fa-sign-out-alt"></i>&nbspLogout</a>
+                <a class="navbar-item" id="userid"><?= $_SESSION['userEmail']?> &nbsp<i class="fas fa-user"></i></a>
+                <a class="navbar-item" href="logout.php"><i class="fas fa-sign-out-alt"></i>&nbspLogout</a>
             </div>
         </div>
 
@@ -87,27 +87,20 @@ include '../PagesFunction/connection.php';
     <!-- END OF NAVBAR -->
 
     <!-- SIDE BAR -->
-    <div class="w3-sidebar w3-bar-block w3-card">
+    <div class="w3-sidebar w3-bar-block w3-card w3-animate-left">
     <h3 class="w3-bar-item">Name</h3> 
     <hr class="hr"></hr>
-    <a href="profile.php" class="w3-bar-item w3-button w3-hover-white" id="profile"><i class="fas fa-user"></i> &nbsp&nbspProfile</a>
-    
-    <button class="w3-button w3-block w3-left-align w3-hover-white" onclick="myAccFunc()"><i class="fas fa-cog"></i> &nbsp&nbspAccount Settings <i class="fa fa-caret-down"></i></button>
+    <a href="index.php" class="w3-bar-item w3-button w3-hover-white" id="dashboard">Dashboard</a>
+    <a href="profile.php" class="w3-bar-item w3-button w3-hover-white" id="profile">Profile</a>
+
+    <button class="w3-button w3-block w3-left-align w3-hover-white" onclick="myAccFunc()">Account Settings &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<i class="fa fa-caret-down"></i></button>
     <div id="demoAcc" class="w3-hide w3-white w3-card">
-        <a href="acc_setting.php" class="w3-bar-item w3-button w3-hover-white"><i class="fas fa-pen-nib"></i> &nbsp&nbspPersonal Information</a>
-        <a href="login_setting.php" class="w3-bar-item w3-button w3-hover-white"><i class="fas fa-lock"></i> &nbsp&nbspSecurity and Login</a>
-        <a href="#" class="w3-bar-item w3-button w3-hover-white"><i class="fas fa-file-signature"></i> &nbsp&nbspTerms of Service</a>
-        <a href="#" class="w3-bar-item w3-button w3-hover-white"><i class="fas fa-user-shield"></i> &nbsp&nbspData Policy</a>
+        <a href="acc_setting.php" class="w3-bar-item w3-button w3-hover-white"><i class="fas fa-pen-nib"></i> &nbsp&nbspEdit Profile</a>
+        <a href="change-password.php" class="w3-bar-item w3-button w3-hover-white"><i class="fas fa-lock"></i> &nbsp&nbspChange Password</a>
     </div>
 
-    <button class="w3-button w3-block w3-left-align w3-hover-white" onclick="myAccFunc1()"><i class="fas fa-question-circle"></i> &nbsp&nbspHelp & Support <i class="fa fa-caret-down"></i>
-    </button>
-    <div id="demoAcc1" class="w3-hide w3-white w3-card">
-        <a href="#" class="w3-bar-item w3-button w3-hover-white">Help Center</a>
-        <a href="#" class="w3-bar-item w3-button w3-hover-white">Support Inbox</a>
-        <a href="#" class="w3-bar-item w3-button w3-hover-white">Report a problem</a>
-        <a href="#" class="w3-bar-item w3-button w3-hover-white">Terms & Policies</a>
-    </div>
+    <a href="request-repair.php" class="w3-bar-item w3-button w3-hover-white">Request for Repair</a>
+    <a href="contact-us.php" class="w3-bar-item w3-button w3-hover-white">Contact Us</a>
     </div>
 
     <script>

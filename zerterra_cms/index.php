@@ -93,7 +93,8 @@ if (mysqli_num_rows($result01) > 0)
         <div class="box" style="background:url(images/sales_bg.png); background-repeat: no-repeat; background-size: cover;">
           <div class="columns">
             <div class="column">
-              SALES
+              <p>SALES</P>
+              <span id="view-sales">Click here to view details</span>
             </div>
             <div class="column" style="text-align: center;">
               <span class="is-right"><?php echo $total;?></span>

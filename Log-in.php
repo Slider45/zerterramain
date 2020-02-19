@@ -6,6 +6,10 @@ if(isset($_SESSION["userEmail"]))
 {
  header("location:zerterraph_user/");
 }
+else if (isset($_SESSION["admin"]))
+{
+header("location:zerterra_cms/");
+}
 
 
 

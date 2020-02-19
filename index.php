@@ -188,47 +188,47 @@ include 'PagesFunction/connection.php';
       is a home-made organic fertilizer make made from food scrap.
     </p>
     <button class="button1" id="showModal3">ORDER NOW</button>
-      <form class="" method="post">
-       <div class="container" id="app">
-        <div id="image-modal" class="modal">
-          <div class="modal-background"></div>
-          <div class="modal-content" id="order-modal-content">
-           <div class="modal-card" id="order-modal">
-            <header class="modal-card-head">
-              <p class="modal-card-title">PRE-ORDER</p>
+    <form class="" method="post">
+     <div class="container" id="app">
+      <div id="image-modal" class="modal">
+        <div class="modal-background"></div>
+        <div class="modal-content" id="order-modal-content">
+         <div class="modal-card" id="order-modal">
+          <header class="modal-card-head">
+            <p class="modal-card-title">PRE-ORDER</p>
 
-              <button class="delete" aria-label="close" id="image-modal-close"></button>
-            </header>
-            <section class="modal-card-body">
+            <button class="delete" aria-label="close" id="image-modal-close"></button>
+          </header>
+          <section class="modal-card-body">
 
-              <div class="field">   
-                           <div class="control">
-                  <input class="input1" name="first_name" type="text" placeholder="First Name" required="">
-                </div>
-                <div class="control">
-                  <input class="input1" name="last_name" type="text" placeholder="Last Name" required="">
-                </div>
-                <div class="control">
-                  <input class="input1" name="email" type="email" placeholder="Email" required="">
-                </div>
-                <div class="control">
-                  <input type="number" maxlength="13" class="input1" name="contactnumber" placeholder="Contact Number" required="">
-                </div>
-                <div>
-                 <input class="input1" name="address" type="text" placeholder="Address" required="">
-               </div>
-             </div>
+            <div class="field">   
              <div class="control">
-              <textarea class="textarea1" name="message" placeholder="Message"></textarea>
+              <input class="input1" name="first_name" type="text" placeholder="First Name" required="">
             </div>
-            <div></div>
-            <button  class="btn" id="SendOrder" name="sendMSG" type="submit">ORDER NOW&nbsp&nbsp<i class="fas fa-paper-plane"></i></button>
-            <div></div>
-          </section>
+            <div class="control">
+              <input class="input1" name="last_name" type="text" placeholder="Last Name" required="">
+            </div>
+            <div class="control">
+              <input class="input1" name="email" type="email" placeholder="Email" required="">
+            </div>
+            <div class="control">
+              <input type="number" maxlength="13" class="input1" name="contactnumber" placeholder="Contact Number" required="">
+            </div>
+            <div>
+             <input class="input1" name="address" type="text" placeholder="Address" required="">
+           </div>
+         </div>
+         <div class="control">
+          <textarea class="textarea1" name="message" placeholder="Message"></textarea>
         </div>
-      </div>
+        <div></div>
+        <button  class="btn" id="SendOrder" name="sendMSG" type="submit">ORDER NOW&nbsp&nbsp<i class="fas fa-paper-plane"></i></button>
+        <div></div>
+      </section>
     </div>
   </div>
+</div>
+</div>
 
 </div>
 </div>
@@ -282,17 +282,17 @@ if (isset($_POST['sendMSG'])) {
      echo "<script>alert('Message not sent! Please try again!'); </script>";
 
 
-    }
+   }
 
-  }
-  ?>
-
-
+ }
+ ?>
 
 
 
 
-  <!-- -->
+
+
+ <!-- -->
 <!-- 
   <footer class="footer-distributed">
 
@@ -336,78 +336,78 @@ if (isset($_POST['sendMSG'])) {
 
 
 
-  <!-- -->
+<!-- -->
 
-  <footer class="footer-distributed">
+<footer class="footer-distributed">
 
-    <div class="footer-left">
-      <img src="images/weblogo.png" class="web-img">
-      <p class="footer-links">
-        <a href="index.php">HOME | </a>
-        <a href="ContactUs.php">CONTACT US | </a>
-        <a href="AboutUs.php">ABOUT US</a>
-      </p>
+  <div class="footer-left">
+    <img src="images/weblogo.png" class="web-img">
+    <p class="footer-links">
+      <a href="index.php">HOME | </a>
+      <a href="ContactUs.php">CONTACT US | </a>
+      <a href="AboutUs.php">ABOUT US</a>
+    </p>
 
-      <p class="footer-company-name">© 2019 ZerterraPh</p>
+    <p class="footer-company-name">© 2019 ZerterraPh</p>
+  </div>
+
+  <div class="footer-center">
+    <div>
+      <i class="fa fa-map-marker"></i>
+      <p><span>UCC CONG. RD.. CALOOCAN CITY</span></p>
     </div>
 
-    <div class="footer-center">
-      <div>
-        <i class="fa fa-map-marker"></i>
-        <p><span>UCC CONG. RD.. CALOOCAN CITY</span></p>
-        </div>
+    <div>
+      <i class="fa fa-phone"></i>
+      <p><span> (+63) 995 495 0384 |  (+63) 906 593 9808</span></p>
+    </div>
 
-        <div>
-          <i class="fa fa-phone"></i>
-          <p><span> (+63) 995 495 0384 |  (+63) 906 593 9808</span></p>
-        </div>
+    <div>
+      <i class="fa fa-envelope"></i>
+      <p><a href="#"><span>support@zerterra.com</span></a></p>
+    </div>
+  </div>
 
-        <div>
-          <i class="fa fa-envelope"></i>
-          <p><a href="#"><span>support@zerterra.com</span></a></p>
-        </div>
-      </div>
-
-      <div class="footer-right">
-        <p class="footer-company-about">
-          <span>Zerterra</span>
-          Zerterra is a home-made organic fertilizer maker made from food scrap.
-        </p>
-        <div class="footer-icons">
-          <a href="https://www.facebook.com/zerterra"><i class="facebook">
-            <img src="images\icon\fbIconWhite.png" alt="facebook">
-          </i></a>
-          <a href="https://twitter.com/Zerterra1"><i class="twitter">
-            <img src="images\icon\twitterIconWhite.png" alt="twitter">
-          </i></a>
-          <a href="#"><i class="instagram">
-            <img src="images\icon\igIconWhite.png" alt="instagram">
-          </i></a>
-          <a href="https://aboutme.google.com/u/0/?referer=gplus"><i class="gplus">
-            <img src="images\icon\GPlusIconWhite.png" alt="gplus">
-          </i></a>
-        </div>
-      </div>
-    </footer>
+  <div class="footer-right">
+    <p class="footer-company-about">
+      <span>Zerterra</span>
+      Zerterra is a home-made organic fertilizer maker made from food scrap.
+    </p>
+    <div class="footer-icons">
+      <a href="https://www.facebook.com/zerterra"><i class="facebook">
+        <img src="images\icon\fbIconWhite.png" alt="facebook">
+      </i></a>
+      <a href="https://twitter.com/Zerterra1"><i class="twitter">
+        <img src="images\icon\twitterIconWhite.png" alt="twitter">
+      </i></a>
+      <a href="#"><i class="instagram">
+        <img src="images\icon\igIconWhite.png" alt="instagram">
+      </i></a>
+      <a href="https://aboutme.google.com/u/0/?referer=gplus"><i class="gplus">
+        <img src="images\icon\GPlusIconWhite.png" alt="gplus">
+      </i></a>
+    </div>
+  </div>
+</footer>
 
 
 
-   <script>
+<script>
   document.querySelectorAll('.modal-button').forEach(function(el) {
-      el.addEventListener('click', function() {
-        var target = document.querySelector(el.getAttribute('data-target'));
+    el.addEventListener('click', function() {
+      var target = document.querySelector(el.getAttribute('data-target'));
 
-        target.classList.add('is-active');
+      target.classList.add('is-active');
 
-        target.querySelector('.modal-close').addEventListener('click', function(){
-          target.classList.remove('is-active');
-        });
+      target.querySelector('.modal-close').addEventListener('click', function(){
+        target.classList.remove('is-active');
       });
     });
-  </script>  
+  });
+</script>  
 
 
-    <script>
+<script>
 
    //   $("#SendOrder").click(function() {
      //   $("#thankyouModal").addClass("is-active");  
@@ -417,25 +417,25 @@ if (isset($_POST['sendMSG'])) {
       // $("#thankyouModal").removeClass("is-active");
     // });
 
-   </script>
+  </script>
 
 
-   <!-- FOOTER -->
-
-
-
+  <!-- FOOTER -->
 
 
 
 
 
 
-   <script type="text/javascript" src="dist/js/modal-fx.min.js"></script>
-   <script type="text/javascript" src="js/script.js"></script>
-   <script type="text/javascript" src="https://unpkg.com/bulma-modal-fx/dist/js/modal-fx.min.js"></script>
-   <script type="text/javascript" src="js/script.js"></script>
 
 
 
- </body>
- </html>
+  <script type="text/javascript" src="dist/js/modal-fx.min.js"></script>
+  <script type="text/javascript" src="js/script.js"></script>
+  <script type="text/javascript" src="https://unpkg.com/bulma-modal-fx/dist/js/modal-fx.min.js"></script>
+  <script type="text/javascript" src="js/script.js"></script>
+
+
+
+</body>
+</html>

@@ -100,17 +100,17 @@ include 'Buttons/requestButtonFunction.php';
           include 'searchFunction/searchRequestFunction.php';
         }
       }else{
-        $sql = "SELECT * FROM request_list WHERE is_approved='1'  LIMIT $offset, $no_of_records_per_page";
+        $sql = "SELECT * FROM request_repair_list WHERE is_approved='0'  LIMIT $offset, $no_of_records_per_page";
         $res_data = $con->query($sql);
         while($row = mysqli_fetch_array($res_data)){
           $id = $row['id'];
-          $fname = $row['FirstName'];
-          $lname = $row['LastName'];
-          $contact = $row['contact'];
-          $Email = $row['email'];
-          $serialNum = $row['serial_no'];
-          $requestNum = $row['request_number'];
-          $address = $row['address'];
+          $fname = $row['Firstname'];
+          $lname = $row['Lastname'];
+          $contact = $row['Contact'];
+          $email = $row['Email'];
+          $serialNum = $row['SerialNumber'];
+          $requestNum = $row['RequestNumber'];
+          $address = $row['Address'];
           ?>
           <tbody>
            <tr>
@@ -127,7 +127,7 @@ include 'Buttons/requestButtonFunction.php';
               <?php echo $fname; ?>
             </td>
             <td>
-              <?php echo $Email; ?>
+              <?php echo $email; ?>
             </td>
             <td>
               <?php echo $contact; ?>

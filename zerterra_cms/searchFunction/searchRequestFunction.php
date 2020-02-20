@@ -2,22 +2,22 @@
 
 include 'connection.php';
 
-$sql= "SELECT * FROM request_list WHERE CONCAT(`serial_no`, `request_number`, `FirstName`, `LastName`, `email`) LIKE '%".$searchValue."%' AND is_approved='1'";
+$sql= "SELECT * FROM request_repair_list WHERE CONCAT(`SerialNumber`, `RequestNumber`, `Firstname`, `Lastname`, `Email`) LIKE '%".$searchValue."%' AND is_approved='0'";
 //$sql = "SELECT * FROM request_list WHERE is_approved='0'" ;
 $result = $con->query($sql);
 if ($result->num_rows > 0) {
     while($row = $result->fetch_assoc()) 
     {
-        $id = $row['id'];
-        $fname = $row['FirstName'];
-        $lname = $row['LastName'];
-        $contact = $row['contact'];
-        $Email = $row['email'];
-        $serialNum = $row['serial_no'];
-        $requestNum = $row['request_number'];
-        $address = $row['address'];
-
-        ?>
+      $id = $row['id'];
+      $fname = $row['Firstname'];
+      $lname = $row['Lastname'];
+      $contact = $row['Contact'];
+      $email = $row['Email'];
+      $serialNum = $row['SerialNumber'];
+      $requestNum = $row['RequestNumber'];
+      $address = $row['Address'];
+      ?>
+        
 
         <tr>
         <td>
@@ -33,11 +33,12 @@ if ($result->num_rows > 0) {
               <?php echo $fname; ?>
             </td>
             <td>
-              <?php echo $Email; ?>
+              <?php echo $email; ?>
             </td>
             <td>
               <?php echo $contact; ?>
             </td>
+
         <td>
         <button data-target="#editrequest<?php echo $id;?>" class="button is-primary is-small modal-button" id="btn_update" name="btn-update"><i class="fas fa-pencil-alt"></i>
         </button>

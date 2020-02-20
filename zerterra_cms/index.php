@@ -66,7 +66,7 @@ $sql = "SELECT id FROM request_list";
 $result=mysqli_query($con,$sql);
 $requestCount=mysqli_num_rows($result);
 
-$sql01 = 'SELECT sum(Amount) as price FROM tblusers_list';
+$sql01 = 'SELECT sum(Amount) as price FROM sales_list';
 $result01 = mysqli_query($con, $sql01);
 $total=0;
 if (mysqli_num_rows($result01) > 0) 
@@ -109,7 +109,8 @@ if (mysqli_num_rows($result01) > 0)
         <div class="box" style="background:url(images/yellow_bg.png); background-repeat: no-repeat; background-size: cover;">
           <div class="columns">
             <div class="column">
-              ADMIN
+            <p>ADMIN</p>
+            <span id="view-sales">Click here to view details</span>
             </div>
             <div class="column" style="text-align: center;">
               <span class="is-right"><?php echo $adminUserCount;?></span>
@@ -125,7 +126,8 @@ if (mysqli_num_rows($result01) > 0)
         <div class="box" style="background:url(images/blue_bg.png); background-repeat: no-repeat; background-size: cover;">
           <div class="columns">
             <div class="column">
-              USERS
+            <p>USERS</p>
+            <span id="view-sales">Click here to view details</span>
             </div>
             <div class="column" style="text-align: center;">
               <span class="is-right"><?php echo $regUserCount;?></span>
@@ -141,7 +143,8 @@ if (mysqli_num_rows($result01) > 0)
         <div class="box" style="background:url(images/request_bg.png); background-repeat: no-repeat; background-size: cover;">
           <div class="columns">
             <div class="column">
-              REQUEST LIST
+            <p>REQUEST LIST</p>
+            <span id="view-sales">Click here to view details</span>
             </div>
             <div class="column" style="text-align: center;">
               <span class="is-right"><?php echo $requestCount;?></span>

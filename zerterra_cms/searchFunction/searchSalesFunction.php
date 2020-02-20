@@ -1,7 +1,7 @@
 <?php
 
 
-$sql= "SELECT * FROM tblusers_list WHERE CONCAT(`Firstname`, `Lastname`, `ContactNumber`, `email`) LIKE '%".$searchValue."%' AND is_active='1'";
+$sql= "SELECT * FROM sales_list WHERE CONCAT(`Firstname`, `Lastname`, `Amount`) LIKE '%".$searchValue."%' AND is_active='1'";
  //$sql = "SELECT * FROM request_list WHERE is_approved='0'" ;
 $result = $con->query($sql);
 if ($result->num_rows > 0) {
@@ -11,8 +11,7 @@ if ($result->num_rows > 0) {
             $fname = $row['Firstname'];
             $lname = $row['Lastname'];
             $amount = $row['Amount'];
-            $Email = $row['email'];
-            $contact = $row['ContactNumber'];
+
     
     ?>
     
@@ -29,12 +28,7 @@ if ($result->num_rows > 0) {
                             <td>
                             <?php echo $amount; ?>
                             </td>
-                            <td>
-                            <?php echo $Email; ?>
-                            </td>
-                            <td>
-                            <?php echo $contact; ?>
-                            </td>
+                          
     
     
     <td style="text-align: center;">

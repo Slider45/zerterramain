@@ -1,5 +1,7 @@
 <?php
 session_start();
+$msg="";
+use PHPMailer\PHPMailer\PHPMailer;
 $_SESSION['email'] = "";
 
 include 'PagesFunction/connection.php';
@@ -222,7 +224,7 @@ include 'PagesFunction/connection.php';
           <textarea class="textarea1" name="message" placeholder="Message"></textarea>
         </div>
         <div></div>
-        <button  class="btn" id="SendOrder" name="sendMSG" type="submit">ORDER NOW&nbsp&nbsp<i class="fas fa-paper-plane"></i></button>
+        <button  class="btn" id="SendOrder" name="sendOrder" type="submit">ORDER NOW&nbsp&nbsp<i class="fas fa-paper-plane"></i></button>
         <div></div>
       </section>
     </div>
@@ -243,46 +245,8 @@ include 'PagesFunction/connection.php';
 
 
 <?php
-if (isset($_POST['sendMSG'])) {
-  $email_to = "admin@zerterra.com";
-  $email_subject = "Email subject";
-    $first_name = $_POST['first_name']; // required
-    $last_name = $_POST['last_name']; 
-    $email_from = $_POST['email']; // required
-    $contactnumber = $_POST['contactnumber']; // not required
-    $address = $_POST['address']; // required
-    $message = $_POST['message']; // required
-
-    function clean_string($string)
-    {
-      $bad = array("content-type", "bcc:", "to:", "cc:", "href");
-      return str_replace($bad, "", $string);
-    }
-
-    $email_message = "Pre-Order details below.\n\n";
-    $email_message .= "Email: " . clean_string($email_from) . "\n";
-    $email_message .= "First Name: " . clean_string($first_name) . "\n";
-    $email_message .= "Last Name: " . clean_string($last_name) . "\n";
-    $email_message .= "Contact number: " . clean_string($contactnumber) . "\n";
-    $email_message .= "Address: " . clean_string($address) . "\n";
-    $email_message .= "Message: " . clean_string($message) . "\n";
-
-    // create email headers
-    $headers = 'From: ' . $email_to . "\r\n" .
-    'Reply-To: ' . $email_from . "\r\n" .
-    'X-Mailer: PHP/' . phpversion();
-    $mail = mail($email_to, $email_subject, $email_message, $headers);
-    if( $mail === true ) {
-
-      include 'PagesFunction/query_orders.php';
-
-    }else{
-
-
-     echo "<script>alert('Message not sent! Please try again!'); </script>";
-
-
-   }
+if (isset($_POST['sendOrder'])) {
+  include 'PagesFunction/query_orders.php';
 
  }
  ?>

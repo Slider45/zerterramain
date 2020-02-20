@@ -8,7 +8,7 @@ if(!empty($_POST["email"]) && !empty($_POST["password"]))
 {
 	$name = $_POST["email"];
 	$password = $_POST["password"];
-	$sql = "SELECT * FROM tblusers_list where email = '" . $name . "' AND password = '" . $password . "' OR Serial_Number = '". $password ."' AND is_active = '1' ";
+	$sql = "SELECT * FROM tblusers WHERE Email = '" . $name . "' AND Password = '" . $password . "' OR SerialNumber = '". $password ."' AND is_active = '1' ";
 
 	$sqlAdmin = "SELECT * FROM admin_list WHERE Email = '". $name ."' AND Password = '" . $password . "' AND is_active = '1'";
 

@@ -1,7 +1,13 @@
 <?php
 session_start();
-// include '../PagesFunction/connection.php';
-include 'connection.php';
+if(!isset($_SESSION["admin"]))
+{
+ header("location:../Log-in.php");
+}
+include '../PagesFunction/connection.php';
+// include 'connection.php';
+
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -14,31 +20,12 @@ include 'connection.php';
 <link rel="icon" href="../images/plainlogo.png" type="image/x-icon" />
 <link rel="stylesheet" href="sass/sass.css">
 <body>
-  <nav class="navbar" role="navigation" aria-label="main navigation">
-    <div class="navbar-brand">
-      <a class="navbar-item" href="index.php">
-        <img src="images/logowhite.png" width="112" height="28" class="img-logo">
-      </a>
-    </div>
+ <?php
+ include 'admin-header.php';
+ ?>
 
 
-    <div class="navbar-end">
-      <div class="navbar-item">
-        <div class="buttons">
-          <a class="button btn-user">
-            <i class="far fa-user"></i> &nbspUser
-          </a>
-          <a class="button btn-logout">
-            <i class="fas fa-sign-out-alt"></i> &nbspLogout
-          </a>
-        </div>
-      </div>
-    </div>
-  </div>
-</nav>
-
-
-<div class="w3-sidebar w3-bar-block w3-collapse w3-card w3-animate-left" style="width:200px;" id="mySidebar">
+ <div class="w3-sidebar w3-bar-block w3-collapse w3-card w3-animate-left" style="width:200px;" id="mySidebar">
   <button class="w3-bar-item w3-button w3-large w3-hide-large" onclick="w3_close()" id="close">&times;</button>
   <a href="index.php" class="w3-bar-item w3-button" id="dashboard"><i class="fas fa-th-large"></i> &nbsp Dashboard</a>
   <a href="admin.php" class="w3-bar-item w3-button" id="item-hover"> <i class="fas fa-user-shield"></i> &nbsp Admin</a>
@@ -70,12 +57,12 @@ $sql01 = 'SELECT sum(Amount) as price FROM tblsales_list';
 $result01 = mysqli_query($con, $sql01);
 $total=0;
 if (mysqli_num_rows($result01) > 0) 
-    {
-        while($row = mysqli_fetch_assoc($result01)) 
-            {
-                $total = $total + $row['price'];
-            }
-    }
+{
+  while($row = mysqli_fetch_assoc($result01)) 
+  {
+    $total = $total + $row['price'];
+  }
+}
 
 ?>
 
@@ -94,122 +81,122 @@ if (mysqli_num_rows($result01) > 0)
           <div class="columns">
             <div class="column">
               <p>SALES</P>
-              <span id="view-sales">Click here to view details</span>
-            </div>
-            <div class="column" style="text-align: center;">
-              <span class="is-right"><?php echo $total;?></span>
-            </div>
-          </div>
-        </div>
-      </a>
-
-    </div>
-    <div class="column is-half">
-      <a href="admin.php">
-        <div class="box" style="background:url(images/yellow_bg.png); background-repeat: no-repeat; background-size: cover;">
-          <div class="columns">
-            <div class="column">
-            <p>ADMIN</p>
-            <span id="view-sales">Click here to view details</span>
-            </div>
-            <div class="column" style="text-align: center;">
-              <span class="is-right"><?php echo $adminUserCount;?></span>
+                <span id="view-sales">Click here to view details</span>
+              </div>
+              <div class="column" style="text-align: center;">
+                <span class="is-right"><?php echo $total;?></span>
+              </div>
             </div>
           </div>
-        </div>
-      </a>
-    </div>
+        </a>
 
-
-    <div class="column is-half">
-      <a href="users.php">
-        <div class="box" style="background:url(images/blue_bg.png); background-repeat: no-repeat; background-size: cover;">
-          <div class="columns">
-            <div class="column">
-            <p>USERS</p>
-            <span id="view-sales">Click here to view details</span>
-            </div>
-            <div class="column" style="text-align: center;">
-              <span class="is-right"><?php echo $regUserCount;?></span>
-            </div>
-          </div>
-        </div>
-      </a>
-    </div>
-
-
-    <div class="column is-half">
-      <a href="request.php">
-        <div class="box" style="background:url(images/request_bg.png); background-repeat: no-repeat; background-size: cover;">
-          <div class="columns">
-            <div class="column">
-            <p>REQUEST LIST</p>
-            <span id="view-sales">Click here to view details</span>
-            </div>
-            <div class="column" style="text-align: center;">
-              <span class="is-right"><?php echo $requestCount;?></span>
+      </div>
+      <div class="column is-half">
+        <a href="admin.php">
+          <div class="box" style="background:url(images/yellow_bg.png); background-repeat: no-repeat; background-size: cover;">
+            <div class="columns">
+              <div class="column">
+                <p>ADMIN</p>
+                <span id="view-sales">Click here to view details</span>
+              </div>
+              <div class="column" style="text-align: center;">
+                <span class="is-right"><?php echo $adminUserCount;?></span>
+              </div>
             </div>
           </div>
-        </div>
-      </a>
-    </div>
-
-    <div class="column is-7">
-      <div class="card">
-        <header class="card-header">
-          <p class="card-header-title">
-           RECENTLY ACTIVITIES
-         </p>
-       </header>
+        </a>
+      </div>
 
 
-       <table class="table">
-        <tr>
-          <td id=""><p>Kumain</p>
-            <span id="userinfo">Serial No. 13215-46548-02 | Jan. 9, 2019 | 04:45 pm</span>
-          </td>
-        </tr>
-        <tr>
-          <td id=""><p>Kumain</p>
-            <span id="userinfo">Serial No. 13215-46548-02 | Jan. 9, 2019 | 04:45 pm</span>
-          </td>
-        </tr>
-        <tr>
-          <td id=""><p>Kumain</p>
-            <span id="userinfo">Serial No. 13215-46548-02 | Jan. 9, 2019 | 04:45 pm</span>
-          </td>
-        </tr>
-      </table>
+      <div class="column is-half">
+        <a href="users.php">
+          <div class="box" style="background:url(images/blue_bg.png); background-repeat: no-repeat; background-size: cover;">
+            <div class="columns">
+              <div class="column">
+                <p>USERS</p>
+                <span id="view-sales">Click here to view details</span>
+              </div>
+              <div class="column" style="text-align: center;">
+                <span class="is-right"><?php echo $regUserCount;?></span>
+              </div>
+            </div>
+          </div>
+        </a>
+      </div>
+
+
+      <div class="column is-half">
+        <a href="request.php">
+          <div class="box" style="background:url(images/request_bg.png); background-repeat: no-repeat; background-size: cover;">
+            <div class="columns">
+              <div class="column">
+                <p>REQUEST LIST</p>
+                <span id="view-sales">Click here to view details</span>
+              </div>
+              <div class="column" style="text-align: center;">
+                <span class="is-right"><?php echo $requestCount;?></span>
+              </div>
+            </div>
+          </div>
+        </a>
+      </div>
+
+      <div class="column is-7">
+        <div class="card">
+          <header class="card-header">
+            <p class="card-header-title">
+             RECENTLY ACTIVITIES
+           </p>
+         </header>
+
+
+         <table class="table">
+          <tr>
+            <td id=""><p>Kumain</p>
+              <span id="userinfo">Serial No. 13215-46548-02 | Jan. 9, 2019 | 04:45 pm</span>
+            </td>
+          </tr>
+          <tr>
+            <td id=""><p>Kumain</p>
+              <span id="userinfo">Serial No. 13215-46548-02 | Jan. 9, 2019 | 04:45 pm</span>
+            </td>
+          </tr>
+          <tr>
+            <td id=""><p>Kumain</p>
+              <span id="userinfo">Serial No. 13215-46548-02 | Jan. 9, 2019 | 04:45 pm</span>
+            </td>
+          </tr>
+        </table>
 
 
 
 
 
 
-      <footer class="card-footer">
-        <div class="card-footer-item">
-          <nav class="pagination is-right" role="navigation" aria-label="pagination">
-           <span><a class="pagination-previous">Prev</a></span> <span>|</span>
-           <span> <a class="pagination-next">Next</a></span>
-         </nav>
-       </div>
-     </footer>
+        <footer class="card-footer">
+          <div class="card-footer-item">
+            <nav class="pagination is-right" role="navigation" aria-label="pagination">
+             <span><a class="pagination-previous">Prev</a></span> <span>|</span>
+             <span> <a class="pagination-next">Next</a></span>
+           </nav>
+         </div>
+       </footer>
+     </div>
    </div>
- </div>
- <div class="column is-5">
-  <div class="card">
-    <header class="card-header">
-      <p class="card-header-title">
-        ORDERS
-      </p>
-    </header>
-    <div class="card-content">
-      <div class="content">
-        <p>BOBO MO BERN</p>
+   <div class="column is-5">
+    <div class="card">
+      <header class="card-header">
+        <p class="card-header-title">
+          ORDERS
+        </p>
+      </header>
+      <div class="card-content">
+        <div class="content">
+          <p>BOBO MO BERN</p>
+        </div>
       </div>
     </div>
   </div>
-</div>
 </div>
 </div>
 
@@ -222,9 +209,9 @@ if (mysqli_num_rows($result01) > 0)
 <?php
 include 'ordersModal.php';
 ?>
-  
 
- 
+
+
 
 
 </body>

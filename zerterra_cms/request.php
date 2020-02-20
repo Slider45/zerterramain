@@ -1,10 +1,17 @@
 <?php
-
 session_start();
-// include '../PagesFunction/connection.php';
-include 'connection.php';
+if(!isset($_SESSION["admin"]))
+{
+ header("location:../Log-in.php");
+}
+include '../PagesFunction/connection.php';
+
 include 'Buttons/requestButtonFunction.php';
+
 ?>
+
+
+
 
 <!DOCTYPE html>
 <html>
@@ -21,150 +28,127 @@ include 'Buttons/requestButtonFunction.php';
 
   <?php
   include 'Pages/requestViewPage.php'; 
+  include 'admin-header.php';
+  include 'Buttons/requestSearch.php';
   ?>
 
-  <nav class="navbar" role="navigation" aria-label="main navigation">
-    <div class="navbar-brand navbar-start">
-      <a class="navbar-item" href="dashboard.php">
-        <img src="images/logowhite.png" width="112" height="28" class="img-logo">
-      </a>
+
+
+  <div class="w3-sidebar w3-bar-block w3-collapse w3-card w3-animate-left" style="width:200px;" id="mySidebar">
+    <button class="w3-bar-item w3-button w3-large w3-hide-large" onclick="w3_close()" id="close">&times;</button>
+    <a href="index.php" class="w3-bar-item w3-button" id="item-hover"><i class="fas fa-th-large"></i> &nbsp Dashboard</a>
+    <a href="admin.php" class="w3-bar-item w3-button" id="item-hover"> <i class="fas fa-user-shield"></i> &nbsp Admin</a>
+    <a href="users.php" class="w3-bar-item w3-button" id="item-hover"><i class="fas fa-user"></i> &nbsp Users</a>
+    <a class="w3-bar-item w3-button w3-dropdown-hover modal-button" id="sendmodal" data-target="#ordersModal" aria-haspopup="true"><i class="fas fa-cubes"></i> &nbsp Orders</a>
+    <a href="request.php" class="w3-bar-item w3-button" id="dashboard"><i class="fas fa-envelope-open-text"></i> &nbsp Request</a>
+    <a href="sales.php" class="w3-bar-item w3-button" id="item-hover"><i class="fas fa-hand-holding-usd"></i> &nbsp Sales</a>
+    <a href="#" class="w3-bar-item w3-button" id="item-hover"><i class="fas fa-print"></i> &nbsp Consolidate</a>
+  </div>
+
+  <div class="w3-main" style="margin-left:200px">
+    <div class="w3-teal">
+      <button class="w3-button w3-teal w3-xlarge w3-hide-large" onclick="w3_open()">&#9776;</button>
     </div>
-    <!-- search button -->
-    <div class="navbar-end">
-      <div class="navbar-item">
-        <div class="buttons">
-          <a class="button btn-logout modal-button" data-target="#requestSearchModal" aria-haspopup="true">
-            <i class="fa fa-search"></i></i> &nbspSearch
-          </a>
-          <a class="button btn-user">
-            <i class="far fa-user"></i> &nbspUser
-          </a>
-          <a class="button btn-logout">
-            <i class="fas fa-sign-out-alt"></i> &nbspLogout
-          </a>
+
+    <div class="w3-container">
+      <div class="columns">
+        <div class="column">
+          <h1 class="button-category">REQUEST</h1>
         </div>
       </div>
-    </div>
-  </div>
-</nav>
 
-<?php include 'Buttons/requestSearch.php'?>
+      <section class = "section">
+        <div class = "container"> 
 
-<div class="w3-sidebar w3-bar-block w3-collapse w3-card w3-animate-left" style="width:200px;" id="mySidebar">
-  <button class="w3-bar-item w3-button w3-large w3-hide-large" onclick="w3_close()" id="close">&times;</button>
-  <a href="index.php" class="w3-bar-item w3-button" id="item-hover"><i class="fas fa-th-large"></i> &nbsp Dashboard</a>
-  <a href="admin.php" class="w3-bar-item w3-button" id="item-hover"> <i class="fas fa-user-shield"></i> &nbsp Admin</a>
-  <a href="users.php" class="w3-bar-item w3-button" id="item-hover"><i class="fas fa-user"></i> &nbsp Users</a>
-  <a class="w3-bar-item w3-button w3-dropdown-hover modal-button" id="sendmodal" data-target="#ordersModal" aria-haspopup="true"><i class="fas fa-cubes"></i> &nbsp Orders</a>
-  <a href="request.php" class="w3-bar-item w3-button" id="dashboard"><i class="fas fa-envelope-open-text"></i> &nbsp Request</a>
-  <a href="sales.php" class="w3-bar-item w3-button" id="item-hover"><i class="fas fa-hand-holding-usd"></i> &nbsp Sales</a>
-  <a href="#" class="w3-bar-item w3-button" id="item-hover"><i class="fas fa-print"></i> &nbsp Consolidate</a>
-</div>
-
-<div class="w3-main" style="margin-left:200px">
-  <div class="w3-teal">
-    <button class="w3-button w3-teal w3-xlarge w3-hide-large" onclick="w3_open()">&#9776;</button>
-  </div>
-
-  <div class="w3-container">
-    <div class="columns">
-      <div class="column">
-        <h1 class="button-category">REQUEST</h1>
-      </div>
-    </div>
-
-    <section class = "section">
-      <div class = "container"> 
-
-       <table class = "table">
-        <thead>
-         <tr>
-          <th>#</th>
-          <th>Serial #</th>
-          <th>Request #</th>
-          <th>Name</th>
-          <th>Email</th>
-          <th>Contact</th>
-          <th>Options</th>
-        </tr>
-      </thead>
-
-      <?php 
-
-      if (isset($_POST['searchRequest_btn'])){
-        $searchValue = $_POST['searchValue'];
-
-        if ($searchValue===''){
-          echo '<script>window.location.href="?"</script>';
-        }else{
-          include 'searchFunction/searchRequestFunction.php';
-        }
-      }else{
-        $sql = "SELECT * FROM request_list WHERE is_approved='1'  LIMIT $offset, $no_of_records_per_page";
-        $res_data = $con->query($sql);
-        while($row = mysqli_fetch_array($res_data)){
-          $id = $row['id'];
-          $fname = $row['FirstName'];
-          $lname = $row['LastName'];
-          $contact = $row['contact'];
-          $Email = $row['email'];
-          $serialNum = $row['serial_no'];
-          $requestNum = $row['request_number'];
-          $address = $row['address'];
-          ?>
-          <tbody>
+         <table class = "table">
+          <thead>
            <tr>
-            <td>
-              <?php echo $id; ?>
-            </td>
-            <td>
-              <?php echo $serialNum; ?>
-            </td>
-            <td>
-              <?php echo $requestNum; ?>
-            </td>
-            <td>
-              <?php echo $fname; ?>
-            </td>
-            <td>
-              <?php echo $Email; ?>
-            </td>
-            <td>
-              <?php echo $contact; ?>
-            </td>
-
-            <td>
-              <button data-target="#editrequest<?php echo $id;?>" class="button is-primary is-small modal-button" id="btn_update" name="btn-update"><i class="fas fa-pencil-alt"></i>
-              </button>
-              <?php
-              include 'Buttons/requestEditModal.php';
-              ?>
-              <button data-target="#deleterequest<?php echo $id;?>" class="button is-danger is-small modal-button"  id="btn_delete" name="btn-delete"><i class="fas fa-trash-alt"></i>
-              </button>
-              <?php
-              include 'Buttons/requestRemoveModal.php';
-              ?>
-            </td>
+            <th>#</th>
+            <th>Serial #</th>
+            <th>Request #</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Contact</th>
+            <th>Options</th>
           </tr>
-          <?php 
-        }  
-      }        
-      ?>                        
+        </thead>
 
-    </tbody>
-  </table>
-  <nav class="pagination is-small" role="navigation" aria-label="pagination">
-    <a href="<?php if($page <= 1){ echo '#'; } else { echo "?page=".($page - 1); } ?>" class="pagination-previous" >Previous</a>
-    <a href="<?php if($page >= $total_pages){ echo '#'; } else { echo "?page=".($page + 1); } ?>" class="pagination-next">Next page</a>
-    <ul class="pagination-list">
-      <li><a href="?page=1" class="pagination-link" >1</a></li>
-      <li>
-        <span class="pagination-ellipsis">&hellip;</span>
-      </li>
-      <li><a href="?page=<?php echo $total_pages; ?>" class="pagination-link"><?php echo $total_pages; ?></a></li>
-    </ul>
-  </nav>
-</div>
+        <?php 
+
+        if (isset($_POST['searchRequest_btn'])){
+          $searchValue = $_POST['searchValue'];
+
+          if ($searchValue===''){
+            echo '<script>window.location.href="?"</script>';
+          }else{
+            include 'searchFunction/searchRequestFunction.php';
+          }
+        }else{
+          $sql = "SELECT * FROM request_repair_list WHERE is_approved='1'  LIMIT $offset, $no_of_records_per_page";
+          $res_data = $con->query($sql);
+          while($row = mysqli_fetch_array($res_data)){
+            $id = $row['id'];
+            $fname = $row['FirstName'];
+            $lname = $row['LastName'];
+            $contact = $row['contact'];
+            $Email = $row['email'];
+            $serialNum = $row['serial_no'];
+            $requestNum = $row['request_number'];
+            $address = $row['address'];
+            ?>
+            <tbody>
+             <tr>
+              <td>
+                <?php echo $id; ?>
+              </td>
+              <td>
+                <?php echo $serialNum; ?>
+              </td>
+              <td>
+                <?php echo $requestNum; ?>
+              </td>
+              <td>
+                <?php echo $fname; ?>
+              </td>
+              <td>
+                <?php echo $Email; ?>
+              </td>
+              <td>
+                <?php echo $contact; ?>
+              </td>
+
+              <td>
+                <button data-target="#editrequest<?php echo $id;?>" class="button is-primary is-small modal-button" id="btn_update" name="btn-update"><i class="fas fa-pencil-alt"></i>
+                </button>
+                <?php
+                include 'Buttons/requestEditModal.php';
+                ?>
+                <button data-target="#deleterequest<?php echo $id;?>" class="button is-danger is-small modal-button"  id="btn_delete" name="btn-delete"><i class="fas fa-trash-alt"></i>
+                </button>
+                <?php
+                include 'Buttons/requestRemoveModal.php';
+                ?>
+              </td>
+            </tr>
+            <?php 
+          }  
+        }        
+        ?>                        
+
+      </tbody>
+    </table>
+    <nav class="pagination is-small" role="navigation" aria-label="pagination">
+      <a href="<?php if($page <= 1){ echo '#'; } else { echo "?page=".($page - 1); } ?>" class="pagination-previous" >Previous</a>
+      <a href="<?php if($page >= $total_pages){ echo '#'; } else { echo "?page=".($page + 1); } ?>" class="pagination-next">Next page</a>
+      <ul class="pagination-list">
+        <li><a href="?page=1" class="pagination-link" >1</a></li>
+        <li>
+          <span class="pagination-ellipsis">&hellip;</span>
+        </li>
+        <li><a href="?page=<?php echo $total_pages; ?>" class="pagination-link"><?php echo $total_pages; ?></a></li>
+      </ul>
+    </nav>
+  </div>
 </section>
 
 </div>

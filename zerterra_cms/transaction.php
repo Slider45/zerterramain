@@ -1,3 +1,16 @@
+<?php
+session_start();
+if(!isset($_SESSION["admin"]))
+{
+ header("location:../Log-in.php");
+}
+include '../PagesFunction/connection.php';
+// include 'connection.php';
+
+
+?>
+
+
 <!DOCTYPE html>
 <html>
 <title>Transactions</title>

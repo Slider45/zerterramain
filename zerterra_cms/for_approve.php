@@ -1,6 +1,11 @@
 <?php
 session_start();
-include 'connection.php';
+if(!isset($_SESSION["admin"]))
+{
+ header("location:../Log-in.php");
+}
+include '../PagesFunction/connection.php';
+// include 'connection.php';
 include 'Buttons/approvedQuery.php';
 
 
@@ -8,7 +13,10 @@ $id = $_SESSION['id'];
 $ran1 = rand(0,9999999);
 $ran2 = rand(1,999);
 $SerialNum = $ran1 . "-" . $ran2;
+
 ?>
+
+
 <!DOCTYPE html>
 <html>
 <title>Approved</title>
@@ -118,11 +126,11 @@ $SerialNum = $ran1 . "-" . $ran2;
                             // $id = $row['id'];
                             // $id1 = $row['pendingID'];
                            // $orderNum = $row['OrderNumber'];
-                            $fname = $row['Firstname'];
-                            $lname = $row['Lastname'];
-                            $email = $row['Email'];
-                            $contact = $row['Contact'];
-                            $address = $row['Address'];
+                          $fname = $row['Firstname'];
+                          $lname = $row['Lastname'];
+                          $email = $row['Email'];
+                          $contact = $row['Contact'];
+                          $address = $row['Address'];
 
                           ?>
 

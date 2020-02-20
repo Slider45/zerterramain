@@ -90,9 +90,6 @@ include 'connection.php';
                             <th>First Name</th>
                             <th>Last Name</th>
                             <th>Amount</th>
-                            <th>Email</th>
-                            <th>Contact</th>
-                            
                             <th>Options</th>
                         </tr>
                     </thead>
@@ -108,15 +105,14 @@ include 'connection.php';
             include 'searchFunction/searchSalesFunction.php';
             }
             }else{     
-            $sql = "SELECT * FROM tblusers_list WHERE is_active='1' ORDER BY ID DESC LIMIT $offset, $no_of_records_per_page";
+            $sql = "SELECT * FROM sales_list WHERE is_active='1' ORDER BY ID DESC LIMIT $offset, $no_of_records_per_page";
             $res_data = $con->query($sql);
             while($row = mysqli_fetch_array($res_data)){
             $id = $row['id'];
             $fname = $row['Firstname'];
             $lname = $row['Lastname'];
             $amount = $row['Amount'];
-            $Email = $row['email'];
-            $contact = $row['ContactNumber'];
+            
                     ?>
 
                     <tbody>
@@ -132,12 +128,6 @@ include 'connection.php';
                             </td>
                             <td>
                             <?php echo $amount; ?>
-                            </td>
-                            <td>
-                            <?php echo $Email; ?>
-                            </td>
-                            <td>
-                            <?php echo $contact; ?>
                             </td>
                             <td>
                             <button data-target="#view<?php echo $id;?>" class="button is-success is-small modal-button"  id="btn_delete" name="acnt_view"><i class="far fa-eye"></i>

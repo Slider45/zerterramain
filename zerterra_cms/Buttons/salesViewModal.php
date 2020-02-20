@@ -59,18 +59,7 @@
               <div class="column" id="txtbox"><input class="input"  value="<?php echo $amount; ?>"  disabled="disabled"></div>
          </div>
       </div>
-      <div class="control">
-        <div class="columns">
-              <div class="column is-2" id="label">Email:</div>
-              <div class="column" id="txtbox"><input class="input"  value="<?php echo $Email; ?>" disabled="disabled"></div>
-         </div>
-      </div>
-      <div class="control">
-        <div class="columns">
-              <div class="column is-2" id="label">Contact:</div>
-              <div class="column" id="txtbox"><input class="input"  value="<?php echo $contact; ?>" disabled="disabled"></div>
-         </div>
-      </div>
+
 
 
       <div class="control" style="margin-top: 10px;">

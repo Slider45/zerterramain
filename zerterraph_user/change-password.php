@@ -1,8 +1,17 @@
+
+<?php
+
+session_start();
+
+
+include '../PagesFunction/connection.php';
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
+<meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.min.css">
@@ -26,32 +35,13 @@
 
 <body>
 
-    <!--NAVBAR-->
+   <!--NAVBAR-->
 
-    <nav class="navbar is-dark">
-        <div class="navbar-brand">
-            <a class="navbar-item" href="index.php">
-                <img src="images/weblogo.png">
-            </a>
-            <div class="navbar-burger burger" data-target="navMenu">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-        </div>
+   
+<?php
+include 'user-header.php';
 
-
-
-
-        <div id="navMenu" class="navbar-menu">
-            <div class="navbar-end">
-                <a class="navbar-item" id="userid"> &nbsp<i class="fas fa-user"></i></a>
-                <a class="navbar-item" href="index.php"><i class="fas fa-sign-out-alt"></i>&nbspLogout</a>
-            </div>
-        </div>
-
-    </nav>
-
+?>
 
     <!-- script navbar -->
 
@@ -77,12 +67,12 @@
     <h3 class="w3-bar-item">Name</h3> 
     <hr class="hr"></hr>
     <a href="index.php" class="w3-bar-item w3-button w3-hover-white">Dashboard</a>
-    <a href="profile.php" class="w3-bar-item w3-button w3-hover-white" id="profile">Profile</a>
+    <a href="profile.php" class="w3-bar-item w3-button w3-hover-white">Profile</a>
 
-    <button class="w3-button w3-block w3-left-align w3-hover-white" onclick="myAccFunc()">Account Settings &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<i class="fa fa-caret-down"></i></button>
+    <button class="w3-button w3-block w3-left-align w3-hover-white" id="acc-setting" onclick="myAccFunc()">Account Settings &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<i class="fa fa-caret-down"></i></button>
     <div id="demoAcc" class="w3-hide w3-white w3-card">
         <a href="acc_setting.php" class="w3-bar-item w3-button w3-hover-white"><i class="fas fa-pen-nib"></i> &nbsp&nbspEdit Profile</a>
-        <a href="login_setting.php" class="w3-bar-item w3-button w3-hover-white"><i class="fas fa-lock"></i> &nbsp&nbspChange Password</a>
+        <a href="change-password.php" class="w3-bar-item w3-button w3-hover-white"><i class="fas fa-lock"></i> &nbsp&nbspChange Password</a>
     </div>
 
     <a href="request-repair.php" class="w3-bar-item w3-button w3-hover-white">Request for Repair</a>

@@ -9,6 +9,9 @@
     <div class="navbar-end">
       <div class="navbar-item">
         <div class="buttons">
+          <a class="button btn-logout modal-button" data-target="#adminSearchModal" aria-haspopup="true">
+            <i class="fa fa-search"></i></i> &nbspSearch
+          </a>
           <a class="button btn-user">
              <?= $_SESSION['admin']?>&nbsp<i class="far fa-user"></i>
 

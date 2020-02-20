@@ -48,7 +48,15 @@ if ($result->num_rows > 0) {
       <?php echo $Address; ?>
     </td>
     
+    <td>
+      <button data-target="#delivered<?php echo $id;?>" class="button is-success is-small modal-button" id="btn_update" name="btn-update"><i class="far fa-edit"></i></i>
+       </button>
+          <?php
+             include 'Buttons/markAsDeliveredOrderModal.php';
+           ?> 
 
+
+         </td>
 
 
 

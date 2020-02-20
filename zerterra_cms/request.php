@@ -50,6 +50,7 @@ include 'Buttons/requestButtonFunction.php';
       <button class="w3-button w3-teal w3-xlarge w3-hide-large" onclick="w3_open()">&#9776;</button>
     </div>
 
+
     <div class="w3-container">
       <div class="columns">
         <div class="column">
@@ -70,65 +71,68 @@ include 'Buttons/requestButtonFunction.php';
             <th>Email</th>
             <th>Contact</th>
             <th>Options</th>
-          </tr>
-        </thead>
 
-        <?php 
+   
+        </tr>
+      </thead>
 
-        if (isset($_POST['searchRequest_btn'])){
-          $searchValue = $_POST['searchValue'];
+      <?php 
 
-          if ($searchValue===''){
-            echo '<script>window.location.href="?"</script>';
-          }else{
-            include 'searchFunction/searchRequestFunction.php';
-          }
+      if (isset($_POST['searchRequest_btn'])){
+        $searchValue = $_POST['searchValue'];
+
+        if ($searchValue===''){
+          echo '<script>window.location.href="?"</script>';
         }else{
-          $sql = "SELECT * FROM request_repair_list WHERE is_approved='1'  LIMIT $offset, $no_of_records_per_page";
-          $res_data = $con->query($sql);
-          while($row = mysqli_fetch_array($res_data)){
-            $id = $row['id'];
-            $fname = $row['FirstName'];
-            $lname = $row['LastName'];
-            $contact = $row['contact'];
-            $Email = $row['email'];
-            $serialNum = $row['serial_no'];
-            $requestNum = $row['request_number'];
-            $address = $row['address'];
-            ?>
-            <tbody>
-             <tr>
-              <td>
-                <?php echo $id; ?>
-              </td>
-              <td>
-                <?php echo $serialNum; ?>
-              </td>
-              <td>
-                <?php echo $requestNum; ?>
-              </td>
-              <td>
-                <?php echo $fname; ?>
-              </td>
-              <td>
-                <?php echo $Email; ?>
-              </td>
-              <td>
-                <?php echo $contact; ?>
-              </td>
+          include 'searchFunction/searchRequestFunction.php';
+        }
+      }else{
+        $sql = "SELECT * FROM request_repair_list WHERE is_approved='0'  LIMIT $offset, $no_of_records_per_page";
+        $res_data = $con->query($sql);
+        while($row = mysqli_fetch_array($res_data)){
+          $id = $row['id'];
+          $fname = $row['Firstname'];
+          $lname = $row['Lastname'];
+          $contact = $row['Contact'];
+          $email = $row['Email'];
+          $serialNum = $row['SerialNumber'];
+          $requestNum = $row['RequestNumber'];
+          $address = $row['Address'];
+          ?>
+          <tbody>
+           <tr>
+            <td>
+              <?php echo $id; ?>
+            </td>
+            <td>
+              <?php echo $serialNum; ?>
+            </td>
+            <td>
+              <?php echo $requestNum; ?>
+            </td>
+            <td>
+              <?php echo $fname; ?>
+            </td>
+            <td>
+              <?php echo $email; ?>
+            </td>
+            <td>
+              <?php echo $contact; ?>
+            </td>
 
-              <td>
-                <button data-target="#editrequest<?php echo $id;?>" class="button is-primary is-small modal-button" id="btn_update" name="btn-update"><i class="fas fa-pencil-alt"></i>
-                </button>
-                <?php
-                include 'Buttons/requestEditModal.php';
-                ?>
-                <button data-target="#deleterequest<?php echo $id;?>" class="button is-danger is-small modal-button"  id="btn_delete" name="btn-delete"><i class="fas fa-trash-alt"></i>
-                </button>
-                <?php
-                include 'Buttons/requestRemoveModal.php';
-                ?>
-              </td>
+            <td>
+              <button data-target="#editrequest<?php echo $id;?>" class="button is-primary is-small modal-button" id="btn_update" name="btn-update"><i class="fas fa-pencil-alt"></i>
+              </button>
+              <?php
+              include 'Buttons/requestEditModal.php';
+              ?>
+              <button data-target="#deleterequest<?php echo $id;?>" class="button is-danger is-small modal-button"  id="btn_delete" name="btn-delete"><i class="fas fa-trash-alt"></i>
+              </button>
+              <?php
+              include 'Buttons/requestRemoveModal.php';
+              ?>
+            </td>
+
             </tr>
             <?php 
           }  

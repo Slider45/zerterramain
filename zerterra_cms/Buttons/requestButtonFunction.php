@@ -4,11 +4,11 @@ if(isset($_POST['btn-update'])){
   
   $fname = $_POST['edit_fname'];
   $lname = $_POST['edit_lname'];
-  $Email= $_POST['edit_email'];
-  $Address = $_POST['edit_address'];
+  $email= $_POST['edit_email'];
+  $eddress = $_POST['edit_address'];
   $contact = $_POST['edit_contact'];
 
-          $sql ="INSERT INTO request_list (FirstName,LastName,email,contact,address) VALUES ('$fname','$lname','$email','$Address','$contact')";
+          $sql ="INSERT INTO request_repair_list (FirstName,LastName,email,contact,address) VALUES ('$fname','$lname','$email','$address','$contact')";
           if($con->query($sql) === TRUE){
             echo "<script>window.alert('RECORD IS UPDATED');</script>";
             echo '<script>window.location.href="request.php"</script>';
@@ -22,7 +22,7 @@ if(isset($_POST['btn-update'])){
           
        
   
-          $sql= "UPDATE request_list SET is_approved='0' WHERE id='$delete_id'";
+          $sql= "DELETE FROM request_repair_list WHERE id='$delete_id'";
           if($con->query($sql) === TRUE){
                   echo "<script>window.alert('RECORD IS DELETED!');</script>";
                   echo '<script>window.location.href="request.php"</script>';
@@ -42,7 +42,7 @@ if(isset($_POST['btn-update'])){
   
   
   
-          $sql = "UPDATE request_list SET FirstName='$fname',LastName='$lname',email='$Email',Address='$address', Contact='$contact' WHERE id='$id'";
+          $sql = "UPDATE request_repair_list SET Firstname='$fname',Lastname='$lname',Email='$email',Address='$address', Contact='$contact' WHERE id='$id'";
           if($con->query($sql) === TRUE){
                   echo "<script>window.alert('RECORD IS UPDATED!');</script>";
                   echo '<script>window.location.href="request.php"</script>';

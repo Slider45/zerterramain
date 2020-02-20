@@ -37,13 +37,13 @@ include 'connection.php';
                       <div class="control">
                          <div class="columns">
                            <div class="column is-2" id="label">Address:</div>
-                           <div class="column" id="txtbox"><input class="input" type="text" name="address" value="<?php echo $Address; ?>" required=""></div>
+                           <div class="column" id="txtbox"><input class="input" type="text" name="address" value="<?php echo $address; ?>" required=""></div>
                          </div>
                       </div>
                       <div class="control">
                          <div class="columns">
                            <div class="column is-2" id="label">Contact:</div>
-                           <div class="column" id="txtbox"> <input class="input" type="number" name="contact" value="<?php echo $Contact; ?>" required=""></div>
+                           <div class="column" id="txtbox"> <input class="input" type="number" name="contact" value="<?php echo $contact; ?>" required=""></div>
                          </div>
                       </div>
                         <div class="control" style="margin-top: 10px;">

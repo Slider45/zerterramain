@@ -100,11 +100,11 @@ include 'Buttons/approvedQuery.php';
                                     <tr>
                                         <th>#</th>
                                         <th>Pending ID</th>
-                                        <th>Firstname</th>
-                                        <th>Lastname</th>
+                                        <th>First Name</th>
+                                        <th>Last Name</th>
                                         <th>Email</th>
-                                        <th>Address</th>
                                         <th>Contact</th>
+                                        <th>Address</th>
                                         <th>Action</th>
                                     </tr>
                                 </thead>
@@ -121,17 +121,17 @@ include 'Buttons/approvedQuery.php';
                                             include 'searchFunction/searchApprovedFunction.php';
                                         }
                                     }else{     
-                                        $sql = "SELECT * FROM approveorders_list WHERE is_delivered='0' ORDER BY id DESC LIMIT $offset, $no_of_records_per_page";
+                                        $sql = "SELECT * FROM approved_order_list ORDER BY id DESC LIMIT $offset, $no_of_records_per_page";
                                         $res_data = $con->query($sql);
                                         while($row = mysqli_fetch_array($res_data)) 
                                             {
                                                 $id = $row['id'];
-                                                $id1 = $row['pendingID'];
-                                                $fname = $row['FirstName'];
-                                                $lname = $row['LastName'];
+                                                $id1 = $row['Pending_id'];
+                                                $fname = $row['Firstname'];
+                                                $lname = $row['Lastname'];
                                                 $email = $row['Email'];
-                                                $Contact = $row['ContactNumber'];
-                                                $Address = $row['Address'];
+                                                $contact = $row['Contact'];
+                                                $address = $row['Address'];
 
                                                 ?>
                                                 <tr>
@@ -156,11 +156,11 @@ include 'Buttons/approvedQuery.php';
                                                 </td>
 
                                                 <td>
-                                                    <?php echo $Contact; ?>
+                                                    <?php echo $contact; ?>
                                                 </td>
 
                                                 <td>
-                                                    <?php echo $Address; ?>
+                                                    <?php echo $address; ?>
                                                 </td>
                                                 <td>
                                                     <button data-target="#delivered<?php echo $id;?>" class="button is-success is-small modal-button" id="btn_update" name="btn-update"><i class="far fa-edit"></i></i>

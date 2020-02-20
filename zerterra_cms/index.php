@@ -50,11 +50,11 @@ include 'connection.php';
 </div>
 
 <?php
-$sql = "SELECT id FROM approveorders_list";
+$sql = "SELECT id FROM approved_order_list";
 $result=mysqli_query($con,$sql);
 $regUserCount=mysqli_num_rows($result);
 
-$sql = "SELECT id FROM pendingorders_list";
+$sql = "SELECT id FROM pending_order_list";
 $result=mysqli_query($con,$sql);
 $penUserCount=mysqli_num_rows($result);
 
@@ -62,11 +62,11 @@ $sql = "SELECT id FROM admin_list";
 $result=mysqli_query($con,$sql);
 $adminUserCount=mysqli_num_rows($result);
 
-$sql = "SELECT id FROM request_list";
+$sql = "SELECT id FROM request_repair_list";
 $result=mysqli_query($con,$sql);
 $requestCount=mysqli_num_rows($result);
 
-$sql01 = 'SELECT sum(Amount) as price FROM sales_list';
+$sql01 = 'SELECT sum(Amount) as price FROM tblsales_list';
 $result01 = mysqli_query($con, $sql01);
 $total=0;
 if (mysqli_num_rows($result01) > 0) 

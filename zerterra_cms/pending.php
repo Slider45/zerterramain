@@ -2,7 +2,7 @@
 session_start();
 include 'connection.php';
 include 'Buttons/pendingButtonFunction.php';
-include 'Buttons/pendingApproveQuery.php';
+// include 'Buttons/pendingApproveQuery.php';
 ?>
 <!DOCTYPE html>
 <html>
@@ -94,10 +94,11 @@ include 'Buttons/pendingApproveQuery.php';
                           <thead>
                             <tr>
                               <th>#</th>
-                              <th>Firstname</th>
-                              <th>Lastname</th>
+                              <th>Order Number</th>
+                              <th>First Name</th>
+                              <th>Last Name</th>
                               <th>Email</th>
-                              <th>Contact</th>
+                              
                               <th>Option</th>
                             </tr>
                           </thead>
@@ -115,16 +116,17 @@ include 'Buttons/pendingApproveQuery.php';
                                 include 'searchFunction/searchPendingFunction.php';
                               }
                             }else{     
-                              $sql = "SELECT * FROM pendingorders_list WHERE is_pending='0' ORDER BY id DESC LIMIT $offset, $no_of_records_per_page";
+                              $sql = "SELECT * FROM pending_order_list ORDER BY id DESC LIMIT $offset, $no_of_records_per_page";
                               $res_data = $con->query($sql);
                               while($row = mysqli_fetch_array($res_data)){
                                
                                 $id = $row['id'];
-                                $fname = $row['FirstName'];
-                                $lname = $row['LastName'];
+                                $orderNum = $row['OrderNumber'];
+                                $fname = $row['Firstname'];
+                                $lname = $row['Lastname'];
                                 $email = $row['Email'];
-                                $Contact = $row['ContactNumber'];
-                                $Address = $row['Address'];
+                                $contact = $row['Contact'];
+                                $address = $row['Address'];
                           // $Message = $row['Message'];                 
                                 ?>
 
@@ -132,6 +134,10 @@ include 'Buttons/pendingApproveQuery.php';
                                   <td>
                                    # <?php echo $id; ?>
                                  </td>
+
+                                 <td>
+                                  <?php echo $orderNum; ?>
+                                </td>
 
                                  <td>
                                   <?php echo $fname; ?>
@@ -144,9 +150,8 @@ include 'Buttons/pendingApproveQuery.php';
                                 <td>
                                   <?php echo $email; ?>
                                 </td>
-                                <td>
-                                  <?php echo $Contact; ?>
-                                </td>
+                               
+                                
                                 <td>
                                   <button data-target="#edit<?php echo $id;?>" class="button is-primary is-small modal-button" id="btn_update" name="btn-update"><i class="far fa-edit"></i>
                                   </button>

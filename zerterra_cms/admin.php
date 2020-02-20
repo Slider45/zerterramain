@@ -92,10 +92,11 @@ include 'Buttons/adminButtonFunction.php';
           <thead>
            <tr>
             <th>#</th>
-            <th>Name</th>
+            <th>Full Name</th>
+            <th>Password</th>
             <th>Contact</th>
             <th>Email</th>
-            <th>Role</th>
+            <th>Position</th>
             <th>Action</th>
           </tr>
         </thead>
@@ -116,12 +117,13 @@ include 'Buttons/adminButtonFunction.php';
         $sql = "SELECT * FROM admin_list  WHERE is_active='1' ORDER BY ID DESC LIMIT $offset, $no_of_records_per_page";
         $res_data = $con->query($sql);
         while($row = mysqli_fetch_array($res_data)){
-          $id = $row['ID'];
-          $name = $row['name'];
-          $contact = $row['contact'];
-          $Email = $row['Email'];
-          $role = $row['role'];
-
+          $id = $row['id'];
+          $fullname = $row['Fullname'];
+          $password = $row['Password'];
+          $contact = $row['Contact'];
+          $email = $row['Email'];
+          $position = $row['Position'];
+ 
           ?>
           <tbody>
            <tr>
@@ -129,16 +131,19 @@ include 'Buttons/adminButtonFunction.php';
               # <?php echo $id; ?>
             </td>
             <td>
-              <?php echo $name; ?>
+              <?php echo $fullname; ?>
+            </td>
+            <td>
+              <?php echo $password; ?>
             </td>
             <td>
               <?php echo $contact; ?>
             </td>
             <td>
-              <?php echo $Email; ?>
+              <?php echo $email; ?>
             </td>
             <td>
-              <?php echo $role; ?>
+              <?php echo $position; ?>
             </td>
             <td>
 

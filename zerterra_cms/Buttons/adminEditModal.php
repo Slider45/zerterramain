@@ -26,7 +26,7 @@
       <div class="control">
         <div class="columns">
               <div class="column is-2" id="label">Fullname:</div>
-              <div class="column" id="txtbox"><input class="input" type="text" name="edit_name" value="<?php echo $name; ?>" required=""></div>
+              <div class="column" id="txtbox"><input class="input" type="text" name="edit_name" value="<?php echo $fullname; ?>" required=""></div>
         </div>
       </div>
       <div class="control">
@@ -38,7 +38,7 @@
       <div class="control">
            <div class="columns">
               <div class="column is-2" id="label">Email:</div>
-              <div class="column" id="txtbox"><input class="input" type="email" name="edit_email" value="<?php echo $Email; ?>"  required=""></div>
+              <div class="column" id="txtbox"><input class="input" type="email" name="edit_email" value="<?php echo $email; ?>"  required=""></div>
            </div>
       </div>
 

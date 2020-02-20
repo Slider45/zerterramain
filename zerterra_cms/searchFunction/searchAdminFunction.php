@@ -1,41 +1,41 @@
 <?php
 
 
-$sql= "SELECT * FROM admin_list WHERE CONCAT(`name`, `contact`, `Email`) LIKE '%".$searchValue."%' AND is_active='1'";
+$sql= "SELECT * FROM admin_list WHERE CONCAT(`Fullname`, `Password`, `Contact`, `Email`, `Position`) LIKE '%".$searchValue."%' AND is_active='1'";
  //$sql = "SELECT * FROM request_list WHERE is_approved='0'" ;
 $result = $con->query($sql);
 if ($result->num_rows > 0) {
   while($row = $result->fetch_assoc()) 
   {
-    $id = $row['ID'];
-    $name = $row['name'];
-    $contact = $row['contact'];
-    $Email = $row['Email'];
-    $role = $row['role'];
-    
+    $id = $row['id'];
+          $fullname = $row['Fullname'];
+          $password = $row['Password'];
+          $contact = $row['Contact'];
+          $email = $row['Email'];
+          $position = $row['Position'];
     ?>
     
               <tr>
               
 
-                <td>
-                # <?php echo $id; ?>
-              </td>
-
               <td>
-                <?php echo $name; ?>
-              </td>
-
-              <td>
-                <?php echo $contact; ?>
-              </td>
-
-              <td>
-                <?php echo $Email; ?>
-              </td>
-              <td>
-                <?php echo $role; ?>
-              </td>
+              # <?php echo $id; ?>
+            </td>
+            <td>
+              <?php echo $fullname; ?>
+            </td>
+            <td>
+              <?php echo $password; ?>
+            </td>
+            <td>
+              <?php echo $contact; ?>
+            </td>
+            <td>
+              <?php echo $email; ?>
+            </td>
+            <td>
+              <?php echo $position; ?>
+            </td>
               
               <td>
 

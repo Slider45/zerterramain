@@ -40,14 +40,14 @@ include 'connection.php';
                       <div class="control">
                               <div class="columns">
                                 <div class="column is-2" id="label">Address:</div>
-                                <div class="column" id="txtbox"><input class="input"  name="edit_address" readonly value="<?php echo $Address; ?>" disabled="disabled"></div>
+                                <div class="column" id="txtbox"><input class="input"  name="edit_address" readonly value="<?php echo $address; ?>" disabled="disabled"></div>
                               </div>
                         
                       </div>
                       <div class="control">
                               <div class="columns">
                                 <div class="column is-2" id="label">Contact:</div>
-                                <div class="column" id="txtbox"><input class="input"  name="edit_contact" readonly value="<?php echo $Contact; ?>"  disabled="disabled"></div>
+                                <div class="column" id="txtbox"><input class="input"  name="edit_contact" readonly value="<?php echo $contact; ?>"  disabled="disabled"></div>
                                </div>
                         
                       </div>

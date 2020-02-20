@@ -2,7 +2,7 @@ html,
 body {
   width: 100%;
   height: 100%;
-  font-family: 'Montserrat';
+  font-family: 'Montserrat' !important;
   scroll-behavior: smooth;
 }
 
@@ -180,8 +180,8 @@ body {
 }
 
 .logo img {
-    position: absolute;
-    margin-left: 15px;
+  position: absolute;
+  margin-left: 15px;
 }
 
 .header h2 {
@@ -733,7 +733,6 @@ a:hover {
     margin-top: 60px;
     margin-left: 50px;
     margin-bottom: 25px;
-    font-family: 'Montserrat';
   }
   .home {
     width: 50px;
@@ -795,6 +794,7 @@ a:hover {
     font-size: 18px;
     margin-top: 35px;
     margin-left: 65px;
+    font-family: 'Montserrat';
   }
   .home {
     width: 50px;

@@ -1,3 +1,11 @@
+
+<?php
+
+session_start();
+
+
+include '../PagesFunction/connection.php';
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -26,32 +34,13 @@
 
 <body>
 
-    <!--NAVBAR-->
+<!--NAVBAR-->
 
-    <nav class="navbar is-dark">
-        <div class="navbar-brand">
-            <a class="navbar-item" href="index.php">
-                <img src="images/weblogo.png">
-            </a>
-            <div class="navbar-burger burger" data-target="navMenu">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-        </div>
+   
+<?php
+include 'user-header.php';
 
-
-
-
-        <div id="navMenu" class="navbar-menu">
-            <div class="navbar-end">
-                <a class="navbar-item" id="userid"> &nbsp<i class="fas fa-user"></i></a>
-                <a class="navbar-item" href="index.php"><i class="fas fa-sign-out-alt"></i>&nbspLogout</a>
-            </div>
-        </div>
-
-    </nav>
-
+?>
 
     <!-- script navbar -->
 
@@ -163,7 +152,7 @@
                 <label for="message">Message</label>
                 </div>
                 <div class="col-75">
-                <textarea id="message" name="message" placeholder="Write something.." style="height:80px"></textarea>
+                <textarea id="message" name="message" placeholder="Write something.." style="height:80px;width:100%;"></textarea>
                 </div>
             </div>
             <div class="row">

@@ -92,7 +92,9 @@ td {
 }
 
 .media-content {
-  margin-left: 550px;
+  margin-left: 870px;
+  padding-top: 50px;
+  position: absolute;
 }
 
 .title {
@@ -108,6 +110,7 @@ td {
   padding-left: 30px;
   margin-left: 170px;
   border-radius: 6px;
+  position: relative;
 }
 
 .content-item {
@@ -125,7 +128,7 @@ td {
   height: 1px;
   margin: 0;
   margin-left: 70px;
-  width: 700px;
+  width: 800px;
 }
 
 .button {
@@ -133,7 +136,7 @@ td {
   color: white;
   font-weight: bold;
   margin-top: 10px;
-  margin-left: 770px;
+  margin-left: 870px;
   width: 200px;
 }
 

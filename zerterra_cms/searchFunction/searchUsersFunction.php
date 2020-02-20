@@ -7,12 +7,10 @@ if ($result->num_rows > 0) {
 	while($row = $result->fetch_assoc()) 
 	{
 		$id = $row['id'];
-		$serialNum = $row['Serial_Number'];
 		$fname = $row['Firstname'];
 		$lname = $row['Lastname'];
-		$rdays = $row['remaining_days'];
-		$email = $row['email'];
-// $Address = $row['Address'];
+		$amount = $row['Amount'];
+		$Email = $row['email'];
 		$contact = $row['ContactNumber'];
 
 		?>

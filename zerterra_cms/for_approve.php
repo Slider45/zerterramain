@@ -1,14 +1,22 @@
 <?php
 session_start();
-include 'connection.php';
+if(!isset($_SESSION["admin"]))
+{
+ header("location:../Log-in.php");
+}
+include '../PagesFunction/connection.php';
+// include 'connection.php';
 include 'Buttons/approvedQuery.php';
 
 
 $id = $_SESSION['id'];
 $ran1 = rand(0,9999999);
 $ran2 = rand(1,999);
-$requestnum = $ran1 . "-" . $ran2;
+$SerialNum = $ran1 . "-" . $ran2;
+
 ?>
+
+
 <!DOCTYPE html>
 <html>
 <title>Approved</title>
@@ -111,17 +119,18 @@ $requestnum = $ran1 . "-" . $ran2;
 
 
                         <?php
-                        $sql ="SELECT * FROM pendingorders_list WHERE id= '$id'";
+                        $sql ="SELECT * FROM pending_order_list WHERE id= '$id'";
                         $res_data = $con->query($sql);
                         while($row = mysqli_fetch_array($res_data)) 
                         {
                             // $id = $row['id'];
                             // $id1 = $row['pendingID'];
-                          $fname = $row['FirstName'];
-                          $lname = $row['LastName'];
+                           // $orderNum = $row['OrderNumber'];
+                          $fname = $row['Firstname'];
+                          $lname = $row['Lastname'];
                           $email = $row['Email'];
-                          $Contact = $row['ContactNumber'];
-                          $Address = $row['Address'];
+                          $contact = $row['Contact'];
+                          $address = $row['Address'];
 
                           ?>
 
@@ -137,7 +146,7 @@ $requestnum = $ran1 . "-" . $ran2;
                               <div class="control">
                                 <div class="columns">
                                   <div class="column is-2" id="label">Serial #:</div>
-                                  <div class="column" name="qrcode" id="txtbox"><input class="input"  value="<?php echo $requestnum; ?>" readonly></div>
+                                  <div class="column" name="qrcode" id="txtbox"><input class="input"  value="<?php echo $SerialNum; ?>" readonly></div>
                                 </div>
                               </div>
                               <div class="control">
@@ -161,13 +170,13 @@ $requestnum = $ran1 . "-" . $ran2;
                               <div class="control">
                                 <div class="columns">
                                   <div class="column is-2" id="label">Contact:</div>
-                                  <div class="column" id="txtbox"><input class="input"  value="<?php echo $Contact;?>" readonly></div>
+                                  <div class="column" id="txtbox"><input class="input"  value="<?php echo $contact;?>" readonly></div>
                                 </div>
                               </div>
                               <div class="control">
                                 <div class="columns">
                                   <div class="column is-2" id="label">Address:</div>
-                                  <div class="column" id="txtbox"><input class="input"  value="<?php echo $Address;?>" readonly></div>
+                                  <div class="column" id="txtbox"><input class="input"  value="<?php echo $address;?>" readonly></div>
                                 </div>
                               </div>
 
@@ -203,7 +212,7 @@ $requestnum = $ran1 . "-" . $ran2;
 
                     <div class="column" id="for-img">
                       <figure class="image" id="Qr-img">
-                        <img src="qrGenerator/generate.php?text=<?php echo $requestnum?>">
+                        <img src="qrGenerator/generate.php?text=<?php echo $SerialNum?>">
                         <!-- https://bulma.io/images/placeholders/256x256.png -->
                       </figure>
 

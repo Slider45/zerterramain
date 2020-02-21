@@ -26,7 +26,7 @@
           <input class="input" type="text" name="edit_lname" value="<?php echo $lname; ?>" required="">
         </div>
         <div class="control">
-          <input class="input" type="email" name="edit_email" value="<?php echo $Email; ?>" required="">
+          <input class="input" type="email" name="edit_email" value="<?php echo $email; ?>" required="">
         </div>
         <div class="control">
           <input class="input" type="number" name="edit_contact" value="<?php echo $contact; ?>"   required="">

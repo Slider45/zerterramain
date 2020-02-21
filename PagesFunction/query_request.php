@@ -16,12 +16,12 @@ if (isset($_POST['sndRequest'])) {
 	
 
 
-	$sql = "SELECT * FROM tblusers_list WHERE Serial_Number='$serialNum' AND is_active='1'";
+	$sql = "SELECT * FROM tblusers WHERE SerialNumber='$serialNum' AND is_active='1'";
 	$result = $con->query($sql);
 	if($result->num_rows > 0){
 
 
-		$sqlnames = "SELECT * FROM request_list WHERE serial_no='$serialNum' AND is_approved = '0'";
+		$sqlnames = "SELECT * FROM request_repair_list WHERE SerialNumber='$serialNum' AND is_approved = '0'";
 		$result = $con->query($sqlnames);
 		if($result->num_rows > 3){
 
@@ -29,9 +29,10 @@ if (isset($_POST['sndRequest'])) {
 
 
 		}else{
-			$cmdsql= "INSERT INTO request_list(serial_no, request_number, FirstName, LastName, email, contact, address, is_approved) VALUES ('$serialNum','$requestnum','$fname','$lname','$email','$contact','$address','0')";
+			$cmdsql= "INSERT INTO request_repair_list(RequestNumber, SerialNumber, Firstname, Lastname, Email, Contact, Address, is_approved) VALUES ('$requestnum','$serialNum','$fname','$lname','$email','$contact','$address','0')";
 
-			if($con->query($cmdsql) === TRUE){
+			if($con->query($cmdsql) === TRUE)
+			{
 
 				$to = "support@zerterra.com";
 				function clean_string($string)
@@ -51,8 +52,8 @@ if (isset($_POST['sndRequest'])) {
 					'Reply-To' => 'support@zerterra.com',
 					'X-Mailer' => 'PHP/' . phpversion()
 				);
-				$headers[] = 'MIME-Version: 1.0';
-				$headers[] = 'Content-type: text/html; charset=iso-8859-1';
+				
+				$header = 'REQUEST REPAIR FROM USER';
 
 				if(!empty($fname) && !empty($lname) && !empty($email) && !empty($serialNum)){
 
@@ -64,6 +65,10 @@ if (isset($_POST['sndRequest'])) {
 					if( $mail === true ) {
 
 						echo "<script>alert('REQUEST SENT!');</script>";
+						include 'PagesFunction/returnMailtoUser.php';							
+
+
+
 					}else{
 
 						$resultmsg =  " Sorry there was an error sending your message. \n Please try again later " ;

@@ -1,8 +1,15 @@
 <?php
 session_start();
-include 'connection.php';
+if(!isset($_SESSION["admin"]))
+{
+ header("location:../Log-in.php");
+}
+include '../PagesFunction/connection.php';
 include 'Buttons/approvedQuery.php';
+
+
 ?>
+
 <!DOCTYPE html>
 <html>
 <title>Delivered</title>
@@ -16,78 +23,48 @@ include 'Buttons/approvedQuery.php';
 
 <body>
   <?php
-  include 'Pages/deliveredViewPage.php'; 
+  include 'Pages/deliveredViewPage.php';  
+  include 'admin-header.php';
+  include 'Buttons/deliveredSearch.php';
   ?>
-  <nav class="navbar" role="navigation" aria-label="main navigation">
-    <div class="navbar-brand navbar-start">
-      <a class="navbar-item" href="dashboard.php">
-        <img src="images/logowhite.png" width="112" height="28" class="img-logo">
-      </a>
-    </div>
-    <!-- search button -->
-        <!-- <div>
-                  <form action="/action_page.php">
-                         <input type="text" placeholder="Search.." name="search" id="input">
-                        <span> <button type="submit" id="search"><i class="fa fa-search"></i></button></span>
-                 </form>
-               </div> -->
+  
 
-               <div class="navbar-end">
-                <div class="navbar-item">
-                  <div class="buttons">
-                    <a class="button btn-logout modal-button" data-target="#deliveredSearchModal" aria-haspopup="true">
-                     <i class="fa fa-search"></i></i> &nbspSearch
-                   </a>
-                   <a class="button btn-user">
-                    <i class="far fa-user"></i> &nbspUser
-                  </a>
-                  <a class="button btn-logout">
-                    <i class="fas fa-sign-out-alt"></i> &nbspLogout
-                  </a>
-                </div>
+  <div class="w3-sidebar w3-bar-block w3-collapse w3-card w3-animate-left" style="width:200px;" id="mySidebar">
+    <button class="w3-bar-item w3-button w3-large w3-hide-large" onclick="w3_close()" id="close">&times;</button>
+    <a href="index.php" class="w3-bar-item w3-button" id="item-hover"><i class="fas fa-th-large"></i> &nbsp Dashboard</a>
+    <a href="admin.php" class="w3-bar-item w3-button" id="item-hover"> <i class="fas fa-user-shield"></i> &nbsp Admin</a>
+    <a href="users.php" class="w3-bar-item w3-button" id="item-hover"><i class="fas fa-user"></i> &nbsp Users</a>
+    <a class="w3-bar-item w3-button" id="sendmodal" ><i class="fas fa-cubes"></i> &nbsp Orders</a>
+    <a href="request.php" class="w3-bar-item w3-button" id="item-hover"><i class="fas fa-envelope-open-text"></i> &nbsp Request</a>
+    <a href="sales.php" class="w3-bar-item w3-button" id="item-hover"><i class="fas fa-hand-holding-usd"></i> &nbsp Sales</a>
+    <a href="#" class="w3-bar-item w3-button" id="item-hover"><i class="fas fa-print"></i> &nbsp Consolidate</a>
+  </div>
+
+  <div class="w3-main" style="margin-left:200px">
+    <div class="w3-teal">
+      <button class="w3-button w3-teal w3-xlarge w3-hide-large" onclick="w3_open()">&#9776;</button>
+    </div>
+
+    <div class="w3-container">
+      <div class="columns">
+        <div class="column">
+          <h1 class="button-category">DELIVERED</h1>
+        </div>
+        <div class="column">
+          <div class="columns">
+            <div class="column">
+             <a href="pending.php">
+               <button style="margin-top: 30px ; margin-left: 400px; font-family: unset; font-size:16px; id="btn-add" class="button is-danger is-small">
+                 <i class="fas fa-exclamation-circle"></i> &nbspPENDING</button>
+               </a>
+             </div>
+             <div class="column">
+              <a href="approved.php">
+                <button style="margin-top: 30px ; font-family: unset; font-size:16px;" id="btn-add" class="button is-success is-small" name="viewdelivered">
+                  <i class="far fa-thumbs-up"></i> &nbspAPPROVED</button>
+                </a>
               </div>
             </div>
-          </div>
-        </nav>
-
-        <?php include 'Buttons/deliveredSearch.php'?>
-
-        <div class="w3-sidebar w3-bar-block w3-collapse w3-card w3-animate-left" style="width:200px;" id="mySidebar">
-          <button class="w3-bar-item w3-button w3-large w3-hide-large" onclick="w3_close()" id="close">&times;</button>
-          <a href="index.php" class="w3-bar-item w3-button" id="item-hover"><i class="fas fa-th-large"></i> &nbsp Dashboard</a>
-          <a href="admin.php" class="w3-bar-item w3-button" id="item-hover"> <i class="fas fa-user-shield"></i> &nbsp Admin</a>
-          <a href="users.php" class="w3-bar-item w3-button" id="item-hover"><i class="fas fa-user"></i> &nbsp Users</a>
-          <a class="w3-bar-item w3-button" id="sendmodal" ><i class="fas fa-cubes"></i> &nbsp Orders</a>
-          <a href="request.php" class="w3-bar-item w3-button" id="item-hover"><i class="fas fa-envelope-open-text"></i> &nbsp Request</a>
-          <a href="sales.php" class="w3-bar-item w3-button" id="item-hover"><i class="fas fa-hand-holding-usd"></i> &nbsp sales</a>
-          <a href="#" class="w3-bar-item w3-button" id="item-hover"><i class="fas fa-print"></i> &nbsp Consolidate</a>
-        </div>
-
-        <div class="w3-main" style="margin-left:200px">
-          <div class="w3-teal">
-            <button class="w3-button w3-teal w3-xlarge w3-hide-large" onclick="w3_open()">&#9776;</button>
-          </div>
-
-          <div class="w3-container">
-            <div class="columns">
-              <div class="column">
-                <h1 class="button-category">DELIVERED</h1>
-              </div>
-              <div class="column">
-                  <div class="columns">
-                    <div class="column">
-                       <a href="pending.php">
-                         <button style="margin-top: 30px ; margin-left: 400px; font-family: unset; font-size:16px; id="btn-add" class="button is-danger is-small">
-                         <i class="fas fa-exclamation-circle"></i> &nbspPENDING</button>
-                       </a>
-                     </div>
-                    <div class="column">
-                        <a href="approved.php">
-                          <button style="margin-top: 30px ; font-family: unset; font-size:16px;" id="btn-add" class="button is-success is-small" name="viewdelivered">
-                          <i class="far fa-thumbs-up"></i> &nbspAPPROVED</button>
-                        </a>
-                    </div>
-                </div>
 
 
 
@@ -130,7 +107,7 @@ include 'Buttons/approvedQuery.php';
                               include 'searchFunction/searchDeliveredFunction.php';
                             }
                           }else{     
-                            $sql = "SELECT * FROM approveorders_list WHERE is_delivered='1' ORDER BY id DESC LIMIT $offset, $no_of_records_per_page";
+                            $sql = "SELECT * FROM delivered_order_list WHERE is_activated='1' ORDER BY id DESC LIMIT $offset, $no_of_records_per_page";
                             $res_data = $con->query($sql);
                             while($row = mysqli_fetch_array($res_data)){ 
                               {

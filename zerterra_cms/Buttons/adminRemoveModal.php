@@ -20,7 +20,7 @@
       </div>
 
       <div class="is-danger">Are you Sure you want Delete <strong>
-        "<?php echo $name;?>"?</strong> </div>
+        "<?php echo $fullname;?>"?</strong> </div>
         
         <div style = " margin-bottom: 10px;
         margin-top: 20px;

@@ -1,14 +1,5 @@
 <script>
-  var btn = document.querySelector('#notif');
-  var modalnotif = document.querySelector('#notifmodal');
-  var imageModalCloseBtn2 = document.querySelector('#closeNotif');
-  btn.addEventListener('click', function(){
-    modalnotif.classList.add('is-active');
-  });
 
-  imageModalCloseBtn2.addEventListener('click', function(){
-    modalnotif.classList.remove('is-active');
-  });
 </script>
 
 
@@ -55,7 +46,7 @@ $orderNum=date("Ymd-His-") . 0 .$pendingCount;
      <p class="modal-card-title" id="admin-header">ADD PRE-ORDER</p>
      <button class="delete" aria-label="close"></button>
    </header>
-   <form method="POST" class="modal-card-body" onsubmit="openModal()" id="myForm">
+   <form method="POST" class="modal-card-body">
      <div class="field">
        <div class="control">
         <input class="input" type="text" name="serialnum" readonly value="<?php echo $orderNum;?>">
@@ -103,41 +94,27 @@ if(isset($_POST['preOrder-save'])){
     echo "<script>window.alert('PRE-ORDER HAS BEEN ADDED');</script>";
     
   }else{
-    ?>
-    <div class="container" id="notifmodal">
-      <div  class="modal">
-        <div class="modal-background"></div>
-        <div class="modal-content1">
-         <div class="modal-card1">
-          <header class="modal-card-head1" id="modal-card-head">
-           <p class="modal-card-title">SERIAL NUMBER</p>
-           <button class="delete" aria-label="close" id="closeNotif"></button>
-         </header>
-         <section class="modal-card-body1" id="modal-card-body">
-          <!-- Content ... -->
-          <div class="field">
-            <div class="control">
-              <h1>PRE-ORDER HAS BEEN ADDED</h1>
-            </div>
-          </div>
-        </section>
-        <footer class="modal-card-foot1" id="modal-card-foot">
-          <button class="btn" id="showModal1">Check Warranty</button>
-        </footer>
-      </div>
-    </div>
-  </div>
-</div>
+    echo "<script> var btn = document.querySelector('#notif');
+    var modalnotif = document.querySelector('#notifmodal');
+    var imageModalCloseBtn2 = document.querySelector('#closeNotif');
+    btn.addEventListener('click', function(){
+      modalnotif.classList.add('is-active');
+      });
 
-<?php
+      imageModalCloseBtn2.addEventListener('click', function(){
+        modalnotif.classList.remove('is-active');
+      });</script>";
+
   // echo "<script>window.alert('Saving Pre-Order failed!');</script>";
-}
-}
+    }
+  }
 
-?>
-<script>
+  ?>
+  <script>
 
-  
+
+
+
  /* $('#myForm').on('submit', function(e){
     $('#thankyouModal').modal('show');
 

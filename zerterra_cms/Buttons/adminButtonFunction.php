@@ -19,8 +19,8 @@ include 'connection.php';
          if($result->num_rows > 0){
           echo "<script>window.alert('Email is already used!');</script>";
         }else{
-          $newpass = md5($password);
-          $sql ="INSERT INTO admin_list(name,Password,contact,Email,role,is_active) VALUES ('$name','$newpass','$contact','$Email','$role','1')";
+          // $newpass = md5($password);
+          $sql ="INSERT INTO admin_list(fullname,Password,Contact,Email,Position,is_active) VALUES ('$name','$newpass','$contact','$Email','$role','1')";
           if($con->query($sql) === TRUE){
             echo "<script>window.alert('New Admin is added!');</script>";
           }else{
@@ -37,7 +37,7 @@ include 'connection.php';
         $delete_id = $_POST['delete_id'];
         $role = $_POST['role_id'];
   
-        if($role ==='Super Admin'){
+        if($role === 'Super Admin'){
           echo "<script>window.alert('THIS RECORD CANNOT BE DELETE!');</script>";
         }else{
   

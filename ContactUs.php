@@ -89,7 +89,7 @@ include 'PagesFunction/connection.php';
               <div class="control">
                <textarea class="textarea" name="msg_body" placeholder="Message"></textarea>
              </div>
-             <button class="button is-medium" id="sendmodal" name="sendmsg" type="submit">Send Message</button>
+             <button class="button is-medium is-success" id="sendmodal" name="sendmsg" type="submit">Send Message &nbsp<i class="far fa-paper-plane"></i></button>
            </form>
 
 

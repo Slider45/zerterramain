@@ -16,7 +16,7 @@
 
       <div class="field">
         <input type="hidden" name="delete_id" value="<?php echo $id; ?>">
-        <input type="hidden" name="role_id" value="<?php echo $role; ?>">
+        <input type="hidden" name="role_id" value="<?php echo $position; ?>">
       </div>
 
       <div class="is-danger">Are you Sure you want Delete <strong>

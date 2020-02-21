@@ -52,13 +52,13 @@ include 'Buttons/usersButtonFunction.php';
         <div class="column">
           <h1 class="button-category">USERS</h1>
         </div>
-        <div class="column">
+        <!-- <div class="column">
           <button style="margin-top: 30px ; margin-left: 430px;" id="btn-add" class="button modal-button is-success" data-target="#myModal" aria-haspopup="true">
             <i class="fas fa-user-plus"></i> &nbspADD</button>
             <?php 
-            include 'Buttons/addUsersModal.php';
+          //  include 'Buttons/addUsersModal.php';
             ?>
-          </div>
+          </div> -->
         </div>
 
         <section class="section">

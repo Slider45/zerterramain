@@ -68,7 +68,6 @@ include 'Buttons/adminButtonFunction.php';
              <tr>
               <th>#</th>
               <th>Full Name</th>
-              <th>Password</th>
               <th>Contact</th>
               <th>Email</th>
               <th>Position</th>
@@ -94,7 +93,7 @@ include 'Buttons/adminButtonFunction.php';
           while($row = mysqli_fetch_array($res_data)){
             $id = $row['id'];
             $fullname = $row['Fullname'];
-            $password = $row['Password'];
+           
             $contact = $row['Contact'];
             $email = $row['Email'];
             $position = $row['Position'];
@@ -108,9 +107,7 @@ include 'Buttons/adminButtonFunction.php';
               <td>
                 <?php echo $fullname; ?>
               </td>
-              <td>
-                <?php echo $password; ?>
-              </td>
+             
               <td>
                 <?php echo $contact; ?>
               </td>

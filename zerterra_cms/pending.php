@@ -19,8 +19,9 @@ include 'Buttons/pendingButtonFunction.php';
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css">
 <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
 <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
-
 <link rel="stylesheet" href="sass/pending.css">
+
+
 
 <body>
   <?php
@@ -54,12 +55,22 @@ include 'Buttons/pendingButtonFunction.php';
         <div class="column">
           <h1 class="button-category">PENDING</h1>
         </div>
-        <div class="column">
-          <a href="approved.php">
-            <button style="margin-top: 30px ; margin-left: 380px; font-family: unset;" id="btn-add" class="button is-success">
-              <i class="far fa-thumbs-up"></i> &nbspAPPROVED</button></a>
 
-            </div>
+               <div class="column">
+             <div class="columns">
+                <div class="column">  
+                       <button style="margin-top: 30px ; margin-left: 400px; font-family: unset; font-size:16px;" id="btn-add" class="button is-primary is-small modal-button" data-target="#myModal" aria-haspopup="true">
+                        <i class="far fa-address-card"></i> &nbspADD PRE-ORDER</button>
+                </div>
+                <?php include 'Buttons/addPreOrderModal.php';?>
+                <div class="column">
+                    <a href="approved.php">
+                     <button style="margin-top: 30px ; font-family: unset; font-size:16px;" id="btn-add" class="button is-success is-small">
+                      <i class="far fa-thumbs-up"></i> &nbspAPPROVED</button>
+                  </a>
+              </div>
+          </div>
+      </div>
           </div>
 
           <section class="section">
@@ -236,7 +247,10 @@ include 'Buttons/pendingButtonFunction.php';
 
             target.classList.add('is-active');
 
-            target.querySelector('.modal-close').addEventListener('click', function(){
+          //  target.querySelector('.modal-close').addEventListener('click', function(){
+             // target.classList.remove('is-active');
+
+              target.querySelector('.delete').addEventListener('click', function(){
               target.classList.remove('is-active');
             });
           });

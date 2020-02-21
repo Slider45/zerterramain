@@ -54,7 +54,7 @@ include 'user-header.php';
     <script>
         (function () {
             var burger = document.querySelector('.burger');
-            var nav = document.querySelector('#' + burger.dataset.target);
+            var nav = document.querySelector('#navMenu' + burger.dataset.target);
             burger.addEventListener('click', function () {
                 burger.classList.toggle('is-active');
                 navMenu.classList.toggle('is-active');
@@ -68,6 +68,16 @@ include 'user-header.php';
     <!-- END OF NAVBAR -->
 
     <!-- SIDE BAR -->
+    <!-- <nav class="navbar">
+    <div class="navbar-brand">
+    <div class="navbar-burger burger" data-target="navMenu">
+                <span></span>
+                <span></span>
+                <span></span>
+    </div>
+    </div>
+    <div id="navMenu" class="navbar-menu">
+    <div class="navbar-start"> -->
     <div class="w3-sidebar w3-bar-block w3-card w3-animate-left">
     <h3 class="w3-bar-item">Name</h3> 
     <hr class="hr"></hr>
@@ -77,12 +87,15 @@ include 'user-header.php';
     <button class="w3-button w3-block w3-left-align w3-hover-white" onclick="myAccFunc()"><i class="fas fa-cog"></i> &nbsp&nbspAccount Settings&nbsp&nbsp<i class="fa fa-caret-down"></i></button>
     <div id="demoAcc" class="w3-hide w3-white w3-card">
         <a href="acc_setting.php" class="w3-bar-item w3-button w3-hover-white"><i class="fas fa-pen-nib"></i> &nbsp&nbspEdit Profile</a>
-        <a href="login-setting.php" class="w3-bar-item w3-button w3-hover-white"><i class="fas fa-lock"></i> &nbsp&nbspLogin Setting</a>
+        <a href="login-setting.php" class="w3-bar-item w3-button w3-hover-white"><i class="fas fa-cog"></i> &nbsp&nbspLogin Setting</a>
     </div>
 
-    <a href="request-repair.php" class="w3-bar-item w3-button w3-hover-white">Request for Repair</a>
-    <a href="contact-us.php" class="w3-bar-item w3-button w3-hover-white">Contact Us</a>
+    <a href="request-repair.php" class="w3-bar-item w3-button w3-hover-white"><i class="fas fa-tools"></i> &nbsp&nbsp&nbsp&nbsp&nbspRequest for Repair</a>
+    <a href="contact-us.php" class="w3-bar-item w3-button w3-hover-white"><i class="fas fa-envelope-open-text"></i> &nbsp&nbspContact Us</a>
     </div>
+    </div>
+    <!-- </div>
+    </nav> -->
 
     <script>
     function myAccFunc() {
@@ -109,6 +122,25 @@ include 'user-header.php';
     }
     }
     </script>
+
+    <!-- side navbar -->
+
+
+    <!-- <script>
+        (function () {
+            var burger = document.querySelector('.burger');
+            var nav = document.querySelector('#' + burger.dataset.target);
+            burger.addEventListener('click', function () {
+                burger.classList.toggle('is-active');
+                navMenu.classList.toggle('is-active');
+
+            });
+
+
+        })();
+    </script> -->
+
+    <!-- END OF SIDE NAVBAR -->
 
     <!-- END OF SIDE BAR -->
     <section class="section">

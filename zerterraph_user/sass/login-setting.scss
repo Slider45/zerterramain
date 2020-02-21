@@ -78,6 +78,51 @@ body {
             font-family: 'Montserrat';
         }
 
+        //content
+        .section {
+            padding-top: 10px;
+            padding-bottom: 0;
+        }
+        .header {
+            margin-bottom: 50px;
+        }
+        .title {
+            color: #1faa74;
+            text-align: left;
+            font-size: 40px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: bolder;
+        }
+
+        .container {
+            border-radius: 5px;
+            padding: 50px;
+            margin-left: 210px;
+            margin-right: 80px;
+          }
+          .container1 {
+            margin-left: 0;
+          }
+
+        .container #button {
+            margin: 10px;
+            padding: 20px;
+        }
+
+        .button.is-success.is-outlined {
+            background-color: transparent;
+            border-color: #23d160;
+            color: #23d160;
+            width: 900px;
+            height: 100px;
+            justify-content: left;
+        }
+
+        .button p.head {
+            text-align: left;
+            font-size: 26px;
+        }
+
         // footer
          #alrights {
             text-align: center !important;

@@ -75,17 +75,17 @@ include 'user-header.php';
     <div class="w3-sidebar w3-bar-block w3-card w3-animate-left">
     <h3 class="w3-bar-item">Name</h3> 
     <hr class="hr"></hr>
-    <a href="index.php" class="w3-bar-item w3-button w3-hover-white">Dashboard</a>
-    <a href="profile.php" class="w3-bar-item w3-button w3-hover-white" id="profile">Profile</a>
+    <a href="index.php" class="w3-bar-item w3-button w3-hover-white"><i class="fas fa-th-large"></i> &nbsp&nbspDashboard</a>
+    <a href="profile.php" class="w3-bar-item w3-button w3-hover-white" id="profile"><i class="fas fa-user"></i> &nbsp&nbspProfile</a>
 
-    <button class="w3-button w3-block w3-left-align w3-hover-white" onclick="myAccFunc()">Account Settings &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<i class="fa fa-caret-down"></i></button>
+    <button class="w3-button w3-block w3-left-align w3-hover-white" onclick="myAccFunc()"><i class="fas fa-cog"></i> &nbsp&nbspAccount Settings&nbsp&nbsp<i class="fa fa-caret-down"></i></button>
     <div id="demoAcc" class="w3-hide w3-white w3-card">
         <a href="acc_setting.php" class="w3-bar-item w3-button w3-hover-white"><i class="fas fa-pen-nib"></i> &nbsp&nbspEdit Profile</a>
-        <a href="change-password.php" class="w3-bar-item w3-button w3-hover-white"><i class="fas fa-lock"></i> &nbsp&nbspChange Password</a>
+        <a href="login-setting.php" class="w3-bar-item w3-button w3-hover-white"><i class="fas fa-cog"></i> &nbsp&nbspLogin Setting</a>
     </div>
 
-    <a href="request-repair.php" class="w3-bar-item w3-button w3-hover-white">Request for Repair</a>
-    <a href="contact-us.php" class="w3-bar-item w3-button w3-hover-white">Contact Us</a>
+    <a href="request-repair.php" class="w3-bar-item w3-button w3-hover-white"><i class="fas fa-tools"></i> &nbsp&nbsp&nbsp&nbsp&nbspRequest for Repair</a>
+    <a href="contact-us.php" class="w3-bar-item w3-button w3-hover-white"><i class="fas fa-envelope-open-text"></i> &nbsp&nbspContact Us</a>
     </div>
 
     <script>

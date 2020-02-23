@@ -123,7 +123,7 @@ $SerialNum=date("Ymd-His-") . 0 .$approvedCount;
                 <div class="container" style="margin-left: 100px; margin-top: 50px;">
 
                   <div class="columns">
-                    <div class="column is-5">
+                    <div class="column is-5" id="info-col">
                       <div class="content">
 
 

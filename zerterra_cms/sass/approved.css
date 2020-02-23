@@ -241,12 +241,13 @@ table, th, td {
 #label {
   font-weight: bold;
   padding-top: 20px;
-  padding-right: 10px;
+  padding-right: 0;
+  padding-left: 0;
   font-family: Montserrat;
 }
 
 #txtbox {
-  margin-left: 10px;
+  margin-left: 15px;
 }
 
 #Qr-img {
@@ -272,5 +273,9 @@ table, th, td {
 
 #for-img {
   padding-top: 0;
+}
+
+#info-col {
+  width: 500px;
 }
 /*# sourceMappingURL=approved.css.map */

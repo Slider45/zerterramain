@@ -186,7 +186,7 @@ html, body {
   width: 400px;
   font-size: 16pt;
   padding: 5px;
-  font-family: montserrat;
+  font-family: Montserrat;
 }
 
 #search {
@@ -235,18 +235,19 @@ table, th, td {
   font-size: 24pt;
   color: white;
   padding-left: 50%;
-  font-family: montserrat;
+  font-family: 'Montserrat';
 }
 
 #label {
-  font-weight: bold;
-  padding-top: 20px;
-  padding-right: 10px;
-  font-family: Montserrat;
+ font-weight: bold;
+    padding-top:20px;
+    padding-right:0;
+    padding-left: 0;
+    font-family: 'Montserrat';
 }
 
 #txtbox {
-  margin-left: 10px;
+  margin-left: 38px;
 }
 
 #Qr-img {
@@ -273,4 +274,9 @@ table, th, td {
 #for-img {
   padding-top: 0;
 }
+
+#info-col{
+  width: 500px;
+}
+
 /*# sourceMappingURL=approved.css.map */

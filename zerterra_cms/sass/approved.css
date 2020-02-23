@@ -1,5 +1,5 @@
 html, body {
-  font-family: Montserrat;
+  font-family: 'Montserrat';
   background-color: #f2f1f6;
 }
 
@@ -186,8 +186,13 @@ html, body {
   width: 400px;
   font-size: 16pt;
   padding: 5px;
-  font-family: montserrat;
+  font-family: 'Montserrat';
 }
+.input [readonly], .textarea[readonly]{
+  font-family: 'Montserrat';
+}
+
+
 
 #search {
   background-color: transparent;
@@ -243,12 +248,17 @@ table, th, td {
   padding-top: 20px;
   padding-right: 0;
   padding-left: 0;
-  font-family: Montserrat;
+  font-family: 'Montserrat';
 }
 
 #txtbox {
   margin-left: 15px;
+
+  
 }
+.input{
+  font-family: 'Montserrat';
+  }
 
 #Qr-img {
   width: 360px;
@@ -259,15 +269,16 @@ table, th, td {
 .is-8 {
   padding-top: 0;
   padding-bottom: 0;
-  margin-left: 65%;
+  margin-left: 61%;
+
 }
 
 .is-6 {
-  margin-left: 75%;
+  margin-left: 73%;
 }
 
 #refresh {
-  margin-left: 78%;
+  margin-left: 76%;
   margin-top: 10px;
 }
 
@@ -278,4 +289,38 @@ table, th, td {
 #info-col {
   width: 500px;
 }
+.is-success, .is-danger{
+     font-family: 'Montserrat';
+
+}
+
+#modal-print {
+    background-color: #fff;
+    flex-grow: 1;
+    flex-shrink: 1;
+    overflow: auto;
+    padding: 20px;
+    padding-bottom:0px;
+    line-height: normal;
+}
+
+.modal.is-active .modal-background {
+    opacity: 1;
+}
+
+.modal .modal-background {
+    background-color: rgba(10,10,10,.86);
+}
+
+.card {
+    border-radius: 6px;
+    min-height: 180px;
+    height: 100%;
+}
+
+.buttons {
+    justify-content: center !important;
+}
+
+
 /*# sourceMappingURL=approved.css.map */

@@ -77,12 +77,11 @@ include 'Buttons/approvedQuery.php';
             <thead>
                 <tr>
                     <th>#</th>
-                    <th>Pending ID</th>
+                    <th>Serial #</th>
                     <th>First Name</th>
                     <th>Last Name</th>
                     <th>Email</th>
                     <th>Contact</th>
-                    <th>Address</th>
                     <th>Action</th>
                 </tr>
             </thead>
@@ -104,7 +103,8 @@ include 'Buttons/approvedQuery.php';
                     while($row = mysqli_fetch_array($res_data)) 
                     {
                         $id = $row['id'];
-                        $id1 = $row['Pending_id'];
+                        $orderNum = $row['OrderNumber'];
+                        $serialNum = $row['SerialNumber'];
                         $fname = $row['Firstname'];
                         $lname = $row['Lastname'];
                         $email = $row['Email'];
@@ -116,11 +116,9 @@ include 'Buttons/approvedQuery.php';
                             <td>
                              # <?php echo $id; ?>
                          </td>
-
                          <td>
-                            <?php echo $id1; ?>
+                            <?php echo $serialNum; ?>
                         </td>
-
                         <td>
                             <?php echo $fname; ?>
                         </td>
@@ -137,9 +135,7 @@ include 'Buttons/approvedQuery.php';
                             <?php echo $contact; ?>
                         </td>
 
-                        <td>
-                            <?php echo $address; ?>
-                        </td>
+
                         <td>
                             <button data-target="#delivered<?php echo $id;?>" class="button is-success is-small modal-button" id="btn_update" name="btn-update"><i class="far fa-edit"></i></i>
                             </button>

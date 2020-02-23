@@ -101,7 +101,7 @@ include 'Buttons/pendingButtonFunction.php';
                 include 'searchFunction/searchPendingFunction.php';
               }
             }else{     
-              $sql = "SELECT * FROM pending_order_list ORDER BY id DESC LIMIT $offset, $no_of_records_per_page";
+              $sql = "SELECT * FROM pending_order_list WHERE is_approved='0' ORDER BY id DESC LIMIT $offset, $no_of_records_per_page";
               $res_data = $con->query($sql);
               while($row = mysqli_fetch_array($res_data)){
 
@@ -263,29 +263,6 @@ include 'Buttons/pendingButtonFunction.php';
 </script>
 
 
-<div class="container ">
-  <div  class="modal"id="notifmodal">
-    <div class="modal-background"></div>
-    <div class="modal-content1">
-     <div class="modal-card1">
-      <header class="modal-card-head1" id="modal-card-head">
-       <p class="modal-card-title">SERIAL NUMBER</p>
-       <button class="delete" aria-label="close" id="closeNotif"></button>
-     </header>
-     <section class="modal-card-body1" id="modal-card-body">
-      <!-- Content ... -->
-      <div class="field">
-        <div class="control">
-          <h1>PRE-ORDER HAS BEEN ADDED</h1>
-        </div>
-      </div>
-    </section>
-    <footer class="modal-card-foot1" id="modal-card-foot">
-      <button class="btn" id="showModal1">Check Warranty</button>
-    </footer>
-  </div>
-</div>
-</div>
-</div>
+
 </body>
 </html>

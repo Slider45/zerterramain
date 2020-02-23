@@ -3,6 +3,8 @@ session_start();
 if(!isset($_SESSION["admin"]))
 {
  header("location:../Log-in.php");
+ 
+
 }
 include '../PagesFunction/connection.php';
 // include 'connection.php';
@@ -134,124 +136,237 @@ $SerialNum=date("Ymd-His-") . 0 .$approvedCount;
                         {
                             // $id = $row['id'];
                             // $id1 = $row['pendingID'];
-                           // $orderNum = $row['OrderNumber'];
-                          $fname = $row['Firstname'];
-                          $lname = $row['Lastname'];
-                          $email = $row['Email'];
-                          $contact = $row['Contact'];
-                          $address = $row['Address'];
+                         $orderNum = $row['OrderNumber'];
+                         $fname = $row['Firstname'];
+                         $lname = $row['Lastname'];
+                         $email = $row['Email'];
+                         $contact = $row['Contact'];
+                         $address = $row['Address'];
 
-                          ?>
+                         ?>
 
-                          <!-- form -->
-                          <form method="POST" action="for_approve.php" accept-charset="utf-8">
+                         <!-- form -->
+                         <!--  <form method="POST" action="for_approve.php" accept-charset="utf-8"> -->
 
-                            <div class="field">
-                              <div class="control">
-                                <div class="field">
-                                  <input type="hidden"  value="<?php echo $id; ?>">
-                                </div>
+                          <div class="field">
+                            <div class="control">
+                              <div class="field">
+                                <input type="hidden" name="id" value="<?php echo $id; ?>">
+                                <input type="hidden"  name="orderNum" value="<?php echo $orderNum; ?>">
                               </div>
-                              <div class="control">
-                                <div class="columns">
-                                  <div class="column is-2" id="label">Serial #:</div>
-                                  <div class="column" name="qrcode" id="txtbox"><input class="input"  value="<?php echo $SerialNum; ?>" readonly></div>
-                                </div>
+                            </div>
+                            <div class="control">
+                              <div class="columns">
+                                <div class="column is-2" id="label">Serial #:</div>
+                                <div class="column"  id="txtbox"><input name="qrcode" class="input"  value="<?php echo $SerialNum; ?>"readonly></div>
                               </div>
-                              <div class="control">
-                                <div class="columns">
-                                  <div class="column is-2" id="label">Firstname:</div>
-                                  <div class="column" id="txtbox"><input class="input"   value="<?php echo $fname; ?>" readonly></div>
-                                </div>
+                            </div>
+                            <div class="control">
+                              <div class="columns">
+                                <div class="column is-2" id="label">Firstname:</div>
+                                <div class="column" id="txtbox"><input class="input"   value="<?php echo $fname; ?>" name="fname" required></div>
                               </div>
-                              <div class="control">
-                                <div class="columns">
-                                  <div class="column is-2" id="label">Lastname:</div>
-                                  <div class="column" id="txtbox"><input class="input"   value="<?php echo $lname; ?>"  readonly></div>
-                                </div>
+                            </div>
+                            <div class="control">
+                              <div class="columns">
+                                <div class="column is-2" id="label">Lastname:</div>
+                                <div class="column" id="txtbox"><input class="input" value="<?php echo $lname; ?>" name="lname" readonly></div>
                               </div>
-                              <div class="control">
-                                <div class="columns">
-                                  <div class="column is-2" id="label">Email:</div>
-                                  <div class="column" id="txtbox"><input class="input"  value="<?php echo $email; ?>"  readonly></div>
-                                </div>
+                            </div>
+                            <div class="control">
+                              <div class="columns">
+                                <div class="column is-2" id="label">Email:</div>
+                                <div class="column" id="txtbox"><input class="input"  value="<?php echo $email; ?>" name="email" readonly></div>
                               </div>
-                              <div class="control">
-                                <div class="columns">
-                                  <div class="column is-2" id="label">Contact:</div>
-                                  <div class="column" id="txtbox"><input class="input"  value="<?php echo $contact;?>" readonly></div>
-                                </div>
+                            </div>
+                            <div class="control">
+                              <div class="columns">
+                                <div class="column is-2" id="label">Contact:</div>
+                                <div class="column" id="txtbox"><input class="input"  value="<?php echo $contact;?>" name="contact"readonly></div>
                               </div>
-                              <div class="control">
-                                <div class="columns">
-                                  <div class="column is-2" id="label">Address:</div>
-                                  <div class="column" id="txtbox"><input class="input"  value="<?php echo $address;?>" readonly></div>
-                                </div>
+                            </div>
+                            <div class="control">
+                              <div class="columns">
+                                <div class="column is-2" id="label">Address:</div>
+                                <div class="column" id="txtbox"><input class="input"  value="<?php echo $address;?>" name="address"readonly></div>
                               </div>
+                            </div>
+
+                          </div>
+                          <!--  </form>   -->
+                          <?php
+                        }
+                        ?>
+
+                        <div class="columns is-multiline">
+                         <div class="column is-8"  id="print-Qr" > 
+                           <button class="button is-success" id="btn_print" name="approveOrder"><i class="fas fa-print"></i>&nbspPrint QR/Save</button></a>
+                         </div>
+
+
+
+                         <!-- MODAL PRINT -->
+                         <div class="modal" id="modal-print">
+                          <div class="modal-background"></div>
+                          <div class="modal-content">
+                            <div class="card">
+                              <header class="card-header">
+                                <div class="card-header-title">
+                                  PRINT RECORD
+                                </div>
+
+                              </header>
+
+
+                              <form  method="POST"action="for_approve.php" accept-charset="utf-8">
+                                <div class="card-content">
+                                  <div class="content">
+                                    <input class="input" type="hidden" name="serialNum" value="<?php echo $SerialNum; ?>">
+                                    <input class="input" type="hidden" name="id"value="<?php echo $id; ?>"
+                                    ><center>
+                                      <strong>DO YOU WANT TO PRINT THIS RECORD?</strong>
+                                    </center>
+                                  </div>
+                                </div>
+
+                                <center>
+
+
+
+                                  <div class="buttons" style="margin-right: auto;">
+                                    <button type="submit" class="button is-success" name="printRecord" id="confirm"><i class="fas fa-check-circle"></i>&nbspPRINT AND SAVE</button>
+
+                                    <button class="button is-danger" name="saveApprove" id="modal-close-print"><i class="fas fa-ban"></i>&nbspSAVE ONLY!</button>
+                                  </div>
+                                </form>
+                              </center>
 
                             </div>
-                            <?php
-                          }
-                          ?>
-                          <div class="columns is-multiline">
-                           <div class="column is-8"  id="print-Qr" > 
-                             <button class="button is-success" ><i class="fas fa-print"></i>&nbspPrint QR/Save</button></a>
-                           </div>
-                         </form>
-                         <div class="column is-6">
-                           <button class="button is-danger" name="cancelbtn"><i class="fas fa-ban"></i>&nbspCancel</button>
-                         </div>
-                       </div>
-                     </div>
-                   </div>
+                          </div>
 
-                   <?php
-                   if(isset($_POST['cancelbtn'])){
-                   
-                   echo '<script>window.location.href="pending.php"</script>';
-
-                  }
-
-                  ?>
+                        </div> 
+                        <!-- END MODAL PRINT -->
 
 
-                  <!-- form -->
 
-                  <form method="POST" action="for_approve.php">
 
-                    <div class="column" id="for-img">
-                      <figure class="image" id="Qr-img">
-                        <img src="qrGenerator/generate.php?text=<?php echo $SerialNum?>">
-                        <!-- https://bulma.io/images/placeholders/256x256.png -->
-                      </figure>
+                        <div class="column is-6">
 
-                      <button class="button is-success" name="RFqrcode" type="submit" id="refresh"><i class="fas fa-sync-alt"></i> &nbspRefresh</button>
+                          <a href="pending.php"> <button class="button is-danger" name="cancelbtn"><i class="fas fa-ban"></i>&nbspCancel</button></a>
+                          <!-- </form> -->
+                        </div>
+                      </div>
                     </div>
-                  </div>    
+                  </div>
 
-                </form>
-                
+                  <?php
 
 
-                <script>
-                  function w3_open() {
-                    document.getElementById("mySidebar").style.display = "block";
-                  }
-                  function w3_close() {
-                    document.getElementById("mySidebar").style.display = "none";
-                  }
-                  document.querySelectorAll('.modal-button').forEach(function(el) {
-                    el.addEventListener('click', function() {
-                      var target = document.querySelector(el.getAttribute('data-target'));
+                  if(isset($_POST['saveApprove'])){
+                    $serialNum =$_POST['serialNum'];
 
-                      target.classList.add('is-active');
+                    $sqlSelect="SELECT * FROM pending_order_list WHERE id='$id'";
 
-                      target.querySelector('.modal-close').addEventListener('click', function(){
-                        target.classList.remove('is-active');
-                      });
-                    });
+                    $res_data = $con->query($sqlSelect);
+                    while($row = mysqli_fetch_array($res_data)){
+
+                      $orderNum =$row['OrderNumber'];
+                      $fname =$row['Firstname'];
+                      $lname =$row['Lastname'];
+                      $email =$row['Email'];
+                      $contact =$row['Contact'];
+                      $address =$row['Address'];
+
+
+
+                      $sql="INSERT INTO approved_order_list(OrderNumber, SerialNumber, Firstname, Lastname, Email, Contact, Address) VALUES('$orderNum',' $serialNum','$fname','$lname','$email','$contact','$address')";
+
+                      if($con->query($sql) === TRUE){
+                        $sqlupdate = "UPDATE pending_order_list SET is_approved='1' WHERE id='$id'";
+
+
+
+
+                        if($con->query($sqlupdate) === TRUE){
+
+
+                         echo '<script>window.location.href="pending.php"</script>';
+
+
+
+
+                       }else{
+                        echo "<script>alert('UNABLE TO UPDATE PLEASE TRY AGAIN LATER!');</script>";
+                      }
+
+                    }else{
+                     echo "<script>alert('UNABLE TO SAVE PLEASE TRY AGAIN LATER!');</script>";
+                   }
+
+
+
+
+                 }
+               }
+
+
+
+
+
+               ?>
+
+
+               <!-- form -->
+
+               <form method="POST" action="for_approve.php">
+
+                <div class="column" id="for-img">
+                  <figure class="image" id="Qr-img">
+                    <img src="qrGenerator/generate.php?text=<?php echo $SerialNum?>">
+                    <!-- https://bulma.io/images/placeholders/256x256.png -->
+                  </figure>
+
+                  <button class="button is-success" name="RFqrcode" type="submit" id="refresh"><i class="fas fa-sync-alt"></i> &nbspRefresh</button>
+                </div>
+              </div>    
+
+            </form>
+
+
+
+            <script>
+              function w3_open() {
+                document.getElementById("mySidebar").style.display = "block";
+              }
+              function w3_close() {
+                document.getElementById("mySidebar").style.display = "none";
+              }
+              document.querySelectorAll('.modal-button').forEach(function(el) {
+                el.addEventListener('click', function() {
+                  var target = document.querySelector(el.getAttribute('data-target'));
+
+                  target.classList.add('is-active');
+
+                  target.querySelector('.modal-close').addEventListener('click', function(){
+                    target.classList.remove('is-active');
                   });
-                </script>
+                });
+              });
 
-              </body>
-              </html>
+
+
+              var btn1 = document.querySelector('#btn_print');
+              var modalDlg1 = document.querySelector('#modal-print');
+              var imageModalCloseBtn1 = document.querySelector('#modal-close-print');
+              btn1.addEventListener('click', function(){
+                modalDlg1.classList.add('is-active');
+              });
+
+              imageModalCloseBtn1.addEventListener('click', function(){
+                modalDlg1.classList.remove('is-active');
+              });
+            </script>
+
+
+          </body>
+          </html>

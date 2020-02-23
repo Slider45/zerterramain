@@ -65,34 +65,6 @@ include 'connection.php';
 </div>
 </div>
 
-<form action="pending" method="POST" accept-charset="utf-8">
-
-  <div class="container">
-    <div id="serv-modal" class="modal">
-      <div class="modal-background"></div>
-      <div class="modal-content1">
-       <div class="modal-card1">
-        <header class="modal-card-head1" id="modal-card-head">
-         <p class="modal-card-title">SERIAL NUMBER</p>
-         <button class="delete" aria-label="close" id="image-modal-close4"></button>
-       </header>
-       <section class="modal-card-body1" id="modal-card-body">
-        <!-- Content ... -->
-        <div class="field">
-          <div class="control">
-            <input class="input1" type="text" placeholder="Enter your Serial Number" required="">
-          </div>
-        </div>
-      </section>
-      <footer class="modal-card-foot1" id="modal-card-foot">
-        <button class="btn" id="showModal1">Check Warranty</button>
-      </footer>
-    </div>
-  </div>
-</div>
-</div>
-
-</form>
 
 <script>
 

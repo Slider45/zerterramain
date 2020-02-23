@@ -49,7 +49,6 @@ include 'connection.php';
         </div>
         <div class="control" style="margin-top: 10px;">                  
         </div>
-<<<<<<< HEAD
          <div class="control">
         <div class="columns">
           <div class="column is-2" id="label">Message:</div>
@@ -58,8 +57,6 @@ include 'connection.php';
 
       </div>
       <div class="control" style="margin-top: 10px;">                  
-=======
->>>>>>> 3f886af2a35888967e3f3b8a7eb6b9d30d467616
       </div>
 
         <div class="buttons" style="margin-right: auto;">

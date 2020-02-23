@@ -10,9 +10,21 @@ include 'Buttons/approvedQuery.php';
 
 
 $id = $_SESSION['id'];
-$ran1 = rand(0,9999999);
-$ran2 = rand(1,999);
-$SerialNum = $ran1 . "-" . $ran2;
+
+// $ran1 = rand(0,9999999);
+// $ran2 = rand(1,999);
+// $SerialNum = $ran1 . "-" . $ran2;
+
+
+$sql = "SELECT id FROM approved_order_list";
+$result=mysqli_query($con,$sql);
+$approvedCount=mysqli_num_rows($result);
+$approvedCount++;
+
+
+$SerialNum=date("Ymd-His-") . 0 .$approvedCount;
+
+
 
 ?>
 
@@ -49,42 +61,42 @@ $SerialNum = $ran1 . "-" . $ran2;
                <div class="navbar-end">
                 <div class="navbar-item">
                   <div class="buttons">
-                                    <a class="button btn-user">
-                    <i class="far fa-user"></i> &nbsp<?= $_SESSION['admin']?>
-                  </a>
-                  <a class="button btn-logout">
-                    <i class="fas fa-sign-out-alt"></i> &nbspLogout
-                  </a>
+                    <a class="button btn-user">
+                      <i class="far fa-user"></i> &nbsp<?= $_SESSION['admin']?>
+                    </a>
+                    <a class="button btn-logout">
+                      <i class="fas fa-sign-out-alt"></i> &nbspLogout
+                    </a>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-        </nav>
+          </nav>
 
-        <?php include 'Buttons/approvedSearch.php'?>
 
-        <div class="w3-sidebar w3-bar-block w3-collapse w3-card w3-animate-left" style="width:200px;" id="mySidebar">
-          <button class="w3-bar-item w3-button w3-large w3-hide-large" onclick="w3_close()" id="close">&times;</button>
-          <a href="index.php" class="w3-bar-item w3-button" id="item-hover"><i class="fas fa-th-large"></i> &nbsp Dashboard</a>
-          <a href="admin.php" class="w3-bar-item w3-button" id="item-hover"> <i class="fas fa-user-shield"></i> &nbsp Admin</a>
-          <a href="users.php" class="w3-bar-item w3-button" id="item-hover"><i class="fas fa-user"></i> &nbsp Users</a>
-          <a class="w3-bar-item w3-button" id="sendmodal" ><i class="fas fa-cubes"></i> &nbsp Orders</a>
-          <a href="request.php" class="w3-bar-item w3-button" id="item-hover"><i class="fas fa-envelope-open-text"></i> &nbsp Request</a>
-          <a href="sales.php" class="w3-bar-item w3-button" id="item-hover"><i class="fas fa-hand-holding-usd"></i> &nbsp sales</a>
-          <a href="#" class="w3-bar-item w3-button" id="item-hover"><i class="fas fa-print"></i> &nbsp Consolidate</a>
-        </div>
 
-        <div class="w3-main" style="margin-left:200px">
-          <div class="w3-teal">
-            <button class="w3-button w3-teal w3-xlarge w3-hide-large" onclick="w3_open()">&#9776;</button>
+          <div class="w3-sidebar w3-bar-block w3-collapse w3-card w3-animate-left" style="width:200px;" id="mySidebar">
+            <button class="w3-bar-item w3-button w3-large w3-hide-large" onclick="w3_close()" id="close">&times;</button>
+            <a href="index.php" class="w3-bar-item w3-button" id="item-hover"><i class="fas fa-th-large"></i> &nbsp Dashboard</a>
+            <a href="admin.php" class="w3-bar-item w3-button" id="item-hover"> <i class="fas fa-user-shield"></i> &nbsp Admin</a>
+            <a href="users.php" class="w3-bar-item w3-button" id="item-hover"><i class="fas fa-user"></i> &nbsp Users</a>
+            <a class="w3-bar-item w3-button" id="sendmodal" ><i class="fas fa-cubes"></i> &nbsp Orders</a>
+            <a href="request.php" class="w3-bar-item w3-button" id="item-hover"><i class="fas fa-envelope-open-text"></i> &nbsp Request</a>
+            <a href="sales.php" class="w3-bar-item w3-button" id="item-hover"><i class="fas fa-hand-holding-usd"></i> &nbsp sales</a>
+            <a href="#" class="w3-bar-item w3-button" id="item-hover"><i class="fas fa-print"></i> &nbsp Consolidate</a>
           </div>
 
-          <div class="w3-container">
-            <div class="columns">
-              <div class="column">
-                <h1 class="button-category">FOR APPROVE</h1>
-              </div>
-              <div class="column">
+          <div class="w3-main" style="margin-left:200px">
+            <div class="w3-teal">
+              <button class="w3-button w3-teal w3-xlarge w3-hide-large" onclick="w3_open()">&#9776;</button>
+            </div>
+
+            <div class="w3-container">
+              <div class="columns">
+                <div class="column">
+                  <h1 class="button-category">FOR APPROVE</h1>
+                </div>
+                <div class="column">
                  <!-- <div class="columns">
                     <div class="column">
                         <a href="pending.php">
@@ -183,7 +195,7 @@ $SerialNum = $ran1 . "-" . $ran2;
                           ?>
                           <div class="columns is-multiline">
                            <div class="column is-8"  id="print-Qr" > 
-                             <a href="pending.php" ><button class="button is-success" ><i class="fas fa-print"></i>&nbspPrint QR/Save</button></a>
+                             <button class="button is-success" ><i class="fas fa-print"></i>&nbspPrint QR/Save</button></a>
                            </div>
                          </form>
                          <div class="column is-6">
@@ -195,8 +207,8 @@ $SerialNum = $ran1 . "-" . $ran2;
 
                    <?php
                    if(isset($_POST['cancelbtn'])){
-
-                    echo '<script>window.location.href="pending.php"</script>';
+                   
+                   echo '<script>window.location.href="pending.php"</script>';
 
                   }
 

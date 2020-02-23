@@ -75,7 +75,7 @@ include 'user-header.php';
         <a href="login-setting.php" class="w3-bar-item w3-button w3-hover-white"><i class="fas fa-cog"></i> &nbsp&nbspLogin Setting</a>
     </div>
 
-    <a href="request-repair.php" class="w3-bar-item w3-button w3-hover-white"><i class="fas fa-tools"></i> &nbsp&nbsp&nbsp&nbsp&nbspRequest for Repair</a>
+    <a href="request-repair.php" class="w3-bar-item w3-button w3-hover-white"><i class="fas fa-inbox"></i> &nbspRequest for Repair</a>
     <a href="contact-us.php" class="w3-bar-item w3-button w3-hover-white"><i class="fas fa-envelope-open-text"></i> &nbsp&nbspContact Us</a>
     </div>
 

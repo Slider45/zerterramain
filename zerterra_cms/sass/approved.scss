@@ -312,11 +312,12 @@ table,th,td{
 }
 
 #txtbox{
+
  margin-left: 15px;
  .input{
   font-family: 'Montserrat';
 }
-}
+
 
 #Qr-img{
     width: 360px;
@@ -348,6 +349,7 @@ table,th,td{
 }
 
 
+<<<<<<< HEAD
 .is-success, .is-danger{
      font-family: 'Montserrat';
 
@@ -383,3 +385,9 @@ table,th,td{
     justify-content: center !important;
 }
 
+=======
+
+.is-success, is-danger{
+    font-family: Montserrat;
+}
+>>>>>>> 3139cff1efb65b44a3056af2dd9850d1d3dd2694

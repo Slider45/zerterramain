@@ -260,6 +260,10 @@ table, th, td {
   font-family: 'Montserrat';
   }
 
+#txtbox .input {
+  font-family: Montserrat;
+}
+
 #Qr-img {
   width: 360px;
   height: 360px;
@@ -289,6 +293,7 @@ table, th, td {
 #info-col {
   width: 500px;
 }
+
 .is-success, .is-danger{
      font-family: 'Montserrat';
 
@@ -321,6 +326,7 @@ table, th, td {
 .buttons {
     justify-content: center !important;
 }
+
 
 
 /*# sourceMappingURL=approved.css.map */

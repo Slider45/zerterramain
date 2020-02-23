@@ -29,7 +29,7 @@ include 'Buttons/requestButtonFunction.php';
   <?php
   include 'Pages/requestViewPage.php'; 
   include 'admin-header.php';
-  include 'Buttons/requestSearch.php';
+  include 'Buttons/requestSearch.php'
   ?>
 
 

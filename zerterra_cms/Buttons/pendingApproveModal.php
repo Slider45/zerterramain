@@ -49,6 +49,11 @@ include 'connection.php';
           <div class="column is-2" id="label">Contact:</div>
           <div class="column" id="txtbox"><input class="input"  name="edit_contact" readonly value="<?php echo $contact; ?>"  disabled="disabled"></div>
         </div>
+         <div class="control">
+        <div class="columns">
+          <div class="column is-2" id="label">Message:</div>
+          <div class="column" id="txtbox"><input class="textarea"  name="edit_contact" readonly value="<?php echo $Message; ?>"  style="font-family: 'Montserrat';" disabled></div>
+        </div>
 
       </div>
       <div class="control" style="margin-top: 10px;">                  

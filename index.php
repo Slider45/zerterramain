@@ -205,10 +205,10 @@ include 'PagesFunction/connection.php';
 
             <div class="field">   
              <div class="control">
-              <input class="input1" name="first_name" type="text" placeholder="First Name" required="">
+              <input class="input1" name="first_name" type="text" placeholder="Firstname" required="">
             </div>
             <div class="control">
-              <input class="input1" name="last_name" type="text" placeholder="Last Name" required="">
+              <input class="input1" name="last_name" type="text" placeholder="Lastname" required="">
             </div>
             <div class="control">
               <input class="input1" name="email" type="email" placeholder="Email" required="">

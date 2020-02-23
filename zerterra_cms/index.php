@@ -20,33 +20,33 @@ include '../PagesFunction/connection.php';
 <link rel="icon" href="../images/plainlogo.png" type="image/x-icon" />
 <link rel="stylesheet" href="sass/sass.css">
 <body>
- <nav class="navbar" role="navigation" aria-label="main navigation">
-    <div class="navbar-brand">
-      <a class="navbar-item" href="index.php">
-        <img src="images/logowhite.png" width="112" height="28" class="img-logo">
-      </a>
-    </div>
-
-
-    <div class="navbar-end">
-      <div class="navbar-item">
-        <div class="buttons">
-        
-          <a class="button btn-user">
-             <?= $_SESSION['admin']?>&nbsp<i class="far fa-user"></i>
-
-          </a>
-          <a href="../zerterraph_user/logout.php" class="button btn-logout">
-             Logout &nbsp<i class="fas fa-sign-out-alt"></i>
-          </a>
-        </div>
-      </div>
-    </div>
+ <nav class="navbar is-fixed-top" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a class="navbar-item" href="index.php">
+      <img src="images/logowhite.png" width="112" height="28" class="img-logo">
+    </a>
   </div>
+
+
+  <div class="navbar-end">
+    <div class="navbar-item">
+      <div class="buttons">
+
+        <a class="button btn-user">
+         <?= $_SESSION['admin']?>&nbsp<i class="far fa-user"></i>
+
+       </a>
+       <a href="../zerterraph_user/logout.php" class="button btn-logout">
+         Logout &nbsp<i class="fas fa-sign-out-alt"></i>
+       </a>
+     </div>
+   </div>
+ </div>
+</div>
 </nav>
 
-
- <div class="w3-sidebar w3-bar-block w3-collapse w3-card w3-animate-left" style="width:200px;" id="mySidebar">
+<div style="margin-top: 56px;">
+<div class="w3-sidebar w3-bar-block w3-collapse w3-card w3-animate-left" style="width:200px;" id="mySidebar">
   <button class="w3-bar-item w3-button w3-large w3-hide-large" onclick="w3_close()" id="close">&times;</button>
   <a href="index.php" class="w3-bar-item w3-button" id="dashboard"><i class="fas fa-th-large"></i> &nbsp Dashboard</a>
   <a href="admin.php" class="w3-bar-item w3-button" id="item-hover"> <i class="fas fa-user-shield"></i> &nbsp Admin</a>
@@ -208,14 +208,24 @@ if (mysqli_num_rows($result01) > 0)
     <div class="card">
       <header class="card-header">
         <p class="card-header-title">
-          ORDERS
+          PENDING ORDERS
         </p>
       </header>
-      <div class="card-content">
-        <div class="content">
-          <p>BOBO MO BERN</p>
+      <div class="columns">
+        <div class="column">
+          <p style="margin-left: 21px;
+          font-size: 21pt;">TOTAL COUNT:</p>
+        </div>
+        <div class="column" style="text-align: center; margin-top: 25px; font-size: 21pt;">
+          <span class="is-right"><?php echo $penUserCount;?></span>
         </div>
       </div>
+      <!-- <div class="card-content">
+        <div class="content">
+          <p>TOTAL PENDING : </p>
+          <span class="is-right"><?php echo $adminUserCount;?></span>
+        </div>
+      </div> -->
     </div>
   </div>
 </div>
@@ -231,7 +241,7 @@ if (mysqli_num_rows($result01) > 0)
 include 'ordersModal.php';
 ?>
 
-
+</div>
 
 
 

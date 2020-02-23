@@ -1,7 +1,14 @@
 <?php
 
 
-$ran=rand(0,9999999999);
+$sql = "SELECT id FROM pending_order_list";
+$result=mysqli_query($con,$sql);
+$pendingCount=mysqli_num_rows($result);
+$pendingCount++;
+
+
+$orderNum=date("Ymd-His-") . 0 .$pendingCount;
+
 $email_to = "admin@zerterra.com";
 $email_subject = "Email subject";
     $first_name = $_POST['first_name']; // required
@@ -11,7 +18,7 @@ $email_subject = "Email subject";
     $address = $_POST['address']; // required
     $message = $_POST['message']; // required
 
-    $sql = "INSERT INTO pending_order_list(OrderNumber,Firstname,Lastname,Email,Contact,Address) VALUES ('$ran,$first_name','$last_name','$email_from','$contactnumber','$address')";
+    $sql = "INSERT INTO pending_order_list(OrderNumber,Firstname,Lastname,Email,Contact,Address,Message) VALUES ('$orderNum','$first_name','$last_name','$email_from','$contactnumber','$address','$message')";
 
     if($con->query($sql) === TRUE){
 

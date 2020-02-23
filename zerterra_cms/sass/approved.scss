@@ -308,6 +308,10 @@ table,th,td{
 
 #txtbox{
    margin-left: 15px;
+
+   .input{
+       font-family: Montserrat;
+   }
 }
 
 #Qr-img{
@@ -337,4 +341,10 @@ table,th,td{
 
 #info-col{
     width: 500px;
+}
+
+
+
+.is-success, is-danger{
+    font-family: Montserrat;
 }

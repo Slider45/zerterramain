@@ -250,6 +250,10 @@ table, th, td {
   margin-left: 15px;
 }
 
+#txtbox .input {
+  font-family: Montserrat;
+}
+
 #Qr-img {
   width: 360px;
   height: 360px;
@@ -277,5 +281,9 @@ table, th, td {
 
 #info-col {
   width: 500px;
+}
+
+.is-success, is-danger {
+  font-family: Montserrat;
 }
 /*# sourceMappingURL=approved.css.map */

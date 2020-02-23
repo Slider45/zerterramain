@@ -242,6 +242,7 @@ table, th, td {
   font-weight: bold;
   padding-top: 20px;
   padding-right: 0;
+  padding-left: 0;
   font-family: Montserrat;
 }
 
@@ -258,11 +259,11 @@ table, th, td {
 .is-8 {
   padding-top: 0;
   padding-bottom: 0;
-  margin-left: 65%;
+  margin-left: 60%;
 }
 
 .is-6 {
-  margin-left: 75%;
+  margin-left: 71%;
 }
 
 #refresh {

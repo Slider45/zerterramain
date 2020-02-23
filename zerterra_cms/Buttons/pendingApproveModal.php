@@ -6,7 +6,7 @@ include 'connection.php';
                     <div class="modal-card">
                       <header class="modal-card-head">
                         <p class="modal-card-title">CUSTOMER INFORMATION</p>
-                        <button class="modal-close" aria-label="close"></button>
+                        <button class="delete" aria-label="close"></button>
                       </header>
                        <form method="POST" action="pending.php" class="modal-card-body">
               
@@ -54,8 +54,9 @@ include 'connection.php';
                         <div class="control" style="margin-top: 10px;">                  
                       </div>
                       </div>
-                      <div style = "margin-left: 500px; margin-right: auto;">
-                         <button  class="button is-success" name="btnapproved">APPROVE</button>
+                      <div style = "margin-right: auto;">
+                         <button  class="button is-success" name="btnapproved"><i class="far fa-thumbs-up"></i>&nbspAPPROVE</button>
+                         <button  class="button is-danger" name="btndeclined"><i class="fas fa-user-slash"></i>&nbspDECLINED</button>
                       </div>
                     </form>
 

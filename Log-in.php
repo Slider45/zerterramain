@@ -72,7 +72,7 @@ if(isset($_SESSION["admin"]))
             <div class="header">
               <h2> LOGIN </h2>
             </div>
-            <div class="text-danger"><?php if(isset($message)) { echo $message; } ?></div> 
+           
             <div class="field">
               <p class="control has-icons-left has-icons-right">
                 <input class="input" type="email" name="email" placeholder="Email" value="<?php if(isset($_COOKIE["member_email"])) { echo $_COOKIE["member_email"]; } ?>">

@@ -79,11 +79,11 @@ include 'Buttons/pendingButtonFunction.php';
           <thead>
             <tr>
               <th>#</th>
-              <th>Order Number</th>
-              <th>First Name</th>
-              <th>Last Name</th>
+              <th>Order#</th>
+              <th>Firstname</th>
+              <th>Lastname</th>
               <th>Email</th>
-
+              <th>Contact #</th>
               <th>Option</th>
             </tr>
           </thead>
@@ -135,7 +135,9 @@ include 'Buttons/pendingButtonFunction.php';
                 <td>
                   <?php echo $email; ?>
                 </td>
-
+                <td>
+                  <?php echo $contact; ?>
+                </td>
 
                 <td>
                   <button data-target="#edit<?php echo $id;?>" class="button is-primary is-small modal-button" id="btn_update" name="btn-update"><i class="far fa-edit"></i>
@@ -257,7 +259,7 @@ include 'Buttons/pendingButtonFunction.php';
   });
 
 
- 
+
 </script>
 
 

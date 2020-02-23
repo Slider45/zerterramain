@@ -67,7 +67,6 @@ include 'Buttons/approvedQuery.php';
                   </a>
               </div>
           </div>
-
       </div>
 
   </div>

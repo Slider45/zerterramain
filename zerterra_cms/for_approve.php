@@ -49,11 +49,8 @@ $SerialNum = $ran1 . "-" . $ran2;
                <div class="navbar-end">
                 <div class="navbar-item">
                   <div class="buttons">
-                    <a class="button btn-logout modal-button" data-target="#approvedSearchModal" aria-haspopup="true">
-                     <i class="fa fa-search"></i></i> &nbspSearch
-                   </a>
-                   <a class="button btn-user">
-                    <i class="far fa-user"></i> &nbspUser 
+                                    <a class="button btn-user">
+                    <i class="far fa-user"></i> &nbsp<?= $_SESSION['admin']?>
                   </a>
                   <a class="button btn-logout">
                     <i class="fas fa-sign-out-alt"></i> &nbspLogout

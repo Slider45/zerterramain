@@ -1,0 +1,33 @@
+html, body{
+    font-family: Montserrat;
+    background-color: #f2f1f6;
+}
+
+.modal #modal {
+    background-color: #fff;
+    flex-grow: 1;
+    flex-shrink: 1;
+    overflow: auto;
+    padding: 20px;
+    padding-bottom:0px;
+    line-height: normal;
+}
+
+.modal.is-active .modal-background {
+    opacity: 1;
+}
+
+.modal .modal-background {
+    background-color: rgba(10,10,10,.86);
+}
+
+.card {
+    border-radius: 6px;
+    min-height: 190px;
+    height: 100%;
+}
+
+#confirm {
+    margin-left: 23px;
+    margin-top: 10px;
+}

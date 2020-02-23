@@ -59,10 +59,13 @@ include 'connection.php';
       <div class="control" style="margin-top: 10px;">                  
       </div>
 
-        <div class="buttons" style="margin-right: auto;">
+        <div style="margin-right: auto;">
           <button  class="button is-success" name="btnapproved"><i class="far fa-thumbs-up"></i>&nbspAPPROVE</button>
           <button class="button is-danger modal-button"  id="btn_decline" name="btn-delete">
           <i class="fas fa-user-slash"></i>&nbspDECLINED</button> 
+        
+
+
         
           <div class="modal" id="modal-decline">
             <div class="modal-background"></div>
@@ -82,7 +85,7 @@ include 'connection.php';
                 </div>
                 
                 <center>
-                <div class="buttons" style="margin-right: auto;">
+                <div style="margin-right: auto;">
                   <button class="button is-success" id="confirm">Confirm</button>
                   <button class="button is-danger" id="modal-close-decline">Cancel</button>
                 </div>

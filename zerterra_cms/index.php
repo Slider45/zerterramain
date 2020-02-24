@@ -58,7 +58,7 @@ include '../PagesFunction/connection.php';
 </div>
 
 <?php
-$sql = "SELECT id FROM approved_order_list";
+$sql = "SELECT id FROM tblusers";
 $result=mysqli_query($con,$sql);
 $regUserCount=mysqli_num_rows($result);
 

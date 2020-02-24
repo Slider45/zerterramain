@@ -158,7 +158,7 @@ $SerialNum=date("Ymd-His-") . 0 .$approvedCount;
                             <div class="control">
                               <div class="columns">
                                 <div class="column is-2" id="label">Serial #:</div>
-                                <div class="column"  id="txtbox"><input name="qrcode" class="input"  value="<?php echo $SerialNum; ?>"readonly></div>
+                                <div class="column"  id="txtbox"><input name="serialNum" class="input"  value="<?php echo $SerialNum; ?>"readonly></div>
                               </div>
                             </div>
                             <div class="control">
@@ -222,6 +222,7 @@ $SerialNum=date("Ymd-His-") . 0 .$approvedCount;
                                 <div class="card-content">
                                   <div class="content">
                                     <input class="input" type="hidden" name="serialNum" value="<?php echo $SerialNum; ?>">
+                                     <input class="input" type="hidden" name="orderNum" value="<?php echo $orderNum; ?>">
                                     <input class="input" type="hidden" name="id"value="<?php echo $id; ?>"
                                     ><center>
                                       <strong>DO YOU WANT TO PRINT THIS RECORD?</strong>
@@ -236,7 +237,7 @@ $SerialNum=date("Ymd-His-") . 0 .$approvedCount;
                                   <div class="buttons" style="margin-right: auto;">
                                     <button type="submit" class="button is-success" name="printRecord" id="confirm"><i class="fas fa-check-circle"></i>&nbspPRINT AND SAVE</button>
 
-                                    <button class="button is-danger" name="saveApprove" id="modal-close-print"><i class="fas fa-ban"></i>&nbspSAVE ONLY!</button>
+                                    <button class="button is-primary" name="saveApprove" id="modal-close-print"><i class="fas fa-ban"></i>&nbspSAVE ONLY!</button>
                                   </div>
                                 </form>
                               </center>
@@ -261,57 +262,7 @@ $SerialNum=date("Ymd-His-") . 0 .$approvedCount;
 
                   <?php
 
-
-                  if(isset($_POST['saveApprove'])){
-                    $serialNum =$_POST['serialNum'];
-
-                    $sqlSelect="SELECT * FROM pending_order_list WHERE id='$id'";
-
-                    $res_data = $con->query($sqlSelect);
-                    while($row = mysqli_fetch_array($res_data)){
-
-                      $orderNum =$row['OrderNumber'];
-                      $fname =$row['Firstname'];
-                      $lname =$row['Lastname'];
-                      $email =$row['Email'];
-                      $contact =$row['Contact'];
-                      $address =$row['Address'];
-
-
-
-                      $sql="INSERT INTO approved_order_list(OrderNumber, SerialNumber, Firstname, Lastname, Email, Contact, Address) VALUES('$orderNum',' $serialNum','$fname','$lname','$email','$contact','$address')";
-
-                      if($con->query($sql) === TRUE){
-                        $sqlupdate = "UPDATE pending_order_list SET is_approved='1' WHERE id='$id'";
-
-
-
-
-                        if($con->query($sqlupdate) === TRUE){
-
-
-                         echo '<script>window.location.href="pending.php"</script>';
-
-
-
-
-                       }else{
-                        echo "<script>alert('UNABLE TO UPDATE PLEASE TRY AGAIN LATER!');</script>";
-                      }
-
-                    }else{
-                     echo "<script>alert('UNABLE TO SAVE PLEASE TRY AGAIN LATER!');</script>";
-                   }
-
-
-
-
-                 }
-               }
-
-
-
-
+include 'Buttons/for_approveButtonFunction.php';
 
                ?>
 

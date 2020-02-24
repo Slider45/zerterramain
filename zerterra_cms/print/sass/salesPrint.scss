@@ -1,0 +1,258 @@
+@page{
+    size: letter;
+    margin:0;
+}
+
+
+html,body{
+    font-family: Montserrat;
+}
+
+.card{
+    width: 600px; 
+    height:900px;
+    // margin-top:10px;
+
+}
+
+.card-header{
+    background-color:#6fbf6d;
+    height: 60px;
+    width:600px;
+
+    #head-title{
+        color: white;
+        font-size: 20pt;
+        margin-top: 8px;
+        margin-left: 24px;
+    }
+    
+    #h-img{
+        width: 100%;
+        max-width: 150px;
+        margin-left: 53%;
+        margin-top: 8px;
+       
+    }
+}
+
+// --
+
+.card-content{
+    height:550px;
+    padding-left: 0;
+
+    #date{
+        text-align: justify;
+        font-size: 10pt;
+        margin-left: 30px;
+    p{
+        padding-top:3px;
+        font-family: Montserrat;
+    }
+
+    #date-today{
+        margin-left: 58%;
+    }
+
+    }
+
+    .table{
+        padding: 0;
+        margin-left:0 !important;
+    }
+
+    table{
+        border: solid;
+        margin-top: 10px;
+        width: 100%;
+        font-size: 10pt;
+        margin-left: 5px;
+
+        th{
+            padding:0 !important;
+            font-size: 8pt;
+            text-align: center !important;
+            border: solid 1px;
+            width: 50px !important;
+            padding-left: 5px !important;
+            padding-right: 5px !important;
+            padding-top: 10px !important;
+        }
+
+        td{
+            font-size: 8pt;
+            border-left: solid 1px;
+           
+        }
+    }
+
+
+}
+
+    // print btn
+
+    
+#home{
+    position: fixed;
+    width: 50px;
+    height: 50px;
+    background: #a5d547;
+    bottom: 100px;
+    right: 50px;
+    text-decoration: none;
+    text-align: center;
+    line-height: 50px;
+    color: white;
+    font-size: 22px;
+    border-radius: 30px;
+    
+  }
+
+  #return{
+    position: fixed;
+    width: 50px;
+    height: 50px;
+    bottom: 40px;
+    right: 50px;
+    text-decoration: none;
+    text-align: center;
+    line-height: 50px;
+    color: white;
+    font-size: 22px;
+    border-radius: 30px;
+    
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+@media print{
+
+html,body{
+    font-family: Montserrat;
+}
+
+.card{
+    width: 2200px; 
+    height:1580px;
+
+}
+
+.card-header{
+    background-color:#6fbf6d;
+    height: 100px;
+    width:2480px;
+
+    #head-title{
+        font-size: 30pt;
+        font-weight: bold;
+        margin-top:20px;
+        margin-left: 35px;
+    }
+    
+    #h-img{
+        width: 100%;
+        max-width: 270px;
+        margin-left: 30%;
+        margin-top: 10px;
+           
+    }
+}
+
+// --
+
+.card-content{
+    height:1073px;
+
+    
+    #date{
+        text-align: justify;
+        font-size: 12pt;
+        margin-left: 30px;
+    p{
+        padding-top:3px;
+        font-family: Montserrat;
+    }
+
+    #date-today{
+        margin-left: 76% !important;
+    }
+
+    }
+
+    .table{
+        margin-left: 12px !important;
+        font-size: 12pt;
+        margin-top: 30px !important;
+
+        th{
+            font-size: 12pt;
+            border-left: solid 2px;
+        }
+
+        td{
+            font-size: 12pt;
+            border-left: solid 2px;
+        }
+    }
+}
+    // print btn
+
+    
+#home{
+    position: fixed;
+    width: 50px;
+    height: 50px;
+    background: #a5d547;
+    bottom: 100px;
+    right: 50px;
+    text-decoration: none;
+    text-align: center;
+    line-height: 50px;
+    color: white;
+    font-size: 22px;
+    border-radius: 30px;
+    
+  }
+
+  #return{
+    position: fixed;
+    width: 50px;
+    height: 50px;
+    bottom: 40px;
+    right: 50px;
+    text-decoration: none;
+    text-align: center;
+    line-height: 50px;
+    color: white;
+    font-size: 22px;
+    border-radius: 30px;
+    
+  }
+
+}
+
+
+  @media print {
+    #home {
+        display :  none;
+    }
+     #return{
+    
+    display: none;
+  }
+}
+
+
+// media print
+
+    

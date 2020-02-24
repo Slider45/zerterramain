@@ -1,0 +1,211 @@
+@page {
+  size: letter;
+  margin: 0;
+}
+
+html, body {
+  font-family: Montserrat;
+}
+
+.card {
+  width: 600px;
+  height: 900px;
+}
+
+.card-header {
+  background-color: #6fbf6d;
+  height: 60px;
+  width: 600px;
+}
+
+.card-header #head-title {
+  color: white;
+  font-size: 20pt;
+  margin-top: 8px;
+  margin-left: 24px;
+}
+
+.card-header #h-img {
+  width: 100%;
+  max-width: 150px;
+  margin-left: 53%;
+  margin-top: 8px;
+}
+
+.card-content {
+  height: 550px;
+  padding-left: 0;
+  padding-top: 10px;
+}
+
+.card-content #reg {
+  font-size: 8pt;
+}
+
+.card-content #date {
+  text-align: justify;
+  font-size: 10pt;
+  margin-left: 30px;
+}
+
+.card-content #date p {
+  padding-top: 3px;
+  font-family: Montserrat;
+}
+
+.card-content #date #date-today {
+  margin-left: 58%;
+}
+
+.card-content .table {
+  padding: 0;
+  margin-left: 0 !important;
+}
+
+.card-content table {
+  border: solid;
+  margin-top: 10px;
+  width: 100%;
+  font-size: 10pt;
+  margin-left: 5px;
+}
+
+.card-content table th {
+  padding: 0 !important;
+  font-size: 8pt;
+  text-align: center !important;
+  border: solid 1px;
+  width: 50px !important;
+  padding-left: 5px !important;
+  padding-right: 5px !important;
+  padding-top: 10px !important;
+}
+
+.card-content table td {
+  font-size: 8pt;
+  border-left: solid 1px;
+}
+
+#home {
+  position: fixed;
+  width: 50px;
+  height: 50px;
+  background: #a5d547;
+  bottom: 100px;
+  right: 50px;
+  text-decoration: none;
+  text-align: center;
+  line-height: 50px;
+  color: white;
+  font-size: 22px;
+  border-radius: 30px;
+}
+
+#return {
+  position: fixed;
+  width: 50px;
+  height: 50px;
+  bottom: 40px;
+  right: 50px;
+  text-decoration: none;
+  text-align: center;
+  line-height: 50px;
+  color: white;
+  font-size: 22px;
+  border-radius: 30px;
+}
+
+@media print {
+  html, body {
+    font-family: Montserrat;
+  }
+  .card {
+    width: 2200px;
+    height: 1580px;
+  }
+  .card-header {
+    background-color: #6fbf6d;
+    height: 100px;
+    width: 2480px;
+  }
+  .card-header #head-title {
+    font-size: 30pt;
+    font-weight: bold;
+    margin-top: 20px;
+    margin-left: 35px;
+  }
+  .card-header #h-img {
+    width: 100%;
+    max-width: 270px;
+    margin-left: 30%;
+    margin-top: 10px;
+  }
+  .card-content {
+    height: 1073px;
+  }
+  .card-content #reg {
+    font-size: 9pt;
+  }
+  .card-content #date {
+    text-align: justify;
+    font-size: 12pt;
+    margin-left: 30px;
+  }
+  .card-content #date p {
+    padding-top: 3px;
+    font-family: Montserrat;
+  }
+  .card-content #date #date-today {
+    margin-left: 76% !important;
+  }
+  .card-content .table {
+    margin-left: 12px !important;
+    font-size: 12pt;
+    margin-top: 30px !important;
+  }
+  .card-content .table th {
+    font-size: 12pt;
+    border-left: solid 2px;
+  }
+  .card-content .table td {
+    font-size: 12pt;
+    border-left: solid 2px;
+  }
+  #home {
+    position: fixed;
+    width: 50px;
+    height: 50px;
+    background: #a5d547;
+    bottom: 100px;
+    right: 50px;
+    text-decoration: none;
+    text-align: center;
+    line-height: 50px;
+    color: white;
+    font-size: 22px;
+    border-radius: 30px;
+  }
+  #return {
+    position: fixed;
+    width: 50px;
+    height: 50px;
+    bottom: 40px;
+    right: 50px;
+    text-decoration: none;
+    text-align: center;
+    line-height: 50px;
+    color: white;
+    font-size: 22px;
+    border-radius: 30px;
+  }
+}
+
+@media print {
+  #home {
+    display: none;
+  }
+  #return {
+    display: none;
+  }
+}
+/*# sourceMappingURL=usersPrint.css.map */

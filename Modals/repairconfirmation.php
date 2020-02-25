@@ -37,16 +37,23 @@
         $serialNum = $_GET["SerialNumber"];
         $address = $_GET["address"];
 
-        $sqlrequest = "SELECT SerialNumber FROM request_repair_list WHERE SerialNumber = $serialNum";
+        $sqlrequest = "SELECT * FROM request_repair_list WHERE SerialNumber='$serialNum' AND is_approved = '0'";
         $requestResult = $con->query($sqlrequest);
-        if ($requestResult->num_rows < 3 ) {
+
+
+
+
+
+
+
+        if ($requestResult->num_rows > 3 ) {
           ?>
 
           <div class="notification is-danger alert">
             <center>
               TOO MANY REQUEST FOUND IN<br>
               SERIAL NUMBER <br>
-              <strong><?php echo $serialNum; ?></strong> <br>
+              <strong class="is-size-4"><?php echo $serialNum; ?></strong> <br>
               WE WILL CONTACT YOU AS SOON US OUR TECHNICAL TEAM IS AVAILABLE!
               <br><br>
               THANK YOU FOR TRUSTING ZERTERRA
@@ -63,27 +70,39 @@
     <?php
   }else{
 
+   $sql="SELECT * FROM tblusers WHERE SerialNumber='$serialNum'";
+   $result = $con->query($sql);
+   if($result->num_rows < 1){
+      ?>
+
+
+   <div class="notification is-danger alert">
+    <center>
+     <strong>SERIAL NUMBER NOT REGISTERED.<br>PLEASE CHECK YOUR SERIAL NUMBER!</strong> 
+   </center>
+ </div>
 
 
 
-    $sql="SELECT * FROM tblusers WHERE SerialNumber='$serialNum'";
-    $result = $con->query($sql);
-    if($result->num_rows < 1){ ?>
-
-     <div class="notification is-danger alert">
-      <center>
-       <strong>SERIAL NUMBER NOT REGISTERED.<br>PLEASE CHECK YOUR SERIAL NUMBER!</strong> 
-     </center>
-   </div>
-
-
-
- </section>
- <footer class="modal-card-foot" >
+</section>
+<footer class="modal-card-foot" >
   <a href="../index.php"><button class="button is-success" style="font-family: Montserrat;"><i class="fas fa-arrow-left"></i>&nbspBACK</button></a>
 </footer>
 </div>
 </div>
+
+
+
+
+
+ 
+
+
+
+
+
+
+ 
 
 <?php
   // $msg = "SERIAL NUMBER NOT REGISTERED. PLEASE CHECK YOUR SERIAL NUMBER!";
@@ -141,8 +160,8 @@
 
 
 }
-
 }
+
 }
 
 include '../PagesFunction/query_request.php';

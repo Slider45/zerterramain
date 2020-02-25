@@ -42,7 +42,7 @@ if(isset($_POST['btn-update'])){
   
   
   
-          $sql = "UPDATE request_repair_list SET Firstname='$fname',Lastname='$lname',Email='$email',Address='$address', Contact='$contact' WHERE id='$id'";
+          $sql = "UPDATE request_repair_list SET Firstname='$fname',Lastname='$lname',Email='$Email',Address='$address', Contact='$contact' WHERE id='$id'";
           if($con->query($sql) === TRUE){
                   echo "<script>window.alert('RECORD IS UPDATED!');</script>";
                   echo '<script>window.location.href="request.php"</script>';

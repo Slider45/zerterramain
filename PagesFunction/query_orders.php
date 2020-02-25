@@ -27,10 +27,10 @@ $email_subject = "Email subject";
 
 
 
-        function clean_string($string)
-        {
-          $bad = array("content-type", "bcc:", "to:", "cc:", "href");
-          return str_replace($bad, "", $string);
+      function clean_string($string)
+      {
+        $bad = array("content-type", "bcc:", "to:", "cc:", "href");
+        return str_replace($bad, "", $string);
       }
 
       $email_message = "Pre-Order details below.\n\n";
@@ -40,7 +40,7 @@ $email_subject = "Email subject";
       $email_message .= "Contact number: " . clean_string($contactnumber) . "\n";
       $email_message .= "Address: " . clean_string($address) . "\n";
       $email_message .= "Message: " . clean_string($message) . "\n";
-
+      
     // create email headers
       $headers = 'From: ' . $email_to . "\r\n" .
       'Reply-To: ' . $email_from . "\r\n" .
@@ -49,8 +49,11 @@ $email_subject = "Email subject";
       if( $mail === true ) {
 
         if(($Content = file_get_contents("content/PreOrderReturnMailContent.php")) === false) {
-            $Content = "";
+          $Content = "";
         }
+        $headers[] = 'MIME-Version: 1.0';
+        $headers[] = 'Content-type: text/html; charset=iso-8859-1';
+        
         $subject = "PRE-ORDER (ORDER #: [ " . $orderNum . " ])";
 
         
@@ -77,30 +80,30 @@ $email_subject = "Email subject";
 
 
 
-    }else{
+      }else{
 
 
-      echo "<script>alert('Message not sent! Please try again!'); </script>";
+        echo "<script>alert('Message not sent! Please try again!'); </script>";
 
 
-  }
+      }
 
-}
-
-
-
-
-
-
-?>
-<script>
+    }
 
 
 
 
 
 
+    ?>
+    <script>
 
 
 
-</script>
+
+
+
+
+
+
+    </script>

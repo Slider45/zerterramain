@@ -19,8 +19,8 @@ include 'connection.php';
          if($result->num_rows > 0){
           echo "<script>window.alert('Email is already used!');</script>";
         }else{
-          // $newpass = md5($password);
-          $sql ="INSERT INTO admin_list(fullname,Password,Contact,Email,Position,is_active) VALUES ('$name','$newpass','$contact','$Email','$role','1')";
+         
+          $sql ="INSERT INTO admin_list(Fullname,Password,Contact,Email,Position,is_active) VALUES ('$name','$password','$contact','$Email','$role','1')";
           if($con->query($sql) === TRUE){
             echo "<script>window.alert('New Admin is added!');</script>";
           }else{
@@ -37,7 +37,7 @@ include 'connection.php';
         $delete_id = $_POST['delete_id'];
         $role = $_POST['role_id'];
   
-        if($role === 'Super Admin'){
+        if($role ==='Super Admin'){
           echo "<script>window.alert('THIS RECORD CANNOT BE DELETE!');</script>";
         }else{
   
@@ -59,7 +59,7 @@ include 'connection.php';
   
   
   
-        $sql = "UPDATE admin_list SET name='$name',contact='$contact',Email='$email' WHERE id='$id'";
+        $sql = "UPDATE admin_list SET Fullname='$name',Contact='$contact',Email='$email' WHERE id='$id'";
         if($con->query($sql) === TRUE){
           echo "<script>window.alert('RECORD IS UPDATED!');</script>";
           echo '<script>window.location.href="admin.php"</script>';

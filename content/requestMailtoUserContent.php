@@ -1,6 +1,14 @@
+<?php
+session_start();
+
+include 'PagesFunction.connection.php';
+$_SESSION["orderNum"] = $orderNum; 
 
 
-<!DOCTYPE html>
+
+
+?>
+
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
@@ -13,20 +21,21 @@
             <td style="padding: 10px 0 30px 0;">
                 <table align="center" border="0" cellpadding="0" cellspacing="0" width="600" style="border: 1px solid #cccccc; border-collapse: collapse;">
                     <tr>
-                        <td align="center" bgcolor="#70bbd9" style="padding: 40px 0 30px 0; color: #153643; font-size: 28px; font-weight: bold; font-family: Arial, sans-serif;">
-                            <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/210284/h1.gif" alt="Creating Email Magic" width="300" height="230" style="display: block;" />
+                        <td align="center" bgcolor="#6fbf6d" style="padding: 30px 0 20px 0; color: white; font-size: 28px; font-weight: bold; font-family: Montserrat;">
+                            <img src="http://zerterra.com/mailto/images/plainlogoWhite.png"  style="display: block; width:100%; max-width:150px;" />
+                            <p>PRE-ORDER</p>
                         </td>
                     </tr>
                     <tr>
                         <td bgcolor="#ffffff" style="padding: 40px 30px 40px 30px;">
                             <table border="0" cellpadding="0" cellspacing="0" width="100%">
                                 <tr>
-                                    <td style="color: #153643; font-family: Arial, sans-serif; font-size: 24px;">
-                                        <b>Hi!<br></b>
+                                    <td style="color: #333; font-family: Arial, sans-serif; font-size: 24px;">
+                                        <b>Hi User!<br></b>
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td style="padding: 20px 0 30px 0; color: #153643; font-family: Arial, sans-serif; font-size: 16px; line-height: 20px;">
+                                    <td style="padding: 20px 0 0 0; color: #153643; font-family: Arial, sans-serif; font-size: 16px; line-height: 20px;">
                                        
                                     </td>
                                 </tr>
@@ -38,12 +47,43 @@
                                                     <table border="0" cellpadding="0" cellspacing="0" width="100%">
                                                         <tr>
                                                             <td>
-                                                                <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/210284/left.gif" alt="" width="100%" height="140" style="display: block;" />
+
+                                                            <p style=" line-height: 2; font-family: Montserrat;font-weight: bold; font-size:  11pt; text-align:justify;">
+                                                                we already received your order request from our website (zerterra.com)
+                                                                Please wait while we are processing your
+                                                                request. Make sure that all of your informations are correct.
+                                                                </p>
+                                                                <p style="  font-family: Montserrat;font-weight: bold; font-size:  11pt; text-align:justify;"> Thank you</p>
+                                                             <p style="  font-family: Montserrat;font-weight: bold; font-size:  11pt; text-align:justify;">God bless!</p>
                                                             </td>
                                                         </tr>
+
+    <hr>
                                                         <tr>
                                                             <td style="padding: 25px 0 0 0; color: #153643; font-family: Arial, sans-serif; font-size: 16px; line-height: 20px;">
-                                                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. In tempus adipiscing felis, sit amet blandit ipsum volutpat sed. Morbi porttitor, eget accumsan dictum, nisi libero ultricies ipsum, in posuere mauris neque at erat.
+                                                                
+<table style="width:100%; height:200px;">
+  <tr style="color: #000; font-family:Montserrat; font-size: 16px; line-height: 20px; font-weight:bold; margin-bottom:50px;">
+    <td>Firstname:</td>
+    <td style="padding-left:10px; margin-bottom:50px;">Smith</td>    
+  </tr>
+  <tr style="color: #000; font-family:Montserrat; font-size: 16px; line-height: 20px; font-weight:bold;">
+    <td>Lastname:</td>
+    <td style="padding-left:10px">Jackson</td>
+  </tr>
+  <tr style="color: #000; font-family:Montserrat; font-size: 16px; line-height: 20px; font-weight:bold;">
+    <td>Email:</td>
+    <td style="padding-left:10px">Doe@email.com</td>
+  </tr>
+  <tr style="color: #000; font-family:Montserrat; font-size: 16px; line-height: 20px; font-weight:bold;">
+    <td>Contact:</td>
+    <td style="padding-left:10px">09090909099</td>
+  </tr>
+  <tr style="color: #000; font-family:Montserrat; font-size: 16px; line-height: 20px; font-weight:bold;">
+    <td>Address:</td>
+    <td style="padding-left:10px">122 bagong silang caloocan city</td>
+  </tr>
+</table>
                                                             </td>
                                                         </tr>
                                                     </table>
@@ -55,12 +95,15 @@
                                                     <table border="0" cellpadding="0" cellspacing="0" width="100%">
                                                         <tr>
                                                             <td>
-                                                                <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/210284/right.gif" alt="" width="100%" height="140" style="display: block;" />
+                                                                <img src="http://zerterra.com/mailto/images/important-mail.png" alt="" style="display: block; width:100%; max-width:180px; margin-left:30px;" />
                                                             </td>
                                                         </tr>
                                                         <tr>
-                                                            <td style="padding: 25px 0 0 0; color: #153643; font-family: Arial, sans-serif; font-size: 16px; line-height: 20px;">
-                                                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. In tempus adipiscing felis, sit amet blandit ipsum volutpat sed. Morbi porttitor, eget accumsan dictum, nisi libero ultricies ipsum, in posuere mauris neque at erat.
+                                                            <td style="padding: 150px 0 0 0; color: #153643; font-family: Arial, sans-serif; font-size: 16px; line-height: 20px;">
+                                                               <div style="color:#4a8169; background-color:#d1d1d1; text-align:center; height:50px; padding-top:30px; font-size:15pt; font-weight:bold;">
+                                                               02222020123456789-789
+                                                               </div>
+                                                               <p style="text-align:center; font-family:Montserrat; font-size:10pt;  font-weight:bold;">ORDER NUMBER</p>
                                                             </td>
                                                         </tr>
                                                     </table>
@@ -73,25 +116,26 @@
                         </td>
                     </tr>
                     <tr>
-                        <td bgcolor="#ee4c50" style="padding: 30px 30px 30px 30px;">
+                        <td bgcolor="#4a8169" style="padding: 30px 30px 30px 30px;">
                             <table border="0" cellpadding="0" cellspacing="0" width="100%">
                                 <tr>
-                                    <td style="color: #ffffff; font-family: Arial, sans-serif; font-size: 14px;" width="75%">
-                                       FROM:<?php $email;?><br/>
-                                        <a href="#" style="color: #ffffff;"><font color="#ffffff">Unsubscribe</font></a> to this newsletter instantly
+                                    <td style="color: #ffffff; font-family: Montserrat; font-size: 14px;" width="75%">
+                                       FROM: zerterra.com<br/>
+                                       <br>
+                                        <a href="#" style="color: #ffffff;"><font color="#ffffff">(no-reply@zerterra.com)</font></a> 
                                     </td>
                                     <td align="right" width="25%">
                                         <table border="0" cellpadding="0" cellspacing="0">
                                             <tr>
                                                 <td style="font-family: Arial, sans-serif; font-size: 12px; font-weight: bold;">
-                                                    <a href="http://www.twitter.com/" style="color: #ffffff;">
-                                                        <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/210284/tw.gif" alt="Twitter" width="38" height="38" style="display: block;" border="0" />
+                                                    <a href="http://www.zerterra.com/zerterraph/" style="color: #ffffff;">
+                                                        <img src="http://zerterra.com/mailto/icons/globeIcon.png" alt="Twitter" width="38" height="38" style="display: block;" border="0" />
                                                     </a>
                                                 </td>
                                                 <td style="font-size: 0; line-height: 0;" width="20">&nbsp;</td>
                                                 <td style="font-family: Arial, sans-serif; font-size: 12px; font-weight: bold;">
-                                                    <a href="http://www.twitter.com/" style="color: #ffffff;">
-                                                        <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/210284/fb.gif" alt="Facebook" width="38" height="38" style="display: block;" border="0" />
+                                                    <a href="https://www.facebook.com/zerterra//" style="color: #ffffff;">
+                                                        <img src="http://zerterra.com/mailto/icons/fbicon-rounded.png" alt="Facebook" width="38" height="38" style="display: block;" border="0" />
                                                     </a>
                                                 </td>
                                             </tr>

@@ -27,7 +27,7 @@ $serialNum = "";?>
                   </div>
 
 
-                  <form action="index.php" method="POST" accept-charset="utf-8">
+                  <form action="check_warranty.php" method="GET" accept-charset="utf-8">
 
                     <div class="container">
                       <div id="serv-modal" class="modal">
@@ -42,12 +42,12 @@ $serialNum = "";?>
                           <!-- Content ... -->
                           <div class="field">
                             <div class="control">
-                              <input class="input1" type="text" placeholder="Enter your Serial Number" required="">
+                              <input class="input1" type="text" name="SerialNumber" placeholder="Enter your Serial Number" required="">
                             </div>
                           </div>
                         </section>
                         <footer class="modal-card-foot1" id="modal-card-foot">
-                          <button class="btn" id="showModal1">Check Warranty</button>
+                          <button class="btn" id="showModal1" type="submit">Check Warranty</button>
                         </footer>
                       </div>
                     </div>

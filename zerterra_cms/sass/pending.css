@@ -252,4 +252,37 @@ table, th, td {
 #txtbox {
   padding-left: 0;
 }
+
+#modal-decline {
+  background-color: #fff;
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  -ms-flex-negative: 1;
+      flex-shrink: 1;
+  overflow: auto;
+  padding: 20px;
+  padding-bottom: 0px;
+  line-height: normal;
+}
+
+.modal.is-active .modal-background {
+  opacity: 1;
+}
+
+.modal .modal-background {
+  background-color: rgba(10, 10, 10, 0.86);
+}
+
+.card {
+  border-radius: 6px;
+  min-height: 200px;
+  height: 100%;
+}
+
+.buttons {
+  -webkit-box-pack: center !important;
+      -ms-flex-pack: center !important;
+          justify-content: center !important;
+}
 /*# sourceMappingURL=pending.css.map */

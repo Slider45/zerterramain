@@ -1,0 +1,37 @@
+html, body {
+  font-family: Montserrat;
+  background-color: #f2f1f6;
+}
+
+.modal #modal {
+  background-color: #fff;
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  -ms-flex-negative: 1;
+      flex-shrink: 1;
+  overflow: auto;
+  padding: 20px;
+  padding-bottom: 0px;
+  line-height: normal;
+}
+
+.modal.is-active .modal-background {
+  opacity: 1;
+}
+
+.modal .modal-background {
+  background-color: rgba(10, 10, 10, 0.86);
+}
+
+.card {
+  border-radius: 6px;
+  min-height: 190px;
+  height: 100%;
+}
+
+#confirm {
+  margin-left: 23px;
+  margin-top: 10px;
+}
+/*# sourceMappingURL=pendingDeclineModal.css.map */

@@ -92,14 +92,15 @@ include 'Buttons/usersButtonFunction.php';
               $res_data = $con->query($sql);
               while($row = mysqli_fetch_array($res_data)){
                 $id = $row['id'];
-                $serialNum = $row['Serial_Number'];
+                $serialNum = $row['SerialNumber'];
                 $fname = $row['Firstname'];
                 $lname = $row['Lastname'];
-                $rdays = $row['remaining_days'];
-                $email = $row['email'];
-                $dateReg = $row['dateRegistered'];
-                $dateEnd= $row['dateExpired'];
-                $contact = $row['ContactNumber'];   
+                $contact = $row['Contact'];   
+                $email = $row['Email'];
+                $rdays = $row['RemainingDays'];
+                $dateReg = $row['DateRegistered'];
+                $dateEnd= $row['DateExpired'];
+                
                 ?>
                 <tbody>
                  <tr>

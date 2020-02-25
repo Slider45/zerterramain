@@ -1,3 +1,18 @@
+
+<style type="text/css" media="screen">
+ 
+button{
+  font-family: Montserrat;
+}
+input{
+  font-family: Montserrat;
+}
+
+
+</style>
+
+
+
  <div id="editrequest<?php echo $id; ?>" class="modal" role="dialog">
    <div class="modal-background"></div>
    <div class="modal-card">
@@ -5,7 +20,7 @@
       <p class="modal-card-title">EDIT REQUEST</p>
       <button class="modal-close" aria-label="close"></button>
     </header>
-    <form method="POST" class="modal-card-body" style="padding-bottom: 10px;">
+    <form method="POST" class="modal-card-body" style="padding-bottom: 10px; border-bottom-right-radius: 6px; border-bottom-left-radius: 6px;">
 
       <div class="field">
         <div class="control">
@@ -14,10 +29,10 @@
           </div>
         </div>
         <div class="control">
-          <input class="input" type="text" name="serialNum" value="<?php echo $serialNum; ?>" required="" disabled="disabled">
+          <input class="input" type="hidden" name="serialNum" value="<?php echo $serialNum; ?>">
         </div>
         <div class="control">
-          <input class="input" type="text" name="requestNum" value="<?php echo $requestNum; ?>" required="" disabled="disabled">
+          <input class="input" type="hidden" name="requestNum" value="<?php echo $requestNum; ?>">
         </div>
         <div class="control">
           <input class="input" type="text" name="edit_fname" value="<?php echo $fname; ?>" required="">
@@ -45,7 +60,7 @@
                      </div>
                    </div>
                    
-                   <button type="submit" name="updated_user" class="button is-success">Save</button>
+                   <button type="submit" name="updated_user" class="button is-success"><i class="far fa-save"></i> &nbspSave</button>
                    <button class="button is-danger"><i class="fas fa-ban"></i>&nbspCancel</button>
 
                  </form>

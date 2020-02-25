@@ -27,7 +27,7 @@ $serialNum = "";?>
                   </div>
 
 
-                  <form action="index.php" method="POST" accept-charset="utf-8">
+                  <form action="check_warranty.php" method="GET" accept-charset="utf-8">
 
                     <div class="container">
                       <div id="serv-modal" class="modal">
@@ -42,12 +42,12 @@ $serialNum = "";?>
                           <!-- Content ... -->
                           <div class="field">
                             <div class="control">
-                              <input class="input1" type="text" placeholder="Enter your Serial Number" required="">
+                              <input class="input1" type="text" name="SerialNumber" placeholder="Enter your Serial Number" required="">
                             </div>
                           </div>
                         </section>
                         <footer class="modal-card-foot1" id="modal-card-foot">
-                          <button class="btn" id="showModal1">Check Warranty</button>
+                          <button class="btn" id="showModal1" type="submit" style="font-family: Montserrat;"><i class="far fa-calendar-check"></i> Check Warranty</button>
                         </footer>
                       </div>
                     </div>
@@ -66,7 +66,7 @@ $serialNum = "";?>
 
               </div>
 
-              <form action="index.php" method="POST" accept-charset="utf-8">
+              <form action="Modals/repairconfirmation.php" method="GET" accept-charset="utf-8">
                <div class="container" id="app">
                   <div id="repair-modal" class="modal">
                     <div class="modal-background"></div>
@@ -81,12 +81,7 @@ $serialNum = "";?>
                         <div class="field">
                           <div  class="control1" id="form_error" >
                             <input class="input2" type="text" name="SerialNumber" placeholder="Serial Number" required >
-
                           </div>
-
-
-
-
                           <div class="control1">
                             <input class="input2" type="text" name="Fname" placeholder="Firstname" required>
                           </div>
@@ -108,7 +103,7 @@ $serialNum = "";?>
                         </div>
                       </section>
                       <footer class="modal-card-foot2">
-                        <button class="btn" name="sndRequest">Send Request &nbsp<i class="far fa-paper-plane"></i></button>
+                        <button class="btn" name="sndRequest" type="submit">Send Request &nbsp<i class="far fa-paper-plane"></i></button>
                       </footer>
                     </div></div></div>
                   </div>
@@ -120,7 +115,7 @@ $serialNum = "";?>
 
 
 
-                include 'PagesFunction/query_request.php';
+               // include 'PagesFunction/query_request.php';
 
                 ?>
 

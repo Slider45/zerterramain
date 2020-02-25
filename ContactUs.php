@@ -57,15 +57,7 @@ include 'PagesFunction/connection.php';
 
       <hr class="hr">
 
-      <?php
-
-
-      if (isset($_POST["sendmsg"])) 
-      {
-        include 'PagesFunction/MailingFunction.php';
-
-      }
-      ?>
+      
 
       <div class="container" id="form">
         <div class="columns">
@@ -207,7 +199,15 @@ include 'PagesFunction/connection.php';
     </div>
   </footer>
   <!-- -->
+<?php
 
+
+      if (isset($_POST["sendmsg"])) 
+      {
+        include 'PagesFunction/MailingFunction.php';
+
+      }
+      ?>
   <!-- -->
 
   <script>

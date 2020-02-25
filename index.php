@@ -16,7 +16,6 @@ include 'PagesFunction/connection.php';
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.min.css">
   <link href="https://fonts.googleapis.com/css?family=Montserrat:600&display=swap" rel="stylesheet">
   <link rel="icon" href="images/plainlogo.png" type="image/x-icon" />
-  <link href="https://fonts.googleapis.com/css?family=Montserrat:600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css">
   <script src="js/homeJS.js"></script>
   <link rel="stylesheet" type="text/css" href="sass/sass.css">
@@ -54,7 +53,7 @@ include 'PagesFunction/connection.php';
     <div class="hero-text" id="hero-text">
       <p class="first">TAKE CARE OF NATURE</p>
       <p class="second">recycle your food scraps and help us protect our environment</p>
-      <a href="Log-in.php"><button class="parallax-btn">GET IN TOUCH</button></a>
+      <a href="Log-in.php"><button class="parallax-btn">LOGIN</button></a>
     </div>
     <nav>
       <div class="menu-icon">
@@ -205,10 +204,10 @@ include 'PagesFunction/connection.php';
 
             <div class="field">   
              <div class="control">
-              <input class="input1" name="first_name" type="text" placeholder="First Name" required="">
+              <input class="input1" name="first_name" type="text" placeholder="Firstname" required="">
             </div>
             <div class="control">
-              <input class="input1" name="last_name" type="text" placeholder="Last Name" required="">
+              <input class="input1" name="last_name" type="text" placeholder="Lastname" required="">
             </div>
             <div class="control">
               <input class="input1" name="email" type="email" placeholder="Email" required="">
@@ -245,18 +244,20 @@ include 'PagesFunction/connection.php';
 
 
 <?php
+
+
 if (isset($_POST['sendOrder'])) {
   include 'PagesFunction/query_orders.php';
 
- }
- ?>
+}
+?>
 
 
 
 
 
 
- <!-- -->
+<!-- -->
 <!-- 
   <footer class="footer-distributed">
 

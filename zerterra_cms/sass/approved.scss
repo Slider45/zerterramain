@@ -1,7 +1,8 @@
 html, body{
-    font-family: Montserrat;
+    font-family: 'Montserrat';
     background-color: #f2f1f6;
 }
+
 
 
 
@@ -60,9 +61,9 @@ html, body{
     color: white;
     font-weight: normal;
     text-align:left;
-   font-family: montserrat;
-   font-size: 12pt;
-   padding-left:25px;
+    font-family: montserrat;
+    font-size: 12pt;
+    padding-left:25px;
 }
 
 #item-hover:hover{
@@ -71,10 +72,10 @@ html, body{
     padding: 20px;
     color:white !important;
     padding-left:25px;
-   }
+}
 
-  
-   #sendmodal{
+
+#sendmodal{
     // margin: 0;
     // background-color: #80cbae !important;
     // padding: 20px;
@@ -85,18 +86,18 @@ html, body{
     border-left: solid 8px;
     border-color: #a1e5a0;
     padding: 20px;
-&:hover{
-    margin: 0;
-    background-color: #85c184 !important;
-    border-left: solid 8px;
-    border-color: #a1e5a0 !important;
-    padding: 20px;
-    color: white !important;
+    &:hover{
+        margin: 0;
+        background-color: #85c184 !important;
+        border-left: solid 8px;
+        border-color: #a1e5a0 !important;
+        padding: 20px;
+        color: white !important;
+    }
+
 }
 
-   }
 
-   
 // sidebar item
 #dashboard{  
     margin: 0;
@@ -109,12 +110,12 @@ html, body{
     
     
     &:hover{
-            margin: 0;
-            background-color: #85c184 !important;
-            border-left: solid 8px;
-            border-color: #a1e5a0 !important;
-            padding: 20px;
-            color: white !important;
+        margin: 0;
+        background-color: #85c184 !important;
+        border-left: solid 8px;
+        border-color: #a1e5a0 !important;
+        padding: 20px;
+        color: white !important;
     }
 }
 
@@ -176,46 +177,46 @@ html, body{
         margin-left:0;
         margin-top:0;
     }
-  }
+}
 @media only screen and (min-width: 360px) {
     #add-admin {
         margin-left:450px;
     }
-  }
-  @media only screen and (max-width: 360px) {
+}
+@media only screen and (max-width: 360px) {
     #add-admin {
         margin-left:0;
     }
-  }
-  @media only screen and (max-width: 460px) {
+}
+@media only screen and (max-width: 460px) {
     #add-admin {
         margin-left:0;
         margin-top: 0;
     }
-  }
+}
 
 
 
-  @media only screen and (max-width: 320px) {
+@media only screen and (max-width: 320px) {
     #input {
-       
+
     }
-  }
+}
 @media only screen and (min-width: 360px) {
     #input{
         width: 150px;
     }
-  }
-  @media only screen and (max-width: 360px) {
+}
+@media only screen and (max-width: 360px) {
     #input {
-      
+
     }
-  }
-  @media only screen and (max-width: 460px) {
+}
+@media only screen and (max-width: 460px) {
     #input {
-        
+
     }
-  }
+}
 
 
 
@@ -235,6 +236,10 @@ html, body{
     font-family: montserrat;
 
 }
+.input [readonly], .textarea[readonly]{
+  font-family: 'Montserrat';
+}
+
 
 #search{
     background-color: transparent;
@@ -292,23 +297,27 @@ table,th,td{
     font-size: 24pt;
     color: white;
     padding-left:50%;   
-    font-family: montserrat;
+    font-family: 'Montserrat';
 }
 
 
 // info
 
 #label{
-    font-weight: bold;
-    padding-top:20px;
-    padding-right:0;
-    padding-left: 0;
-    font-family: Montserrat;
+  font-weight: bold;
+  padding-top:20px;
+  padding-right:0;
+  padding-left: 0;
+  font-family: 'Montserrat';
 }
 
 #txtbox{
-   margin-left: 15px;
+
+ margin-left: 15px;
+ .input{
+  font-family: 'Montserrat';
 }
+
 
 #Qr-img{
     width: 360px;
@@ -319,18 +328,66 @@ table,th,td{
 .is-8{
     padding-top:0;
     padding-bottom:0;
-    margin-left: 60%;
+    margin-left: 61%;
 }
 
 .is-6{
-    margin-left: 71%;
+    margin-left: 73%;
 }
 
 #refresh{
-    margin-left: 78%;
+    margin-left: 76%;
     margin-top: 10px;
 }
 
 #for-img{
     padding-top:0;
 }
+
+#info-col{
+    width: 500px;
+}
+
+
+<<<<<<< HEAD
+.is-success, .is-danger{
+     font-family: 'Montserrat';
+
+}
+
+
+
+#modal-print {
+    background-color: #fff;
+    flex-grow: 1;
+    flex-shrink: 1;
+    overflow: auto;
+    padding: 20px;
+    padding-bottom:0px;
+    line-height: normal;
+}
+
+.modal.is-active .modal-background {
+    opacity: 1;
+}
+
+.modal .modal-background {
+    background-color: rgba(10,10,10,.86);
+}
+
+.card {
+    border-radius: 6px;
+    min-height: 180px;
+    height: 100%;
+}
+
+.buttons {
+    justify-content: center !important;
+}
+
+=======
+
+.is-success, is-danger{
+    font-family: Montserrat;
+}
+>>>>>>> 3139cff1efb65b44a3056af2dd9850d1d3dd2694

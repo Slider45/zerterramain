@@ -29,7 +29,7 @@ include 'Buttons/requestButtonFunction.php';
   <?php
   include 'Pages/requestViewPage.php'; 
   include 'admin-header.php';
-  include 'Buttons/requestSearch.php';
+  include 'Buttons/requestSearch.php'
   ?>
 
 
@@ -67,7 +67,8 @@ include 'Buttons/requestButtonFunction.php';
             <th>#</th>
             <th>Serial #</th>
             <th>Request #</th>
-            <th>Name</th>
+            <th>Firstname</th>
+            <th>Lastname</th>
             <th>Email</th>
             <th>Contact</th>
             <th>Options</th>
@@ -102,7 +103,7 @@ include 'Buttons/requestButtonFunction.php';
           <tbody>
            <tr>
             <td>
-              <?php echo $id; ?>
+              <?php echo $id; ?>.
             </td>
             <td>
               <?php echo $serialNum; ?>
@@ -112,6 +113,9 @@ include 'Buttons/requestButtonFunction.php';
             </td>
             <td>
               <?php echo $fname; ?>
+            </td>
+             <td>
+              <?php echo $lname; ?>
             </td>
             <td>
               <?php echo $email; ?>

@@ -143,8 +143,8 @@ if(isset($_SESSION["admin"]))
 
     <!-- script -->
 
-    <script>
-   /*document.querySelectorAll('.modal-button').forEach(function(el) {
+    <!-- <script> -->
+   <!-- /*document.querySelectorAll('.modal-button').forEach(function(el) {
       el.addEventListener('click', function() {
         var target = document.querySelector(el.getAttribute('data-target'));
 
@@ -155,10 +155,10 @@ if(isset($_SESSION["admin"]))
           target.classList.remove('is-active');
         });
       });
-    });*/
+    });*/ -->
 
 
-  </script>
+  <!-- </script> -->
 
   <script type="text/javascript" src="https://unpkg.com/bulma-modal-fx/dist/js/modal-fx.min.js"></script>
 </body>

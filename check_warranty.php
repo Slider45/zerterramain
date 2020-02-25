@@ -25,7 +25,7 @@
     <div class="modal-background"></div>
     <div class="modal-card">
       <header class="modal-card-head is-success">
-        <p class="modal-card-title">CHECK WARRANTY</p>
+        <p class="modal-card-title">WARRANTY DETAILS</p>
         <a href="index.php"><button class="delete" id="closeMdl"aria-label="close"></button></a>
       </header>
       <section class="modal-card-body">

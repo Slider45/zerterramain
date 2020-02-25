@@ -35,7 +35,7 @@ $pendingCount=mysqli_num_rows($result);
 $pendingCount++;
 
 
-$orderNum=date("Ymd-His-") . 0 .$pendingCount;
+$orderNum=date("ym-Hi-") . 0 .$pendingCount;
 ?>
 
 

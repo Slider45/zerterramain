@@ -6,7 +6,7 @@ if(isset($_POST['acnt_remove'])){
 
 
   
-  $sql= "UPDATE tblusers_list SET is_active='0' WHERE id='$delete_id'";
+  $sql= "UPDATE tblusers SET is_active='0' WHERE id='$delete_id'";
   if($con->query($sql) === TRUE){
     echo "<script>window.alert('RECORD IS DELETED!');</script>";
     echo '<script>window.location.href="users.php"</script>';
@@ -25,7 +25,7 @@ if(isset($_POST['updated_user'])){
   
   
   
-  $sql = "UPDATE tblusers_list SET Firstname='$fname',Lastname='$lname',email='$Email', ContactNumber='$contact' WHERE id='$id'";
+  $sql = "UPDATE tblusers SET Firstname='$fname',Lastname='$lname',Email='$Email', Contact='$contact' WHERE id='$id'";
   if($con->query($sql) === TRUE){
     echo "<script>window.alert('RECORD IS UPDATED!');</script>";
     echo '<script>window.location.href="users.php"</script>';

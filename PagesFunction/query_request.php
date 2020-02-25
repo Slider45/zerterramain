@@ -1,5 +1,15 @@
 <?php
+use PHPMailer\PHPMailer\PHPMailer;
+
+
 if (isset($_POST['saveRequest'])) { 
+	if(($Content = file_get_contents("content/requestMailtoUserContent.php")) === false) {
+		$Content = "";
+	}
+
+	$headers[] = 'MIME-Version: 1.0';
+	$headers[] = 'Content-type: text/html; charset=iso-8859-1';
+
 
 	$sql = "SELECT id FROM request_repair_list ";
 	$result=mysqli_query($con,$sql);
@@ -10,92 +20,141 @@ if (isset($_POST['saveRequest'])) {
 	$requestnum=date("ymd-Hi-") . 0 .$requestCount;
 
 
+	
 
-	$serialNum = $_POST['serialNum'];
+	$SNumber = $_POST['serialNum'];
 	$fname = $_POST['Fname'];
 	$lname = $_POST['Lname'];
 	$email = $_POST['email'];
 	$contact = $_POST['contactNum'];
 	$address = $_POST['address'];
 	
-	$email_to = "support@zerterra.com";
+	$email_to_support = "support@zerterra.com";
 	$email_subject = "Request Repair";
+
+	include_once "PHPMailer/PHPMailer.php";
 	
+	$mail = new PHPMailer();
+	$mail->setFrom($email);
+	$mail->addAddress($email_to_support);
+	$mail->Subject = $email_subject;
+	$mail->isHTML(true);
+	$mail->Body = "\n REQUESTING FOR REPAIR! FROM \n <?php echo $SNumber; ?> \n
+	<?php echo $email; ?> \n <?php echo $fname\t$lname; ?> \n <?php echo $contact; ?> \n <?php echo $address; ?> \n";
+	$mail->Header = implode("\r\n", $headers);
+
+	if ($mail->send()){
+
+		$subject_from_support = "Request Repair" . $requestnum;
+		$mailfromsupport = new PHPMailer();
+		$mailfromsupport->setFrom("no-reply@zerterra.com");
+		$mailfromsupport->addAddress($email);
+		$mailfromsupport->Subject = $subject_from_support;
+		$mailfromsupport->isHTML(true);
+		$mailfromsupport->Body = $Content;
+		$mailfromsupport->Header = implode("\r\n", $headers);
 
 
-	
-	$cmdsql= "INSERT INTO request_repair_list(RequestNumber, SerialNumber, Firstname, Lastname, Email, Contact, Address, is_approved) VALUES ('$requestnum','$serialNum','$fname','$lname','$email','$contact','$address','0')";
 
-	if($con->query($cmdsql) === TRUE)
-	{
+		if ($mailfromsupport->send()){
 
 
-
-
-
-
-		function clean_string($string)
-		{
-			$bad = array("content-type", "bcc:", "to:", "cc:", "href");
-			return str_replace($bad, "", $string);
-		}
-
-		$email_message = "Request Repair details below.\n\n";
-		$email_message .= "Email: " . clean_string($email) . "\n";
-		$email_message .= "First Name: " . clean_string($fname) . "\n";
-		$email_message .= "Last Name: " . clean_string($lname) . "\n";
-		$email_message .= "Contact number: " . clean_string($contact) . "\n";
-		$email_message .= "Address: " . clean_string($address) . "\n";
-     // $email_message .= "Message: " . clean_string($message) . "\n";
-
-    // create email headers
-		$headers = 'From: ' . $email_to . "\r\n" .
-		'Reply-To: ' . $email . "\r\n" .
-    	// 'X-Mailer: PHP/' . phpversion();
-		$mail = mail($email_to, $email_subject, $email_message, $headers);
-		if( $mail === true ) {
-
-			if(($Content = file_get_contents("content/requestMailtoUserContent.php")) === false) {
-				$Content = "";
+			$cmdsql= "INSERT INTO request_repair_list(RequestNumber, SerialNumber, Firstname, Lastname, Email, Contact, Address, is_approved) VALUES ('$requestnum','$SNumber','$fname','$lname','$email','$contact','$address','0')";
+			if($con->query($cmdsql) === TRUE)
+			{
+				echo "<script>alert('Return Mail Sent!'); </script>";
+			}else{
+				echo "<script>alert('QUERY FAILED!'); </script>";
 			}
-			$headers[] = 'MIME-Version: 1.0';
-			$headers[] = 'Content-type: text/html; charset=iso-8859-1';
-			
-			$subject = "REQUEST REPAIR ( Request #: [ " . $requestnum . " ])";
-
-
-			$_SESSION["reqNumber"] = $requestnum; 
-
-			include 'content/requestMailtoUserContent.php';
-
-			include_once "PHPMailer/PHPMailer.php";
-
-			$mail = new PHPMailer();
-			$mail->setFrom('no-reply@zerterra.com');
-			$mail->addAddress($email, $fname . " " . $lname);
-			$mail->Subject = $subject ;
-			$mail->isHTML(true);
-
-			$mail->Body=$Content;
-			$mail->Header = implode("\r\n", $headers);
-
-
-
-
-
-
-
-
-
 		}else{
 
-
-			echo "<script>alert('Message not sent! Please try again!'); </script>";
-
-
+			echo "<script>alert('Return Mail Not Sent!'); </script>";
 		}
+	}else{
 
-	}}
+		echo "<script>alert('Sending Request Failed!'); </script>";
+
+
+	}
+}
+
+
+
+	
+	// $cmdsql= "INSERT INTO request_repair_list(RequestNumber, SerialNumber, Firstname, Lastname, Email, Contact, Address, is_approved) VALUES ('$requestnum','$serialNum','$fname','$lname','$email','$contact','$address','0')";
+
+	// if($con->query($cmdsql) === TRUE)
+	// {
+
+
+
+
+
+
+	// 	function clean_string($string)
+	// 	{
+	// 		$bad = array("content-type", "bcc:", "to:", "cc:", "href");
+	// 		return str_replace($bad, "", $string);
+	// 	}
+
+	// 	$email_message = "Request Repair details below.\n\n";
+	// 	$email_message .= "Email: " . clean_string($email) . "\n";
+	// 	$email_message .= "First Name: " . clean_string($fname) . "\n";
+	// 	$email_message .= "Last Name: " . clean_string($lname) . "\n";
+	// 	$email_message .= "Contact number: " . clean_string($contact) . "\n";
+	// 	$email_message .= "Address: " . clean_string($address) . "\n";
+ //     // $email_message .= "Message: " . clean_string($message) . "\n";
+
+ //    // create email headers
+	// 	$headers = 'From: ' . $email_to . "\r\n" .
+	// 	'Reply-To: ' . $email . "\r\n" .
+ //    	// 'X-Mailer: PHP/' . phpversion();
+	// 	$mail = mail($email_to, $email_subject, $email_message, $headers);
+	// 	if( $mail === true ) {
+
+	// 		if(($Content = file_get_contents("content/requestMailtoUserContent.php")) === false) {
+	// 			$Content = "";
+	// 		}
+	// 		$headers[] = 'MIME-Version: 1.0';
+	// 		$headers[] = 'Content-type: text/html; charset=iso-8859-1';
+
+	// 		$subject = "REQUEST REPAIR ( Request #: [ " . $requestnum . " ])";
+
+
+	// 		$_SESSION["reqNumber"] = $requestnum; 
+
+	// 		include 'content/requestMailtoUserContent.php';
+
+	// 		use PHPMailer\PHPMailer\PHPMailer;
+
+	// 		include_once "PHPMailer/PHPMailer.php";
+
+	// 		$mail = new PHPMailer();
+	// 		$mail->setFrom('no-reply@zerterra.com');
+	// 		$mail->addAddress($email, $fname . " " . $lname);
+	// 		$mail->Subject = $subject ;
+	// 		$mail->isHTML(true);
+
+	// 		$mail->Body=$Content;
+	// 		$mail->Header = implode("\r\n", $headers);
+
+
+
+
+
+
+
+
+
+	// 	}else{
+
+
+	// 		echo "<script>alert('Message not sent! Please try again!'); </script>";
+
+
+	// 	}
+
+	// }}
 
 
 

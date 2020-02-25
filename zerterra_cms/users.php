@@ -118,7 +118,7 @@ include 'Buttons/usersButtonFunction.php';
                     <?php echo $lname; ?>
                   </td>
                   <td>
-                    <?php echo $rdays; ?>
+                    <?php echo $rdays; ?> Days
                   </td>
                   <td>
                     <button data-target="#edit<?php echo $id;?>" class="button is-primary is-small modal-button" id="btn_update" name="btn-update"><i class="far fa-edit"></i>

@@ -24,7 +24,7 @@ $approvedCount=mysqli_num_rows($result);
 $approvedCount++;
 
 
-$SerialNum=date("Ymd-His-") . 0 .$approvedCount;
+$SerialNum=date("Ymd-")  .$approvedCount;
 
 
 
@@ -214,7 +214,7 @@ $SerialNum=date("Ymd-His-") . 0 .$approvedCount;
                                 <div class="card-header-title">
                                   PRINT RECORD
                                 </div>
-
+                                <button class="modal-close" id="modal-close-print" aria-label="close"></button>
                               </header>
 
 
@@ -222,7 +222,7 @@ $SerialNum=date("Ymd-His-") . 0 .$approvedCount;
                                 <div class="card-content">
                                   <div class="content">
                                     <input class="input" type="hidden" name="serialNum" value="<?php echo $SerialNum; ?>">
-                                     <input class="input" type="hidden" name="orderNum" value="<?php echo $orderNum; ?>">
+                                    <input class="input" type="hidden" name="orderNum" value="<?php echo $orderNum; ?>">
                                     <input class="input" type="hidden" name="id"value="<?php echo $id; ?>"
                                     ><center>
                                       <strong>DO YOU WANT TO PRINT THIS RECORD?</strong>
@@ -235,7 +235,7 @@ $SerialNum=date("Ymd-His-") . 0 .$approvedCount;
 
 
                                   <div class="buttons" style="margin-right: auto;">
-                                    <button type="submit" class="button is-success" name="printRecord" id="confirm"><i class="fas fa-check-circle"></i>&nbspPRINT AND SAVE</button>
+                                    <button type="submit" class="button is-success" name="printRecord" id="confirm"><i class="fas fa-check-circle"></i>&nbspPRINT & SAVE</button>
 
                                     <button class="button is-primary" name="saveApprove" id="modal-close-print"><i class="fas fa-ban"></i>&nbspSAVE ONLY!</button>
                                   </div>
@@ -262,62 +262,62 @@ $SerialNum=date("Ymd-His-") . 0 .$approvedCount;
 
                   <?php
 
-include 'Buttons/for_approveButtonFunction.php';
+                  include 'Buttons/for_approveButtonFunction.php';
 
-               ?>
-
-
-               <!-- form -->
-
-               <form method="POST" action="for_approve.php">
-
-                <div class="column" id="for-img">
-                  <figure class="image" id="Qr-img">
-                    <img src="qrGenerator/generate.php?text=<?php echo $SerialNum?>">
-                    <!-- https://bulma.io/images/placeholders/256x256.png -->
-                  </figure>
-
-                  <button class="button is-success" name="RFqrcode" type="submit" id="refresh"><i class="fas fa-sync-alt"></i> &nbspRefresh</button>
-                </div>
-              </div>    
-
-            </form>
+                  ?>
 
 
+                  <!-- form -->
 
-            <script>
-              function w3_open() {
-                document.getElementById("mySidebar").style.display = "block";
-              }
-              function w3_close() {
-                document.getElementById("mySidebar").style.display = "none";
-              }
-              document.querySelectorAll('.modal-button').forEach(function(el) {
-                el.addEventListener('click', function() {
-                  var target = document.querySelector(el.getAttribute('data-target'));
+                  <form method="POST" action="for_approve.php">
 
-                  target.classList.add('is-active');
+                    <div class="column" id="for-img">
+                      <figure class="image" id="Qr-img">
+                        <img src="qrGenerator/generate.php?text=<?php echo $SerialNum?>">
+                        <!-- https://bulma.io/images/placeholders/256x256.png -->
+                      </figure>
 
-                  target.querySelector('.modal-close').addEventListener('click', function(){
-                    target.classList.remove('is-active');
+                      <button class="button is-success" name="RFqrcode" type="submit" id="refresh"><i class="fas fa-sync-alt"></i> &nbspRefresh</button>
+                    </div>
+                  </div>    
+
+                </form>
+
+
+
+                <script>
+                  function w3_open() {
+                    document.getElementById("mySidebar").style.display = "block";
+                  }
+                  function w3_close() {
+                    document.getElementById("mySidebar").style.display = "none";
+                  }
+                  document.querySelectorAll('.modal-button').forEach(function(el) {
+                    el.addEventListener('click', function() {
+                      var target = document.querySelector(el.getAttribute('data-target'));
+
+                      target.classList.add('is-active');
+
+                      target.querySelector('.modal-close').addEventListener('click', function(){
+                        target.classList.remove('is-active');
+                      });
+                    });
                   });
-                });
-              });
 
 
 
-              var btn1 = document.querySelector('#btn_print');
-              var modalDlg1 = document.querySelector('#modal-print');
-              var imageModalCloseBtn1 = document.querySelector('#modal-close-print');
-              btn1.addEventListener('click', function(){
-                modalDlg1.classList.add('is-active');
-              });
+                  var btn1 = document.querySelector('#btn_print');
+                  var modalDlg1 = document.querySelector('#modal-print');
+                  var imageModalCloseBtn1 = document.querySelector('#modal-close-print');
+                  btn1.addEventListener('click', function(){
+                    modalDlg1.classList.add('is-active');
+                  });
 
-              imageModalCloseBtn1.addEventListener('click', function(){
-                modalDlg1.classList.remove('is-active');
-              });
-            </script>
+                  imageModalCloseBtn1.addEventListener('click', function(){
+                    modalDlg1.classList.remove('is-active');
+                  });
+                </script>
 
 
-          </body>
-          </html>
+              </body>
+              </html>

@@ -294,7 +294,7 @@ table, th, td {
   width: 500px;
 }
 
-.is-success, .is-danger{
+.is-success, .is-danger, .is-primary{
      font-family: 'Montserrat';
 
 }

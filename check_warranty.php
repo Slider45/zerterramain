@@ -67,7 +67,7 @@
         $dateEnds = $row['DateExpired'];
 
         ?>
-        <div class="notification is-success is-light alert">
+        <div class="notification is-success is-light">
 
           Serial # : <strong><?php echo $serialNum; ?></strong><br>
           Firstname : <strong><?php echo $fname; ?></strong><br>

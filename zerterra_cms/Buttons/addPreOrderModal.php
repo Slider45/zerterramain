@@ -1,7 +1,8 @@
-<script>
+<?php
 
-</script>
+include '../PagesFunction/connection.php';
 
+?>
 
 <style>
 
@@ -80,12 +81,12 @@ $orderNum=date("ym-Hi-") . 0 .$pendingCount;
 if(isset($_POST['preOrder-save'])){
   // date_default_timezone_set('Asia/Manila');
 
-  $orderNum = $_POST['orderNum'];
+  
   $fname = $_POST['fname'];
   $lname = $_POST['lname'];
   $email = $_POST['email'];
-  $address = $_POST['address'];
   $contact = $_POST['contact'];
+  $address = $_POST['address'];
   //$dateRegs = date('Y-m-d');
   // $newEndingDate = date("Y-m-d", strtotime(date("Y-m-d", strtotime($dateRegs)) . " + 365 day"));
   //$end = date('Y-m-d', strtotime('+1 years'));
@@ -107,16 +108,4 @@ if(isset($_POST['preOrder-save'])){
 
 ?>
 
-Notice
-: Undefined index: orderNum in
-C:\xampp\htdocs\zerterramain\zerterra_cms\Buttons\addPreOrderModal.php
-on line
-83
-
-
-Notice
-: Undefined index: address in
-C:\xampp\htdocs\zerterramain\zerterra_cms\Buttons\addPreOrderModal.php
-on line
-87
 

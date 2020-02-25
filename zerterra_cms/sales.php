@@ -24,7 +24,9 @@ $result = mysqli_query($connect, $query);
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>  
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />  
 <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>  
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3..3.6/js/bootstrap.min.js"></script>
 <link rel="stylesheet" href="http://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">  
+
 <body>
   <?php
   include 'Pages/salesViewPage.php'; 
@@ -52,22 +54,23 @@ $result = mysqli_query($connect, $query);
       <div class="columns">
         <div class="column">
           <h1 class="button-category">SALES</h1>
-        </div>
-               </div>
-
-                <div class="col-md-3">  
+          </div>
+          
+                </div>
+                <div>
+           <div class="col-md-3">  
                      <input type="text" name="from_date" id="from_date" class="form-control" placeholder="From Date" />  
                 </div>  
                 <div class="col-md-3">  
                      <input type="text" name="to_date" id="to_date" class="form-control" placeholder="To Date" />  
                 </div>  
-                <div class="col-md-5">  
+                <div class="col-md-3">  
                      <input type="button" name="filter" id="filter" value="Filter" class="btn btn-info" />  
-                </div>  
-                <div style="clear:both"></div>                 
-                <br />  
+                </div> 
+          </div>
            </div>
-
+           <br>
+           
                <section class="section">
                 <div class="container" id="order_table">
                   <table class="table">
@@ -133,17 +136,15 @@ $result = mysqli_query($connect, $query);
 
                     </tbody>
                   </table>
-                  <nav class="pagination is-small" role="navigation" aria-label="pagination">
-                    <a href="<?php if($page <= 1){ echo '#'; } else { echo "?page=".($page - 1); } ?>" class="pagination-previous" >Previous</a>
-                    <a href="<?php if($page >= $total_pages){ echo '#'; } else { echo "?page=".($page + 1); } ?>" class="pagination-next">Next page</a>
-                    <ul class="pagination-list">
-                      <li><a href="?page=1" class="pagination-link" >1</a></li>
-                      <li>
-                        <span class="pagination-ellipsis">&hellip;</span>
-                      </li>
-                      <li><a href="?page=<?php echo $total_pages; ?>" class="pagination-link"><?php echo $total_pages; ?></a></li>
+              <nav aria-label="Page navigation example">
+                    <ul class="pagination">
+                      <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+                      <li class="page-item"><a class="page-link" href="#">1</a></li>
+                      <li class="page-item"><a class="page-link" href="#">2</a></li>
+                      <li class="page-item"><a class="page-link" href="#">3</a></li>
+                      <li class="page-item"><a class="page-link" href="#">Next</a></li>
                     </ul>
-                  </nav>
+                </nav>
                 </div>
               </section>
 

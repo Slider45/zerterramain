@@ -49,6 +49,7 @@ html, body {
   padding-bottom: 0;
   color: #000;
   font-size: 12pt;
+  font-family:Montserrat;
 }
 
 .card-content .input1 {
@@ -65,6 +66,7 @@ html, body {
   padding-left: 10px;
   color: #000;
   font-size: 12pt;
+  font-family:Montserrat;
 }
 
 .card-content #label {
@@ -259,6 +261,7 @@ html, body {
     padding-bottom: 0;
     color: #000;
     font-size: 18pt;
+    font-family:Montserrat;
   }
   .card-content .input1 {
     -webkit-box-shadow: none;
@@ -274,6 +277,7 @@ html, body {
     padding-left: 10px;
     color: #000;
     font-size: 18pt;
+    font-family:Montserrat;
   }
   .card-content #label {
     width: 150px;

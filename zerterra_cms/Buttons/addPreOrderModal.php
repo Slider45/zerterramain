@@ -1,7 +1,8 @@
-<script>
+<?php
 
-</script>
+include '../PagesFunction/connection.php';
 
+?>
 
 <style>
 
@@ -15,7 +16,7 @@
 
   }
   .button{
-    font-family: 'Montserrat';
+    font-family: 'Montserrat';  
   }
 
   /* textbox */
@@ -35,7 +36,7 @@ $pendingCount=mysqli_num_rows($result);
 $pendingCount++;
 
 
-$orderNum=date("ym-Hi-") . 0 .$pendingCount;
+$orderNum=date("Ymd-His-") . 0 .$pendingCount;
 ?>
 
 
@@ -80,12 +81,12 @@ $orderNum=date("ym-Hi-") . 0 .$pendingCount;
 if(isset($_POST['preOrder-save'])){
   // date_default_timezone_set('Asia/Manila');
 
-  $orderNum = $_POST['orderNum'];
+  
   $fname = $_POST['fname'];
   $lname = $_POST['lname'];
   $email = $_POST['email'];
-  $address = $_POST['address'];
   $contact = $_POST['contact'];
+  $address = $_POST['address'];
   //$dateRegs = date('Y-m-d');
   // $newEndingDate = date("Y-m-d", strtotime(date("Y-m-d", strtotime($dateRegs)) . " + 365 day"));
   //$end = date('Y-m-d', strtotime('+1 years'));
@@ -106,3 +107,5 @@ if(isset($_POST['preOrder-save'])){
 }
 
 ?>
+
+

@@ -28,7 +28,7 @@ include 'Buttons/adminButtonFunction.php';
   <?php
   include 'Pages/adminViewPage.php';
   include 'admin-header.php';
-  include 'Buttons/adminSearch.php'
+  include 'Buttons/adminSearch.php';
   ?>
 
   <div class="w3-sidebar w3-bar-block w3-collapse w3-card w3-animate-left" style="width:200px;" id="mySidebar">

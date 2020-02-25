@@ -47,7 +47,7 @@ include 'connection.php';
           <div class="control">
             <div class="columns">
               <div class="column is-2" id="label">Message:</div>
-              <div class="column" id="txtbox"><input class="textarea input"  name="edit_contact" readonly value="<?php echo $Message; ?>"  disabled="disabled"></div>
+              <div class="column" id="txtbox"><input class="textarea input"  name="edit_contact" readonly value="<?php echo $message; ?>"  disabled="disabled"></div>
             </div>
           </div>
 

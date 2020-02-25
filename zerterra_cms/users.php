@@ -26,9 +26,9 @@ include 'Buttons/usersButtonFunction.php';
 <body>
 
   <?php
-  include 'Pages/salesViewPage.php';
+  include 'Pages/usersViewPage.php';
   include 'admin-header.php';
-  include 'Buttons/userSearch.php'
+  include 'Buttons/userSearch.php';
   ?>
 
   <div class="w3-sidebar w3-bar-block w3-collapse w3-card w3-animate-left" style="width:200px;" id="mySidebar">
@@ -118,7 +118,7 @@ include 'Buttons/usersButtonFunction.php';
                     <?php echo $lname; ?>
                   </td>
                   <td>
-                    <?php echo $rdays; ?>
+                    <?php echo $rdays; ?> Days
                   </td>
                   <td>
                     <button data-target="#edit<?php echo $id;?>" class="button is-primary is-small modal-button" id="btn_update" name="btn-update"><i class="far fa-edit"></i>
@@ -162,32 +162,41 @@ include 'Buttons/usersButtonFunction.php';
 
   </div>
 
-  <script>
-    function w3_open() {
-      document.getElementById("mySidebar").style.display = "block";
-    }
-
-    function w3_close() {
-      document.getElementById("mySidebar").style.display = "none";
-    }
-  </script>
-
-
-  <!-- modal orders -->
 
   <?php
-  include 'ordersModal.php';
-  ?>
+include 'ordersModal.php';
+?>
 
-  <script>
-    function w3_open() {
-      document.getElementById("mySidebar").style.display = "block";
-    }
-    function w3_close() {
-      document.getElementById("mySidebar").style.display = "none";
-    }
+<script>
+  function w3_open() {
+    document.getElementById("mySidebar").style.display = "block";
+  }
 
-  </script>
+  function w3_close() {
+    document.getElementById("mySidebar").style.display = "none";
+  }
+</script>
+
+
+<!-- modal transaction -->
+
+<!-- modal transaction -->
+
+
+<!-- modal script -->
+
+
+<!-- end script -->
+
+<script>
+  function w3_open() {
+    document.getElementById("mySidebar").style.display = "block";
+  }
+  function w3_close() {
+    document.getElementById("mySidebar").style.display = "none";
+  }
+  
+</script>
 
 </body>
 </html>

@@ -150,7 +150,7 @@ while($row = mysqli_fetch_array($res_data)) {
 
     <!-- -- -->
 
-    <div class="columns" style="margin-top:200px;">
+    <div class="columns" id="mrg-tp">
       <div class="column" id="footer-col1">
         <input class="input" readonly id="line" >
         <p id="date">Date</p>

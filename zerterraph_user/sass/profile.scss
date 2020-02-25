@@ -23,64 +23,115 @@ body {
             background-color: #363636;
         }
 
-        /* table */
-        table {
-            width: 70% !important;
-            margin-left: 15%;
-            margin-right: auto;
-            margin-top: 5%;
-            font-size: 26pt;
-            background-color: #f2f1f6 !important;
-        }
-
-        th {
-            background-color: #f2f1f6;
-            text-align: center !important;
-            color: #99cc67 !important;
-        }
-
-        td {
-            text-align: center !important;
-            color: #99cc67;
-            border: solid black !important;
-        }
-
-        #serialno {
-            padding: 0;
-        }
-
-        #userinfo {
-            padding: 0;
-        }
-
         // SIDEBAR
-        .w3-bar-block .w3-bar-item {
-            font-family: 'Montserrat', sans-serif;
-        }
-        .w3-sidebar {
+        // .w3-bar-block .w3-bar-item {
+        //     font-family: 'Montserrat', sans-serif;
+        // }
+        // .w3-sidebar {
+        //     height: 100%;
+        //     width: 200px;
+        //     background-color: #1faa74 !important;
+        //     color: white;
+        //     position: fixed!important;
+        //     z-index: 1;
+        //     overflow: auto;
+        //     font-family: 'Montserrat', sans-serif;
+        // }
+
+        // .w3-button {
+        //     font-family: 'Montserrat', sans-serif;
+        //     padding-left: 15px;
+        // }
+
+        // h3.w3-bar-item {
+        //     margin-top: 60px;
+        // }
+
+        // .hr {
+        //     height:1px; 
+        //     margin:0;
+        // }
+
+        .sidebar{
+            position: fixed;
+            width: 220px;
             height: 100%;
-            width: 200px;
-            background-color: #1faa74 !important;
+            background: #1faa74;
+            transition: all .5s ease;
+          }
+          .sidebar header{
+            font-size: 28px;
             color: white;
-            position: fixed!important;
-            z-index: 1;
-            overflow: auto;
-            font-family: 'Montserrat', sans-serif;
-        }
+            line-height: 70px;
+            text-align: center;
+            background: #1faa74;
+            user-select: none;
+            font-family: 'Montserrat';
+            margin-top: 49px;
+          }
+          .sidebar a{
+            display: block;
+            height: 65px;
+            width: 100%;
+            color: white;
+            line-height: 65px;
+            padding-left: 30px;
+            box-sizing: border-box;
+            border-bottom: 1px solid white;
+            border-top: 1px solid rgba(255,255,255,.1);
+            border-left: 5px solid transparent;
+            font-family: 'Montserrat';
+            transition: all .5s ease;
+          }
+          a.active, #item:hover{
+            border-left: 5px solid white;
+            background-color: #80cbae;
+          }
+          .sidebar a i{
+            font-size: 16px;
+            margin-right: 16px;
+          }
+          .sidebar a span{
+            letter-spacing: 1px;
+            font-size: smaller;
+            text-transform: uppercase;
+          }
 
-        .w3-button {
-            font-family: 'Montserrat', sans-serif;
-            padding-left: 15px;
-        }
-
-        h3.w3-bar-item {
-            margin-top: 60px;
-        }
-
-        .hr {
-            height:1px; 
-            margin:0;
-        }
+          @media(max-width : 860px){
+            .sidebar{
+              height: auto;
+              width: 70px;
+              left: 0;
+              margin: 100px 0;
+            }
+            .sidebar header{
+              display: none;
+            }
+            span{
+              position: absolute;
+              margin-left: 23px;
+              opacity: 0;
+              visibility: hidden;
+            }
+            .sidebar a{
+              height: 60px;
+            }
+            .sidebar a i{
+              margin-left: -10px;
+            }
+            a:hover {
+              width: 200px;
+              background: inherit;
+            }
+            .sidebar a:hover span{
+              opacity: 1;
+              visibility: visible;
+            }
+            .sidebar header {
+              margin:0;
+            }
+          }
+          
 
         #profile {
             background-color: #80cbae;

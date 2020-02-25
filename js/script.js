@@ -108,7 +108,7 @@
                     });
 
 
-                  })();
+                  });
 
 
                   window.onscroll = function() {scrollFunction()};

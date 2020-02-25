@@ -373,7 +373,30 @@ if (isset($_POST['sendOrder'])) {
 
 
 <script>
+  $(document).ready(function() {
+    $(".menu-icon").on("click", function() {
+      $("nav ul").toggleClass("showing");
+    });
 
+    (function(){
+                    document.getElementById("navMenu").style.backgroundColor = "transparent";
+                    document.getElementById("navMenu").style.textAlign="left";
+                    document.getElementById("navburger").style.marginTop = "20px";
+                    document.getElementById("navburger").style.marginRight ="20px";
+                    document.getElementById("navburger").style.color ="#99cc27";
+                    document.getElementById("hero-text").style.userSelect="none";
+                    var burger = document.querySelector('.burger');
+                    var nav = document.querySelector('#'+burger.dataset.target);
+                    burger.addEventListener('click', function(){
+                      burger.classList.toggle('is-active');
+                      navMenu.classList.toggle('is-active');
+
+                    });
+
+
+                  });
+
+  });
    //   $("#SendOrder").click(function() {
      //   $("#thankyouModal").addClass("is-active");  
      // });

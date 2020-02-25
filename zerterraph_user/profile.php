@@ -7,6 +7,8 @@ session_start();
 include '../PagesFunction/connection.php';
 ?>
 
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -31,26 +33,17 @@ include '../PagesFunction/connection.php';
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
     <title>zerTERRA</title>
-
-<style>
-     #profile {
-            background-color: #80cbae;
-            font-family: 'Montserrat';
-        }
-</style>
-
-
 </head>
 
 <body>
 
     <!--NAVBAR-->
 
-<?php
+   
+    <?php
 include 'user-header.php';
 
 ?>
-
 
     <!-- script navbar -->
 
@@ -72,20 +65,36 @@ include 'user-header.php';
     <!-- END OF NAVBAR -->
 
     <!-- SIDE BAR -->
-    <div class="w3-sidebar w3-bar-block w3-card w3-animate-left">
-    <h3 class="w3-bar-item">Name</h3> 
-    <hr class="hr"></hr>
-    <a href="index.php" class="w3-bar-item w3-button w3-hover-white"><i class="fas fa-th-large"></i> &nbsp&nbspDashboard</a>
-    <a href="profile.php" class="w3-bar-item w3-button w3-hover-white" id="profile"><i class="fas fa-user"></i> &nbsp&nbspProfile</a>
-
-    <button class="w3-button w3-block w3-left-align w3-hover-white" onclick="myAccFunc()"><i class="fas fa-cog"></i> &nbsp&nbspAccount Settings&nbsp&nbsp<i class="fa fa-caret-down"></i></button>
-    <div id="demoAcc" class="w3-hide w3-white w3-card">
-        <a href="acc_setting.php" class="w3-bar-item w3-button w3-hover-white"><i class="fas fa-pen-nib"></i> &nbsp&nbspEdit Profile</a>
-        <a href="login-setting.php" class="w3-bar-item w3-button w3-hover-white"><i class="fas fa-cog"></i> &nbsp&nbspLogin Setting</a>
-    </div>
-
-    <a href="request-repair.php" class="w3-bar-item w3-button w3-hover-white"><i class="fas fa-inbox"></i> &nbspRequest for Repair</a>
-    <a href="contact-us.php" class="w3-bar-item w3-button w3-hover-white"><i class="fas fa-envelope-open-text"></i> &nbsp&nbspContact Us</a>
+    <div class="sidebar">
+    <header><span>Name</header>
+      <a href="index.php" id="item">
+        <i class="fas fa-qrcode"></i>
+        <span>Dashboard</span>
+      </a>
+      <a href="profile.php" class="active" id="item">
+        <i class="fas fa-user"></i>
+        <span>Profile</span>
+      </a>
+      <a href="acc_setting.php" id="item">
+        <i class="fas fa-pen-nib"></i>
+        <span>Edit Profile</span>
+      </a>
+      <a href="login-setting.php" id="item">
+        <i class="fas fa-cog"></i>
+        <span>Login Setting</span>
+      </a>
+      <a href="request-repair.php" id="item">
+        <i class="fas fa-inbox"></i>
+        <span>Request Repair</span>
+      </a>
+      <a href="contact-us.php" id="item">
+        <i class="fas fa-envelope-open-text"></i>
+        <span>Contact Us</span>
+      </a>
+      <!-- <a href="#">
+        <i class="far fa-envelope"></i>
+        <span>Contact</span>
+      </a> -->
     </div>
 
     <script>
@@ -143,13 +152,12 @@ include 'user-header.php';
             <hr class="underline"></hr>
         </div>
 
-        <a href="index.php"><button class="button is-rounded">Back</button></a>
+        <a href="profile.php"><button class="button is-rounded">Back</button></a>
     </div>
 
     <div>
         <p id="alrights">@2019 ZerterraPh</p>
     </div>
-    
 
 </body>
 

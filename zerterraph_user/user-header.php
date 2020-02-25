@@ -10,9 +10,6 @@
             </div>
         </div>
 
-
-
-
         <div id="navMenu" class="navbar-menu">
             <div class="navbar-end">
                 <a class="navbar-item" id="userid"><?= $_SESSION['userEmail']?> &nbsp<i class="fas fa-user"></i></a>

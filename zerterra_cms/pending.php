@@ -112,6 +112,7 @@ include 'Buttons/pendingButtonFunction.php';
                 $email = $row['Email'];
                 $contact = $row['Contact'];
                 $address = $row['Address'];
+                $message = $row['Message'];
                               
                 ?>
 

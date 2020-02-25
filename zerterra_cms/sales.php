@@ -4,14 +4,12 @@ if(!isset($_SESSION["admin"]))
 {
  header("location:../Log-in.php");
 }
-include '../PagesFunction/connection.php';
-// include 'connection.php';
+$connect = mysqli_connect("localhost", "root", "", "zerterra_db");  
+$query = "SELECT * FROM tblsales_list ORDER BY Date_Purchased desc";  
+$result = mysqli_query($connect, $query);
 
 
 ?>
-
-
-
 
 <!DOCTYPE html>
 <html>
@@ -23,7 +21,10 @@ include '../PagesFunction/connection.php';
 <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
 <link rel="icon" href="../images/plainlogo.png" type="image/x-icon" />
 <link rel="stylesheet" href="sass/sales.css">
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>  
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />  
+<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>  
+<link rel="stylesheet" href="http://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">  
 <body>
   <?php
   include 'Pages/salesViewPage.php'; 
@@ -52,14 +53,23 @@ include '../PagesFunction/connection.php';
         <div class="column">
           <h1 class="button-category">SALES</h1>
         </div>
-                <!-- <div class="column">
-                 
-                   <h1 class="button" id="add-admin"><i class="fas fa-user-plus"></i> &nbspADD</h1>  
-                 </div> -->
                </div>
 
+                <div class="col-md-3">  
+                     <input type="text" name="from_date" id="from_date" class="form-control" placeholder="From Date" />  
+                </div>  
+                <div class="col-md-3">  
+                     <input type="text" name="to_date" id="to_date" class="form-control" placeholder="To Date" />  
+                </div>  
+                <div class="col-md-5">  
+                     <input type="button" name="filter" id="filter" value="Filter" class="btn btn-info" />  
+                </div>  
+                <div style="clear:both"></div>                 
+                <br />  
+           </div>
+
                <section class="section">
-                <div class="container">
+                <div class="container" id="order_table">
                   <table class="table">
                     <thead>
                       <tr>
@@ -83,7 +93,7 @@ include '../PagesFunction/connection.php';
                       }
                     }else{     
                       $sql = "SELECT * FROM tblsales_list ORDER BY ID DESC LIMIT $offset, $no_of_records_per_page";
-                      $res_data = $con->query($sql);
+                      $res_data = $connect->query($sql);
                       while($row = mysqli_fetch_array($res_data)){
                         $id = $row['id'];
                         $fname = $row['Firstname'];
@@ -91,7 +101,7 @@ include '../PagesFunction/connection.php';
                         $amount = $row['Amount'];
 
                         ?>
-
+    
                         <tbody>
                           <tr>
                             <td>
@@ -117,7 +127,8 @@ include '../PagesFunction/connection.php';
 
                           <?php 
                         }  
-                      }        
+                      } 
+                    
                       ?>
 
                     </tbody>
@@ -212,6 +223,37 @@ include '../PagesFunction/connection.php';
                 });
               });
             });
+
+
+            $(document).ready(function(){  
+           $.datepicker.setDefaults({  
+                dateFormat: 'yy-mm-dd'   
+           });  
+           $(function(){  
+                $("#from_date").datepicker();  
+                $("#to_date").datepicker();  
+           });  
+           $('#filter').click(function(){  
+                var from_date = $('#from_date').val();  
+                var to_date = $('#to_date').val();  
+                if(from_date != '' && to_date != '')  
+                {  
+                     $.ajax({  
+                          url:"fetch.php",  
+                          method:"POST",  
+                          data:{from_date:from_date, to_date:to_date},  
+                          success:function(data)  
+                          {  
+                               $('#order_table').html(data);  
+                          }  
+                     });  
+                }  
+                else  
+                {  
+                     alert("Please Select Date");  
+                }  
+           });  
+      });  
           </script>
 
         </body>

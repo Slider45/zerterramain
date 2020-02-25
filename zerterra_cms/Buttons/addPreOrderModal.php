@@ -15,7 +15,7 @@
 
   }
   .button{
-    font-family: 'Montserrat';
+    font-family: 'Montserrat';  
   }
 
   /* textbox */
@@ -106,3 +106,17 @@ if(isset($_POST['preOrder-save'])){
 }
 
 ?>
+
+Notice
+: Undefined index: orderNum in
+C:\xampp\htdocs\zerterramain\zerterra_cms\Buttons\addPreOrderModal.php
+on line
+83
+
+
+Notice
+: Undefined index: address in
+C:\xampp\htdocs\zerterramain\zerterra_cms\Buttons\addPreOrderModal.php
+on line
+87
+

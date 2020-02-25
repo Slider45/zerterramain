@@ -1,7 +1,7 @@
 <?php
 
 
-$sql= "SELECT * FROM sales_list WHERE CONCAT(`Firstname`, `Lastname`, `Amount`) LIKE '%".$searchValue."%' AND is_active='1'";
+$sql= "SELECT * FROM tblsales_list WHERE CONCAT(`Firstname`, `Lastname`, `Amount`) LIKE '%".$searchValue."%'";
  //$sql = "SELECT * FROM request_list WHERE is_approved='0'" ;
 $result = $con->query($sql);
 if ($result->num_rows > 0) {

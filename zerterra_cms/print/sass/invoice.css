@@ -1,0 +1,442 @@
+@page {
+  size: letter;
+  margin: 0;
+}
+
+html, body {
+  font-family: Montserrat;
+}
+
+.card {
+  width: 600px;
+  height: 800px;
+}
+
+.card-header {
+  background-color: white;
+  height: 150px;
+  width: 600px;
+  padding-top: 40px;
+  border-bottom: none;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  padding-left: 35px;
+  padding-right: 35px;
+}
+
+.card-header .is-6 {
+  width: 300px;
+  padding-right: 0;
+}
+
+.card-header .is-6 {
+  width: 300px;
+  padding-right: 0;
+}
+
+.card-header .is-6 #inv-no {
+  text-align: justify;
+  font-size: 10pt;
+  font-weight: bold;
+}
+
+.card-header #is-6 {
+  width: 250px;
+  padding: 0;
+}
+
+.card-header #head-title {
+  color: #000;
+  font-size: 30pt;
+  margin-top: 8px;
+  text-align: justify;
+  font-weight: bold;
+  font-family: oswald;
+}
+
+.card-header #h-img {
+  width: 100%;
+  max-width: 250px;
+  margin-top: 40px;
+  text-align: justify;
+}
+
+.card-content {
+  height: 500px;
+  padding-left: 0;
+  margin-top: 40px;
+  padding-left: 35px;
+  padding-right: 35px;
+}
+
+.card-content #bill {
+  text-align: justify;
+  font-family: Montserrat;
+  font-weight: bold;
+  font-size: 10pt;
+}
+
+.card-content #bill #billto {
+  font-size: 9pt;
+}
+
+.card-content .table {
+  padding: 0;
+  margin-left: 0 !important;
+}
+
+.card-content table {
+  margin-top: 10px;
+  width: 100%;
+  font-size: 10pt;
+  margin-left: 5px;
+}
+
+.card-content table th {
+  background-color: #99cc67;
+  color: white;
+  height: 50px;
+}
+
+.card-content table #th1 {
+  padding: 0 !important;
+  font-size: 12pt;
+  text-align: center !important;
+  width: 800px !important;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+  padding-top: 13px !important;
+}
+
+.card-content table #th2 {
+  width: 300px;
+  text-align: center;
+  padding-top: 13px !important;
+}
+
+.card-content table #td1 {
+  text-align: left;
+}
+
+.card-content table #td0 {
+  border-bottom: none;
+}
+
+.card-content table td {
+  font-size: 9pt;
+  text-align: center;
+  border-bottom: solid 1px;
+  height: 40px;
+  padding-top: 10px;
+  font-weight: bold;
+}
+
+.card-content table .serial {
+  font-size: 7pt;
+  color: #989898;
+  font-weight: normal;
+}
+
+.card-content #pay0 {
+  margin-bottom: 5px;
+}
+
+.card-content #pay {
+  font-size: 8pt !important;
+}
+
+.card-content #pay1 {
+  font-size: 7pt;
+  font-weight: normal;
+}
+
+.card-content #name {
+  font-size: 16pt;
+}
+
+.card-content #pos {
+  font-size: 11pt;
+  font-weight: normal;
+}
+
+.card-content #sign {
+  font-family: Calligraffitti;
+  font-size: 24pt;
+}
+
+.card-footer {
+  background-color: #4a8169;
+  height: 120px;
+  width: 600px;
+  margin-top: 40px;
+}
+
+.card-footer-content {
+  color: white;
+  width: 1350px;
+  padding-top: 20px;
+}
+
+#footer-col {
+  font-size: 8pt;
+}
+
+#footer-col1 {
+  font-size: 12pt;
+}
+
+#footer-txt {
+  margin-bottom: 5px;
+  margin-left: 50px;
+  text-align: justify;
+}
+
+#footer-txt1 {
+  text-align: justify;
+  font-size: 8pt;
+}
+
+#footer-txt2 {
+  text-align: justify;
+  font-size: 10pt;
+  margin-top: 8px;
+  margin-bottom: 5px;
+}
+
+#home {
+  position: fixed;
+  width: 50px;
+  height: 50px;
+  background: #a5d547;
+  bottom: 100px;
+  right: 50px;
+  text-decoration: none;
+  text-align: center;
+  line-height: 50px;
+  color: white;
+  font-size: 22px;
+  border-radius: 30px;
+}
+
+#return {
+  position: fixed;
+  width: 50px;
+  height: 50px;
+  bottom: 40px;
+  right: 50px;
+  text-decoration: none;
+  text-align: center;
+  line-height: 50px;
+  color: white;
+  font-size: 22px;
+  border-radius: 30px;
+}
+
+@media print {
+  html, body {
+    font-family: Montserrat;
+  }
+  .card {
+    width: 2200px;
+    height: 1580px;
+  }
+  .card-header {
+    background-color: white;
+    height: 200px;
+    width: 2200px;
+    padding-top: 80px;
+    border-bottom: none;
+    -webkit-box-shadow: none;
+            box-shadow: none;
+    padding-left: 96px;
+    padding-right: 96px;
+    margin: 0;
+  }
+  .card-header .is-6 {
+    width: 620px;
+    padding-right: 0;
+  }
+  .card-header .is-6 #inv-no {
+    text-align: justify;
+    font-size: 11pt;
+    font-weight: bold;
+  }
+  .card-header #is-6 {
+    width: 450px;
+    padding: 0;
+  }
+  .card-header #head-title {
+    color: #000;
+    font-size: 60pt;
+    margin-top: 10px;
+    text-align: justify !important;
+    font-weight: bold;
+    font-family: oswald;
+  }
+  .card-header #h-img {
+    width: 100%;
+    max-width: 450px;
+    margin-top: 45px;
+    text-align: justify;
+  }
+  .card-content {
+    height: 1033px;
+    padding-left: 96px;
+    padding-right: 96px;
+    margin-top: 120px;
+  }
+  .card-content #bill {
+    text-align: justify;
+    font-family: Montserrat;
+    font-weight: bold;
+    font-size: 16pt;
+  }
+  .card-content #bill #billto {
+    font-size: 10pt;
+  }
+  .card-content .table {
+    padding: 0;
+    margin-left: 0 !important;
+  }
+  .card-content table {
+    margin-top: 10px;
+    width: 100%;
+    max-height: 500px;
+    font-size: 10pt;
+    margin-left: 5px;
+  }
+  .card-content table th {
+    background-color: #99cc67;
+    color: white;
+    height: 80px;
+  }
+  .card-content table #th1 {
+    padding: 0 !important;
+    font-size: 18pt;
+    text-align: center !important;
+    width: 800px !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    padding-top: 22px !important;
+  }
+  .card-content table #th2 {
+    width: 300px;
+    text-align: center;
+    font-size: 18pt;
+    padding-top: 22px !important;
+  }
+  .card-content table #th3 {
+    width: 300px;
+    text-align: center;
+    font-size: 18pt;
+    padding-top: 22px !important;
+  }
+  .card-content table #td1 {
+    text-align: left;
+  }
+  .card-content table #td0 {
+    border-bottom: none;
+  }
+  .card-content table td {
+    font-size: 12pt;
+    text-align: center;
+    border-bottom: solid 1px;
+    height: 40px;
+    padding-top: 12px;
+    font-weight: bold;
+  }
+  .card-content table .serial {
+    font-size: 9pt;
+    color: #989898;
+    font-weight: normal;
+  }
+  .card-content #pay0 {
+    margin-bottom: 5px;
+  }
+  .card-content #pay {
+    font-size: 10pt !important;
+  }
+  .card-content #pay1 {
+    font-size: 9pt;
+    font-weight: normal;
+  }
+  .card-content #name {
+    font-size: 18pt;
+  }
+  .card-content #pos {
+    font-size: 12pt;
+    font-weight: normal;
+  }
+  .card-content #sign {
+    font-family: Calligraffitti;
+    font-size: 24pt;
+  }
+  #home {
+    position: fixed;
+    width: 50px;
+    height: 50px;
+    background: #a5d547;
+    bottom: 100px;
+    right: 50px;
+    text-decoration: none;
+    text-align: center;
+    line-height: 50px;
+    color: white;
+    font-size: 22px;
+    border-radius: 30px;
+  }
+  #return {
+    position: fixed;
+    width: 50px;
+    height: 50px;
+    bottom: 40px;
+    right: 50px;
+    text-decoration: none;
+    text-align: center;
+    line-height: 50px;
+    color: white;
+    font-size: 22px;
+    border-radius: 30px;
+  }
+  .card-footer {
+    background-color: #4a8169;
+    height: 180px;
+    width: 2200px;
+    margin-top: 50px;
+  }
+  .card-footer-content {
+    color: white;
+    width: 1350px;
+    padding-top: 30px;
+  }
+  #footer-col {
+    font-size: 12pt;
+  }
+  #footer-col1 {
+    font-size: 12pt;
+  }
+  #footer-txt {
+    margin-bottom: 8px;
+    margin-left: 150px;
+    text-align: justify;
+  }
+  #footer-txt1 {
+    text-align: justify;
+  }
+  #footer-txt2 {
+    text-align: justify;
+    font-size: 15pt;
+    margin-top: 10px;
+    margin-bottom: 5px;
+  }
+}
+
+@media print {
+  #home {
+    display: none;
+  }
+  #return {
+    display: none;
+  }
+}
+/*# sourceMappingURL=invoice.css.map */

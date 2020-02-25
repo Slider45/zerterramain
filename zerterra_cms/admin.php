@@ -63,7 +63,7 @@ include 'Buttons/adminButtonFunction.php';
 
         <section class="section">
           <div class="container"> 
-           <table class="table">
+           <table class="table" id="table">
             <thead>
              <tr>
               <th>#</th>
@@ -153,7 +153,7 @@ include 'Buttons/adminButtonFunction.php';
   </div>
 </section>
 
-
+<p><button class="btnn">Print Table</button></p>
 </div>
 
 
@@ -193,5 +193,17 @@ include 'ordersModal.php';
   
 </script>
 
+<script src="jquery.min.js"></script>
+<script src="printThis.js"></script>
+<script>
+    $('.btnn').click(function(){
+        var printme= document.getElementByID('table');
+        var wme= window.open("","","width=900","height=700");
+        wme.document.write(printme.outerHTML);
+        wme.document.close();
+        wme.focus();
+        wme.printf();
+        wme.close();
+    }
 </body>
 </html>

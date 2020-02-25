@@ -104,7 +104,7 @@ body {
               left: 0;
               margin: 100px 0;
             }
-            header #header{
+            .sidebar header{
               display: none;
             }
             span{
@@ -126,6 +126,9 @@ body {
             .sidebar a:hover span{
               opacity: 1;
               visibility: visible;
+            }
+            .sidebar header {
+              margin:0;
             }
           }
 

@@ -64,7 +64,7 @@ include 'user-header.php';
 
     <!-- SIDE BAR -->
     <div class="sidebar">
-      <header>Name</header>
+    <header><span>Name</header>
       <a href="index.php">
         <i class="fas fa-qrcode"></i>
         <span>Dashboard</span>

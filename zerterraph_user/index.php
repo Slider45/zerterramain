@@ -61,41 +61,44 @@ include 'user-header.php';
 
             });
 
-
         })();
     </script>
 
     <!-- END OF NAVBAR -->
 
     <!-- SIDE BAR -->
-    <!-- <nav class="navbar">
-    <div class="navbar-brand">
-    <div class="navbar-burger burger" data-target="navMenu">
-                <span></span>
-                <span></span>
-                <span></span>
+  
+    <div class="sidebar">
+      <header>Name</header>
+      <a href="index.php" class="active">
+        <i class="fas fa-qrcode"></i>
+        <span>Dashboard</span>
+      </a>
+      <a href="profile.php">
+        <i class="fas fa-user"></i>
+        <span>Profile</span>
+      </a>
+      <a href="acc_setting.php">
+        <i class="fas fa-pen-nib"></i>
+        <span>Edit Profile</span>
+      </a>
+      <a href="login-setting.php">
+        <i class="fas fa-cog"></i>
+        <span>Login Setting</span>
+      </a>
+      <a href="request-repair.php">
+        <i class="fas fa-inbox"></i>
+        <span>Request Repair</span>
+      </a>
+      <a href="contact-us.php">
+        <i class="fas fa-envelope-open-text"></i>
+        <span>Contact Us</span>
+      </a>
+      <!-- <a href="#">
+        <i class="far fa-envelope"></i>
+        <span>Contact</span>
+      </a> -->
     </div>
-    </div>
-    <div id="navMenu" class="navbar-menu">
-    <div class="navbar-start"> -->
-    <div class="w3-sidebar w3-bar-block w3-card w3-animate-left">
-    <h3 class="w3-bar-item">Name</h3> 
-    <hr class="hr"></hr>
-    <a href="index.php" class="w3-bar-item w3-button w3-hover-white" id="dashboard"><i class="fas fa-th-large"></i> &nbsp&nbspDashboard</a>
-    <a href="profile.php" class="w3-bar-item w3-button w3-hover-white" id="profile"><i class="fas fa-user"></i> &nbsp&nbspProfile</a>
-
-    <button class="w3-button w3-block w3-left-align w3-hover-white" onclick="myAccFunc()"><i class="fas fa-cog"></i> &nbsp&nbspAccount Settings&nbsp&nbsp<i class="fa fa-caret-down"></i></button>
-    <div id="demoAcc" class="w3-hide w3-white w3-card">
-        <a href="acc_setting.php" class="w3-bar-item w3-button w3-hover-white"><i class="fas fa-pen-nib"></i> &nbsp&nbspEdit Profile</a>
-        <a href="login-setting.php" class="w3-bar-item w3-button w3-hover-white"><i class="fas fa-cog"></i> &nbsp&nbspLogin Setting</a>
-    </div>
-
-    <a href="request-repair.php" class="w3-bar-item w3-button w3-hover-white"><i class="fas fa-inbox"></i> &nbspRequest for Repair</a>
-    <a href="contact-us.php" class="w3-bar-item w3-button w3-hover-white"><i class="fas fa-envelope-open-text"></i> &nbsp&nbspContact Us</a>
-    </div>
-    </div>
-    <!-- </div>
-    </nav> -->
 
     <script>
     function myAccFunc() {
@@ -125,8 +128,8 @@ include 'user-header.php';
 
     <!-- side navbar -->
 
-
-    <!-- <script>
+<!-- 
+    <script>
         (function () {
             var burger = document.querySelector('.burger');
             var nav = document.querySelector('#' + burger.dataset.target);
@@ -145,7 +148,7 @@ include 'user-header.php';
     <!-- END OF SIDE BAR -->
     <section class="section">
         <div class="container">
-            <table class="table">
+            <!-- <table class="table">
                 <thead>
                     <tr>
                         <th>DATA STATUS</th>
@@ -169,7 +172,22 @@ include 'user-header.php';
 
 
                 </tbody>
-            </table>
+            </table> -->
+
+            <div class="notification is-info">
+                <h1 id="title">DATA STATUS</h1>
+
+                <div id="serialno">
+                    <p style="padding:0; font-size: 40pt;"></p>
+                    <span id="userinfo"></span>
+                </div>
+
+                <div id="serialno">
+                    <p style="padding:0; font-size: 40pt;">100 days</p>
+                    <span id="userinfo">Remaining Days</span>
+                </div>
+
+            </div>
         </div>
     </section>
 

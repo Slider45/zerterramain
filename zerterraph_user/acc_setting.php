@@ -62,20 +62,36 @@ include 'user-header.php';
     <!-- END OF NAVBAR -->
 
     <!-- SIDE BAR -->
-    <div class="w3-sidebar w3-bar-block w3-card w3-animate-left">
-    <h3 class="w3-bar-item">Name</h3> 
-    <hr class="hr"></hr>
-    <a href="index.php" class="w3-bar-item w3-button w3-hover-white"><i class="fas fa-th-large"></i> &nbsp&nbspDashboard</a>
-    <a href="profile.php" class="w3-bar-item w3-button w3-hover-white"><i class="fas fa-user"></i> &nbsp&nbspProfile</a>
-
-    <button class="w3-button w3-block w3-left-align w3-hover-white" id="acc-setting" onclick="myAccFunc()"><i class="fas fa-cog"></i> &nbsp&nbspAccount Settings&nbsp&nbsp<i class="fa fa-caret-down"></i></button>
-    <div id="demoAcc" class="w3-hide w3-white w3-card">
-        <a href="acc_setting.php" class="w3-bar-item w3-button w3-hover-white"><i class="fas fa-pen-nib"></i> &nbsp&nbspEdit Profile</a>
-        <a href="login-setting.php" class="w3-bar-item w3-button w3-hover-white"><i class="fas fa-cog"></i> &nbsp&nbspLogin Setting</a>
-    </div>
-
-    <a href="request-repair.php" class="w3-bar-item w3-button w3-hover-white"><i class="fas fa-inbox"></i> &nbspRequest for Repair</a>
-    <a href="contact-us.php" class="w3-bar-item w3-button w3-hover-white"><i class="fas fa-envelope-open-text"></i> &nbsp&nbspContact Us</a>
+    <<div class="sidebar">
+      <header>Name</header>
+      <a href="index.php">
+        <i class="fas fa-qrcode"></i>
+        <span>Dashboard</span>
+      </a>
+      <a href="profile.php">
+        <i class="fas fa-user"></i>
+        <span>Profile</span>
+      </a>
+      <a href="acc_setting.php"  class="active">
+        <i class="fas fa-pen-nib"></i>
+        <span>Edit Profile</span>
+      </a>
+      <a href="login-setting.php">
+        <i class="fas fa-cog"></i>
+        <span>Login Setting</span>
+      </a>
+      <a href="request-repair.php">
+        <i class="fas fa-inbox"></i>
+        <span>Request Repair</span>
+      </a>
+      <a href="contact-us.php">
+        <i class="fas fa-envelope-open-text"></i>
+        <span>Contact Us</span>
+      </a>
+      <!-- <a href="#">
+        <i class="far fa-envelope"></i>
+        <span>Contact</span>
+      </a> -->
     </div>
 
     <script>

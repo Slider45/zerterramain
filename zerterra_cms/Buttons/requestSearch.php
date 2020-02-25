@@ -19,7 +19,7 @@
 
 </style>
 
-<div class="modal" id="requestSearchModal">
+<div class="modal" id="adminSearchModal">
   <div class="modal-background"></div>
   <div class="modal-card">
     <header class="modal-card-head">

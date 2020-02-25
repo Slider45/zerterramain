@@ -1,7 +1,7 @@
 <?php
 
 
-$sql= "SELECT * FROM pending_order_list WHERE CONCAT(`Firstname`, `Lastname`, `Email`,`Contact`) LIKE '%".$searchValue."%'";
+$sql= "SELECT * FROM pending_order_list WHERE CONCAT(`OrderNumber`,`Firstname`, `Lastname`, `Email`,`Contact`) LIKE '%".$searchValue."%'";
  //$sql = "SELECT * FROM request_list WHERE is_approved='0'"   ;
 $result = $con->query($sql);
 if ($result->num_rows > 0) {
@@ -36,10 +36,15 @@ if ($result->num_rows > 0) {
                                   <?php echo $lname; ?>
                                 </td>
 
+                                
+
                                 <td>
                                   <?php echo $email; ?>
                                 </td>
                                
+                                <td>
+                                  <?php echo $contact; ?>
+                                </td>
                                 
       
       <td>

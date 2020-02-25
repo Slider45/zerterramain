@@ -8,72 +8,69 @@ if ($result->num_rows > 0) {
   while($row = $result->fetch_assoc()) 
   {
     $id = $row['id'];
-          $fullname = $row['Fullname'];
-          $password = $row['Password'];
-          $contact = $row['Contact'];
-          $email = $row['Email'];
-          $position = $row['Position'];
+    $fullname = $row['Fullname'];
+    $password = $row['Password'];
+    $contact = $row['Contact'];
+    $email = $row['Email'];
+    $position = $row['Position'];
     ?>
     
-              <tr>
-              
+    <tr>
+      
 
-              <td>
-              # <?php echo $id; ?>
-            </td>
-            <td>
-              <?php echo $fullname; ?>
-            </td>
-            <td>
-              <?php echo $password; ?>
-            </td>
-            <td>
-              <?php echo $contact; ?>
-            </td>
-            <td>
-              <?php echo $email; ?>
-            </td>
-            <td>
-              <?php echo $position; ?>
-            </td>
-              
-              <td>
+      <td>
+        # <?php echo $id; ?>
+      </td>
+      <td>
+        <?php echo $fullname; ?>
+      </td>
+      <td>
+        <?php echo $contact; ?>
+      </td>
+      <td>
+        <?php echo $email; ?>
+      </td>
+      <td>
+        <?php echo $position; ?>
+      </td>
+      
+      <td>
 
 
-              <button data-target="#edit<?php echo $id;?>" class="button is-primary is-small modal-button" id="btn_update" name="btn-update"><i class="far fa-edit"></i>
-              </button>
-              <?php
-              include 'Buttons/adminEditModal.php';
-              ?>
-              <button data-target="#delete<?php echo $id;?>" class="button is-danger is-small modal-button"  id="btn_delete" name="btn-delete"><i class="fas fa-trash-alt"></i>
-              </button>
-              <?php
-              include 'Buttons/adminRemoveModal.php';
-              ?>
-            </td>
+        <button data-target="#edit<?php echo $id;?>" class="button is-primary is-small modal-button" id="btn_update" name="btn-update"><i class="far fa-edit"></i>
+        </button>
+        <?php
+        include 'Buttons/adminEditModal.php';
+        ?>
+        <button data-target="#delete<?php echo $id;?>" class="button is-danger is-small modal-button"  id="btn_delete" name="btn-delete"><i class="fas fa-trash-alt"></i>
+        </button>
+        <?php
+        include 'Buttons/adminRemoveModal.php';
+        ?>
+      </td>
 
 
 
 
 
-       <?php }
+    <?php }
 
 
 
 
 
-     }
-     else{
-       echo "<script>window.alert('NO RECORD FOUND!');</script>";
-       echo '<script>window.location.href="admin.php"</script>';
-     }
+  }
+  else{
+   echo "<script>window.alert('NO RECORD FOUND!');</script>";
+   echo '<script>window.location.href="admin.php"</script>';
+ }
 
-     ?>
-
-
-   </tr>
+ ?>
 
 
+</tr>
 
 
- </tbody>
+
+
+</tbody>

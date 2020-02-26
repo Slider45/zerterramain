@@ -3,13 +3,6 @@ use PHPMailer\PHPMailer\PHPMailer;
 
 
 if (isset($_POST['saveRequest'])) { 
-	if(($Content = file_get_contents("content/requestMailtoUserContent.php")) === false) {
-		$Content = "";
-	}
-
-	$headers[] = 'MIME-Version: 1.0';
-	$headers[] = 'Content-type: text/html; charset=iso-8859-1';
-
 
 	$sql = "SELECT id FROM request_repair_list ";
 	$result=mysqli_query($con,$sql);
@@ -18,15 +11,35 @@ if (isset($_POST['saveRequest'])) {
 
 
 	$requestnum=date("ymd-Hi-") . 0 .$requestCount;
+	
+
+	$_SESSION['SN'] = $SNumber;
+	$_SESSION['FN'] = $fname;
+	$_SESSION['LN'] = $lname;
+	$_SESSION['EM'] = $email;
+	$_SESSION['CN'] = $contact;
+	$_SESSION['AD'] = $address;
+	$_SESSION['RN'] = $requestnum;
+include '../content/requestMailtoUserContent.php';
+
+	if(($Content = file_get_contents("../content/requestMailtoUserContent.php")) === false) {
+		$Content = "";
+	}
+
+	$headers[] = 'MIME-Version: 1.0';
+	$headers[] = 'Content-type: text/html; charset=iso-8859-1';
+
+
+
 
 
 	
 
-	$SNumber = $_POST['serialNum'];
+	$SNumber = $_POST['SNumber'];
 	$fname = $_POST['Fname'];
 	$lname = $_POST['Lname'];
 	$email = $_POST['email'];
-	$contact = $_POST['contactNum'];
+	$contact = $_POST['contact'];
 	$address = $_POST['address'];
 	
 	$email_to_support = "support@zerterra.com";
@@ -45,7 +58,7 @@ if (isset($_POST['saveRequest'])) {
 
 	if ($mail->send()){
 
-		$subject_from_support = "Request Repair" . $requestnum;
+		$subject_from_support = "Request Repair\t" . $requestnum;
 		$mailfromsupport = new PHPMailer();
 		$mailfromsupport->setFrom("no-reply@zerterra.com");
 		$mailfromsupport->addAddress($email);
@@ -63,6 +76,8 @@ if (isset($_POST['saveRequest'])) {
 			if($con->query($cmdsql) === TRUE)
 			{
 				echo "<script>alert('Return Mail Sent!'); </script>";
+				
+
 			}else{
 				echo "<script>alert('QUERY FAILED!'); </script>";
 			}
@@ -75,12 +90,12 @@ if (isset($_POST['saveRequest'])) {
 		echo "<script>alert('Sending Request Failed!'); </script>";
 
 
-	}
+	}echo '<script>window.location.href="../"</script>';
 }
 
 
 
-	
+
 	// $cmdsql= "INSERT INTO request_repair_list(RequestNumber, SerialNumber, Firstname, Lastname, Email, Contact, Address, is_approved) VALUES ('$requestnum','$serialNum','$fname','$lname','$email','$contact','$address','0')";
 
 	// if($con->query($cmdsql) === TRUE)
@@ -229,4 +244,4 @@ if (isset($_POST['saveRequest'])) {
 
 
 
-	?>
+?>

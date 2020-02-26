@@ -182,7 +182,7 @@ $serialNum =$_SESSION['serialNum'];
                     <p id="footer-txt1" >Zerterra is a home-made organic fertilizer</p>
                     <p id="footer-txt1">maker made from food scrap</p>
 
-                    <p id="footer-txt2">THANKS YOU FOR TRUSTING!</p>
+                    <p id="footer-txt2">THANK YOU FOR TRUSTING!</p>
                     <p id="footer-txt1">© 2019 ZerterraPh</p>
                   </div>
                 </div>

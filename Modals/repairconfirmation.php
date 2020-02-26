@@ -1,6 +1,6 @@
 
 <?php
-
+include '../PagesFunction/connection.php';
 ?>
 <!DOCTYPE html>
 <html>
@@ -34,12 +34,16 @@
 
         <?php
 
-        include '../PagesFunction/connection.php';
+        // include '../PagesFunction/connection.php';
 
-        $serialNumber = $_GET["SerialNumber"];
-        $address = $_GET["address"];
+        $serialNumber = $_GET[SerialNumber];
+        $fname = $_GET[Fname];
+        $lname = $_GET[Lname];
+        $email = $_GET[email];
+        $contact = $_GET[contactNum];
+        $address = $_GET[address];
 
-        $sqlrequest = "SELECT * FROM request_repair_list WHERE SerialNumber='$serialNumber' AND is_approved = '0'";
+        $sqlrequest = "SELECT * FROM request_repair_list WHERE SerialNumber= '$serialNumber' AND is_approved = '0'";
         $requestResult = $con->query($sqlrequest);
 
 
@@ -109,15 +113,16 @@
 <?php
   // $msg = "SERIAL NUMBER NOT REGISTERED. PLEASE CHECK YOUR SERIAL NUMBER!";
 }else{
-  while($row = mysqli_fetch_array($result)){
+  // while($row = mysqli_fetch_array($result)){
 
 
 
-    $serialNum = $row['SerialNumber'];
-    $fname = $row['Firstname'];
-    $lname = $row['Lastname'];
-    $contact = $row['Contact'];
-    $email = $row['Email'];
+    // $serialNum = $row['SerialNumber'];
+    // $fname = $row['Firstname'];
+    // $lname = $row['Lastname'];
+    // $contact = $row['Contact'];
+    // $email = $row['Email'];
+    // $address = $row['Address'];
     // $Rdays = $row['RemainingDays'];
     // $dateRegs = $row['DateRegistered'];
     // $dateEnds = $row['DateExpired'];
@@ -133,12 +138,12 @@
          Serial # : <strong>
           <div class="field" >
            <div class="control" style="text-align: center;">
-            <input  class="input" type="hidden" name="Fname" value="<?php echo $fname; ?>" readonly>
-            <input  class="input" type="hidden" name="Lname" value="<?php echo $lname; ?>" readonly>
-            <input  class="input" type="hidden" name="email" value="<?php echo $email; ?>" readonly>
-            <input  class="input" type="hidden" name="contact" value="<?php echo $contact; ?>" readonly>
-            <input  class="input" type="hidden" name="address" value="<?php echo $address; ?>" readonly>
-            <input style="text-align: center; font-family: Montserrat; width: 50%;" class="input is-primary" type="text" name="SNumber" value="<?php echo $serialNum; ?>" readonly> </div>
+            <input  class="input" type="text" name="Fname" value="<?php echo $fname; ?>" readonly>
+            <input  class="input" type="text" name="Lname" value="<?php echo $lname; ?>" readonly>
+            <input  class="input" type="text" name="email" value="<?php echo $email; ?>" readonly>
+            <input  class="input" type="text" name="contact" value="<?php echo $contact; ?>" readonly>
+            <input  class="input" type="text" name="address" value="<?php echo $address; ?>" readonly>
+            <input style="text-align: center; font-family: Montserrat; width: 50%;" class="input is-primary" type="text" name="SNumber" value="<?php echo $serialNumber; ?>" readonly> </div>
           </div>
         </strong><br>
         HAS BEEN RECEIVED<br>PLEASE CHECK YOU EMAIL FOR MORE INFO<br>
@@ -161,7 +166,7 @@
 <?php
 
 
-}
+// }
 }
 
 }

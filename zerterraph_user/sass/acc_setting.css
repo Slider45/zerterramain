@@ -123,10 +123,11 @@ a.active, a:hover {
 .section {
   padding-top: 0px;
   padding-bottom: 0;
+  margin-top: 10;
 }
 
 .header {
-  margin-bottom: 50px;
+  margin-bottom: 55px;
 }
 
 .title {
@@ -137,21 +138,28 @@ a.active, a:hover {
   font-weight: bolder;
 }
 
-input[type=text] {
+.input {
   width: 100%;
   resize: vertical;
   height: 40px;
   border: none;
   border-bottom: 1px solid #333;
+  color: black;
   padding: 10px;
-  font-size: 16px;
+  font-size: 18px;
+  font-family: 'Montserrat';
+  background-color: transparent;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  border-radius: 0;
+  margin-left: 0px;
 }
 
-label {
+#label {
+  color: black;
   font-family: 'Montserrat', sans-serif;
-  font-weight: bold;
+  font-weight: bolder;
   font-size: 18px;
-  padding: 12px 12px 12px 0;
   display: inline-block;
 }
 
@@ -162,20 +170,8 @@ label {
   margin-right: 80px;
 }
 
-.container1 {
+.form-edit {
   margin-left: 70px;
-}
-
-.col-25 {
-  float: left;
-  width: 25%;
-  margin-top: 6px;
-}
-
-.col-75 {
-  float: left;
-  width: 75%;
-  margin-top: 6px;
 }
 
 /* Clear floats after the columns */
@@ -219,6 +215,6 @@ label {
 #alrights {
   text-align: center !important;
   font-size: 12px;
-  margin-top: 60px;
+  margin-top: 0px;
 }
 /*# sourceMappingURL=acc_setting.css.map */

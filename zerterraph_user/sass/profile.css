@@ -121,7 +121,7 @@ a.active, #item:hover {
 }
 
 #header {
-  margin-top: 50px;
+  margin-top: 60px;
   padding: 10px;
   padding-left: 30px;
   margin-left: 170px;
@@ -151,24 +151,33 @@ a.active, #item:hover {
   position: relative;
 }
 
+#label {
+  color: black;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: bolder;
+  font-size: 18px;
+  display: inline-block;
+}
+
 .input[disabled] {
   font-size: 18px;
 }
 
 .input[disabled] {
+  color: black;
+  font-family: 'Montserrat';
   background-color: transparent;
   -webkit-box-shadow: none;
           box-shadow: none;
   border: none;
   border-bottom: 1px solid black;
   border-radius: 0;
-  width: 650px;
-  margin-left: 20px;
+  width: 100%;
 }
 
 #alrights {
   text-align: center !important;
   font-size: 12px;
-  margin-top: 120px;
+  margin-top: 80px;
 }
 /*# sourceMappingURL=profile.css.map */

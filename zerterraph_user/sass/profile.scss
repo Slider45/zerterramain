@@ -141,7 +141,7 @@ body {
         // headers
         #header {
             // background-color: #a1e5a0;
-            margin-top: 50px;
+            margin-top: 60px;
             padding: 10px;
             padding-left: 30px;
             margin-left: 170px;
@@ -168,18 +168,28 @@ body {
             border-radius: 6px;
             position: relative;
         }
+
+        #label {
+          color: black;
+          font-family: 'Montserrat', sans-serif;
+          font-weight: bolder;
+          font-size: 18px;
+          display: inline-block;
+        }
+
         .input[disabled] {
             font-size: 18px;
         }
 
         .input[disabled] {
+          color: black;
+          font-family: 'Montserrat';
           background-color:transparent;
           box-shadow: none;
           border: none;
           border-bottom: 1px solid black;
           border-radius: 0;
-          width: 650px;
-          margin-left: 20px;
+          width: 100%;
         }
         // .underline{
         //     height: 1px;
@@ -201,5 +211,5 @@ body {
         #alrights {
             text-align: center !important;
             font-size: 12px;
-            margin-top: 120px;
+            margin-top: 80px;
         }

@@ -121,12 +121,13 @@ a.active, a:hover {
 }
 
 .section {
-  padding-top: 10px;
+  padding-top: 0px;
   padding-bottom: 0;
+  margin-top: 10;
 }
 
 .header {
-  margin-bottom: 90px;
+  margin-bottom: 70px;
 }
 
 .title {
@@ -135,24 +136,41 @@ a.active, a:hover {
   font-size: 40px;
   font-family: 'Montserrat', sans-serif;
   font-weight: bolder;
+  margin-top: 30px;
 }
 
-input[type=text] {
+.input {
   width: 100%;
   resize: vertical;
   height: 40px;
   border: none;
   border-bottom: 1px solid #333;
+  color: black;
   padding: 10px;
-  font-size: 16px;
+  font-size: 18px;
+  font-family: 'Montserrat';
+  background-color: transparent;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  border-radius: 0;
+  margin-left: 0px;
 }
 
-label {
+#label {
+  color: black;
   font-family: 'Montserrat', sans-serif;
-  font-weight: bold;
+  font-weight: bolder;
   font-size: 18px;
-  padding: 12px 12px 12px 0;
   display: inline-block;
+}
+
+#message {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  resize: vertical;
+  resize: none;
 }
 
 .container {
@@ -162,7 +180,7 @@ label {
   margin-right: 80px;
 }
 
-.container1 {
+.form-request {
   margin-left: 70px;
 }
 

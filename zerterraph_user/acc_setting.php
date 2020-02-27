@@ -146,7 +146,7 @@ while($row = mysqli_fetch_array($res_data)){
   
   ?>
 
-        <div id="view<?php echo $id; ?>" role="dialog">
+  <div id="view<?php echo $id; ?>" role="dialog" class="form-edit">
   <form method="POST" style="padding-bottom: 10px;">
     
     <div class="field">
@@ -157,37 +157,31 @@ while($row = mysqli_fetch_array($res_data)){
       </div>
       <div class="control">
          <div class="columns">
-              <div class="column is-2" id="label">Serial Number:</div>
+              <div class="column is-3" id="label">Serial Number:</div>
               <div class="column" id="txtbox"><input class="input" name="serialNum"   value="<?php echo $serialNum;?>" readonly ></div>
          </div>
       </div>
       <div class="control" >
          <div class="columns">
-              <div class="column is-2" id="label">Firstname</div>
+              <div class="column is-3" id="label">Firstname</div>
               <div class="column" id="txtbox"><input class="input"  name="fname"  value="<?php echo $fname; ?>"></div>
          </div>
       </div>
       <div class="control" >
          <div class="columns">
-              <div class="column is-2" id="label">Lastname</div>
+              <div class="column is-3" id="label">Lastname</div>
               <div class="column" id="txtbox"><input class="input" name="lname"   value="<?php echo $lname; ?>"></div>
          </div>
       </div>
       <div class="control">
         <div class="columns">
-              <div class="column is-2" id="label">E-mail Address</div>
-              <div class="column" id="txtbox"><input class="input" name="email"  value="<?php echo $email; ?>"></div>
-         </div>
-      </div>
-      <div class="control">
-        <div class="columns">
-              <div class="column is-2" id="label">Contact number</div>
+              <div class="column is-3" id="label">Contact number</div>
               <div class="column" id="txtbox"><input class="input" name="contact"  value="<?php echo $contact; ?>"></div>
          </div>
       </div>
       <div class="control">
         <div class="columns">
-              <div class="column is-2" id="label">Address </div>
+              <div class="column is-3" id="label">Address </div>
               <div class="column" id="txtbox"><input class="input" name="address" value="<?php echo $address; ?>"></div>
          </div>
       </div>

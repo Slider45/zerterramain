@@ -1,6 +1,13 @@
 
 <?php
+session_start();
 include '../PagesFunction/connection.php';
+$serialNum = $_GET[SerialNumber];
+$fname = $_GET[Fname];
+$lname = $_GET[Lname];
+$email = $_GET[email];
+$contact = $_GET[contactNum];
+$address = $_GET[address];
 ?>
 <!DOCTYPE html>
 <html>
@@ -36,14 +43,9 @@ include '../PagesFunction/connection.php';
 
         // include '../PagesFunction/connection.php';
 
-        $serialNumber = $_GET[SerialNumber];
-        $fname = $_GET[Fname];
-        $lname = $_GET[Lname];
-        $email = $_GET[email];
-        $contact = $_GET[contactNum];
-        $address = $_GET[address];
+        $serialNum = $_GET[SerialNumber];
 
-        $sqlrequest = "SELECT * FROM request_repair_list WHERE SerialNumber= '$serialNumber' AND is_approved = '0'";
+        $sqlrequest = "SELECT * FROM request_repair_list WHERE SerialNumber= '$serialNum' AND is_approved = '0'";
         $requestResult = $con->query($sqlrequest);
 
 
@@ -55,7 +57,7 @@ include '../PagesFunction/connection.php';
         if ($requestResult->num_rows > 3 ) {
           ?>
 
-          <div class="notification is-danger alert">
+          <div class="notification is-danger alert" style="background-color: #feecf0;color: #cc0f35">
             <center>
               TOO MANY REQUEST FOUND IN<br>
               SERIAL NUMBER <br>
@@ -76,7 +78,7 @@ include '../PagesFunction/connection.php';
     <?php
   }else{
 
-   $sql="SELECT * FROM tblusers WHERE SerialNumber='$serialNumber'";
+   $sql="SELECT * FROM tblusers WHERE SerialNumber='$serialNum'";
    $result = $con->query($sql);
    if($result->num_rows < 1){
     ?>
@@ -126,42 +128,49 @@ include '../PagesFunction/connection.php';
     // $Rdays = $row['RemainingDays'];
     // $dateRegs = $row['DateRegistered'];
     // $dateEnds = $row['DateExpired'];
+  
+    //   $serialNumber = $_GET[SerialNumber];
+    //     $fname = $_GET[Fname];
+    //     $lname = $_GET[Lname];
+    //     $email = $_GET[email];
+    //     $contact = $_GET[contactNum];
+    //     $address = $_GET[address];
 
-    ?>
-    <form action="repairconfirmation.php" method="POST" accept-charset="utf-8">
-      <center>
-
-
-
-        <div class="notification is-primary is-light alert">
-         <strong> REQUEST REPAIR FOR</strong> <br>
-         Serial # : <strong>
-          <div class="field" >
-           <div class="control" style="text-align: center;">
-            <input  class="input" type="text" name="Fname" value="<?php echo $fname; ?>" readonly>
-            <input  class="input" type="text" name="Lname" value="<?php echo $lname; ?>" readonly>
-            <input  class="input" type="text" name="email" value="<?php echo $email; ?>" readonly>
-            <input  class="input" type="text" name="contact" value="<?php echo $contact; ?>" readonly>
-            <input  class="input" type="text" name="address" value="<?php echo $address; ?>" readonly>
-            <input style="text-align: center; font-family: Montserrat; width: 50%;" class="input is-primary" type="text" name="SNumber" value="<?php echo $serialNumber; ?>" readonly> </div>
-          </div>
-        </strong><br>
-        HAS BEEN RECEIVED<br>PLEASE CHECK YOU EMAIL FOR MORE INFO<br>
-        OR SEND US AN EMAIL AT<br>support@zerterra.com<br><br>
+  ?>
+  <form action="repairconfirmation.php" method="POST" accept-charset="utf-8">
+    <center>
 
 
 
+     <div class="notification is-primary is-light" style = "background-color: #ebfffc;color: #00947e;">
+       <strong> REQUEST REPAIR FOR</strong> <br>
+       Serial # : <strong>
+        <div class="field" >
+         <div class="control" style="text-align: center;">
+          <input  class="input" type="text" name="Fname" value="<?php echo $_GET[Fname]; ?>" readonly>
+          <input  class="input" type="text" name="Lname" value="<?php echo $_GET[Lname]; ?>" readonly>
+          <input  class="input" type="text" name="email" value="<?php echo $email = $_GET[email]; ?>" readonly>
+          <input  class="input" type="text" name="contact" value="<?php echo $_GET[contactNum]; ?>" readonly>
+          <input  class="input" type="text" name="address" value="<?php echo $_GET[address]; ?>" readonly>
+          <input style="text-align: center; font-family: Montserrat; width: 50%;" class="input is-primary" type="text" name="SNumber" value="<?php echo $_GET[SerialNumber]; ?>" readonly> </div>
+        </div>
+      </strong><br>
+      HAS BEEN RECEIVED<br>PLEASE CHECK YOU EMAIL FOR MORE INFO<br>
+      OR SEND US AN EMAIL AT<br>support@zerterra.com<br><br>
 
 
-      </div>
-      <center>
-        PLEASE CLICK CONFIRM
-      </section>
-      <footer class="modal-card-foot" >
-        <a href="../index.php"><button class="button is-success" name="saveRequest" style="font-family: Montserrat;"><i class="far fa-thumbs-up"></i>&nbspCONFIRM</button></a>
-      </footer>
-    </form>
-  </div>
+
+
+
+    </div>
+    <center>
+      PLEASE CLICK CONFIRM
+    </section>
+    <footer class="modal-card-foot" >
+      <a href="../index.php"><button class="button is-success" name="saveRequest" style="font-family: Montserrat;"><i class="far fa-thumbs-up"></i>&nbspCONFIRM</button></a>
+    </footer>
+  </form>
+</div>
 </div>
 <?php
 

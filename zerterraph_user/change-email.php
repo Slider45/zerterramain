@@ -20,7 +20,7 @@ include '../PagesFunction/connection.php';
     <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css">
     <script src="js/homeJS.js"></script>
-    <link rel="stylesheet" type="text/css" href="sass/change-password.css">
+    <link rel="stylesheet" type="text/css" href="sass/change-email.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
     <link href="http://fonts.googleapis.com/css?family=Cookie" rel="stylesheet" type="text/css">
@@ -152,7 +152,7 @@ include 'user-header.php';
                 <button class="button is-rounded" id="save">Save Changes</button>
             </div>
             <div class="row">
-                <button class="button is-danger is-rounded" id="cancel">Cancel</button>
+                <a href="login-setting.php" class="button is-info is-rounded is-hovered" id="back">Back</a>
             </div>
             </form>
         </div>

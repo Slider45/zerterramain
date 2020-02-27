@@ -240,7 +240,7 @@ while($row = mysqli_fetch_array($res_data)){
 }
 ?>
 
-    </  div>
+    
 
     <div>
         <p id="alrights">@2019 ZerterraPh</p>

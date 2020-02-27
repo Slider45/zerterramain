@@ -8,7 +8,7 @@ body {
 
         /* navbar */
         .navbar {
-            width: 100%;
+            width: -webkit-fill-available;
             position: fixed;
         }
         .navbar-item {
@@ -22,9 +22,9 @@ body {
             background-color: #363636;
         }
 
-        // .navbar-burger .burger span {
-        //   color: white;
-        // }
+        .navbar-burger .burger span {
+          color: white;
+        }
 
         /* table */
         // table {
@@ -198,7 +198,6 @@ body {
         #alrights {
             text-align: center !important;
             font-size: 12px;
-            margin-top: 20px;
         }
 
         // media query

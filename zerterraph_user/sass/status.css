@@ -8,7 +8,7 @@ body {
 
 /* navbar */
 .navbar {
-  width: 100%;
+  width: -webkit-fill-available;
   position: fixed;
 }
 
@@ -22,6 +22,10 @@ body {
 
 #userid :hover {
   background-color: #363636;
+}
+
+.navbar-burger .burger span {
+  color: white;
 }
 
 /* table */
@@ -140,6 +144,5 @@ a.active, a:hover {
 #alrights {
   text-align: center !important;
   font-size: 12px;
-  margin-top: 20px;
 }
 /*# sourceMappingURL=status.css.map */

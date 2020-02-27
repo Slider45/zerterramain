@@ -129,54 +129,94 @@ include 'user-header.php';
             </h1>
         </div>
 
-        <div class="container1">
-        <form>
-            <div class="row">
-                <div class="col-25">
-                <label for="fname">First Name </label>
-                </div>
-                <div class="col-75">
-                <input type="hidden" id="fname" name="firstname" value="" placeholder="">
-                <input type="text" id="fname" name="firstname" placeholder="">
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-25">
-                <label for="lname">Last Name </label>
-                </div>
-                <div class="col-75">
-                <input type="text" id="lname" name="lastname" placeholder="">
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-25">
-                <label for="address">Username </label>
-                </div>
-                <div class="col-75">
-                <input type="text" id="username" name="username" placeholder="">
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-25">
-                <label for="contact">Contact Number </label>
-                </div>
-                <div class="col-75">
-                <input type="text" id="contact" name="contact" placeholder="">
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-25">
-                <label for="address">Address </label>
-                </div>
-                <div class="col-75">
-                <input type="text" id="address" name="address" placeholder="">
-                </div>
-            </div>
-            <div class="row">
-                <button class="button is-rounded" id="save">Save Changes</button>
-            </div>
-        </form>
+        <?php
+$sql = "SELECT * FROM tblusers WHERE is_active='1'";
+$res_data = $con->query($sql);
+while($row = mysqli_fetch_array($res_data)){
+  $id = $row['id'];
+  $serialNum = $row['SerialNumber'];
+  $fname = $row['Firstname'];
+  $lname = $row['Lastname'];
+  $contact = $row['Contact'];
+  $address = $row['Address']; 
+  $email = $row['Email'];
+  $rdays = $row['RemainingDays'];
+  $dateReg = $row['DateRegistered'];
+  $dateEnd= $row['DateExpired'];
+  
+  ?>
+
+        <div id="view<?php echo $id; ?>" role="dialog">
+  <form method="POST" style="padding-bottom: 10px;">
+    
+    <div class="field">
+      <div class="control">
+        <div class="field">
+          <input type="hidden" name="id"  value="<?php echo $id; ?>">
         </div>
+      </div>
+      <div class="control">
+         <div class="columns">
+              <div class="column is-2" id="label">Serial Number:</div>
+              <div class="column" id="txtbox"><input class="input" name="serialNum"   value="<?php echo $serialNum;?>" readonly ></div>
+         </div>
+      </div>
+      <div class="control" >
+         <div class="columns">
+              <div class="column is-2" id="label">Firstname</div>
+              <div class="column" id="txtbox"><input class="input"  name="fname"  value="<?php echo $fname; ?>"></div>
+         </div>
+      </div>
+      <div class="control" >
+         <div class="columns">
+              <div class="column is-2" id="label">Lastname</div>
+              <div class="column" id="txtbox"><input class="input" name="lname"   value="<?php echo $lname; ?>"></div>
+         </div>
+      </div>
+      <div class="control">
+        <div class="columns">
+              <div class="column is-2" id="label">E-mail Address</div>
+              <div class="column" id="txtbox"><input class="input" name="email"  value="<?php echo $email; ?>"></div>
+         </div>
+      </div>
+      <div class="control">
+        <div class="columns">
+              <div class="column is-2" id="label">Contact number</div>
+              <div class="column" id="txtbox"><input class="input" name="contact"  value="<?php echo $contact; ?>"></div>
+         </div>
+      </div>
+      <div class="control">
+        <div class="columns">
+              <div class="column is-2" id="label">Address </div>
+              <div class="column" id="txtbox"><input class="input" name="address" value="<?php echo $address; ?>"></div>
+         </div>
+      </div>
+      
+      <div class="control" style="margin-top: 10px;">
+        
+                       <!-- <div class="select">
+                         <select style="width: 1000px; padding-top:5px; border:solid 1px;" name="role"required="">
+                          <option >Super Admin</option>
+                          <option>Admin</option>
+                         </select>
+                       </div> -->
+                     </div>
+                   </div>
+                   
+                  <!--  <button type="submit" name="updated_user" class="button is-success">Save</button> -->
+                  <div class="row">
+                <button type="submit" name="updated_user" class="button is-rounded" id="save">Save Changes</button>
+            </div>
+
+                 </form>
+             </div>
+
+             <?php
+}
+?>
+
+
+       
 
     </div>
     </section>
@@ -188,3 +228,31 @@ include 'user-header.php';
 </body>
 
 </html>
+
+
+<?php
+
+
+
+if(isset($_POST['updated_user'])){
+  $id = $_POST['id'];
+  $fname = $_POST['fname'];
+  $lname = $_POST['lname'];
+  $contact = $_POST['contact'];
+  $address = $_POST['address']; 
+  $email = $_POST['email'];
+  
+  
+  $sql = "UPDATE tblusers SET Firstname='$fname',Lastname='$lname',Email='$email', Contact='$contact', Address='$address' WHERE id='$id'";
+  if($con->query($sql) === TRUE){
+    echo "<script>window.alert('RECORD IS UPDATED!');</script>";
+    echo '<script>window.location.href="acc_setting.php"</script>';
+  }else{
+    echo "<script>window.alert('SOMETHING WENT WRONG, PLEASE TRY AGAIN!');</script>";
+  }
+  
+}
+
+
+
+?>

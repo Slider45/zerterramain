@@ -173,8 +173,8 @@ while($row = mysqli_fetch_array($res_data)){
   
   ?>
 
-        <div id="view<?php echo $id; ?>" role="dialog">
-  <form method="POST" style="padding-bottom: 10px;">
+  <div id="view<?php echo $id; ?>" role="dialog">
+  <form method="POST">
     
     <div class="field">
       <div class="control">

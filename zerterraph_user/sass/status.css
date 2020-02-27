@@ -24,10 +24,6 @@ body {
   background-color: #363636;
 }
 
-.navbar-burger .burger span {
-  color: white;
-}
-
 /* table */
 .notification.is-info {
   font-family: 'Montserrat';

@@ -10,7 +10,7 @@
 
         <div id="navMenu" class="navbar-menu">
             <div class="navbar-end">
-                <a class="navbar-item" id="userid"><?= $_SESSION['userEmail']?> &nbsp<i class="fas fa-user"></i></a>
+                <p class="navbar-item" id="userid"><?= $_SESSION['userEmail']?> &nbsp<i class="fas fa-user"></i></p>
                 <a class="navbar-item" href="logout.php"><i class="fas fa-sign-out-alt"></i>&nbspLogout</a>
             </div>
         </div>

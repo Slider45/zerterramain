@@ -45,6 +45,10 @@ include 'user-header.php';
 
 ?>
 
+
+
+
+
     <!-- script navbar -->
 
 
@@ -139,7 +143,7 @@ include 'user-header.php';
             </div>
         </div>
 
-        <div class="content">
+        <!-- <div class="content">
             <p class="content-item">Serial Number: </p>
             <hr class="underline"><p></p></hr>
             <p class="content-item">Username </p>
@@ -150,8 +154,93 @@ include 'user-header.php';
             <hr class="underline"></hr>
             <p class="content-item">Address </p>
             <hr class="underline"></hr>
+        </div> -->
+
+        <?php
+$sql = "SELECT * FROM tblusers WHERE is_active='1'";
+$res_data = $con->query($sql);
+while($row = mysqli_fetch_array($res_data)){
+  $id = $row['id'];
+  $serialNum = $row['SerialNumber'];
+  $fname = $row['Firstname'];
+  $lname = $row['Lastname'];
+  $contact = $row['Contact'];
+  $address = $row['Address']; 
+  $email = $row['Email'];
+  $rdays = $row['RemainingDays'];
+  $dateReg = $row['DateRegistered'];
+  $dateEnd= $row['DateExpired'];
+  
+  ?>
+
+        <div id="view<?php echo $id; ?>" role="dialog">
+  <form method="POST" style="padding-bottom: 10px;">
+    
+    <div class="field">
+      <div class="control">
+        <div class="field">
+          <input type="hidden"  value="<?php echo $id; ?>">
         </div>
-    </div>
+      </div>
+      <div class="control">
+         <div class="columns">
+              <div class="column is-2" id="label">Serial Number:</div>
+              <div class="column" id="txtbox"><input class="input"   value="<?php echo $serialNum; ?>" disabled="disabled"></div>
+         </div>
+      </div>
+      <div class="control" >
+         <div class="columns">
+              <div class="column is-2" id="label">Firstname</div>
+              <div class="column" id="txtbox"><input class="input"   value="<?php echo $fname; ?>"  disabled="disabled"></div>
+         </div>
+      </div>
+      <div class="control" >
+         <div class="columns">
+              <div class="column is-2" id="label">Firstname</div>
+              <div class="column" id="txtbox"><input class="input"   value="<?php echo $lname; ?>"  disabled="disabled"></div>
+         </div>
+      </div>
+      <div class="control">
+        <div class="columns">
+              <div class="column is-2" id="label">E-mail Address</div>
+              <div class="column" id="txtbox"><input class="input"  value="<?php echo $email; ?>"  disabled="disabled"></div>
+         </div>
+      </div>
+      <div class="control">
+        <div class="columns">
+              <div class="column is-2" id="label">Contact number</div>
+              <div class="column" id="txtbox"><input class="input"  value="<?php echo $contact; ?>" disabled="disabled"></div>
+         </div>
+      </div>
+      <div class="control">
+        <div class="columns">
+              <div class="column is-2" id="label">Address </div>
+              <div class="column" id="txtbox"><input class="input"  value="<?php echo $address; ?>" disabled="disabled"></div>
+         </div>
+      </div>
+      
+      <div class="control" style="margin-top: 10px;">
+        
+                       <!-- <div class="select">
+                         <select style="width: 1000px; padding-top:5px; border:solid 1px;" name="role"required="">
+                          <option >Super Admin</option>
+                          <option>Admin</option>
+                         </select>
+                       </div> -->
+                     </div>
+                   </div>
+                   
+                  <!--  <button type="submit" name="updated_user" class="button is-success">Save</button> -->
+                 
+
+                 </form>
+             </div>
+
+             <?php
+}
+?>
+
+    </  div>
 
     <div>
         <p id="alrights">@2019 ZerterraPh</p>

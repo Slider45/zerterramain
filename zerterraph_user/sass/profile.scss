@@ -162,40 +162,51 @@ body {
             font-family: 'Montserrat';
             font-weight: bolder;
         }
-        .content {
+        .field {
             // background-color: #a1e5a0;
             padding: 10px;
             padding-left: 30px;
-            margin-left: 170px;
+            margin-left: 250px;
             border-radius: 6px;
             position: relative;
         }
-        .content-item {
+        .input[disabled] {
             font-size: 18px;
-            margin: 20px;
-            margin-left: 70px;
-            padding: 5px;
         }
         .content p:not(:last-child){
             margin-bottom: .1em;
         }
-        .underline{
-            height: 1px;
-            margin: 0;
-            margin-left: 70px;
-            width: 800px;
+
+        .input[disabled] {
+          background-color:transparent;
+          border-color: none;
+          box-shadow: none;
+          color: #7a7a7a;
+          border: none;
+          border-bottom: black;
+          border-bottom: ridge;
+          border-radius: 0;
+          width: 650px;
         }
-        .button {
-            background-color: #1faa74;
-            color: white;
-            font-weight: bold;
-            margin-top: 10px;
-            margin-left: 870px;
-            width: 200px;
-        }
+        // .underline{
+        //     height: 1px;
+        //     margin: 0;
+        //     margin-left: 70px;
+        //     width: 800px;
+        // }
+        // .button {
+        //     background-color: #1faa74;
+        //     color: white;
+        //     font-weight: bold;
+        //     margin-top: 10px;
+        //     margin-left: 870px;
+        //     width: 200px;
+        // }
+
 
         // footer
         #alrights {
             text-align: center !important;
             font-size: 12px;
+            margin-top: 130px;
         }

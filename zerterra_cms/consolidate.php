@@ -157,7 +157,7 @@ include 'Buttons/approvedQuery.php';
 
   <div id="id01" class="w3-modal">
     <div class="w3-modal-content" id="content">
-      <div class="w3-container">
+      <div class="w3-container" style="border-radius:8px" >
         <span onclick="document.getElementById('id01').style.display='none'" class="w3-button w3-display-topright">&times;</span>
 
         <div class="w3-container" >
@@ -166,7 +166,7 @@ include 'Buttons/approvedQuery.php';
 
             <div class="columns">
                 <div class="column  is-3">
-                    <div class="w3-card-4" id="card-con">
+                    <div class="w3-card-4" >
                     <div class="w3-container" id="card-con"  style="background-color: #99cc67;">
                     <center><p id="text1">SALES</p></center>
                     </div>
@@ -174,7 +174,7 @@ include 'Buttons/approvedQuery.php';
                 </div>
 
                 <div class="column  is-3">
-                    <div class="w3-card-4" id="card-con">
+                    <div class="w3-card-4" >
                     <div class="w3-container" id="card-con" style="background-color: #7cd0de;">
                        <center><p id="text1">USERS</p></center>
                         
@@ -183,7 +183,7 @@ include 'Buttons/approvedQuery.php';
                 </div>
 
                 <div class="column  is-3">
-                    <div class="w3-card-4" id="card-con">
+                    <div class="w3-card-4" >
                     <div class="w3-container" id="card-con" style="background-color: #f7de62;">
                     <center><p id="text1">TRANSACTION HISTORY</p></center>
                     </div>
@@ -191,7 +191,7 @@ include 'Buttons/approvedQuery.php';
                 </div>
 
                 <div class="column  is-3">
-                    <div class="w3-card-4" id="card-con">
+                    <div class="w3-card-4" >
                     <div class="w3-container" id="card-con" style="background-color: #fcc174;">
                     <center><p id="text1">ACTIVITY LOG</p></center>
                     </div>

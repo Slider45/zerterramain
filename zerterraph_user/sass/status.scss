@@ -8,7 +8,7 @@ body {
 
         /* navbar */
         .navbar {
-            width: -webkit-fill-available;
+            width: 100%;
             position: fixed;
         }
         .navbar-item {
@@ -198,6 +198,7 @@ body {
         #alrights {
             text-align: center !important;
             font-size: 12px;
+            margin-top: 20px;
         }
 
         // media query

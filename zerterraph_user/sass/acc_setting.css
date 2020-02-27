@@ -44,7 +44,7 @@ body {
       -ms-user-select: none;
           user-select: none;
   font-family: 'Montserrat';
-  margin-top: 49px;
+  margin-top: 27px;
 }
 
 .sidebar a {
@@ -121,7 +121,7 @@ a.active, a:hover {
 }
 
 .section {
-  padding-top: 10px;
+  padding-top: 0px;
   padding-bottom: 0;
 }
 
@@ -219,5 +219,6 @@ label {
 #alrights {
   text-align: center !important;
   font-size: 12px;
+  margin-top: 20px;
 }
 /*# sourceMappingURL=acc_setting.css.map */

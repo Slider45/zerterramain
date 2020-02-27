@@ -175,9 +175,6 @@ include 'user-header.php';
             <div class="row">
                 <button class="button is-rounded" id="save">Save Changes</button>
             </div>
-            <div class="row">
-                <button class="button is-danger is-rounded" id="cancel">Cancel</button>
-            </div>
         </form>
         </div>
 

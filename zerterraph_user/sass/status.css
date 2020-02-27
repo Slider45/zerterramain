@@ -8,7 +8,7 @@ body {
 
 /* navbar */
 .navbar {
-  width: -webkit-fill-available;
+  width: 100%;
   position: fixed;
 }
 
@@ -144,5 +144,6 @@ a.active, a:hover {
 #alrights {
   text-align: center !important;
   font-size: 12px;
+  margin-top: 20px;
 }
 /*# sourceMappingURL=status.css.map */

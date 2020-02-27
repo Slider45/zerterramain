@@ -3,12 +3,10 @@
             <a class="navbar-item" href="index.php">
                 <img src="images/weblogo.png">
             </a>
-            <div class="navbar-burger burger" data-target="navMenu">
-                <span></span>
-                <span></span>
-                <span></span>
+            <div class="navbar-burger burger is-active" data-target="navMenu">
+            <i class="fa fa-bars fa-2x"></i>
             </div>
-        </div>
+        </div> 
 
         <div id="navMenu" class="navbar-menu">
             <div class="navbar-end">

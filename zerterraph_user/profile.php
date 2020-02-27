@@ -151,8 +151,6 @@ include 'user-header.php';
             <p class="content-item">Address </p>
             <hr class="underline"></hr>
         </div>
-
-        <a href="profile.php"><button class="button is-rounded">Back</button></a>
     </div>
 
     <div>

@@ -152,10 +152,10 @@ body {
             text-transform: uppercase;
           }
 
-          @media(max-width : 860px){
+          @media screen and (max-width : 360px){
             .sidebar{
               height: auto;
-              width: 70px;
+              width: 50px;
               left: 0;
               margin: 100px 0;
             }
@@ -172,7 +172,7 @@ body {
               height: 60px;
             }
             .sidebar a i{
-              margin-left: -10px;
+              margin-left: -15px;
             }
             a:hover {
               width: 200px;
@@ -186,6 +186,12 @@ body {
             .sidebar header {
               margin:0;
             }
+
+          .notification.is-info {
+            margin-left: 40px;
+            width: 280px;
+            padding-top: 10px;
+          }
           }
           
         // footer

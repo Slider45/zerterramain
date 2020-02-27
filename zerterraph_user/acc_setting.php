@@ -136,6 +136,7 @@ include 'user-header.php';
                 <label for="fname">First Name </label>
                 </div>
                 <div class="col-75">
+                <input type="hidden" id="fname" name="firstname" value="" placeholder="">
                 <input type="text" id="fname" name="firstname" placeholder="">
                 </div>
             </div>

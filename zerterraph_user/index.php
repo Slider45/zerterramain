@@ -184,7 +184,7 @@ include 'user-header.php';
 
                 <div id="serialno">
                     <p style="padding:0; font-size: 40pt;">100 days</p>
-                    <span id="userinfo">Remaining Days</span>
+                    <p id="userinfo">Remaining Days</p>
                 </div>
 
             </div>

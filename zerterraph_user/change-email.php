@@ -190,7 +190,7 @@ if (isset($_POST['search_btn'])){
                 <label for="new-email">Password </label>
                 </div>
                 <div class="col-75">
-                <input type="text" name="password" placeholder="Password">
+                <input type="password" name="password" placeholder="Password">
                 </div>
             </div>
             <div class="row">
@@ -198,7 +198,7 @@ if (isset($_POST['search_btn'])){
                 <label for="xconfirm">Confirm Password </label>
                 </div>
                 <div class="col-75">
-                <input type="text" name="cpassword" placeholder="Cofirm Password">
+                <input type="password" name="cpassword" placeholder="Cofirm Password">
                 </div>
             </div>
             <div class="row">

@@ -216,7 +216,7 @@ if (isset($_POST['search_btn'])){
   }
 }
 ?>
-    <div>
+    <div id="alrights">
         <p>@2019 ZerterraPh</p>
     </div>
 

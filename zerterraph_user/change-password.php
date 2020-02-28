@@ -94,7 +94,33 @@ include 'user-header.php';
         <span>Contact</span>
       </a> -->
     </div>
+    <?php 
 
+if (isset($_POST['search_btn'])){
+  $searchValue = $_POST['searchValue'];
+
+  if ($searchValue===''){
+    echo '<script>window.location.href="?"</script>';
+  }else{
+    include 'searchFunction/searchUsersFunction.php';
+  }
+}else{     
+    $userID = $_SESSION['userID'];
+  $sql = "SELECT * FROM tblusers WHERE id='$userID' AND is_active='1'";
+  $res_data = $con->query($sql);
+  while($row = mysqli_fetch_array($res_data)){
+    $id = $row['id'];
+    $serialNum = $row['SerialNumber'];
+    $fname = $row['Firstname'];
+    $lname = $row['Lastname'];
+    $contact = $row['Contact'];   
+    $email = $row['Email'];
+    $password = $row['Password'];
+    $rdays = $row['RemainingDays'];
+    $dateReg = $row['DateRegistered'];
+    $dateEnd= $row['DateExpired'];
+    
+    ?>
     <script>
     function myAccFunc() {
     var x = document.getElementById("demoAcc");
@@ -131,13 +157,21 @@ include 'user-header.php';
         </div>
 
         <div class="container1">
-            <form>
+            <form method="POST" action="change-password.php">
+            <div class="row">
+                <div class="col-25">
+                <label for="currentpass"></label>
+                </div>
+                <div class="col-75">
+                <input type="hidden" name="id"  value="<?php echo $id ?>" readonly>
+                </div>
+            </div>
             <div class="row">
                 <div class="col-25">
                 <label for="currentpass">Current Password </label>
                 </div>
                 <div class="col-75">
-                <input type="text" id="currentpass" name="currentpass" placeholder="">
+                <input type="text" name="oldpass" value="<?php echo $password ?>" readonly>
                 </div>
             </div>
             <div class="row">
@@ -145,7 +179,7 @@ include 'user-header.php';
                 <label for="newpass">New Password </label>
                 </div>
                 <div class="col-75">
-                <input type="text" id="newpass" name="newpass" placeholder="">
+                <input type="text"  name="newpass" placeholder="">
                 </div>
             </div>
             <div class="row">
@@ -153,11 +187,11 @@ include 'user-header.php';
                 <label for="retypepass">Re-type New Password </label>
                 </div>
                 <div class="col-75">
-                <input type="text" id="retypepass" name="retypepass" placeholder="">
+                <input type="text"  name="cnewpass" placeholder="">
                 </div>
             </div>
             <div class="row">
-                <button class="button is-rounded" id="save">Save Changes</button>
+                <button type="submit" class="button is-rounded" name="update" id="save">Save Changes</button>
             </div>
             <div class="row">
                 <a href="login-setting.php" class="button is-info is-rounded is-hovered" id="back">Back</a>
@@ -167,7 +201,10 @@ include 'user-header.php';
 
     </div>
     </section>
-
+<?php
+  }
+}
+?>
     <div>
         <p id="alrights">@2019 ZerterraPh</p>
     </div>
@@ -175,3 +212,35 @@ include 'user-header.php';
 </body>
 
 </html>
+
+<?php
+
+if(isset($_POST['update'])){
+    $id = $_POST['id'];
+    $oldpass = $_POST['oldpass'];
+    $newpass = $_POST['newpass'];
+    $cnewpass = $_POST['cnewpass'];
+    
+    // $sql = "UPDATE tblusers SET Email=' $newemail' WHERE id='$id'";
+    // if($con->query($sql) === TRUE){
+        
+    // }
+    if($newpass === $cnewpass){
+        // $sql1 = "SELECT * FROM tblusers WHERE Password = $cpassword AND is_active = '1'";
+        // if($con->query($sql1) === TRUE){
+        $sql = "UPDATE tblusers SET Password='$newpass' WHERE id='$id' AND is_active='1'";
+        if($con->query($sql) === TRUE){
+        echo "<script>window.alert('RECORD IS UPDATED!');</script>";
+        echo '<script>window.location.href="change-password.php"</script>';
+        }
+        else{
+            echo "<script>window.alert('SOMETHING WENT WRONG, PLEASE TRY AGAIN!');</script>";
+          }
+        }
+    
+    }
+    // else{
+    //     echo "<script>window.alert('SOMETHING WENT WRONG, PLEASE TRY AGAIN!');</script>";
+    //   }
+// }
+  ?>

@@ -142,10 +142,11 @@ body {
         .section {
             padding-top: 10px;
             padding-bottom: 0;
+            height: auto;
         }
-        .header {
-            margin-bottom: 50px;
-        }
+        // .header {
+        //     margin-bottom: 20px;
+        // }
         .title {
             color: #1faa74;
             text-align: left;
@@ -235,5 +236,5 @@ body {
         #alrights {
             text-align: center !important;
             font-size: 12px;
-            margin-top: 170px;
+            // margin-top: 10px;
         }

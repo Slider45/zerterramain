@@ -157,7 +157,8 @@ include 'user-header.php';
         </div> -->
 
         <?php
-$sql = "SELECT * FROM tblusers WHERE is_active='1'";
+        $userID =  $_SESSION['userID'];
+$sql = "SELECT * FROM tblusers WHERE id='$userID' AND is_active='1'";
 $res_data = $con->query($sql);
 while($row = mysqli_fetch_array($res_data)){
   $id = $row['id'];

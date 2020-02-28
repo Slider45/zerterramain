@@ -130,7 +130,8 @@ include 'user-header.php';
         </div>
 
         <?php
-$sql = "SELECT * FROM tblusers WHERE is_active='1'";
+        $userID = $_SESSION['userID'];
+$sql = "SELECT * FROM tblusers WHERE id='$userID' AND is_active='1'";
 $res_data = $con->query($sql);
 while($row = mysqli_fetch_array($res_data)){
   $id = $row['id'];
@@ -229,6 +230,7 @@ while($row = mysqli_fetch_array($res_data)){
 
 
 if(isset($_POST['updated_user'])){
+  
   $id = $_POST['id'];
   $fname = $_POST['fname'];
   $lname = $_POST['lname'];
@@ -237,7 +239,7 @@ if(isset($_POST['updated_user'])){
   $email = $_POST['email'];
   
   
-  $sql = "UPDATE tblusers SET Firstname='$fname',Lastname='$lname',Email='$email', Contact='$contact', Address='$address' WHERE id='$id'";
+  $sql = "UPDATE tblusers SET Firstname='$fname',Lastname='$lname',Email='$email', Contact='$contact', Address='$address' WHERE id='$id' AND is_active='1'";
   if($con->query($sql) === TRUE){
     echo "<script>window.alert('RECORD IS UPDATED!');</script>";
     echo '<script>window.location.href="acc_setting.php"</script>';

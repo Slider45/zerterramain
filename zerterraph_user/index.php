@@ -146,34 +146,25 @@ include 'user-header.php';
     <!-- END OF SIDE NAVBAR -->
 
     <!-- END OF SIDE BAR -->
+    <?php
+$sql = "SELECT * FROM tblusers WHERE is_active='1'";
+$res_data = $con->query($sql);
+while($row = mysqli_fetch_array($res_data)){
+  $id = $row['id'];
+  $serialNum = $row['SerialNumber'];
+  $fname = $row['Firstname'];
+  $lname = $row['Lastname'];
+  $contact = $row['Contact'];
+  $address = $row['Address']; 
+  $email = $row['Email'];
+  $rdays = $row['RemainingDays'];
+  $dateReg = $row['DateRegistered'];
+  $dateEnd= $row['DateExpired'];
+  
+  ?>
+
     <section class="section">
         <div class="container">
-            <!-- <table class="table">
-                <thead>
-                    <tr>
-                        <th>DATA STATUS</th>
-
-                    </tr>
-                </thead>
-
-                <tbody>
-                    <tr>
-                        <td id="serialno">
-                            <p style="padding:0; font-size: 60pt;"></p>
-                            <span id="userinfo"></span>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td id="serialno">
-                            <p style="padding:0; font-size: 40pt;">100 days</p>
-                            <span id="userinfo">Remaining Days</span>
-                        </td>
-                    </tr>
-
-
-                </tbody>
-            </table> -->
-
             <div class="notification is-info">
                 <h1 id="title">DATA STATUS</h1>
 
@@ -183,14 +174,16 @@ include 'user-header.php';
                 </div>
 
                 <div id="serialno">
-                    <p style="padding:0; font-size: 40pt;">100 days</p>
-                    <span id="userinfo">Remaining Days</span>
+                    <p style="padding:0; font-size: 40pt;"><?php echo $rdays; ?></p>
+                    <p id="userinfo">Remaining Days</p>
                 </div>
 
             </div>
         </div>
     </section>
-
+<?php
+}
+?>
     <div>
         <p id="alrights">@2019 ZerterraPh</p>
     </div>

@@ -212,7 +212,7 @@ label {
   margin-bottom: 10px;
 }
 
-#cancel {
+#back {
   margin-bottom: 0;
 }
 
@@ -223,5 +223,6 @@ label {
 #alrights {
   text-align: center !important;
   font-size: 12px;
+  margin-top: 170px;
 }
 /*# sourceMappingURL=change-email.css.map */

@@ -125,53 +125,97 @@ include 'user-header.php';
             </h1>
         </div>
 
-        <div class="container1">
-        <form>
-            <div class="row">
-                <div class="col-25">
-                <label for="fname">First Name </label>
+        <?php
+         $userID = $_SESSION['userID'];
+$sql = "SELECT * FROM tblusers WHERE id='$userID' AND is_active='1'";
+$res_data = $con->query($sql);
+while($row = mysqli_fetch_array($res_data)){
+  $id = $row['id'];
+  $serialNum = $row['SerialNumber'];
+  $fname = $row['Firstname'];
+  $lname = $row['Lastname'];
+  $contact = $row['Contact'];
+  $address = $row['Address']; 
+  $email = $row['Email'];
+  $rdays = $row['RemainingDays'];
+  $dateReg = $row['DateRegistered'];
+  $dateEnd= $row['DateExpired'];
+  
+  ?>
+
+  <div id="view<?php echo $id; ?>" role="dialog" class="form-request">
+  <form method="POST">
+    
+    <div class="field">
+      <div class="control">
+        <div class="field">
+          <input type="hidden"  value="<?php echo $id; ?>">
+        </div>
+      </div>
+      <div class="control">
+         <div class="columns">
+              <div class="column is-3" id="label">Serial Number:</div>
+              <div class="column" id="txtbox"><input class="input"   value="<?php echo $serialNum; ?>" readonly></div>
+         </div>
+      </div>
+      <div class="control" >
+         <div class="columns">
+              <div class="column is-3" id="label">Firstname</div>
+              <div class="column" id="txtbox"><input class="input"   value="<?php echo $fname; ?>" readonly></div>
+         </div>
+      </div>
+      <div class="control" >
+         <div class="columns">
+              <div class="column is-3" id="label">Lastname</div>
+              <div class="column" id="txtbox"><input class="input"   value="<?php echo $lname; ?>" readonly></div>
+         </div>
+      </div>
+      <div class="control">
+        <div class="columns">
+              <div class="column is-3" id="label">E-mail</div>
+              <div class="column" id="txtbox"><input class="input"  value="<?php echo $email; ?>" readonly></div>
+         </div>
+      </div>
+      <div class="control">
+        <div class="columns">
+              <div class="column is-3" id="label">Contact number</div>
+              <div class="column" id="txtbox"><input class="input"  value="<?php echo $contact; ?>" readonly></div>
+         </div>
+      </div>
+      <div class="control">
+        <div class="columns">
+              <div class="column is-3" id="label">Address </div>
+              <div class="column" id="txtbox"><input class="input"  value="<?php echo $address; ?>" readonly></div>
+         </div>
+      </div>
+      <div class="control">
+        <div class="columns">
+              <div class="column is-3" id="label">Message </div>
+              <div class="column" id="txtbox"><textarea id="message" name="message" placeholder="Write something.." style="height:80px;width:100%;"></textarea></div>
+         </div>
+      </div>
+      
+      <div class="control" style="margin-top: 10px;">
+        
+                       <!-- <div class="select">
+                         <select style="width: 1000px; padding-top:5px; border:solid 1px;" name="role"required="">
+                          <option >Super Admin</option>
+                          <option>Admin</option>
+                         </select>
+                       </div> -->
+                     </div>
+                   </div>
+                   
+                  <!--  <button type="submit" name="updated_user" class="button is-success">Save</button> -->
+                <div class="row">
+                <button type="submit" name="updated_user" class="button is-rounded" id="save">Save Changes</button>
                 </div>
-                <div class="col-75">
-                <input type="text" id="fname" name="firstname" placeholder="">
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-25">
-                <label for="lname">Last Name </label>
-                </div>
-                <div class="col-75">
-                <input type="text" id="lname" name="lastname" placeholder="">
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-25">
-                <label for="email">E-mail </label>
-                </div>
-                <div class="col-75">
-                <input type="text" id="email" name="email" placeholder="">
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-25">
-                <label for="contact">Contact Number </label>
-                </div>
-                <div class="col-75">
-                <input type="text" id="contact" name="contact" placeholder="">
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-25">
-                <label for="address">Address </label>
-                </div>
-                <div class="col-75">
-                <input type="text" id="address" name="address" placeholder="">
-                </div>
-            </div>
-            <div class="row">
-                <button class="button is-rounded" id="save">Submit</button>
-            </div>
-            </form>
-            </div>
+                 </form>
+             </div>
+
+             <?php
+}
+?>
 
     </div>
     </section>

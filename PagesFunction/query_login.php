@@ -23,11 +23,17 @@ if(!empty($_POST["email"]) && !empty($_POST["password"]))
 
 	if($user)   
 	{  
+		$sql2 = "SELECT * FROM tblusers WHERE Email ='$name'";
+		$res_data = $con->query($sql2);
+		while($row = mysqli_fetch_array($res_data)){
+		  $id = $row['id'];
+}
 		if(!empty($_POST["remember"]))   
 		{  
 			setcookie ("member_email",$name,time()+ (10 * 365 * 24 * 60 * 60));  
 			setcookie ("member_password",$password,time()+ (10 * 365 * 24 * 60 * 60));
 			$_SESSION["userEmail"] = $name;
+			$_SESSION["userID"] =$id;
 		}  
 		else  
 		{  
@@ -40,6 +46,7 @@ if(!empty($_POST["email"]) && !empty($_POST["password"]))
 				setcookie ("member_password","");  
 			}  
 			$_SESSION["userEmail"] = $name;
+			$_SESSION["userID"]=$id;
 		}  
 		?>
 		<div class="notification is-success">

@@ -72,3 +72,5 @@ while($row = mysqli_fetch_array($res_data)){
 </html>
 
 <script src="jquery.min.js"></script>
+<script>
+    $('.btn').click()

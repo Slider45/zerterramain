@@ -139,12 +139,9 @@ body {
         }
 
         // headers
-        .container {
-            margin-bottom: 30px;
-        }
         #header {
             // background-color: #a1e5a0;
-            margin-top: 50px;
+            margin-top: 60px;
             padding: 10px;
             padding-left: 30px;
             margin-left: 170px;
@@ -152,7 +149,7 @@ body {
         }
         .media-content {
             margin-left: 870px;
-            padding-top: 50px;
+            padding-top: 60px;
             position: absolute;
         }
         .title {
@@ -162,40 +159,57 @@ body {
             font-family: 'Montserrat';
             font-weight: bolder;
         }
-        .content {
+        .field {
             // background-color: #a1e5a0;
             padding: 10px;
             padding-left: 30px;
-            margin-left: 170px;
+            margin-left: 230px;
+            margin-top: 10px;
             border-radius: 6px;
             position: relative;
         }
-        .content-item {
+
+        #label {
+          color: black;
+          font-family: 'Montserrat', sans-serif;
+          font-weight: bolder;
+          font-size: 18px;
+          display: inline-block;
+        }
+
+        .input[disabled] {
             font-size: 18px;
-            margin: 20px;
-            margin-left: 70px;
-            padding: 5px;
         }
-        .content p:not(:last-child){
-            margin-bottom: .1em;
+
+        .input[disabled] {
+          color: black;
+          font-family: 'Montserrat';
+          background-color:transparent;
+          box-shadow: none;
+          border: none;
+          border-bottom: 1px solid black;
+          border-radius: 0;
+          width: 100%;
         }
-        .underline{
-            height: 1px;
-            margin: 0;
-            margin-left: 70px;
-            width: 800px;
-        }
-        .button {
-            background-color: #1faa74;
-            color: white;
-            font-weight: bold;
-            margin-top: 10px;
-            margin-left: 870px;
-            width: 200px;
-        }
+        // .underline{
+        //     height: 1px;
+        //     margin: 0;
+        //     margin-left: 70px;
+        //     width: 800px;
+        // }
+        // .button {
+        //     background-color: #1faa74;
+        //     color: white;
+        //     font-weight: bold;
+        //     margin-top: 10px;
+        //     margin-left: 870px;
+        //     width: 200px;
+        // }
+
 
         // footer
         #alrights {
             text-align: center !important;
             font-size: 12px;
+            margin-top: 80px;
         }

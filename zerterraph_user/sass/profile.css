@@ -120,12 +120,8 @@ a.active, #item:hover {
   font-family: 'Montserrat';
 }
 
-.container {
-  margin-bottom: 30px;
-}
-
 #header {
-  margin-top: 50px;
+  margin-top: 60px;
   padding: 10px;
   padding-left: 30px;
   margin-left: 170px;
@@ -134,7 +130,7 @@ a.active, #item:hover {
 
 .media-content {
   margin-left: 870px;
-  padding-top: 50px;
+  padding-top: 60px;
   position: absolute;
 }
 
@@ -146,43 +142,42 @@ a.active, #item:hover {
   font-weight: bolder;
 }
 
-.content {
+.field {
   padding: 10px;
   padding-left: 30px;
-  margin-left: 170px;
+  margin-left: 230px;
+  margin-top: 10px;
   border-radius: 6px;
   position: relative;
 }
 
-.content-item {
+#label {
+  color: black;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: bolder;
   font-size: 18px;
-  margin: 20px;
-  margin-left: 70px;
-  padding: 5px;
+  display: inline-block;
 }
 
-.content p:not(:last-child) {
-  margin-bottom: .1em;
+.input[disabled] {
+  font-size: 18px;
 }
 
-.underline {
-  height: 1px;
-  margin: 0;
-  margin-left: 70px;
-  width: 800px;
-}
-
-.button {
-  background-color: #1faa74;
-  color: white;
-  font-weight: bold;
-  margin-top: 10px;
-  margin-left: 870px;
-  width: 200px;
+.input[disabled] {
+  color: black;
+  font-family: 'Montserrat';
+  background-color: transparent;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  border: none;
+  border-bottom: 1px solid black;
+  border-radius: 0;
+  width: 100%;
 }
 
 #alrights {
   text-align: center !important;
   font-size: 12px;
+  margin-top: 80px;
 }
 /*# sourceMappingURL=profile.css.map */

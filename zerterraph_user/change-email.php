@@ -20,7 +20,7 @@ include '../PagesFunction/connection.php';
     <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css">
     <script src="js/homeJS.js"></script>
-    <link rel="stylesheet" type="text/css" href="sass/change-password.css">
+    <link rel="stylesheet" type="text/css" href="sass/change-email.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
     <link href="http://fonts.googleapis.com/css?family=Cookie" rel="stylesheet" type="text/css">
@@ -121,6 +121,33 @@ include 'user-header.php';
     }
     </script>
 
+<?php 
+
+if (isset($_POST['search_btn'])){
+  $searchValue = $_POST['searchValue'];
+
+  if ($searchValue===''){
+    echo '<script>window.location.href="?"</script>';
+  }else{
+    include 'searchFunction/searchUsersFunction.php';
+  }
+}else{     
+    $userID = $_SESSION['userID'];
+  $sql = "SELECT * FROM tblusers WHERE id='$userID' AND is_active='1'";
+  $res_data = $con->query($sql);
+  while($row = mysqli_fetch_array($res_data)){
+    $id = $row['id'];
+    $serialNum = $row['SerialNumber'];
+    $fname = $row['Firstname'];
+    $lname = $row['Lastname'];
+    $contact = $row['Contact'];   
+    $email = $row['Email'];
+    $rdays = $row['RemainingDays'];
+    $dateReg = $row['DateRegistered'];
+    $dateEnd= $row['DateExpired'];
+    
+    ?>
+
     <!-- END OF SIDE BAR -->
     <section class="section">
     <div class="container" id="form_edit">
@@ -129,15 +156,41 @@ include 'user-header.php';
             CHANGE EMAIL
             </h1>
         </div>
-
+        
         <div class="container1">
-            <form>
+        <form method="POST">
             <div class="row">
+                
                 <div class="col-25">
-                <label for="new-email">New E-mail </label>
+                <label for="new-email"></label>
                 </div>
                 <div class="col-75">
-                <input type="text" id="new-email" name="new-email" placeholder="New E-mail">
+                <input type="text" name="id" value="<?php echo $id ?>" hidden>
+                </div>
+            </div>
+            <div class="row">
+                
+                <div class="col-25">
+                <label for="new-email">Old E-mail </label>
+                </div>
+                <div class="col-75">
+                <input type="text" name="oldemail" value="<?php echo $email ?>" readonly>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-25">
+                <label for="xconfirm">New E-mail </label>
+                </div>
+                <div class="col-75">
+                <input type="text" name="newemail" placeholder="New E-mail">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-25">
+                <label for="new-email">Password </label>
+                </div>
+                <div class="col-75">
+                <input type="text" name="password" placeholder="Password">
                 </div>
             </div>
             <div class="row">
@@ -145,25 +198,60 @@ include 'user-header.php';
                 <label for="xconfirm">Confirm Password </label>
                 </div>
                 <div class="col-75">
-                <input type="text" id="confirm" name="confirm" placeholder="Cofirm Password">
+                <input type="text" name="cpassword" placeholder="Cofirm Password">
                 </div>
             </div>
             <div class="row">
-                <button class="button is-rounded" id="save">Save Changes</button>
+                <button type="submit"  class="button is-rounded" name="update" id="save">Save Changes</button>
             </div>
             <div class="row">
-                <button class="button is-danger is-rounded" id="cancel">Cancel</button>
+                <a href="login-setting.php" class="button is-info is-rounded is-hovered" id="back">Back</a>
             </div>
             </form>
         </div>
 
     </div>
     </section>
-
+    <?php
+  }
+}
+?>
     <div>
-        <p id="alrights">@2019 ZerterraPh</p>
+        <p>@2019 ZerterraPh</p>
     </div>
 
 </body>
 
 </html>
+
+<?php
+
+if(isset($_POST['update'])){
+    $id = $_POST['id'];
+    $newemail = $_POST['newemail'];
+    $password = $_POST['password'];
+    $cpassword = $_POST['cpassword'];
+    
+    // $sql = "UPDATE tblusers SET Email=' $newemail' WHERE id='$id'";
+    // if($con->query($sql) === TRUE){
+        
+    // }
+    if($password === $cpassword){
+        // $sql1 = "SELECT * FROM tblusers WHERE Password = $cpassword AND is_active = '1'";
+        // if($con->query($sql1) === TRUE){
+        $sql = "UPDATE tblusers SET Email='$newemail' WHERE id='$id' AND is_active='1'";
+        if($con->query($sql) === TRUE){
+        echo "<script>window.alert('RECORD IS UPDATED!');</script>";
+        echo '<script>window.location.href="change-email.php"</script>';
+        }
+        else{
+            echo "<script>window.alert('SOMETHING WENT WRONG, PLEASE TRY AGAIN!');</script>";
+          }
+        }
+    
+    }
+    // else{
+    //     echo "<script>window.alert('SOMETHING WENT WRONG, PLEASE TRY AGAIN!');</script>";
+    //   }
+// }
+  ?>

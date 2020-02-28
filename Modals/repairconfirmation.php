@@ -8,6 +8,7 @@ $lname = $_GET[Lname];
 $email = $_GET[email];
 $contact = $_GET[contactNum];
 $address = $_GET[address];
+ // $serialNum = $_POST['SerialNumber'];
 ?>
 <!DOCTYPE html>
 <html>
@@ -43,7 +44,7 @@ $address = $_GET[address];
 
         // include '../PagesFunction/connection.php';
 
-        $serialNum = $_GET[SerialNumber];
+        // $serialNum = $_POST['SerialNumber'];
 
         $sqlrequest = "SELECT * FROM request_repair_list WHERE SerialNumber= '$serialNum' AND is_approved = '0'";
         $requestResult = $con->query($sqlrequest);
@@ -80,7 +81,7 @@ $address = $_GET[address];
 
    $sql="SELECT * FROM tblusers WHERE SerialNumber='$serialNum'";
    $result = $con->query($sql);
-   if($result->num_rows < 1){
+   if($result->num_rows < 0){
     ?>
 
 
@@ -147,12 +148,12 @@ $address = $_GET[address];
        Serial # : <strong>
         <div class="field" >
          <div class="control" style="text-align: center;">
-          <input  class="input" type="text" name="Fname" value="<?php echo $_GET[Fname]; ?>" readonly>
-          <input  class="input" type="text" name="Lname" value="<?php echo $_GET[Lname]; ?>" readonly>
-          <input  class="input" type="text" name="email" value="<?php echo $email = $_GET[email]; ?>" readonly>
-          <input  class="input" type="text" name="contact" value="<?php echo $_GET[contactNum]; ?>" readonly>
-          <input  class="input" type="text" name="address" value="<?php echo $_GET[address]; ?>" readonly>
-          <input style="text-align: center; font-family: Montserrat; width: 50%;" class="input is-primary" type="text" name="SNumber" value="<?php echo $_GET[SerialNumber]; ?>" readonly> </div>
+         <input  class="input" type="text" name="Fname" value="<?php echo $fname; ?>" readonly>
+          <input  class="input" type="text" name="Lname" value="<?php echo $lname; ?>" readonly>
+          <input  class="input" type="text" name="email" value="<?php echo $email; ?>" readonly>
+          <input  class="input" type="text" name="contact" value="<?php echo $contact; ?>" readonly>
+          <input  class="input" type="text" name="address" value="<?php echo $address; ?>" readonly> 
+          <input style="text-align: center; font-family: Montserrat; width: 50%;" class="input is-primary" type="text" name="SNumber" value="<?php echo $serialNum; ?>" readonly> </div>
         </div>
       </strong><br>
       HAS BEEN RECEIVED<br>PLEASE CHECK YOU EMAIL FOR MORE INFO<br>

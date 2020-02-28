@@ -4,6 +4,10 @@ use PHPMailer\PHPMailer\PHPMailer;
 
 if (isset($_POST['saveRequest'])) { 
 
+	if(($Content = file_get_contents("../content/requestMailtoUserContent.php")) === false) {
+		$Content = "";
+	}
+
 	$sql = "SELECT id FROM request_repair_list ";
 	$result=mysqli_query($con,$sql);
 	$requestCount=mysqli_num_rows($result);
@@ -13,18 +17,16 @@ if (isset($_POST['saveRequest'])) {
 	$requestnum=date("ymd-Hi-") . 0 .$requestCount;
 	
 
-	$_SESSION['SN'] = $SNumber;
-	$_SESSION['FN'] = $fname;
-	$_SESSION['LN'] = $lname;
-	$_SESSION['EM'] = $email;
-	$_SESSION['CN'] = $contact;
-	$_SESSION['AD'] = $address;
-	$_SESSION['RN'] = $requestnum;
-include '../content/requestMailtoUserContent.php';
+	// $_SESSION['SN'] = $SNumber;
+	// $_SESSION['FN'] = $Fname;
+	// $_SESSION['LN'] = $Lname;
+	// $_SESSION['EM'] = $email;
+	// $_SESSION['CN'] = $contact;
+	// $_SESSION['AD'] = $address;
+	// $_SESSION['RN'] = $requestnum;
+// include '../content/requestMailtoUserContent.php';
 
-	if(($Content = file_get_contents("../content/requestMailtoUserContent.php")) === false) {
-		$Content = "";
-	}
+	
 
 	$headers[] = 'MIME-Version: 1.0';
 	$headers[] = 'Content-type: text/html; charset=iso-8859-1';
@@ -52,9 +54,9 @@ include '../content/requestMailtoUserContent.php';
 	$mail->addAddress($email_to_support);
 	$mail->Subject = $email_subject;
 	$mail->isHTML(true);
-	$mail->Body = "\n REQUESTING FOR REPAIR! FROM \n <?php echo $SNumber; ?> \n
-	<?php echo $email; ?> \n <?php echo $fname\t$lname; ?> \n <?php echo $contact; ?> \n <?php echo $address; ?> \n";
-	$mail->Header = implode("\r\n", $headers);
+	$mail->Body ="REQUESTING FOR REPAIR! FROM  SERIAL #:  $SNumber  .\r\n EMAIL:
+	$email.\r\n FULLNAME:  $fname\t $lname.\r\nCONTACT:  $contact .\r\nADDRESS:  $address.\n";
+	$mail->Header = implode("\r\n"., $headers);
 
 	if ($mail->send()){
 

@@ -67,7 +67,7 @@ $serialNum = "";?>
 
               </div>
 
-              <form action="Modals/repairconfirmation.php" method="GET" accept-charset="utf-8">
+              <form action="Modals/repairconfirmation.php" method="POST" accept-charset="utf-8">
                 <div class="container" id="app">
                   <div id="repair-modal" class="modal">
                     <div class="modal-background"></div>
@@ -75,7 +75,7 @@ $serialNum = "";?>
                      <div class="modal-card2">
                       <header class="modal-card-head2">
                         <p class="modal-card-title">REQUEST FORM</p>
-                        <button class="delete" aria-label="close" ></button>
+                        <button class="delete" aria-label="close" id="image-modal-close5" ></button>
                       </header>
 
                       <section class="modal-card-body2">
@@ -110,11 +110,11 @@ $serialNum = "";?>
                         </div>
                       </section>
                       <footer class="modal-card-foot2">
-                        <button class="btn" name="sndRequest">Send Request &nbsp<i class="far fa-paper-plane"></i></button>
-                      </footer>  </form>
+                        <button class="btn" name="sndRequest" type="submit">Send Request &nbsp<i class="far fa-paper-plane"></i></button>
+                      </footer> 
                     </div></div></div>
                   </div>
-
+ </form>
 
               
 

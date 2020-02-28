@@ -166,16 +166,16 @@ while($row = mysqli_fetch_array($res_data)){
     <section class="section">
         <div class="container">
             <div class="notification is-info">
-                <h1 id="title">DATA STATUS</h1>
+                <h1 id="title" style="font-family:'Montserrat';font-size:40px;font-weight:bolder;">DATA STATUS</h1>
 
                 <div id="serialno">
-                    <p style="padding:0; font-size: 40pt;"></p>
+                    <p style="padding:0; font-size: 40px;"></p>
                     <span id="userinfo"></span>
                 </div>
 
                 <div id="serialno">
-                    <p style="padding:0; font-size: 40pt;"><?php echo $rdays; ?></p>
-                    <p id="userinfo">Remaining Days</p>
+                    <p style="padding:0;font-family:'Montserrat';font-size:90px;"><?php echo $rdays; ?></p>
+                    <p id="userinfo" style="padding:0;font-family:'Montserrat';font-size:20px;">Remaining Days</p>
                 </div>
 
             </div>

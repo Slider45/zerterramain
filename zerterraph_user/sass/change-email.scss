@@ -22,6 +22,14 @@ body {
         #userid :hover {
             background-color: #363636;
         }
+        
+        .navbar-burger .burger span {
+          color: white;
+        }
+
+        .navbar-burger {
+          margin-top: 10px;
+        }
 
         // SIDEBAR
         // .w3-bar-block .w3-bar-item {
@@ -140,13 +148,25 @@ body {
 
         // form 
         .section {
-            padding-top: 10px;
-            padding-bottom: 0;
-            height: auto;
+          padding-top: 0px;
+          padding-bottom: 0;
+          margin-top: 10;
         }
-        // .header {
-        //     margin-bottom: 20px;
-        // }
+        .header {
+            margin-bottom: -5px;
+            margin-top: 20px;
+            padding: 10px;
+            border-radius: 6px;
+        }
+        .container {
+          border-radius: 5px;
+          padding: 50px;
+          margin-left: 250px;
+          margin-right: 80px;
+        }
+        .container1 {
+            margin-left: 70px;
+        }
         .title {
             color: #1faa74;
             text-align: left;
@@ -161,7 +181,9 @@ body {
             border: none;
             border-bottom: 1px solid #333;
             padding: 10px;
-            font-size: 16px;
+            font-size: 18px;
+            color: black;
+            font-family: 'Montserrat';
           }
 
           input[type=password] {
@@ -172,24 +194,17 @@ body {
             border-bottom: 1px solid #333;
             padding: 10px;
             font-size: 16px;
+            color: black;
+            font-family: 'Montserrat';
           }
           
           label {
             font-family: 'Montserrat', sans-serif;
-            font-weight: bold;
+            font-weight: bolder;
             font-size: 18px;
             padding: 12px 12px 12px 0;
             display: inline-block;
-          }
-
-          .container {
-            border-radius: 5px;
-            padding: 50px;
-            margin-left: 210px;
-            margin-right: 80px;
-          }
-          .container1 {
-              margin-left: 70px;
+            color: black;
           }
           
           .col-25 {
@@ -246,5 +261,5 @@ body {
         #alrights {
             text-align: center !important;
             font-size: 12px;
-            margin-top: 150px;
+            margin-top: 120px;
         }

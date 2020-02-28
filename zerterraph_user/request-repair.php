@@ -167,7 +167,7 @@ while($row = mysqli_fetch_array($res_data)){
       <div class="control" >
          <div class="columns">
               <div class="column is-3" id="label">Lastname</div>
-              <div class="column" id="txtbox"><input class="input"   value="<?php echo $lname; ?>" readonly></div>
+              <div class="column" id="txtbox"><input class="input" value="<?php echo $lname; ?>" readonly></div>
          </div>
       </div>
       <div class="control">

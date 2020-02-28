@@ -187,7 +187,7 @@ if (isset($_POST['search_btn'])){
                 <label for="retypepass">Re-type New Password </label>
                 </div>
                 <div class="col-75">
-                <input type="password"  name="cnewpass" placeholder="" style="margin-top:18px;">
+                <input type="password"  name="cnewpass" placeholder="">
                 </div>
             </div>
             <div class="row">

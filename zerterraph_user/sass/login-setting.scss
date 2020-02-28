@@ -23,6 +23,14 @@ body {
             background-color: #363636;
         }
 
+        .navbar-burger .burger span {
+          color: white;
+        }
+        
+        .navbar-burger {
+          margin-top: 10px;
+        }
+
         // SIDEBAR
         // .w3-bar-block .w3-bar-item {
         //     font-family: 'Montserrat', sans-serif;
@@ -140,11 +148,15 @@ body {
 
         //content
         .section {
-            padding-top: 10px;
-            padding-bottom: 0;
+          padding-top: 0px;
+          padding-bottom: 0;
+          margin-top: 10;
         }
         .header {
-            margin-bottom: 50px;
+            margin-bottom: 40px;
+            margin-top: 15px;
+            padding: 10px;
+            border-radius: 6px;
         }
         .title {
             color: #1faa74;
@@ -157,11 +169,11 @@ body {
         .container {
             border-radius: 5px;
             padding: 50px;
-            margin-left: 210px;
+            margin-left: 250px;
             margin-right: 80px;
           }
           .container1 {
-            margin-left: 0;
+            margin-left: 40px;
           }
 
         .container #button {

@@ -128,8 +128,8 @@ include 'user-header.php';
     </script>
 
     <!-- END OF SIDE BAR -->
+    <section class="section">
     <div class="container">
-
         <div class="media">
             <div class="media-left" id="header">
                 <h1 class="title">
@@ -236,6 +236,7 @@ while($row = mysqli_fetch_array($res_data)){
 
                  </form>
              </div>
+</section>
 
              <?php
 }

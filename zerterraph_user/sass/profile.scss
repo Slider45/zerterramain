@@ -23,6 +23,13 @@ body {
             background-color: #363636;
         }
 
+        .navbar-burger .burger span {
+          color: white;
+        }
+        .navbar-burger {
+          margin-top: 10px;
+        }
+
         // SIDEBAR
         // .w3-bar-block .w3-bar-item {
         //     font-family: 'Montserrat', sans-serif;
@@ -141,14 +148,14 @@ body {
         // headers
         #header {
             // background-color: #a1e5a0;
-            margin-top: 60px;
+            margin-top: 25px;
             padding: 10px;
             padding-left: 30px;
-            margin-left: 170px;
+            margin-left: 230px;
             border-radius: 6px;
         }
         .media-content {
-            margin-left: 870px;
+            margin-left: 1100px;
             padding-top: 60px;
             position: absolute;
         }
@@ -163,7 +170,7 @@ body {
             // background-color: #a1e5a0;
             padding: 10px;
             padding-left: 30px;
-            margin-left: 230px;
+            margin-left: 290px;
             margin-top: 10px;
             border-radius: 6px;
             position: relative;
@@ -211,5 +218,5 @@ body {
         #alrights {
             text-align: center !important;
             font-size: 12px;
-            margin-top: 80px;
+            margin-top: 100px;
         }

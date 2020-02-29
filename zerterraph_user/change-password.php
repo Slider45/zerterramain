@@ -171,7 +171,7 @@ if (isset($_POST['search_btn'])){
                 <label for="currentpass">Current Password </label>
                 </div>
                 <div class="col-75">
-                <input type="text" name="oldpass" value="<?php echo $password ?>" readonly>
+                <input type="password" name="oldpass" value="<?php echo $password ?>" readonly>
                 </div>
             </div>
             <div class="row">
@@ -179,7 +179,7 @@ if (isset($_POST['search_btn'])){
                 <label for="newpass">New Password </label>
                 </div>
                 <div class="col-75">
-                <input type="text"  name="newpass" placeholder="">
+                <input type="password"  name="newpass" placeholder="">
                 </div>
             </div>
             <div class="row">
@@ -187,7 +187,7 @@ if (isset($_POST['search_btn'])){
                 <label for="retypepass">Re-type New Password </label>
                 </div>
                 <div class="col-75">
-                <input type="text"  name="cnewpass" placeholder="">
+                <input type="password"  name="cnewpass" placeholder="">
                 </div>
             </div>
             <div class="row">

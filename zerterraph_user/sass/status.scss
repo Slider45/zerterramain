@@ -25,6 +25,9 @@ body {
         .navbar-burger .burger span {
           color: white;
         }
+        .navbar-burger {
+          margin-top: 10px;
+        }
 
         /* table */
         // table {
@@ -60,17 +63,12 @@ body {
         .notification.is-info {
             font-family: 'Montserrat';
             width: 800px;
-            height: 300px;
-            margin-left: 240px;
-            margin-top: 90px;
+            height: 390px;
+            margin-left: 290px;
+            margin-top: 80px;
             border-radius: 10px;
             padding-top: 40px;
             margin-bottom: 100px;
-        }
-
-        h1 #title{
-            font-size: 70px;
-            font-family: 'Montserrat';
         }
 
         // SIDEBAR
@@ -151,48 +149,6 @@ body {
             font-size: smaller;
             text-transform: uppercase;
           }
-
-          @media screen and (max-width : 360px){
-            .sidebar{
-              height: auto;
-              width: 50px;
-              left: 0;
-              margin: 100px 0;
-            }
-            .sidebar header{
-              display: none;
-            }
-            span{
-              position: absolute;
-              margin-left: 23px;
-              opacity: 0;
-              visibility: hidden;
-            }
-            .sidebar a{
-              height: 60px;
-            }
-            .sidebar a i{
-              margin-left: -15px;
-            }
-            a:hover {
-              width: 200px;
-              background: inherit;
-            }
-            .sidebar a:hover span{
-              opacity: 1;
-              visibility: visible;
-            }
-            
-            .sidebar header {
-              margin:0;
-            }
-
-          .notification.is-info {
-            margin-left: 40px;
-            width: 280px;
-            padding-top: 10px;
-          }
-          }
           
         // footer
         #alrights {
@@ -201,3 +157,266 @@ body {
         }
 
         // media query
+        @media screen and (max-width: 320px){
+          .sidebar{
+            height: auto;
+            width: 50px;
+            left: 0;
+            margin: 100px 0;
+          }
+          .sidebar header{
+            display: none;
+          }
+          span{
+            position: absolute;
+            margin-left: 23px;
+            opacity: 0;
+            visibility: hidden;
+          }
+          .sidebar a{
+            height: 60px;
+          }
+          .sidebar a i{
+            margin-left: -15px;
+          }
+          a:hover {
+            width: 200px;
+            background: inherit;
+          }
+          .sidebar a:hover span{
+            opacity: 1;
+            visibility: visible;
+          }
+          .sidebar header {
+            margin:0;
+          }
+          .notification.is-info {
+            margin-top: 55px;
+            margin-left: 40px;
+            width: 240px;
+            padding-top: 10px;
+          }
+          .section {
+            padding-bottom: 30px;
+          }
+        }
+
+        @media (min-width: 321px) and (max-width: 360px){
+          .sidebar{
+            height: auto;
+            width: 50px;
+            left: 0;
+            margin: 100px 0;
+          }
+          .sidebar header{
+            display: none;
+          }
+          span{
+            position: absolute;
+            margin-left: 23px;
+            opacity: 0;
+            visibility: hidden;
+          }
+          .sidebar a{
+            height: 60px;
+          }
+          .sidebar a i{
+            margin-left: -15px;
+          }
+          a:hover {
+            width: 200px;
+            background: inherit;
+          }
+          .sidebar a:hover span{
+            opacity: 1;
+            visibility: visible;
+          }
+          .sidebar header {
+            margin:0;
+          }
+          .notification.is-info {
+            margin-top: 55px;
+            margin-left: 40px;
+            width: 280px;
+            padding-top: 10px;
+          }
+          .section {
+            padding-bottom: 30px;
+          }
+        }
+
+        @media (min-width: 361px) and (max-width: 375px){
+          .sidebar{
+            height: auto;
+            width: 50px;
+            left: 0;
+            margin: 100px 0;
+          }
+          .sidebar header{
+            display: none;
+          }
+          span{
+            position: absolute;
+            margin-left: 23px;
+            opacity: 0;
+            visibility: hidden;
+          }
+          .sidebar a{
+            height: 60px;
+          }
+          .sidebar a i{
+            margin-left: -15px;
+          }
+          a:hover {
+            width: 200px;
+            background: inherit;
+          }
+          .sidebar a:hover span{
+            opacity: 1;
+            visibility: visible;
+          }
+          .sidebar header {
+            margin:0;
+          }
+          .notification.is-info {
+            margin-top: 55px;
+            margin-left: 40px;
+            width: 290px;
+            padding-top: 10px;
+          }
+          .section {
+            padding-bottom: 30px;
+          }
+        }
+
+        @media (min-width: 376px) and (max-width: 411px){
+          .sidebar{
+            height: auto;
+            width: 50px;
+            left: 0;
+            margin: 100px 0;
+          }
+          .sidebar header{
+            display: none;
+          }
+          span{
+            position: absolute;
+            margin-left: 23px;
+            opacity: 0;
+            visibility: hidden;
+          }
+          .sidebar a{
+            height: 60px;
+          }
+          .sidebar a i{
+            margin-left: -15px;
+          }
+          a:hover {
+            width: 200px;
+            background: inherit;
+          }
+          .sidebar a:hover span{
+            opacity: 1;
+            visibility: visible;
+          }
+          .sidebar header {
+            margin:0;
+          }
+          .notification.is-info {
+            margin-top: 55px;
+            margin-left: 40px;
+            width: 330px;
+            padding-top: 10px;
+          }
+          .section {
+            padding-bottom: 30px;
+          }
+        }
+
+        @media (min-width: 412px) and (max-width: 414px){
+          .sidebar{
+            height: auto;
+            width: 50px;
+            left: 0;
+            margin: 100px 0;
+          }
+          .sidebar header{
+            display: none;
+          }
+          span{
+            position: absolute;
+            margin-left: 23px;
+            opacity: 0;
+            visibility: hidden;
+          }
+          .sidebar a{
+            height: 60px;
+          }
+          .sidebar a i{
+            margin-left: -15px;
+          }
+          a:hover {
+            width: 200px;
+            background: inherit;
+          }
+          .sidebar a:hover span{
+            opacity: 1;
+            visibility: visible;
+          }
+          .sidebar header {
+            margin:0;
+          }
+          .notification.is-info {
+            margin-top: 55px;
+            margin-left: 40px;
+            width: 330px;
+            padding-top: 10px;
+          }
+          .section {
+            padding-bottom: 30px;
+          }
+        }
+
+        @media (min-width: 415px) and (max-width: 450px){
+          .sidebar{
+            height: auto;
+            width: 50px;
+            left: 0;
+            margin: 100px 0;
+          }
+          .sidebar header{
+            display: none;
+          }
+          span{
+            position: absolute;
+            margin-left: 23px;
+            opacity: 0;
+            visibility: hidden;
+          }
+          .sidebar a{
+            height: 60px;
+          }
+          .sidebar a i{
+            margin-left: -15px;
+          }
+          a:hover {
+            width: 200px;
+            background: inherit;
+          }
+          .sidebar a:hover span{
+            opacity: 1;
+            visibility: visible;
+          }
+          .sidebar header {
+            margin:0;
+          }
+          .notification.is-info {
+            margin-top: 55px;
+            margin-left: 40px;
+            width: 330px;
+            padding-top: 10px;
+          }
+          .section {
+            padding-bottom: 30px;
+          }
+        }

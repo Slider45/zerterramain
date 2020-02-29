@@ -189,9 +189,10 @@ include 'PagesFunction/connection.php';
       is a home-made organic fertilizer make made from food scrap.
     </p>
     <button class="button1" id="showModal3">ORDER NOW</button>
+
     <form class="" method="post">
      <div class="container" id="app">
-      <div id="image-modal" class="modal">
+      <div id="orderModal" class="modal">
         <div class="modal-background"></div>
         <div class="modal-content" id="order-modal-content">
          <div class="modal-card" id="order-modal">

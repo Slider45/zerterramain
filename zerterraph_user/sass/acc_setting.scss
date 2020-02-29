@@ -22,6 +22,14 @@ body {
         #userid :hover {
             background-color: #363636;
         }
+        
+        .navbar-burger .burger span {
+          color: white;
+        }
+
+        .navbar-burger {
+          margin-top: 10px;
+        }
 
         // SIDEBAR
         // .w3-bar-block .w3-bar-item {
@@ -146,7 +154,11 @@ body {
         }
         .header {
             margin-bottom: 55px;
+            margin-top: -5px;
+            padding: 10px;
+            border-radius: 6px;
         }
+  
         .title {
             color: #1faa74;
             text-align: left;
@@ -181,7 +193,7 @@ body {
           .container {
             border-radius: 5px;
             padding: 50px;
-            margin-left: 210px;
+            margin-left: 250px;
             margin-right: 80px;
           }
           .form-edit {
@@ -226,5 +238,5 @@ body {
         #alrights {
             text-align: center !important;
             font-size: 12px;
-            margin-top: 0px;
+            margin-top: 90px;
         }

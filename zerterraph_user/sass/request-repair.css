@@ -24,6 +24,14 @@ body {
   background-color: #363636;
 }
 
+.navbar-burger .burger span {
+  color: white;
+}
+
+.navbar-burger {
+  margin-top: 10px;
+}
+
 .sidebar {
   position: fixed;
   width: 220px;
@@ -127,7 +135,22 @@ a.active, a:hover {
 }
 
 .header {
-  margin-bottom: 70px;
+  margin-bottom: 50px;
+  margin-top: 0px;
+  padding: 10px;
+  border-radius: 6px;
+}
+
+.container {
+  border-radius: 5px;
+  padding: 50px;
+  padding-bottom: 0;
+  margin-left: 250px;
+  margin-right: 80px;
+}
+
+.container1 {
+  margin-left: 70px;
 }
 
 .title {
@@ -171,13 +194,6 @@ a.active, a:hover {
   border-radius: 4px;
   resize: vertical;
   resize: none;
-}
-
-.container {
-  border-radius: 5px;
-  padding: 50px;
-  margin-left: 210px;
-  margin-right: 80px;
 }
 
 .form-request {

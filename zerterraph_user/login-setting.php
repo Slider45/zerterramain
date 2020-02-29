@@ -126,7 +126,7 @@ include 'user-header.php';
     <div class="container" id="form_edit">
         <div class="header">
             <h1 class="title">
-            Login Setting
+            LOGIN SETTING
             </h1>
         </div>
 

@@ -24,6 +24,14 @@ body {
   background-color: #363636;
 }
 
+.navbar-burger .burger span {
+  color: white;
+}
+
+.navbar-burger {
+  margin-top: 10px;
+}
+
 .sidebar {
   position: fixed;
   width: 220px;
@@ -121,12 +129,27 @@ a.active, a:hover {
 }
 
 .section {
-  padding-top: 10px;
+  padding-top: 0px;
   padding-bottom: 0;
+  margin-top: 10;
 }
 
 .header {
-  margin-bottom: 70px;
+  margin-bottom: 30px;
+  margin-top: 20px;
+  padding: 10px;
+  border-radius: 6px;
+}
+
+.container {
+  border-radius: 5px;
+  padding: 50px;
+  margin-left: 250px;
+  margin-right: 80px;
+}
+
+.container1 {
+  margin-left: 70px;
 }
 
 .title {
@@ -166,17 +189,6 @@ label {
   font-size: 18px;
   padding: 12px 12px 12px 0;
   display: inline-block;
-}
-
-.container {
-  border-radius: 5px;
-  padding: 50px;
-  margin-left: 210px;
-  margin-right: 80px;
-}
-
-.container1 {
-  margin-left: 70px;
 }
 
 .col-25 {
@@ -228,5 +240,6 @@ label {
 #alrights {
   text-align: center !important;
   font-size: 12px;
+  margin-top: 60px;
 }
 /*# sourceMappingURL=contact-us.css.map */

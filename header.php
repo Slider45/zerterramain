@@ -36,7 +36,7 @@ $serialNum = "";?>
                          <div class="modal-card1">
                           <header class="modal-card-head1" id="modal-card-head">
                            <p class="modal-card-title">SERIAL NUMBER</p>
-                           <button class="delete" aria-label="close" id="image-modal-close4"></button>
+                           <button class="modal-close is-large" aria-label="close" id="image-modal-close4"></button>
                          </header>
                          <section class="modal-card-body1" id="modal-card-body">
                           <!-- Content ... -->
@@ -48,6 +48,7 @@ $serialNum = "";?>
                         </section>
                         <footer class="modal-card-foot1" id="modal-card-foot">
                           <button class="btn" id="showModal1" type="submit" style="font-family: Montserrat;"><i class="far fa-calendar-check"></i> Check Warranty</button>
+
                         </footer>
                       </div>
                     </div>
@@ -66,22 +67,28 @@ $serialNum = "";?>
 
               </div>
 
-              <form action="Modals/repairconfirmation.php" method="GET" accept-charset="utf-8">
-               <div class="container" id="app">
+              <form action="Modals/repairconfirmation.php" method="POST" accept-charset="utf-8">
+                <div class="container" id="app">
                   <div id="repair-modal" class="modal">
                     <div class="modal-background"></div>
                     <div class="modal-content2" id="repair-modal-content">
                      <div class="modal-card2">
                       <header class="modal-card-head2">
                         <p class="modal-card-title">REQUEST FORM</p>
-                        <button class="delete" aria-label="close" id="image-modal-close5"></button>
+                        <button class="delete" aria-label="close" id="image-modal-close5" ></button>
                       </header>
+
                       <section class="modal-card-body2">
                         <!-- Content ... -->
                         <div class="field">
                           <div  class="control1" id="form_error" >
                             <input class="input2" type="text" name="SerialNumber" placeholder="Serial Number" required >
+
                           </div>
+
+
+
+
                           <div class="control1">
                             <input class="input2" type="text" name="Fname" placeholder="Firstname" required>
                           </div>
@@ -104,20 +111,13 @@ $serialNum = "";?>
                       </section>
                       <footer class="modal-card-foot2">
                         <button class="btn" name="sndRequest" type="submit">Send Request &nbsp<i class="far fa-paper-plane"></i></button>
-                      </footer>
+                      </footer> 
                     </div></div></div>
                   </div>
+ </form>
 
-                </form>
+              
 
-                <?php 
-
-
-
-
-               // include 'PagesFunction/query_request.php';
-
-                ?>
 
                 <div class="column  is-3" id="serv-column">
                   <button class="card" id="serv-TAC">

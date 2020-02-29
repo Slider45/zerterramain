@@ -50,8 +50,10 @@
                   });
 
                   imageModalCloseBtn5.addEventListener('click', function(){
-                    modalDlg5.classList.remove('is-active');
-                  });
+                   
+                   modalDlg5.classList.remove('is-active');
+
+                 });
                   
 
 
@@ -64,6 +66,10 @@
 
                   imageModalCloseBtn6.addEventListener('click', function(){
                     modalDlg6.classList.remove('is-active');
+
+
+
+
                   });
                   
 
@@ -81,7 +87,7 @@
 
 
                   var btn = document.querySelector('#showModal3');
-                  var modalDlg = document.querySelector('#image-modal');
+                  var modalDlg = document.querySelector('#orderModal');
                   var imageModalCloseBtn = document.querySelector('#image-modal-close');
                   btn.addEventListener('click', function(){
                     modalDlg.classList.add('is-active');

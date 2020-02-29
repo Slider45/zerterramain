@@ -24,6 +24,14 @@ body {
   background-color: #363636;
 }
 
+.navbar-burger .burger span {
+  color: white;
+}
+
+.navbar-burger {
+  margin-top: 10px;
+}
+
 .sidebar {
   position: fixed;
   width: 220px;
@@ -128,6 +136,9 @@ a.active, a:hover {
 
 .header {
   margin-bottom: 55px;
+  margin-top: -5px;
+  padding: 10px;
+  border-radius: 6px;
 }
 
 .title {
@@ -166,7 +177,7 @@ a.active, a:hover {
 .container {
   border-radius: 5px;
   padding: 50px;
-  margin-left: 210px;
+  margin-left: 250px;
   margin-right: 80px;
 }
 
@@ -215,6 +226,6 @@ a.active, a:hover {
 #alrights {
   text-align: center !important;
   font-size: 12px;
-  margin-top: 0px;
+  margin-top: 90px;
 }
 /*# sourceMappingURL=acc_setting.css.map */

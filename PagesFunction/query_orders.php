@@ -6,13 +6,6 @@ if (isset($_POST['sendOrder'])) {
 
 
 
-  $sql = "SELECT id FROM pending_order_list";
-  $result=mysqli_query($con,$sql);
-  $pendingCount=mysqli_num_rows($result);
-  $pendingCount++;
-
-
-  $orderNum=date("Ymd-His-") . 0 .$pendingCount;
 
 
 
@@ -57,8 +50,9 @@ if (isset($_POST['sendOrder'])) {
       $mailfromsupport->Body = "
       Please CLICK the link below for PRE-ORDER DETAILS:<br><br>
 
-      <a href='http://zerterra.com/content/Pre-Order_Details.php?SerialNumber=$SNumber&Fname=$fname&Lname=$lname&email=$email_from&contactNum=contact&address=$address&OrderNumber=$orderNum'>Click Here</a>
+      <a href='http://zerterra.com/content/Pre-Order_Details.php?SerialNumber=$SNumber&Fname=$fname&Lname=$lname&email=$email_from&contactNum=contact&address=$address&message=$message&OrderNumber=$orderNum'>Click Here</a>
       ";
+
       $mailfromadmin->Header = implode("\r\n", $headers);
 
       if ($mailfromadmin->send()){
@@ -82,7 +76,7 @@ if (isset($_POST['sendOrder'])) {
       echo "<script>alert('Sending Request Failed!'); </script>";
 
 
-    }echo '<script>window.location.href="../"</script>';
+    }echo '<script>window.location.href="../index.php"</script>';
   }
 
   ?>

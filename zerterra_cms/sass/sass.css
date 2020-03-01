@@ -29,12 +29,24 @@ html, body {
   border-radius: 8px;
 }
 
+.w3-display-topright:hover {
+  background-color: #f1f2f6 !important;
+}
+
 #text1 {
   font-family: Montserrat;
   font-weight: bold;
   font-size: 18pt;
   margin-top: 60%;
   color: white;
+}
+
+#dateTime {
+  height: 30px;
+  border: solid 1px;
+  margin: 10px;
+  border-radius: 5px;
+  font-size: 14pt;
 }
 
 .navbar {

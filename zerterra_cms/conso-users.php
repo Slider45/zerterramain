@@ -54,6 +54,7 @@ include 'Buttons/requestButtonFunction.php';
       <button class="w3-button w3-teal w3-xlarge w3-hide-large" onclick="w3_open()">&#9776;</button>
     </div>
 
+    <a href="print/usersPrint.php"><button  class="button" id="home" ><i class="fas fa-print"></i> </button></a> 
 
     <div class="w3-container">
       <div class="columns">
@@ -89,9 +90,12 @@ include 'Buttons/requestButtonFunction.php';
             <th>Serial #</th>
             <th>Firstname</th>
             <th>Lastname</th>
-            <th>Start-Date</th>
-            <th>End-Date</th>
+            <th>Email</th>
+            <th>Contact</th>
             <th>Remaining Days</th>
+            <th>Date-Registered</th>
+            <th>Date-Expired</th>
+
 
    
         </tr>

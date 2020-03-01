@@ -54,6 +54,7 @@ include 'Buttons/requestButtonFunction.php';
       <button class="w3-button w3-teal w3-xlarge w3-hide-large" onclick="w3_open()">&#9776;</button>
     </div>
 
+         <a href="print/salesPrint.php"><button  class="button" id="home" ><i class="fas fa-print"></i> </button></a> 
 
     <div class="w3-container">
       <div class="columns">
@@ -86,10 +87,14 @@ include 'Buttons/requestButtonFunction.php';
          <table class = "table">
           <thead>
            <tr>
-            <th>#</th>
+            <th>Order #</th>
             <th>Firstname</th>
             <th>Lastname</th>
+            <th>Email</th>
+            <th>Contact</th>
             <th>Amount</th>
+            <th>Vat</th>
+            <th>Date-Purchased</th>
 
    
         </tr>
@@ -164,8 +169,13 @@ include 'Buttons/requestButtonFunction.php';
           </div>
         </section>
 
+
       </div>
     </div>
+
+
+    
+
   </div>
 
 
@@ -173,18 +183,18 @@ include 'Buttons/requestButtonFunction.php';
 
 
 <!-- Modal -->
+  <?php
+                        include 'ordersModal.php';
+                        ?>
+                        
+                        
+                        <?php
+                        include 'consolidate.php';
+                        ?>
+                        
 
 
-
-    <?php
-include 'ordersModal.php';
-?>
-
-
-<?php
-include 'consolidate.php';
-?>
-
+  
 
 
 

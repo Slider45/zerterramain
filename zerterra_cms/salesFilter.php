@@ -1,6 +1,3 @@
-
-
-
 <?php  
  //filter.php  
  if(isset($_POST["from_date"], $_POST["to_date"]))  
@@ -12,6 +9,7 @@
       $result = mysqli_query($con, $query);  
       $output .= '  
            <table class="table table-bordered">  
+           <thead>
                 <tr>  
                     <th>#</th>
                     <th>Transaction Number</th>
@@ -20,6 +18,7 @@
                     <th>Amount</th>
                     <th>Option </th>  
                 </tr>  
+                </thead>
       ';  
       if(mysqli_num_rows($result) > 0)  
       {  

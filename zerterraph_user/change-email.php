@@ -241,8 +241,8 @@ if(isset($_POST['update'])){
         // if($con->query($sql1) === TRUE){
         $sql = "UPDATE tblusers SET Email='$newemail' WHERE id='$id' AND is_active='1'";
         if($con->query($sql) === TRUE){
-        echo "<script>window.alert('RECORD IS UPDATED!');</script>";
-        echo '<script>window.location.href="change-email.php"</script>';
+          echo "<script>window.alert('Email Changed! You\'re about to logout');</script>";
+          echo '<script>window.location.href="logout.php"</script>';
         }
         else{
             echo "<script>window.alert('SOMETHING WENT WRONG, PLEASE TRY AGAIN!');</script>";

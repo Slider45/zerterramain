@@ -67,20 +67,7 @@ include 'Buttons/adminButtonFunction.php';
       </div>
 
      <!--  -->
-    <div class="columns">
-      <div class="column is-3" id="base">
-    <p id="startD">Start-date</p>
-     <box id="cal"><i class="far fa-calendar-alt"></i><input type="text" name="from_date" id="from_date" class="form-control"  /></box>
-     </div>
-     <div class="column is-1" > TO </div>
-     <div class="column is-3" id="base">
-    <p id="endD">End-date</p>
-     <box id="cal"><i class="far fa-calendar-alt"></i><input type="text" name="to_date" id="to_date" class="form-control" />  </box>
-     </div>
-     <div class="column">
-          <input type="button" name="filter" id="filter" value="Filter" class="btn btn-info" /> 
-      </div>
-  </div>
+    
 
     <!--  -->
 
@@ -282,7 +269,7 @@ include 'Buttons/adminButtonFunction.php';
                 if(from_date != '' && to_date != '')  
                 {  
                      $.ajax({  
-                          url:"filter.php",  
+                          url:"salesFilter.php",  
                           method:"POST",  
                           data:{from_date:from_date, to_date:to_date},  
                           success:function(data)  

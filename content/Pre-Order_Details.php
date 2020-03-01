@@ -12,13 +12,13 @@ include '../PagesFunction/connection.php';
 // $requestnum = $_SESSION['RN'];
 
 // $SNumber=$_REQUEST['SNumber'];
-$SerialNumber = $_GET['SerialNumber'];
-$Fname = $_GET['Fname'];
-$Lname = $_GET['Lname'];
-$email = $_GET['email'];
-$contactNum = $_GET['contactNum'];
+
+$fname = $_GET['fname'];
+$lname = $_GET['lname'];
+$email_from = $_GET['email_from'];
+$contact = $_GET['contact'];
 $address = $_GET['address'];
-$OrderNumber =$_GET['OrderNumber'];
+$orderNum =$_GET['orderNum'];
 // $sndRequest=$_GET['sndRequest'];
 ?>
 
@@ -44,7 +44,7 @@ $OrderNumber =$_GET['OrderNumber'];
                             <table border="0" cellpadding="0" cellspacing="0" width="100%">
                                 <tr>
                                     <td style="color: #333; font-family: Arial, sans-serif; font-size: 24px;">
-                                        <b>Hi <?php echo $Fname;?>!<br></b>
+                                        <b>Hi <?php echo $fname;?>!<br></b>
                                     </td>
                                 </tr>
                                 <tr>
@@ -76,25 +76,25 @@ $OrderNumber =$_GET['OrderNumber'];
                                                             <td style="padding: 25px 0 0 0; color: #153643; font-family: Arial, sans-serif; font-size: 16px; line-height: 20px;">
 
                                                                 <table style="width:100%; height:200px;">
-                                                                    <tr style="color: #000; font-family:Montserrat; font-size: 16px; line-height: 20px; font-weight:bold; margin-bottom:50px;">
+                                                                   <!--  <tr style="color: #000; font-family:Montserrat; font-size: 16px; line-height: 20px; font-weight:bold; margin-bottom:50px;">
                                                                         <td>Serial #:</td>
                                                                         <td style="padding-left:10px; margin-bottom:50px;"><?php echo $SerialNumber;?></td>    
-                                                                    </tr>
+                                                                    </tr>--> 
                                                                     <tr style="color: #000; font-family:Montserrat; font-size: 16px; line-height: 20px; font-weight:bold; margin-bottom:50px;">
                                                                         <td>Firstname:</td>
-                                                                        <td style="padding-left:10px; margin-bottom:50px;"><?php echo $Fname;?></td>    
+                                                                        <td style="padding-left:10px; margin-bottom:50px;"><?php echo $fname;?></td>    
                                                                     </tr>
                                                                     <tr style="color: #000; font-family:Montserrat; font-size: 16px; line-height: 20px; font-weight:bold;">
                                                                         <td>Lastname:</td>
-                                                                        <td style="padding-left:10px"><?php echo $Lname;?></td>
+                                                                        <td style="padding-left:10px"><?php echo $lname;?></td>
                                                                     </tr>
                                                                     <tr style="color: #000; font-family:Montserrat; font-size: 16px; line-height: 20px; font-weight:bold;">
                                                                         <td>Email:</td>
-                                                                        <td style="padding-left:10px"><?php echo $email;?></td>
+                                                                        <td style="padding-left:10px"><?php echo $email_from;?></td>
                                                                     </tr>
                                                                     <tr style="color: #000; font-family:Montserrat; font-size: 16px; line-height: 20px; font-weight:bold;">
                                                                         <td>Contact:</td>
-                                                                        <td style="padding-left:10px"><?php echo $contactNum;?></td>
+                                                                        <td style="padding-left:10px"><?php echo $contact;?></td>
                                                                     </tr>
                                                                     <tr style="color: #000; font-family:Montserrat; font-size: 16px; line-height: 20px; font-weight:bold;">
                                                                         <td>Address:</td>
@@ -118,7 +118,7 @@ $OrderNumber =$_GET['OrderNumber'];
                                                         <tr>
                                                             <td style="padding: 150px 0 0 0; color: #153643; font-family: Arial, sans-serif; font-size: 16px; line-height: 20px;">
                                                              <div style="color:#4a8169; background-color:#d1d1d1; text-align:center; height:50px; padding-top:30px; font-size:15pt; font-weight:bold;">
-                                                                 <?php echo $sndRequest;?>
+                                                                 <?php echo $orderNum;?>
                                                              </div>
                                                              <p style="text-align:center; font-family:Montserrat; font-size:10pt;  font-weight:bold;">ORDER NUMBER</p>
                                                          </td>

@@ -4,10 +4,9 @@ if(!isset($_SESSION["admin"]))
 {
  header("location:../Log-in.php");
 }
-$connect = mysqli_connect("localhost", "root", "", "zerterra_db");  
-$query = "SELECT * FROM tblsales_list ORDER BY Date_Purchased desc";  
-$result = mysqli_query($connect, $query);
-
+include '../PagesFunction/connection.php';
+// include 'connection.php';
+include 'Buttons/adminButtonFunction.php';
 
 ?>
 
@@ -89,21 +88,72 @@ $result = mysqli_query($connect, $query);
           <thead>
            <tr>
             <th>#</th>
+            <th>Transaction Number</th>
             <th>Firstname</th>
             <th>Lastname</th>
             <th>Amount</th>
+            <th>Option </th> 
 
    
         </tr>
       </thead>
 
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
+      <?php 
 
+          if (isset($_POST['search_btn'])){
+            $searchValue = $_POST['searchValue'];
+
+            if ($searchValue===''){
+              echo '<script>window.location.href="?"</script>';
+            }else{
+             include 'searchFunction/searchSalesFunction.php';
+           }
+         }else{     
+          $sql = "SELECT * FROM tblsales_list  ORDER BY id DESC LIMIT $offset, $no_of_records_per_page";
+          $res_data = $con->query($sql);
+          while($row = mysqli_fetch_array($res_data)){
+            $id = $row['id'];
+            $transcationNumber = $row['TransactionNumber'];
+            $firstname = $row['Firstname'];
+            $lastname = $row['Lastname'];
+            $email = $row['Email'];
+            $contact = $row['Contact'];
+            $amount = $row['Amount'];
+            
+            
+            ?>
+            <tbody>
+            <tr>
+            <td>
+                # <?php echo $id; ?>
+            </td>
+            <td>
+                  <?php echo $transcationNumber; ?>
+            </td>
+            <td>
+                  <?php echo $firstname; ?>
+            </td>
+            <td>
+                  <?php echo $lastname; ?>
+            </td>
+            <td>
+                  <?php echo $amount; ?>
+            </td>
+            </td>
+            <td>
+            <button data-target="#view<?php echo $id;?>" class="button is-success is-small modal-button"  id="btn_delete" name="acnt_view"><i class="far fa-eye"></i>
+            </button>
+            <?php
+                include 'Buttons/salesViewModal.php';
+            ?>
+            </td>
+            
             </tr>
-                       
+      
+            <?php 
+          }  
+        }        
+        ?>
 
       </tbody>
     </table>

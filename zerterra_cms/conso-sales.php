@@ -6,11 +6,9 @@ if(!isset($_SESSION["admin"]))
 }
 include '../PagesFunction/connection.php';
 
-include 'Buttons/requestButtonFunction.php';
+//include 'Buttons/requestButtonFunction.php';
 
 ?>
-
-
 
 
 <!DOCTYPE html>
@@ -24,16 +22,14 @@ include 'Buttons/requestButtonFunction.php';
 <link rel="icon" href="../images/plainlogo.png" type="image/x-icon" />
 <!-- <link href="assets/css/bulma-calendar.min.css" rel="stylesheet">
 <script src="/assets/js/bulma-calendar.min.js"></script> -->
-
-
 <!-- <link rel="stylesheet" href="sass/request.css"> -->
 <link rel="stylesheet" href="sass/conso.css">
 <body>
 
-  <?php
-  include 'Pages/requestViewPage.php'; 
+<?php
+  include 'Pages/consosalesViewPage.php'; 
   include 'admin-header.php';
-//   include 'Buttons/requestSearch.php'
+  include 'Buttons/consosalesSearch.php';
   ?>
 
 
@@ -87,26 +83,82 @@ include 'Buttons/requestButtonFunction.php';
          <table class = "table">
           <thead>
            <tr>
-            <th>Order #</th>
+            <th>#</th>
+            <th>Trans #</th>
             <th>Firstname</th>
             <th>Lastname</th>
             <th>Email</th>
             <th>Contact</th>
             <th>Amount</th>
             <th>Vat</th>
-            <th>Date-Purchased</th>
+            <th>Date Purchased</th>
 
    
         </tr>
       </thead>
 
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
+      <?php 
+
+          if (isset($_POST['search_btn'])){
+            $searchValue = $_POST['searchValue'];
+
+            if ($searchValue===''){
+              echo '<script>window.location.href="?"</script>';
+            }else{
+             include 'searchFunction/consosearchSalesFunction.php';
+           }
+         }else{     
+          $sql = "SELECT * FROM tblsales_list  ORDER BY id DESC LIMIT $offset, $no_of_records_per_page";
+          $res_data = $con->query($sql);
+          while($row = mysqli_fetch_array($res_data)){
+            $id = $row['id'];
+            $transcationNumber = $row['TransactionNumber'];
+            $firstname = $row['Firstname'];
+            $lastname = $row['Lastname'];
+            $email = $row['Email'];
+            $contact = $row['Contact'];
+            $amount = $row['Amount'];
+            $vat = $row['Vat'];
+            $datePurchased = $row['Date_Purchased'];
+            ?>
+            <tbody>
+            <tr>
+            <td>
+                # <?php echo $id; ?>
+            </td>
+            <td>
+                  <?php echo $transcationNumber; ?>
+            </td>
+            <td>
+                  <?php echo $firstname; ?>
+            </td>
+            <td>
+                  <?php echo $lastname; ?>
+            </td>
+            <td>
+                  <?php echo $email; ?>
+            </td>
+            <td>
+                  <?php echo $contact; ?>
+            </td>
+            <td>
+                  <?php echo $amount; ?>
+            </td>
+            <td>
+                  <?php echo $vat; ?>
+            </td>
+            <td>
+                  <?php echo $datePurchased; ?>
+            </td>
+            
 
             </tr>
-                       
+        
+            
+            <?php 
+          }  
+        }        
+        ?>
 
       </tbody>
     </table>
@@ -183,7 +235,7 @@ include 'Buttons/requestButtonFunction.php';
 
 
 <!-- Modal -->
-  <?php
+                        <?php
                         include 'ordersModal.php';
                         ?>
                         

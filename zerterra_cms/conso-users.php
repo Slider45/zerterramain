@@ -31,9 +31,9 @@ include 'Buttons/requestButtonFunction.php';
 <body>
 
   <?php
-  include 'Pages/requestViewPage.php'; 
+  include 'Pages/consousersViewPage.php'; 
   include 'admin-header.php';
-//   include 'Buttons/requestSearch.php'
+  include 'Buttons/consousersSearch.php';
   ?>
 
 
@@ -95,20 +95,73 @@ include 'Buttons/requestButtonFunction.php';
             <th>Remaining Days</th>
             <th>Date-Registered</th>
             <th>Date-Expired</th>
-
-
-   
         </tr>
       </thead>
 
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
+      <?php 
 
-            </tr>
-                       
+            if (isset($_POST['search_btn'])){
+              $searchValue = $_POST['searchValue'];
 
+              if ($searchValue===''){
+                echo '<script>window.location.href="?"</script>';
+              }else{
+              include 'searchFunction/consosearchUsersFunction.php';
+            }
+            }else{     
+            $sql = "SELECT * FROM tblusers ORDER BY id DESC LIMIT $offset, $no_of_records_per_page";
+            $res_data = $con->query($sql);
+            while($row = mysqli_fetch_array($res_data)){
+              $id = $row['id'];
+              $serialNumber = $row['SerialNumber'];
+              $firstname = $row['Firstname'];
+              $lastname = $row['Lastname'];
+              $email = $row['Email'];
+              $contact = $row['Contact'];
+              $rdays = $row['RemainingDays'];
+              $dateRegister = $row['DateRegistered'];
+              $dateExpired = $row['DateExpired'];
+              
+
+              
+              ?>
+              <tbody>
+              <tr>
+              <td>
+                  # <?php echo $id; ?>
+              </td>
+              <td>
+                    <?php echo $serialNumber; ?>
+              </td>
+              <td>
+                    <?php echo $firstname; ?>
+              </td>
+              <td>
+                    <?php echo $lastname; ?>
+              </td>
+              <td>
+                    <?php echo $email; ?>
+              </td>
+              <td>
+                    <?php echo $contact; ?>
+              </td>
+              <td>
+                    <?php echo $rdays; ?>
+              </td>
+              <td>
+                    <?php echo $dateRegister; ?>
+              </td>
+              <td>
+                    <?php echo $dateExpired; ?>
+              </td>
+              
+              </tr>
+
+              
+              <?php 
+            }  
+            }        
+            ?>
       </tbody>
     </table>
     <nav class="pagination is-small" role="navigation" aria-label="pagination">

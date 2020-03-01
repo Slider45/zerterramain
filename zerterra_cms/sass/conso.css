@@ -5,7 +5,7 @@ html, body {
 
 #content {
   height: 410px;
-  width: 80%;
+  width: 60%;
   border-radius: 5px;
   background-color: #f1f2f6;
 }
@@ -60,6 +60,7 @@ html, body {
 #startD, #endD {
   margin-left: 10px;
   font-size: 10pt;
+  font-family: Montserrat;
 }
 
 .is-1 {
@@ -195,7 +196,7 @@ html, body {
   font-size: 35px;
   color: #333;
   font-weight: bold;
-  border-left: solid #fcc174 6px;
+  border-left: solid #99cc67 6px;
   padding-left: 10px;
   height: 50px;
   border-radius: 0;
@@ -269,7 +270,7 @@ html, body {
 }
 
 thead th {
-  background-color: #fcc174;
+  background-color: #99cc67;
   border-right-width: 5px;
   color: white !important;
 }

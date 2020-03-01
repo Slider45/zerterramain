@@ -27,7 +27,7 @@ include 'Buttons/requestButtonFunction.php';
 
 
 <!-- <link rel="stylesheet" href="sass/request.css"> -->
-<link rel="stylesheet" href="sass/conso.css">
+<link rel="stylesheet" href="sass/consoUsers.css">
 <body>
 
   <?php
@@ -58,7 +58,7 @@ include 'Buttons/requestButtonFunction.php';
     <div class="w3-container">
       <div class="columns">
         <div class="column">
-          <h1 class="button-category">SALES</h1>
+          <h1 class="button-category">USERS</h1>
         </div>
       </div>
 
@@ -86,10 +86,12 @@ include 'Buttons/requestButtonFunction.php';
          <table class = "table">
           <thead>
            <tr>
-            <th>#</th>
+            <th>Serial #</th>
             <th>Firstname</th>
             <th>Lastname</th>
-            <th>Amount</th>
+            <th>Start-Date</th>
+            <th>End-Date</th>
+            <th>Remaining Days</th>
 
    
         </tr>
@@ -173,10 +175,7 @@ include 'Buttons/requestButtonFunction.php';
 
 
 <!-- Modal -->
-
-
-
-    <?php
+<?php
 include 'ordersModal.php';
 ?>
 
@@ -185,6 +184,8 @@ include 'ordersModal.php';
 include 'consolidate.php';
 ?>
 
+
+  
 
 
 

@@ -82,6 +82,21 @@ html, body {
   font-size: 11pt;
 }
 
+#home {
+  position: fixed;
+  width: 50px;
+  height: 50px;
+  background: #a5d547;
+  bottom: 100px;
+  right: 50px;
+  text-decoration: none;
+  text-align: center;
+  line-height: 50px;
+  color: white;
+  font-size: 22px;
+  border-radius: 30px;
+}
+
 .navbar {
   background-color: white;
   color: #333;
@@ -196,7 +211,7 @@ html, body {
   font-size: 35px;
   color: #333;
   font-weight: bold;
-  border-left: solid #fcc174 6px;
+  border-left: solid #99cc67 6px;
   padding-left: 10px;
   height: 50px;
   border-radius: 0;
@@ -270,7 +285,7 @@ html, body {
 }
 
 thead th {
-  background-color: #fcc174;
+  background-color: #99cc67;
   border-right-width: 5px;
   color: white !important;
 }
@@ -314,6 +329,100 @@ html, body {
   background-color: #f2f1f6;
 }
 
+#content {
+  height: 410px;
+  width: 60%;
+  border-radius: 5px;
+  background-color: #f1f2f6;
+}
+
+.w3-card-4 {
+  border-radius: 8px;
+}
+
+#card-con {
+  height: 320px;
+  width: 100%;
+  margin-top: 50px;
+  border-radius: 8px;
+}
+
+#card-con:hover {
+  border: solid 1px;
+}
+
+.w3-display-topright {
+  border-radius: 8px;
+}
+
+.w3-display-topright:hover {
+  background-color: #f1f2f6 !important;
+}
+
+#text1 {
+  font-family: Montserrat;
+  font-weight: bold;
+  font-size: 18pt;
+  margin-top: 60%;
+  color: white;
+}
+
+#dateTime {
+  height: 30px;
+  margin: 10px;
+  font-size: 14pt;
+  font-family: Montserrat;
+  border: none;
+  margin-left: 5px;
+}
+
+#cal {
+  background-color: #ffffff;
+  font-size: 14pt;
+  padding: 5px;
+  margin-left: 10px;
+}
+
+#startD, #endD {
+  margin-left: 10px;
+  font-size: 10pt;
+  font-family: Montserrat;
+}
+
+.is-1 {
+  text-align: center;
+  padding-top: 32px;
+  width: 50px !important;
+}
+
+#base {
+  margin: 0;
+  margin-bottom: 20px;
+  margin-left: 10px;
+  padding: 0;
+  height: 50px;
+}
+
+#filter {
+  margin-top: 12px;
+  font-size: 11pt;
+}
+
+#home {
+  position: fixed;
+  width: 50px;
+  height: 50px;
+  background: #4cc5db;
+  bottom: 100px;
+  right: 50px;
+  text-decoration: none;
+  text-align: center;
+  line-height: 50px;
+  color: white;
+  font-size: 22px;
+  border-radius: 30px;
+}
+
 .navbar {
   background-color: white;
   color: #333;
@@ -428,7 +537,7 @@ html, body {
   font-size: 35px;
   color: #333;
   font-weight: bold;
-  border-left: solid #f7de62 6px;
+  border-left: solid #4cc5db 6px;
   padding-left: 10px;
   height: 50px;
   border-radius: 0;
@@ -488,19 +597,12 @@ html, body {
   width: 400px;
   font-size: 16pt;
   padding: 5px;
-  font-family: Montserrat;
-  font-weight: bold;
+  font-family: montserrat;
 }
 
 #search {
   background-color: transparent;
   border: none;
-}
-
-#search-btn {
-  padding-top: 15px;
-  border: none;
-  background-color: transparent;
 }
 
 .section {
@@ -509,8 +611,9 @@ html, body {
 }
 
 thead th {
-  background-color: #f7de62;
+  background-color: #4cc5db;
   border-right-width: 5px;
+  color: white !important;
 }
 
 .table {
@@ -535,7 +638,7 @@ table, th, td {
 #card-pending, #card-approve {
   border: solid 2px;
   margin-top: 15px;
-  border-radius: 10px;
+  border-radius: 8px;
   width: 400px;
   height: 130px;
 }
@@ -546,19 +649,4 @@ table, th, td {
   padding-left: 50%;
   font-family: montserrat;
 }
-
-#btn-add {
-  font-weight: bold;
-}
-
-#label {
-  font-weight: bold;
-  padding-top: 20px;
-  padding-right: 0;
-  font-family: Montserrat;
-}
-
-#txtbox {
-  padding-left: 0;
-}
-/*# sourceMappingURL=admin.css.map */
+/*# sourceMappingURL=consoUsers.css.map */

@@ -4,10 +4,9 @@ if(!isset($_SESSION["admin"]))
 {
  header("location:../Log-in.php");
 }
-$connect = mysqli_connect("localhost", "root", "", "zerterra_db");  
-$query = "SELECT * FROM tblsales_list ORDER BY Date_Purchased desc";  
-$result = mysqli_query($connect, $query);
+include '../PagesFunction/connection.php';
 
+include 'Buttons/requestButtonFunction.php';
 
 ?>
 
@@ -16,7 +15,7 @@ $result = mysqli_query($connect, $query);
 
 <!DOCTYPE html>
 <html>
-<title>Sales</title>
+<title>Consolidate/sales</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css">
@@ -28,14 +27,13 @@ $result = mysqli_query($connect, $query);
 
 
 <!-- <link rel="stylesheet" href="sass/request.css"> -->
-<link rel="stylesheet" href="sass/conso.css">
-<link rel="stylesheet" href="sass/sales.css">
+<link rel="stylesheet" href="sass/consoUsers.css">
 <body>
 
-<?php
-  include 'Pages/salesViewPage.php'; 
+  <?php
+  include 'Pages/requestViewPage.php'; 
   include 'admin-header.php';
-  include 'Buttons/salesSearch.php';
+//   include 'Buttons/requestSearch.php'
   ?>
 
 
@@ -47,8 +45,8 @@ $result = mysqli_query($connect, $query);
   <a href="users.php" class="w3-bar-item w3-button" id="item-hover"><i class="fas fa-user"></i> &nbsp Users</a>
   <a class="w3-bar-item w3-button w3-dropdown-hover modal-button" id="sendmodal" data-target="#ordersModal" aria-haspopup="true"><i class="fas fa-cubes"></i> &nbsp Orders</a>
   <a href="request.php" class="w3-bar-item w3-button" id="item-hover"><i class="fas fa-envelope-open-text"></i> &nbsp Request</a>
-  <a href="sales.php" class="w3-bar-item w3-button" id="dashboard"><i class="fas fa-hand-holding-usd"></i> &nbsp Sales</a>
-  <button onclick="document.getElementById('id01').style.display='block'" href="consolidate.php" class="w3-bar-item w3-button" id="item-hover" ><i class="fas fa-print"></i> &nbsp Consolidate</button>
+  <a href="sales.php" class="w3-bar-item w3-button" id="item-hover"><i class="fas fa-hand-holding-usd"></i> &nbsp Sales</a>
+  <button onclick="document.getElementById('id01').style.display='block'" href="consolidate.php" class="w3-bar-item w3-button" id="dashboard" ><i class="fas fa-print"></i> &nbsp Consolidate</button>
 </div>
 
   <div class="w3-main" style="margin-left:200px">
@@ -56,11 +54,12 @@ $result = mysqli_query($connect, $query);
       <button class="w3-button w3-teal w3-xlarge w3-hide-large" onclick="w3_open()">&#9776;</button>
     </div>
 
+    <a href="print/usersPrint.php"><button  class="button" id="home" ><i class="fas fa-print"></i> </button></a> 
 
     <div class="w3-container">
       <div class="columns">
         <div class="column">
-          <h1 class="button-category">SALES</h1>
+          <h1 class="button-category">USERS</h1>
         </div>
       </div>
 
@@ -88,10 +87,15 @@ $result = mysqli_query($connect, $query);
          <table class = "table">
           <thead>
            <tr>
-            <th>#</th>
+            <th>Serial #</th>
             <th>Firstname</th>
             <th>Lastname</th>
-            <th>Amount</th>
+            <th>Email</th>
+            <th>Contact</th>
+            <th>Remaining Days</th>
+            <th>Date-Registered</th>
+            <th>Date-Expired</th>
+
 
    
         </tr>
@@ -175,15 +179,14 @@ $result = mysqli_query($connect, $query);
 
 
 <!-- Modal -->
-  <?php
-                        include 'ordersModal.php';
-                        ?>
-                        
-                        
-                        <?php
-                        include 'consolidate.php';
-                        ?>
-                        
+<?php
+include 'ordersModal.php';
+?>
+
+
+<?php
+include 'consolidate.php';
+?>
 
 
   

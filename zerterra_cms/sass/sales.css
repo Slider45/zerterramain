@@ -5,7 +5,7 @@ html, body {
 
 #content {
   height: 410px;
-  width: 80%;
+  width: 60%;
   border-radius: 5px;
   background-color: #f1f2f6;
 }
@@ -43,10 +43,43 @@ html, body {
 
 #dateTime {
   height: 30px;
-  border: solid 1px;
   margin: 10px;
-  border-radius: 5px;
   font-size: 14pt;
+  font-family: Montserrat;
+  border: none;
+  margin-left: 5px;
+}
+
+#cal {
+  background-color: #ffffff;
+  font-size: 14pt;
+  padding: 5px;
+  margin-left: 10px;
+}
+
+#startD, #endD {
+  margin-left: 10px;
+  font-size: 10pt;
+  font-family: Montserrat;
+}
+
+.is-1 {
+  text-align: center;
+  padding-top: 32px;
+  width: 50px !important;
+}
+
+#base {
+  margin: 0;
+  margin-bottom: 20px;
+  margin-left: 10px;
+  padding: 0;
+  height: 50px;
+}
+
+#filter {
+  margin-top: 12px;
+  font-size: 11pt;
 }
 
 .navbar {
@@ -163,7 +196,7 @@ html, body {
   font-size: 35px;
   color: #333;
   font-weight: bold;
-  border-left: solid #fcc174 6px;
+  border-left: solid #99cc67 6px;
   padding-left: 10px;
   height: 50px;
   border-radius: 0;
@@ -237,7 +270,7 @@ html, body {
 }
 
 thead th {
-  background-color: #fcc174;
+  background-color: #99cc67;
   border-right-width: 5px;
   color: white !important;
 }
@@ -395,7 +428,7 @@ html, body {
   font-size: 35px;
   color: #333;
   font-weight: bold;
-  border-left: solid #fcc174 6px;
+  border-left: solid #85c184 6px;
   padding-left: 10px;
   height: 50px;
   border-radius: 0;
@@ -469,7 +502,7 @@ html, body {
 }
 
 thead th {
-  background-color: #fcc174;
+  background-color: #85c184;
   border-right-width: 5px;
 }
 

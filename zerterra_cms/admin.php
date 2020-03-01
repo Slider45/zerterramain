@@ -210,5 +210,6 @@ include 'consolidate.php';
         wme.printf();
         wme.close();
     }
+  </script>
 </body>
 </html>

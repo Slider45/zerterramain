@@ -54,7 +54,7 @@ include '../PagesFunction/connection.php';
   <a class="w3-bar-item w3-button w3-dropdown-hover modal-button" id="sendmodal" data-target="#ordersModal" aria-haspopup="true"><i class="fas fa-cubes"></i> &nbsp Orders</a>
   <a href="request.php" class="w3-bar-item w3-button" id="item-hover"><i class="fas fa-envelope-open-text"></i> &nbsp Request</a>
   <a href="sales.php" class="w3-bar-item w3-button" id="item-hover"><i class="fas fa-hand-holding-usd"></i> &nbsp Sales</a>
-  <a href="consolidate.php" class="w3-bar-item w3-button" id="item-hover"><i class="fas fa-print"></i> &nbsp Consolidate</a>
+  <button onclick="document.getElementById('id01').style.display='block'" href="consolidate.php" class="w3-bar-item w3-button" id="item-hover"  ><i class="fas fa-print"></i> &nbsp Consolidate</button>
 </div>
 
 <?php
@@ -239,6 +239,11 @@ if (mysqli_num_rows($result01) > 0)
 <!-- modal oders -->
 <?php
 include 'ordersModal.php';
+?>
+
+<!-- consolidate -->
+<?php
+include 'consolidate.php';
 ?>
 
 </div>

@@ -1,12 +1,11 @@
 <?php
 session_start();
 
-$fname = $_SESSION["fname"] ;
-$lname = $_SESSION['lname'] ;
-$email = $_SESSION['email'] ;
-$subject = $_SESSION['subject'] ;
-$message = $_SESSION['msg_body'] ;
-
+$fname = $_GET["fname"] ;
+$lname = $_GET['lname'] ;
+$email = $_GET['email'] ;
+$subject = $_GET['email_subject'] ;
+$message = $_GET['message'] ;
 
 
 ?>

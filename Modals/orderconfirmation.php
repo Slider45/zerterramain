@@ -3,12 +3,12 @@
 session_start();
 include '../PagesFunction/connection.php';
 // $orderNum = $_GET['SerialNumber'];
-$fname = $_GET['first_name'];
-$lname = $_GET['last_name'];
-$email = $_GET['email'];
-$contact = $_GET['contactnumber'];
-$address = $_GET['address'];
-$message = $_GET['message'];
+$fname_order = $_GET['fname_order'];
+$lname_order = $_GET['lname_order'];
+$email_order = $_GET['email_order'];
+$contact_order = $_GET['contact_order'];
+$address_order = $_GET['address_order'];
+$message_order = $_GET['message_order'];
 
 $sql = "SELECT id FROM pending_order_list";
 $result=mysqli_query($con,$sql);
@@ -61,7 +61,7 @@ $orderNum=date("Ymd-His-") . 0 .$pendingCount;
     <div class="modal-background"></div>
     <div class="modal-card">
       <header class="modal-card-head is-success">
-        <p class="modal-card-title">CUSTOMER INFORMATION</p>
+        <p class="modal-card-title">PRE-ORDER CONFIRMATION</p>
         <a href="../index.php"><button class="delete" id="closeMdl"aria-label="close"></button></a>
       </header>
       <section class="modal-card-body">
@@ -77,16 +77,16 @@ $orderNum=date("Ymd-His-") . 0 .$pendingCount;
 
 
 
-        $sql="SELECT * FROM tblusers WHERE Email='$email'";
+        $sql="SELECT * FROM pending_order_list WHERE Email='$email_order'";
         $result = $con->query($sql);
 
-        if ( $result->num_rows > 0) {
+        if ( $result->num_rows > 2) {
           ?>
 
           <!-- modal here -->
           <div class="notification is-danger alert">
             <center>
-             <strong>EMAIL ALREADY TAKEN.<br>PLEASE CHECK YOUR SERIAL NUMBER!</strong> 
+             <strong>TOO MANY PRE-ORDER FOUND IN YOUR EMAIL<br>WE WILL CONTACT YOU AS SOON US OUR SALE REPRESENTATIVE IS AVAILABLE!<br>FOR BULK YOU MAY SEND AS AN EMAIL AT<br>support@zerterra.com</strong> 
            </center>
          </div>
 
@@ -100,35 +100,7 @@ $orderNum=date("Ymd-His-") . 0 .$pendingCount;
 
 
 
-  <?php
-}else{
-
- $sqlorder = "SELECT * FROM pending_order_list WHERE Email= '$email' AND is_approved = '0'";
- $orderResult = $con->query($sqlorder);
-
- if ($orderResult->num_rows > 2) {
-  ?>
-
-  <!-- modal here -->
-
-  <div class="notification is-danger alert" style="background-color: #feecf0;color: #cc0f35">
-    <center>
-      TOO MANY PRE-ORDER FOUND IN<br>
-      EMAIL ADDRESS<br>
-      <strong class="is-size-4"><?php echo $email; ?></strong> <br>
-      WE WILL CONTACT YOU AS SOON US OUR SALE REPRESENTATIVE IS AVAILABLE!
-      <br><br>
-      THANK YOU FOR TRUSTING ZERTERRA
-    </center>
-  </div>
-
-</section>
-<footer class="modal-card-foot" >
-  <a href="../index.php"><button class="button is-success" style="font-family: Montserrat;"><i class="fas fa-arrow-left"></i>&nbspBACK</button></a>
-</footer>
-</div>
-</div>
-
+  
 <!-- end modal -->
 <?php
 
@@ -137,7 +109,7 @@ $orderNum=date("Ymd-His-") . 0 .$pendingCount;
 
 
 
- <form action="OrderNumber.php" method="POST" accept-charset="utf-8">
+ <form action="orderconfirmation.php" method="POST" accept-charset="utf-8">
   <center>
 
 
@@ -148,24 +120,25 @@ $orderNum=date("Ymd-His-") . 0 .$pendingCount;
      <div class="columns">
       <div class="column is-3">
         <div class="control">
-         <input  class="input is-primary" id="input" type="text" name="fname" value="Firstname :">
-         <input  class="input is-primary" id="input" type="text" name="fname" value="Lastname :">
-         <input  class="input is-primary" id="input" type="text" name="fname" value="Email :">
-         <input  class="input is-primary" id="input" type="text" name="fname" value="Contact :">
-         <input  class="input is-primary" id="input" type="text" name="fname" value="Address :">
-         <input  class="input is-primary" id="input" type="text" name="fname" value="Message :">
+
+         <input  class="input is-primary" id="input" type="text"  value="Firstname :">
+         <input  class="input is-primary" id="input" type="text"  value="Lastname :">
+         <input  class="input is-primary" id="input" type="text" value="Email :">
+         <input  class="input is-primary" id="input" type="text"  value="Contact :">
+         <input  class="input is-primary" id="input" type="text" value="Address :">
+         <input  class="input is-primary" id="input" type="text"  value="Message :">
        </div>
      </div>
      <div class="column is-9">
       <div class="field" >
        <div class="control">
-         <input  class="input is-primary" id="input" type="text" name="fname" value="<?php echo $orderNum; ?>" readonly>
-         <input  class="input is-primary" id="input" type="text" name="fname" value="<?php echo $fname; ?>" readonly>
-         <input  class="input is-primary" id="input" type="text" name="lname" value="<?php echo $lname; ?>" readonly>
-         <input  class="input is-primary" id="input" type="text" name="email" value="<?php echo $email; ?>" readonly>
-         <input  class="input is-primary" id="input" type="text" name="contact" value="<?php echo $contact; ?>" readonly>
-         <input  class="input is-primary" id="input" type="text" name="address" value="<?php echo $address; ?>" readonly> 
-         <input  class="input is-primary" id="input" type="textarea" name="message" value="<?php echo $message; ?>" readonly>
+         <input  class="input is-primary" id="input" type="hidden" name="orderNum_order" value="<?php echo $orderNum_order; ?>" readonly>
+         <input  class="input is-primary" id="input" type="text" name="fname_order" value="<?php echo $fname_order; ?>" readonly>
+         <input  class="input is-primary" id="input" type="text" name="lname_order" value="<?php echo $lname_order; ?>" readonly>
+         <input  class="input is-primary" id="input" type="text" name="email_order" value="<?php echo $email_order; ?>" readonly>
+         <input  class="input is-primary" id="input" type="text" name="contact_order" value="<?php echo $contact_order; ?>" readonly>
+         <input  class="input is-primary" id="input" type="text" name="address_order" value="<?php echo $address_order; ?>" readonly> 
+         <input  class="input is-primary" id="input" type="textarea" name="message_order" value="<?php echo $message_order; ?>" readonly>
        </div>
      </div>
    </div>
@@ -186,7 +159,7 @@ $orderNum=date("Ymd-His-") . 0 .$pendingCount;
 
 </section>
 <footer class="modal-card-foot" >
-  <a href="../"><button class="button is-success" name="sendOrder" style="font-family: Montserrat;"><i class="far fa-thumbs-up"></i>&nbspCONFIRM</button></a>
+  <a href="../index.php"><button class="button is-success" name="sendOrder" style="font-family: Montserrat;"><i class="far fa-thumbs-up"></i>&nbspCONFIRM</button></a>
 </footer>
 </form>
 </div>
@@ -196,10 +169,10 @@ $orderNum=date("Ymd-His-") . 0 .$pendingCount;
 
 // }
 }
-}
 
 
 include '../PagesFunction/query_orders.php';
+
 
 ?>
 

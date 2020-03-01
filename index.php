@@ -190,7 +190,7 @@ include 'PagesFunction/connection.php';
     </p>
     <button class="button1" id="showModal3">ORDER NOW</button>
 
-    <form action="Modals/order_confirmation.php" method="GET" accept-charset="utf-8">
+    <form action="Modals/orderconfirmation.php" method="GET" accept-charset="utf-8">
      <div class="container" id="app">
       <div id="orderModal" class="modal">
         <div class="modal-background"></div>
@@ -205,16 +205,16 @@ include 'PagesFunction/connection.php';
 
             <div class="field">   
              <div class="control">
-              <input class="input1" name="first_name" type="text" placeholder="Firstname" required="">
+              <input class="input1" name="fname" type="text" placeholder="Firstname" required="">
             </div>
             <div class="control">
-              <input class="input1" name="last_name" type="text" placeholder="Lastname" required="">
+              <input class="input1" name="lname" type="text" placeholder="Lastname" required="">
             </div>
             <div class="control">
               <input class="input1" name="email" type="email" placeholder="Email" required="">
             </div>
             <div class="control">
-              <input type="number" maxlength="13" class="input1" name="contactnumber" placeholder="Contact Number" required="">
+              <input type="number" maxlength="13" class="input1" name="contact" placeholder="Contact Number" required="">
             </div>
             <div>
              <input class="input1" name="address" type="text" placeholder="Address" required="">

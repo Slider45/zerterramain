@@ -190,7 +190,7 @@ include 'PagesFunction/connection.php';
     </p>
     <button class="button1" id="showModal3">ORDER NOW</button>
 
-    <form class="" method="post">
+    <form action="Modals/order_confirmation.php" method="GET" accept-charset="utf-8">
      <div class="container" id="app">
       <div id="orderModal" class="modal">
         <div class="modal-background"></div>
@@ -224,7 +224,7 @@ include 'PagesFunction/connection.php';
           <textarea class="textarea1" name="message" placeholder="Message"></textarea>
         </div>
         <div></div>
-        <button  class="btn" id="SendOrder" name="sendOrder" type="submit">ORDER NOW&nbsp&nbsp<i class="fas fa-paper-plane"></i></button>
+        <button  class="btn" id="SendOrder" name="OrderNumber" type="submit">ORDER NOW&nbsp&nbsp<i class="fas fa-paper-plane"></i></button>
         <div></div>
       </section>
     </div>
@@ -244,14 +244,6 @@ include 'PagesFunction/connection.php';
 
 
 
-<?php
-
-
-if (isset($_POST['sendOrder'])) {
-  include 'PagesFunction/query_orders.php';
-
-}
-?>
 
 
 

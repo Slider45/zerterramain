@@ -1,109 +1,88 @@
 <?php
+use PHPMailer\PHPMailer\PHPMailer;
+
+if (isset($_POST['sendOrder'])) {
 
 
 
-$sql = "SELECT id FROM pending_order_list";
-$result=mysqli_query($con,$sql);
-$pendingCount=mysqli_num_rows($result);
-$pendingCount++;
+
+  $sql = "SELECT id FROM pending_order_list";
+  $result=mysqli_query($con,$sql);
+  $pendingCount=mysqli_num_rows($result);
+  $pendingCount++;
 
 
-$orderNum=date("Ymd-His-") . 0 .$pendingCount;
+  $orderNum=date("Ymd-His-") . 0 .$pendingCount;
 
-$email_to = "admin@zerterra.com";
-$email_subject = "Email subject";
-    $first_name = $_POST['first_name']; // required
-    $last_name = $_POST['last_name']; 
+
+
+  $headers[] = 'MIME-Version: 1.0';
+  $headers[] = 'Content-type: text/html; charset=iso-8859-1';
+
+
+
+
+
+  include_once "PHPMailer/PHPMailer.php";
+
+  $email_to = "admin@zerterra.com";
+  $email_subject = "Email subject";
+
+
+    $fname = $_POST['fname']; // required
+    $lname = $_POST['lname']; 
     $email_from = $_POST['email']; // required
-    $contactnumber = $_POST['contactnumber']; // not required
+    $contact = $_POST['contact']; // not required
     $address = $_POST['address']; // required
     $message = $_POST['message']; // required
 
-    $sql = "INSERT INTO pending_order_list(OrderNumber,Firstname,Lastname,Email,Contact,Address,Message) VALUES ('$orderNum','$first_name','$last_name','$email_from','$contactnumber','$address','$message')";
 
-    if($con->query($sql) === TRUE){
+    $mail = new PHPMailer();
+    $mail->setFrom($email);
+    $mail->addAddress($email_to_support);
+    $mail->Subject = $email_subject;
+    $mail->isHTML(true);
+    $mail->Body ="PRE-ORDER EMAIL FROM \r\n EMAIL:
+    $email.\r\n FIRSTNAME:  $first_name .\r\n LASTNAME:  $last_name.\r\nCONTACT:  $contact .\r\nADDRESS:  $address.\r\n MESSAGE: $message";
+    $mail->Header = implode("\r\n". $headers);
+
+    if ($mail->send()){
+
+      $subject_from_support = "Pre-Order\t[" . $orderNum . "]";
+      $mailfromsupport = new PHPMailer();
+      $mailfromsupport->setFrom("no-reply@zerterra.com");
+      $mailfromsupport->addAddress($email);
+      $mailfromsupport->Subject = $subject_from_support;
+      $mailfromsupport->isHTML(true);
+      $mailfromsupport->Body = "
+      Please CLICK the link below for PRE-ORDER DETAILS:<br><br>
+
+      <a href='http://zerterra.com/content/Pre-Order_Details.php?SerialNumber=$SNumber&Fname=$fname&Lname=$lname&email=$email_from&contactNum=contact&address=$address&OrderNumber=$orderNum'>Click Here</a>
+      ";
+      $mailfromadmin->Header = implode("\r\n", $headers);
+
+      if ($mailfromadmin->send()){
 
 
+        $cmdsql= "INSERT INTO pending_order_list(OrderNumber,Firstname,Lastname,Email,Contact,Address,Message,is_approved) VALUES ('$orderNum','$fname','$lname','$email_from','$contact','$address','$message')";        
+        if($con->query($cmdsql) === TRUE)
+        {
+          echo "<script>alert('Return Mail Sent!'); </script>";
 
 
-
-      function clean_string($string)
-      {
-        $bad = array("content-type", "bcc:", "to:", "cc:", "href");
-        return str_replace($bad, "", $string);
-      }
-
-      $email_message = "Pre-Order details below.\n\n";
-      $email_message .= "Email: " . clean_string($email_from) . "\n";
-      $email_message .= "First Name: " . clean_string($first_name) . "\n";
-      $email_message .= "Last Name: " . clean_string($last_name) . "\n";
-      $email_message .= "Contact number: " . clean_string($contactnumber) . "\n";
-      $email_message .= "Address: " . clean_string($address) . "\n";
-      $email_message .= "Message: " . clean_string($message) . "\n";
-      
-    // create email headers
-      $headers = 'From: ' . $email_to . "\r\n" .
-      'Reply-To: ' . $email_from . "\r\n" .
-    	// 'X-Mailer: PHP/' . phpversion();
-      $mail = mail($email_to, $email_subject, $email_message, $headers);
-      if( $mail === true ) {
-
-        if(($Content = file_get_contents("content/PreOrderReturnMailContent.php")) === false) {
-          $Content = "";
+        }else{
+          echo "<script>alert('QUERY FAILED!'); </script>";
         }
-        $headers[] = 'MIME-Version: 1.0';
-        $headers[] = 'Content-type: text/html; charset=iso-8859-1';
-        
-        $subject = "PRE-ORDER (ORDER #: [ " . $orderNum . " ])";
-
-        
-        $_SESSION["orderNum"] = $orderNum; 
-
-        include 'content/PreOrderReturnMailContent.php';
-
-        include_once "PHPMailer/PHPMailer.php";
-
-        $mail = new PHPMailer();
-        $mail->setFrom('no-reply@zerterra.com');
-        $mail->addAddress($email_from, $first_name);
-        $mail->Subject = $subject ;
-        $mail->isHTML(true);
-
-        $mail->Body=$Content;
-        $mail->Header = implode("\r\n", $headers);
-
-
-
-
-
-
-
-
-
       }else{
 
-
-        echo "<script>alert('Message not sent! Please try again!'); </script>";
-
-
+        echo "<script>alert('Return Mail Not Sent!'); </script>";
       }
+    }else{
 
-    }
-
-
-
+      echo "<script>alert('Sending Request Failed!'); </script>";
 
 
+    }echo '<script>window.location.href="../"</script>';
+  }
 
-    ?>
-    <script>
-
-
-
-
-
-
-
-
-
-    </script>
+  ?>

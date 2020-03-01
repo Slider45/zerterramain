@@ -2,18 +2,20 @@
 <?php
 session_start();
 include '../PagesFunction/connection.php';
-$serialNum = $_GET['SerialNumber'];
-$fname = $_GET['Fname'];
-$lname = $_GET['Lname'];
+// $orderNum = $_GET['SerialNumber'];
+$fname = $_GET['first_name'];
+$lname = $_GET['last_name'];
 $email = $_GET['email'];
-$contact = $_GET['contactNum'];
+$contact = $_GET['contactnumber'];
 $address = $_GET['address'];
+$message = $_GET['message'];
+
  // $serialNum = $_POST['SerialNumber'];
 ?>
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Repair Request</title>
+  <title>Pre-Order</title>
 </head>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -33,7 +35,7 @@ $address = $_GET['address'];
     <div class="modal-background"></div>
     <div class="modal-card">
       <header class="modal-card-head is-success">
-        <p class="modal-card-title">REQUEST DETAIL CONFIRMATION</p>
+        <p class="modal-card-title">CUSTOMER INFORMATION</p>
         <a href="../index.php"><button class="delete" id="closeMdl"aria-label="close"></button></a>
       </header>
       <section class="modal-card-body">
@@ -49,16 +51,16 @@ $address = $_GET['address'];
 
 
 
-        $sql="SELECT * FROM tblusers WHERE SerialNumber='$serialNum'";
+        $sql="SELECT * FROM tblusers WHERE Email='$email'";
         $result = $con->query($sql);
 
-        if ( $result->num_rows < 1) {
+        if ( $result->num_rows > 0) {
           ?>
 
           <!-- modal here -->
           <div class="notification is-danger alert">
             <center>
-             <strong>SERIAL NUMBER NOT REGISTERED.<br>PLEASE CHECK YOUR SERIAL NUMBER!</strong> 
+             <strong>EMAIL ALREADY TAKEN.<br>PLEASE CHECK YOUR SERIAL NUMBER!</strong> 
            </center>
          </div>
 
@@ -75,20 +77,20 @@ $address = $_GET['address'];
   <?php
 }else{
 
- $sqlrequest = "SELECT * FROM request_repair_list WHERE SerialNumber= '$serialNum' AND is_approved = '0'";
- $requestResult = $con->query($sqlrequest);
+ $sqlorder = "SELECT * FROM pending_order_list WHERE Email= '$email' AND is_approved = '0'";
+ $orderResult = $con->query($sqlorder);
 
- if ($requestResult->num_rows > 2) {
+ if ($orderResult->num_rows > 2) {
   ?>
 
   <!-- modal here -->
 
   <div class="notification is-danger alert" style="background-color: #feecf0;color: #cc0f35">
     <center>
-      TOO MANY REQUEST FOUND IN<br>
-      SERIAL NUMBER <br>
-      <strong class="is-size-4"><?php echo $serialNum; ?></strong> <br>
-      WE WILL CONTACT YOU AS SOON US OUR TECHNICAL TEAM IS AVAILABLE!
+      TOO MANY PRE-ORDER FOUND IN<br>
+      EMAIL ADDRESS<br>
+      <strong class="is-size-4"><?php echo $email; ?></strong> <br>
+      WE WILL CONTACT YOU AS SOON US OUR SALE REPRESENTATIVE IS AVAILABLE!
       <br><br>
       THANK YOU FOR TRUSTING ZERTERRA
     </center>
@@ -109,24 +111,35 @@ $address = $_GET['address'];
 
 
 
- <form action="repairconfirmation.php" method="POST" accept-charset="utf-8">
+ <form action="OrderNumber.php" method="POST" accept-charset="utf-8">
   <center>
 
 
 
    <div class="notification is-primary is-light" style = "background-color: #ebfffc;color: #00947e;">
-     <strong> REQUEST REPAIR FOR</strong> <br>
-     Serial # : <strong>
+     <strong> PRE-ORDER FOR</strong> <br>
+  <style>
+    .input, .is-primary{
+      text-align: center;
+      font-family: Montserrat; 
+      width: 75%;
+
+
+    }
+
+
+  </style>
       <div class="field" >
-       <div class="control" style="text-align: center;">
-         <input  class="input" type="text" name="Fname" value="<?php echo $fname; ?>" readonly>
-         <input  class="input" type="text" name="Lname" value="<?php echo $lname; ?>" readonly>
-         <input  class="input" type="text" name="email" value="<?php echo $email; ?>" readonly>
-         <input  class="input" type="text" name="contact" value="<?php echo $contact; ?>" readonly>
-         <input  class="input" type="text" name="address" value="<?php echo $address; ?>" readonly> 
-         <input style="text-align: center; font-family: Montserrat; width: 50%;" class="input is-primary" type="text" name="SNumber" value="<?php echo $serialNum; ?>" readonly> </div>
+       <div class="control">
+         <input  class="input is-primary" type="text" name="fname" value="<?php echo $fname; ?>" readonly>
+         <input  class="input is-primary" type="text" name="lname" value="<?php echo $lname; ?>" readonly>
+         <input  class="input is-primary" type="text" name="email" value="<?php echo $email; ?>" readonly>
+         <input  class="input is-primary" type="text" name="contact" value="<?php echo $contact; ?>" readonly>
+         <input  class="input is-primary" type="text" name="address" value="<?php echo $address; ?>" readonly> 
+         <input  class="input is-primary" type="textarea" name="message" value="<?php echo $message; ?>" readonly></div>
        </div>
-     </strong><br>
+     
+     <br>
      HAS BEEN RECEIVED<br>PLEASE CHECK YOU EMAIL FOR MORE INFO<br>
      OR SEND US AN EMAIL AT<br>support@zerterra.com<br><br>
 
@@ -139,7 +152,7 @@ $address = $_GET['address'];
     PLEASE CLICK CONFIRM
   </section>
   <footer class="modal-card-foot" >
-    <a href="../index.php"><button class="button is-success" name="saveRequest" style="font-family: Montserrat;"><i class="far fa-thumbs-up"></i>&nbspCONFIRM</button></a>
+    <a href="../"><button class="button is-success" name="sendOrder" style="font-family: Montserrat;"><i class="far fa-thumbs-up"></i>&nbspCONFIRM</button></a>
   </footer>
 </form>
 </div>
@@ -152,7 +165,7 @@ $address = $_GET['address'];
 }
 
 
-include '../PagesFunction/query_request.php';
+include '../PagesFunction/query_orders.php';
 
 ?>
 

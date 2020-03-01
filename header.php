@@ -67,7 +67,7 @@ $serialNum = "";?>
 
               </div>
 
-              <form action="Modals/repairconfirmation.php" method="POST" accept-charset="utf-8">
+              <form action="Modals/repairconfirmation.php" method="GET" accept-charset="utf-8">
                 <div class="container" id="app">
                   <div id="repair-modal" class="modal">
                     <div class="modal-background"></div>

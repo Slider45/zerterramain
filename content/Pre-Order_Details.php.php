@@ -18,13 +18,14 @@ $Lname = $_GET['Lname'];
 $email = $_GET['email'];
 $contactNum = $_GET['contactNum'];
 $address = $_GET['address'];
-$sndRequest=$_GET['sndRequest'];
+$OrderNumber =$_GET['OrderNumber'];
+// $sndRequest=$_GET['sndRequest'];
 ?>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <title>REQUEST REPAIR</title>
+    <title>PRE-ORDER</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 </head>
 <body style="margin: 0; padding: 0;">
@@ -35,7 +36,7 @@ $sndRequest=$_GET['sndRequest'];
                     <tr>
                         <td align="center" bgcolor="#6fbf6d" style="padding: 30px 0 20px 0; color: white; font-size: 28px; font-weight: bold; font-family: Montserrat;">
                             <img src="http://zerterra.com/images/plainlogoWhite.png"  style="display: block; width:100%; max-width:150px;" />
-                            <p>REQUEST REPAIR</p>
+                            <p>PRE-ORDER DETAILS</p>
                         </td>
                     </tr>
                     <tr>
@@ -61,8 +62,8 @@ $sndRequest=$_GET['sndRequest'];
                                                             <td>
 
                                                                 <p style=" line-height: 2; font-family: Montserrat;font-weight: bold; font-size:  11pt; text-align:justify;">
-                                                                    we already received your email for the request repair of your machine from our website (zerterra.com)
-                                                                    Please wait while we are processing your
+                                                                    We would like to inform you that we already received your order request from our website (zerterra.com)
+                                                                    Please wait while we are processing your 
                                                                     request. Make sure that all of your informations are correct.
                                                                 </p>
                                                                 <p style="  font-family: Montserrat;font-weight: bold; font-size:  11pt; text-align:justify;"> Thank you</p>
@@ -119,7 +120,7 @@ $sndRequest=$_GET['sndRequest'];
                                                              <div style="color:#4a8169; background-color:#d1d1d1; text-align:center; height:50px; padding-top:30px; font-size:15pt; font-weight:bold;">
                                                                  <?php echo $sndRequest;?>
                                                              </div>
-                                                             <p style="text-align:center; font-family:Montserrat; font-size:10pt;  font-weight:bold;">REQUEST NUMBER</p>
+                                                             <p style="text-align:center; font-family:Montserrat; font-size:10pt;  font-weight:bold;">ORDER NUMBER</p>
                                                          </td>
                                                      </tr>
                                                  </table>

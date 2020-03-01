@@ -1482,5 +1482,13 @@ footer {
   }
 }
 
+.form_error span {
+  width: 80%;
+  height: 35px;
+  margin: 3px 10%;
+  font-size: 1.1em;
+  color: #D83D5A;
+}
+
 /* end footer */
 /*# sourceMappingURL=sass.css.map */

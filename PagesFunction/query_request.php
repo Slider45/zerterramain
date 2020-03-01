@@ -4,9 +4,8 @@ use PHPMailer\PHPMailer\PHPMailer;
 
 if (isset($_POST['saveRequest'])) { 
 
-	if(($Content = file_get_contents("../content/requestMailtoUserContent.php")) === false) {
-		$Content = "";
-	}
+
+
 
 	$sql = "SELECT id FROM request_repair_list ";
 	$result=mysqli_query($con,$sql);
@@ -17,14 +16,6 @@ if (isset($_POST['saveRequest'])) {
 	$requestnum=date("ymd-Hi-") . 0 .$requestCount;
 	
 
-	// $_SESSION['SN'] = $SNumber;
-	// $_SESSION['FN'] = $Fname;
-	// $_SESSION['LN'] = $Lname;
-	// $_SESSION['EM'] = $email;
-	// $_SESSION['CN'] = $contact;
-	// $_SESSION['AD'] = $address;
-	// $_SESSION['RN'] = $requestnum;
-// include '../content/requestMailtoUserContent.php';
 
 	
 
@@ -56,17 +47,27 @@ if (isset($_POST['saveRequest'])) {
 	$mail->isHTML(true);
 	$mail->Body ="REQUESTING FOR REPAIR! FROM  SERIAL #:  $SNumber  .\r\n EMAIL:
 	$email.\r\n FULLNAME:  $fname\t $lname.\r\nCONTACT:  $contact .\r\nADDRESS:  $address.\n";
-	$mail->Header = implode("\r\n"., $headers);
+	$mail->Header = implode("\r\n". $headers);
 
 	if ($mail->send()){
 
-		$subject_from_support = "Request Repair\t" . $requestnum;
+		// $_REQUEST['SNumber']=$SNumber;
+
+		if(($Content = file_get_contents("../content/requestMailtoUserContent.php")) === false) {
+			$Content = "";
+		}
+
+		$subject_from_support = "Request Repair\t[" . $requestnum . "]";
 		$mailfromsupport = new PHPMailer();
 		$mailfromsupport->setFrom("no-reply@zerterra.com");
 		$mailfromsupport->addAddress($email);
 		$mailfromsupport->Subject = $subject_from_support;
 		$mailfromsupport->isHTML(true);
-		$mailfromsupport->Body = $Content;
+		$mailfromsupport->Body ="
+                   Please CLICK the link below for Request Repair Details:<br><br>
+                    
+                    <a href='http://zerterra.com/content/requestMailtoUserContent.php?SerialNumber=$SNumber&Fname=$fname&Lname=$lname&email=$email&contactNum=contact&address=$address&sndRequest=$requestnum'>Click Here</a>
+                ";
 		$mailfromsupport->Header = implode("\r\n", $headers);
 
 

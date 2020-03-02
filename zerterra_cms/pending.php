@@ -102,7 +102,7 @@ include 'Buttons/pendingButtonFunction.php';
                 include 'searchFunction/searchPendingFunction.php';
               }
             }else{     
-              $sql = "SELECT * FROM pending_order_list ORDER BY id DESC LIMIT $offset, $no_of_records_per_page";
+              $sql = "SELECT * FROM pending_order_list WHERE is_approved='0' ORDER BY id DESC LIMIT $offset, $no_of_records_per_page";
               $res_data = $con->query($sql);
               while($row = mysqli_fetch_array($res_data)){
 

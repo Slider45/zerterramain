@@ -9,6 +9,8 @@ include '../PagesFunction/connection.php';
 
 
 ?>
+
+
 <!DOCTYPE html>
 <html>
 <title>Dashboard</title>
@@ -21,6 +23,14 @@ include '../PagesFunction/connection.php';
 <link rel="stylesheet" href="sass/sass.css">
 
 <body>
+
+<?php
+  include 'Pages/indexViewPage.php';
+  include 'admin-header.php';
+  include 'Buttons/adminSearch.php';
+  ?>
+
+
  <nav class="navbar is-fixed-top" role="navigation" aria-label="main navigation">
   <div class="navbar-brand">
     <a class="navbar-item" href="index.php">
@@ -46,7 +56,7 @@ include '../PagesFunction/connection.php';
 </div>
 </nav>
 
-<div style="margin-top: 56px;">
+<div>
 <div class="w3-sidebar w3-bar-block w3-collapse w3-card w3-animate-left" style="width:200px;" id="mySidebar">
   <button class="w3-bar-item w3-button w3-large w3-hide-large" onclick="w3_close()" id="close">&times;</button>
   <a href="index.php" class="w3-bar-item w3-button" id="dashboard"><i class="fas fa-th-large"></i> &nbsp Dashboard</a>
@@ -173,36 +183,41 @@ if (mysqli_num_rows($result01) > 0)
            </p>
          </header>
 
+         <?php 
+
+  $sql = "SELECT * FROM tblactionlog ORDER by id desc LIMIT $offset, $no_of_records_per_page";
+  $res_data = $con->query($sql);
+  while($row = mysqli_fetch_array($res_data)){
+    $id = $row['id'];
+    $author = $row['Author'];
+    $action = $row['Action'];
+    $dateAction = $row['DateAction'];
+    ?>
+                      
+
 
          <table class="table">
           <tr>
-            <td id=""><p>Kumain</p>
-              <span id="userinfo">Serial No. 13215-46548-02 | Jan. 9, 2019 | 04:45 pm</span>
-            </td>
-          </tr>
-          <tr>
-            <td id=""><p>Kumain</p>
-              <span id="userinfo">Serial No. 13215-46548-02 | Jan. 9, 2019 | 04:45 pm</span>
-            </td>
-          </tr>
-          <tr>
-            <td id=""><p>Kumain</p>
-              <span id="userinfo">Serial No. 13215-46548-02 | Jan. 9, 2019 | 04:45 pm</span>
+            <td id="">
+            <p><?php echo $action ?></p>
+              <span id="userinfo"><?php echo $author.' | '. $dateAction ?></span>
             </td>
           </tr>
         </table>
 
-
-
-
+        <?php 
+     } 
+     
+  ?>     
 
 
         <footer class="card-footer">
           <div class="card-footer-item">
-            <nav class="pagination is-right" role="navigation" aria-label="pagination">
-             <span><a class="pagination-previous">Prev</a></span> <span>|</span>
-             <span> <a class="pagination-next">Next</a></span>
-           </nav>
+          <nav class="pagination is-small" role="navigation" aria-label="pagination">
+      <a href="<?php if($page <= 1){ echo '#'; } else { echo "?page=".($page - 1); } ?>" class="pagination-previous" >Previous</a>
+      <a href="<?php if($page >= $total_pages){ echo '#'; } else { echo "?page=".($page + 1); } ?>" class="pagination-next">Next page</a>
+      
+    </nav>
          </div>
        </footer>
      </div>

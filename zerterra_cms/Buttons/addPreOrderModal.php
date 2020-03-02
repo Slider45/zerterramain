@@ -81,12 +81,13 @@ $orderNum=date("Ymd-His-") . 0 .$pendingCount;
 if(isset($_POST['preOrder-save'])){
   // date_default_timezone_set('Asia/Manila');
 
-  
+  $author = $_SESSION['admin'];
   $fname = $_POST['fname'];
   $lname = $_POST['lname'];
   $email = $_POST['email'];
   $contact = $_POST['contact'];
   $address = $_POST['address'];
+  $dateNow = date("d/m/Y");
   //$dateRegs = date('Y-m-d');
   // $newEndingDate = date("Y-m-d", strtotime(date("Y-m-d", strtotime($dateRegs)) . " + 365 day"));
   //$end = date('Y-m-d', strtotime('+1 years'));
@@ -96,6 +97,9 @@ if(isset($_POST['preOrder-save'])){
   $sql ="INSERT INTO pending_order_list(OrderNumber,Firstname,Lastname,Email,Contact,Address) VALUES ('$orderNum','$fname','$lname','$email','$contact','$address')";
 
   if($con->query($sql) === TRUE){
+    $sql = "INSERT INTO tblactionlog (Author,Action,DateAction) VALUES ('$author','Add New Pre-Order','$dateNow')";
+
+      if($con->query($sql) === TRUE){
 
     echo "<script>window.alert('PRE-ORDER HAS BEEN ADDED');</script>";
     
@@ -105,7 +109,7 @@ if(isset($_POST['preOrder-save'])){
 
   }
 }
-
+}
 ?>
 
 

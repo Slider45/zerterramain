@@ -27,9 +27,9 @@ include 'Buttons/requestButtonFunction.php';
 <body>
 
   <?php
-  include 'Pages/requestViewPage.php'; 
+  include 'Pages/actionLogViewPage.php'; 
   include 'admin-header.php';
-  include 'Buttons/requestSearch.php'
+  include 'Buttons/actionLogSearch.php';
   ?>
 
 
@@ -76,26 +76,22 @@ include 'Buttons/requestButtonFunction.php';
 
       <?php 
 
-      if (isset($_POST['searchRequest_btn'])){
+      if (isset($_POST['search_btn'])){
         $searchValue = $_POST['searchValue'];
 
         if ($searchValue===''){
           echo '<script>window.location.href="?"</script>';
         }else{
-          include 'searchFunction/searchRequestFunction.php';
+          include 'searchFunction/searchactionLogFunction.php';
         }
       }else{
-        $sql = "SELECT * FROM request_repair_list WHERE is_approved='0'  LIMIT $offset, $no_of_records_per_page";
+        $sql = "SELECT * FROM tblactionlog LIMIT $offset, $no_of_records_per_page";
         $res_data = $con->query($sql);
         while($row = mysqli_fetch_array($res_data)){
           $id = $row['id'];
-          $fname = $row['Firstname'];
-          $lname = $row['Lastname'];
-          $contact = $row['Contact'];
-          $email = $row['Email'];
-          $serialNum = $row['SerialNumber'];
-          $requestNum = $row['RequestNumber'];
-          $address = $row['Address'];
+          $author = $row['Author'];
+          $action = $row['Action'];
+          $dateAction = $row['DateAction'];
           ?>
           <tbody>
            <tr>
@@ -103,13 +99,13 @@ include 'Buttons/requestButtonFunction.php';
               <?php echo $id; ?>.
             </td>
             <td>
-              <?php echo $serialNum; ?>
+              <?php echo $author; ?>
             </td>
             <td>
-              <?php echo $requestNum; ?>
+              <?php echo $action; ?>
             </td>
             <td>
-              <?php echo $fname; ?>
+              <?php echo $dateAction; ?>
             </td>
             </tr>
             <?php 

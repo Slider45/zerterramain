@@ -4,7 +4,7 @@
 if(isset($_POST['acnt_remove'])){
   $author = $_SESSION['admin'];
   $delete_id = $_POST['delete_id'];
-  $dateNow = date("d/m/Y");
+  $dateNow = date('Y/m/d');
 
   
   $sql= "UPDATE tblusers SET is_active='0' WHERE id='$delete_id'";
@@ -28,7 +28,7 @@ if(isset($_POST['updated_user'])){
   $Email= $_POST['edit_email'];
           // $Address = $_POST['edit_address'];
   $contact = $_POST['edit_contact'];
-  $dateNow = date("d/m/Y");
+  $dateNow = date('Y/m/d');
   
   
   

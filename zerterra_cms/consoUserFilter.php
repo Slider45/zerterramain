@@ -4,7 +4,7 @@
  {  
       $con = mysqli_connect("localhost", "root", "", "zerterra_db");  
       $output = '';  
-      $query = "SELECT * FROM tblusers  WHERE DateRegistered BETWEEN '".$_POST["from_date"]."' AND '".$_POST["to_date"]."'  
+      $query = "SELECT * FROM tblusers WHERE DateRegistered BETWEEN '".$_POST["from_date"]."' AND '".$_POST["to_date"]."'  
       ";  
       $result = mysqli_query($con, $query);  
       $output .= '  

@@ -5,7 +5,7 @@ if(isset($_POST['delivered_btn'])){
 	//$serialNum = $row['SerialNumber'];
 	$author = $_SESSION['admin'];
 	$approvedID =$_POST['delivered_id'];
-	$dateNow = date("d/m/Y");
+	$dateNow = date('Y/m/d');
 
 	$sql= "UPDATE approveorders_list SET is_delivered='1' WHERE id='$approvedID'";
 	if($con->query($sql) === TRUE){

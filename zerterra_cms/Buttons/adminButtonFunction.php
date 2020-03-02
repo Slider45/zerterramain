@@ -9,7 +9,7 @@ if(isset($_POST['btn_add_admin'])){
   $contact = $_POST['contact'];
   $Email = $_POST['email'];
   $role = $_POST['role'];
-  $dateNow = date("d/m/Y");
+  $dateNow = date('Y/m/d');
 
 
   if($password != $cpassword){

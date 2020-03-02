@@ -22,6 +22,9 @@ include '../PagesFunction/connection.php';
 <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
 <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
 <link rel="icon" href="../images/plainlogo.png" type="image/x-icon" />
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>  
+<link rel="stylesheet" href="http://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">  
 
 <link rel="stylesheet" href="sass/actLog.css">
 <body>
@@ -59,8 +62,23 @@ include '../PagesFunction/connection.php';
         </div>
       </div>
 
+      <div class="columns">
+      <div class="column is-3" id="base">
+    <p id="startD">Start-date</p>
+     <box id="cal"><i class="far fa-calendar-alt"></i><input type="text" name="from_date" id="from_date" class="form-control"  /></box>
+     </div>
+     <div class="column is-1" > TO </div>
+     <div class="column is-3" id="base">
+    <p id="endD">End-date</p>
+     <box id="cal"><i class="far fa-calendar-alt"></i><input type="text" name="to_date" id="to_date" class="form-control" />  </box>
+     </div>
+     <div class="column">
+        <button class="button is-primary" type="button" value="" id="filter"><i class="fas fa-filter"></i> &nbspFilter</button>
+      </div>
+  </div>
+
       <section class = "section">
-        <div class = "container"> 
+        <div class = "container" id="order_table"> 
 
          <table class = "table">
           <thead>
@@ -68,7 +86,7 @@ include '../PagesFunction/connection.php';
             <th>ID</th>
             <th>Author</th>
             <th>Action</th>
-            <th>Date ACtion</th>
+            <th>Date Action</th>
 
    
         </tr>
@@ -217,6 +235,38 @@ include 'ordersModal.php';
       });
     });
   </script>
+
+<script>  
+      $(document).ready(function(){  
+           $.datepicker.setDefaults({  
+                dateFormat: 'yy-mm-dd'   
+           });  
+           $(function(){  
+                $("#from_date").datepicker();  
+                $("#to_date").datepicker();  
+           });  
+           $('#filter').click(function(){  
+                var from_date = $('#from_date').val();  
+                var to_date = $('#to_date').val();  
+                if(from_date != '' && to_date != '')  
+                {  
+                     $.ajax({  
+                          url:"consoLogFilter.php",  
+                          method:"POST",  
+                          data:{from_date:from_date, to_date:to_date},  
+                          success:function(data)  
+                          {  
+                               $('#order_table').html(data);  
+                          }  
+                     });  
+                }  
+                else  
+                {  
+                     alert("Please Select Date");  
+                }  
+           });  
+      });  
+ </script>
 
 </body>
 </html>

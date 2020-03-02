@@ -14,7 +14,7 @@ if(isset($_POST['updated_id'])){
   $email = $_POST['email'];
   $contact = $_POST['contact'];
   $address = $_POST['address'];
-  $dateNow = date("d/m/Y");
+  $dateNow = date('Y/m/d');
 
 
 

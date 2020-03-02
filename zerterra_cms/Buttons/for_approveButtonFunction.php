@@ -15,7 +15,7 @@
     $email =$row['Email'];
     $contact =$row['Contact'];
     $address =$row['Address'];
-    $dateNow = date("d/m/Y");
+    $dateNow = date('Y/m/d');
 
 
 

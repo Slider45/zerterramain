@@ -17,12 +17,12 @@ html, body {
 #card-con {
   height: 320px;
   width: 100%;
-  margin-top: 50px;
   border-radius: 8px;
 }
 
 #card-con:hover {
   border: solid 1px;
+  color: #fff;
 }
 
 .w3-display-topright {

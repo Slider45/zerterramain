@@ -19,12 +19,13 @@ html, body{
 #card-con{
     height: 320px;
     width: 100%;
-    margin-top: 50px;
+   
     border-radius: 8px;
 
 
     &:hover{
         border: solid 1px;
+        color: #fff;
     }
 }
 

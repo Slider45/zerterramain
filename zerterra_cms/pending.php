@@ -59,7 +59,7 @@ include 'Buttons/pendingButtonFunction.php';
         <div class="column">
          <div class="columns">
           <div class="column">  
-           <button style="margin-top: 30px ; margin-left: 400px; font-family: unset; font-size:16px;" id="btn-add" class="button is-primary is-small modal-button" data-target="#myModal" aria-haspopup="true">
+           <button style="margin-top: 30px ; margin-left: 150px; font-family: unset; font-size:16px;" id="btn-add" class="button is-primary is-small modal-button" data-target="#myModal" aria-haspopup="true">
             <i class="far fa-address-card"></i> &nbspADD PRE-ORDER</button>
           </div>
           <?php include 'Buttons/addPreOrderModal.php';?>

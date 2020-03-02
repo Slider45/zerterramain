@@ -41,7 +41,7 @@ html, body {
   color: white;
 }
 
-#dateTime {
+#from_date, #to_date {
   height: 30px;
   margin: 10px;
   font-size: 14pt;
@@ -53,7 +53,7 @@ html, body {
 #cal {
   background-color: #ffffff;
   font-size: 14pt;
-  padding: 5px;
+  padding: 4px;
   margin-left: 10px;
 }
 

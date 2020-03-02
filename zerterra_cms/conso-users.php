@@ -49,6 +49,7 @@ include 'Buttons/requestButtonFunction.php';
   <a class="w3-bar-item w3-button w3-dropdown-hover modal-button" id="sendmodal" data-target="#ordersModal" aria-haspopup="true"><i class="fas fa-cubes"></i> &nbsp Orders</a>
   <a href="request.php" class="w3-bar-item w3-button" id="item-hover"><i class="fas fa-envelope-open-text"></i> &nbsp Request</a>
   <a href="sales.php" class="w3-bar-item w3-button" id="item-hover"><i class="fas fa-hand-holding-usd"></i> &nbsp Sales</a>
+  <a href="actionLog.php" class="w3-bar-item w3-button" id="item-hover"><i class="fas fa-clipboard-list"></i> &nbsp Action Log</a>
   <button onclick="document.getElementById('id01').style.display='block'" href="consolidate.php" class="w3-bar-item w3-button" id="dashboard" ><i class="fas fa-print"></i> &nbsp Consolidate</button>
 </div>
 
@@ -78,31 +79,29 @@ include 'Buttons/requestButtonFunction.php';
      <box id="cal"><i class="far fa-calendar-alt"></i><input type="text" name="to_date" id="to_date" class="form-control" />  </box>
      </div>
      <div class="column">
-          <input class="button is-info" type="button" name="filter" id="filter" value="Filter" /> 
+           <button class="button is-primary" type="button" value="Filter" id="filter"> <i class="fas fa-filter"></i> &nbspFilter</button>
       </div>
   </div>
 
     <!--  -->
 
-      <section class = "section">
-        <div class = "container" id="order_table"> 
+    <section class="section">
+          <div class="container"> 
+           <table class="table">
+            <thead>
+             <tr>
+              <th>#</th>
+              <th>Serial #</th>
+              <th>Firstname</th>
+              <th>Lastname</th>
+              <th>R. Days</th>
+              <th>Action</th>
+            </tr>
+          </thead>
 
-         <table class = "table">
-          <thead>
-           <tr>
-            <th>#</th>
-            <th>Serial #</th>
-            <th>Firstname</th>
-            <th>Lastname</th>
-            <th>Email</th>
-            <th>Contact</th>
-            <th>Remaining Days</th>
-            <th>Date-Registered</th>
-            <th>Date-Expired</th>
-        </tr>
-      </thead>
+          <tbody>
 
-      <?php 
+            <?php 
 
             if (isset($_POST['search_btn'])){
               $searchValue = $_POST['searchValue'];
@@ -110,77 +109,70 @@ include 'Buttons/requestButtonFunction.php';
               if ($searchValue===''){
                 echo '<script>window.location.href="?"</script>';
               }else{
-              include 'searchFunction/consosearchUsersFunction.php';
-            }
+                include 'searchFunction/searchUsersFunction.php';
+              }
             }else{     
-            $sql = "SELECT * FROM tblusers ORDER BY id DESC LIMIT $offset, $no_of_records_per_page";
-            $res_data = $con->query($sql);
-            while($row = mysqli_fetch_array($res_data)){
-              $id = $row['id'];
-              $serialNumber = $row['SerialNumber'];
-              $firstname = $row['Firstname'];
-              $lastname = $row['Lastname'];
-              $email = $row['Email'];
-              $contact = $row['Contact'];
-              $rdays = $row['RemainingDays'];
-              $dateRegister = $row['DateRegistered'];
-              $dateExpired = $row['DateExpired'];
-              
+              $sql = "SELECT * FROM tblusers WHERE is_active='1' ORDER BY id DESC LIMIT $offset, $no_of_records_per_page";
+              $res_data = $con->query($sql);
+              while($row = mysqli_fetch_array($res_data)){
+                $id = $row['id'];
+                $serialNum = $row['SerialNumber'];
+                $fname = $row['Firstname'];
+                $lname = $row['Lastname'];
+                $contact = $row['Contact'];   
+                $email = $row['Email'];
+                $rdays = $row['RemainingDays'];
+                $dateReg = $row['DateRegistered'];
+                $dateEnd= $row['DateExpired'];
+                
+                ?>
+                <tbody>
+                 <tr>
+                   <td>
+                     # <?php echo $id; ?>
+                   </td>
+                   <td>
+                    <?php echo $serialNum; ?>
+                  </td>
 
-              
-              ?>
-              <tbody>
-              <tr>
-              <td>
-                  # <?php echo $id; ?>
-              </td>
-              <td>
-                    <?php echo $serialNumber; ?>
-              </td>
-              <td>
-                    <?php echo $firstname; ?>
-              </td>
-              <td>
-                    <?php echo $lastname; ?>
-              </td>
-              <td>
-                    <?php echo $email; ?>
-              </td>
-              <td>
-                    <?php echo $contact; ?>
-              </td>
-              <td>
-                    <?php echo $rdays; ?>
-              </td>
-              <td>
-                    <?php echo $dateRegister; ?>
-              </td>
-              <td>
-                    <?php echo $dateExpired; ?>
-              </td>
-              
-              </tr>
+                  <td>
+                    <?php echo $fname; ?>
+                  </td>
+                  <td>
+                    <?php echo $lname; ?>
+                  </td>
+                  <td>
+                    <?php echo $rdays; ?> Days
+                  </td>
+                  <td>
+                    
+                    <button data-target="#view<?php echo $id;?>" class="button is-success is-small modal-button"  id="btn_delete" name="acnt_view"><i class="far fa-eye"></i>
+                    </button>
+                    <?php
+                    include 'Buttons/usersViewModal.php';
+                    ?>
+                  </td>
+                </tr>
 
-              
-              <?php 
-            }  
+                <?php 
+              }  
             }        
             ?>
-      </tbody>
-    </table>
-    <nav class="pagination is-small" role="navigation" aria-label="pagination">
-      <a href="<?php if($page <= 1){ echo '#'; } else { echo "?page=".($page - 1); } ?>" class="pagination-previous" >Previous</a>
-      <a href="<?php if($page >= $total_pages){ echo '#'; } else { echo "?page=".($page + 1); } ?>" class="pagination-next">Next page</a>
-      <ul class="pagination-list">
-        <li><a href="?page=1" class="pagination-link" >1</a></li>
-        <li>
-          <span class="pagination-ellipsis">&hellip;</span>
-        </li>
-        <li><a href="?page=<?php echo $total_pages; ?>" class="pagination-link"><?php echo $total_pages; ?></a></li>
-      </ul>
-    </nav>
-  </div>
-</section>
+          </tbody>
+        </table>
+        <nav class="pagination is-small" role="navigation" aria-label="pagination">
+          <a href="<?php if($page <= 1){ echo '#'; } else { echo "?page=".($page - 1); } ?>" class="pagination-previous" >Previous</a>
+          <a href="<?php if($page >= $total_pages){ echo '#'; } else { echo "?page=".($page + 1); } ?>" class="pagination-next">Next page</a>
+          <ul class="pagination-list">
+            <li><a href="?page=1" class="pagination-link" >1</a></li>
+            <li>
+              <span class="pagination-ellipsis">&hellip;</span>
+            </li>
+            <li><a href="?page=<?php echo $total_pages; ?>" class="pagination-link"><?php echo $total_pages; ?></a></li>
+          </ul>
+        </nav>
+      </div>
+    </section>
 
 </div>
 

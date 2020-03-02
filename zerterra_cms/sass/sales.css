@@ -17,12 +17,12 @@ html, body {
 #card-con {
   height: 320px;
   width: 100%;
-  margin-top: 50px;
   border-radius: 8px;
 }
 
 #card-con:hover {
   border: solid 1px;
+  color: #fff;
 }
 
 .w3-display-topright {
@@ -78,8 +78,25 @@ html, body {
 }
 
 #filter {
-  margin-top: 12px;
+  margin-top: 15px;
   font-size: 11pt;
+  width: 20%;
+  font-family: Montserrat;
+}
+
+#home {
+  position: fixed;
+  width: 50px;
+  height: 50px;
+  background: #a5d547;
+  bottom: 100px;
+  right: 50px;
+  text-decoration: none;
+  text-align: center;
+  line-height: 50px;
+  color: white;
+  font-size: 22px;
+  border-radius: 30px;
 }
 
 .navbar {
@@ -435,6 +452,7 @@ html, body {
   margin-bottom: 20px;
   margin-top: 20px;
   margin-left: 10px;
+  font-family: Montserrat;
 }
 
 #add-admin {

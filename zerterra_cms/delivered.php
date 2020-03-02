@@ -54,7 +54,7 @@ include 'Buttons/approvedQuery.php';
           <div class="columns">
             <div class="column">
              <a href="pending.php">
-               <button style="margin-top: 30px ; margin-left: 400px; font-family: unset; font-size:16px; id="btn-add" class="button is-danger is-small">
+               <button style="margin-top: 30px ; margin-left: 300px; font-family: unset; font-size:16px;" id="btn-add" class="button is-danger is-small">
                  <i class="fas fa-exclamation-circle"></i> &nbspPENDING</button>
                </a>
              </div>

@@ -67,7 +67,20 @@ include 'Buttons/adminButtonFunction.php';
       </div>
 
      <!--  -->
-    
+    <div class="columns">
+      <div class="column is-3" id="base">
+    <p id="startD">Start-date</p>
+     <box id="cal"><i class="far fa-calendar-alt"></i><input type="date" id="dateTime"></box>
+     </div>
+     <div class="column is-1" > TO </div>
+     <div class="column is-3" id="base">
+    <p id="endD">End-date</p>
+     <box id="cal"><i class="far fa-calendar-alt"></i><input type="date" id="dateTime"></box>
+     </div>
+     <div class="column">
+        <input class="button is-primary" type="button" value="Filter" id="filter">
+      </div>
+  </div>
 
     <!--  -->
 

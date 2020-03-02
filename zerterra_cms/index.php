@@ -19,6 +19,7 @@ include '../PagesFunction/connection.php';
 <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
 <link rel="icon" href="../images/plainlogo.png" type="image/x-icon" />
 <link rel="stylesheet" href="sass/sass.css">
+
 <body>
  <nav class="navbar is-fixed-top" role="navigation" aria-label="main navigation">
   <div class="navbar-brand">

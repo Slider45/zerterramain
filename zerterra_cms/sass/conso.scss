@@ -19,12 +19,13 @@ html, body{
 #card-con{
     height: 320px;
     width: 100%;
-    margin-top: 50px;
+   
     border-radius: 8px;
 
 
     &:hover{
         border: solid 1px;
+        color: #fff;
     }
 }
 
@@ -85,8 +86,10 @@ html, body{
 }
 
 #filter{
-    margin-top: 12px;
+    margin-top: 15px;
     font-size: 11pt;
+    width: 20%;
+    font-family: Montserrat;
 }
 
 

@@ -90,6 +90,7 @@ include 'Buttons/requestButtonFunction.php';
          <table class = "table">
           <thead>
            <tr>
+            <th>#</th>
             <th>Serial #</th>
             <th>Firstname</th>
             <th>Lastname</th>

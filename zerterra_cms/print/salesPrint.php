@@ -9,7 +9,7 @@
 <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
 <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
 
-<link rel="stylesheet" href="sass/usersPrint.css">
+<link rel="stylesheet" href="sass/salesPrint.css">
 
 <body>
   <center>

@@ -93,7 +93,6 @@ include 'Buttons/adminButtonFunction.php';
           while($row = mysqli_fetch_array($res_data)){
             $id = $row['id'];
             $fullname = $row['Fullname'];
-           
             $contact = $row['Contact'];
             $email = $row['Email'];
             $position = $row['Position'];
@@ -153,7 +152,6 @@ include 'Buttons/adminButtonFunction.php';
   </div>
 </section>
 
-<p><button class="btnn">Print Table</button></p>
 </div>
 
 

@@ -6,7 +6,7 @@ if(!isset($_SESSION["admin"]))
 }
 include '../PagesFunction/connection.php';
 
-include 'Buttons/requestButtonFunction.php';
+
 
 ?>
 
@@ -15,72 +15,49 @@ include 'Buttons/requestButtonFunction.php';
 
 <!DOCTYPE html>
 <html>
-<title>Consolidate/sales</title>
+<title>Action Log</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css">
 <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
 <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
 <link rel="icon" href="../images/plainlogo.png" type="image/x-icon" />
-<!-- <link href="assets/css/bulma-calendar.min.css" rel="stylesheet">
-<script src="/assets/js/bulma-calendar.min.js"></script> -->
 
-
-<!-- <link rel="stylesheet" href="sass/request.css"> -->
-<link rel="stylesheet" href="sass/consoAct.css">
+<link rel="stylesheet" href="sass/actLog.css">
 <body>
 
   <?php
-  include 'Pages/requestViewPage.php'; 
+  include 'Pages/consologViewPage.php'; 
   include 'admin-header.php';
-//   include 'Buttons/requestSearch.php'
+  include 'Buttons/actionLogSearch.php';
   ?>
 
 
 
-<div class="w3-sidebar w3-bar-block w3-collapse w3-card w3-animate-left" style="width:200px;" id="mySidebar">
-  <button class="w3-bar-item w3-button w3-large w3-hide-large" onclick="w3_close()" id="close">&times;</button>
-  <a href="index.php" class="w3-bar-item w3-button" id="item-hover" ><i class="fas fa-th-large"></i> &nbsp Dashboard</a>
-  <a href="admin.php" class="w3-bar-item w3-button" id="item-hover"> <i class="fas fa-user-shield"></i> &nbsp Admin</a>
-  <a href="users.php" class="w3-bar-item w3-button" id="item-hover"><i class="fas fa-user"></i> &nbsp Users</a>
-  <a class="w3-bar-item w3-button w3-dropdown-hover modal-button" id="sendmodal" data-target="#ordersModal" aria-haspopup="true"><i class="fas fa-cubes"></i> &nbsp Orders</a>
-  <a href="request.php" class="w3-bar-item w3-button" id="item-hover"><i class="fas fa-envelope-open-text"></i> &nbsp Request</a>
-  <a href="sales.php" class="w3-bar-item w3-button" id="item-hover"><i class="fas fa-hand-holding-usd"></i> &nbsp Sales</a>
-  <a href="actionLog.php" class="w3-bar-item w3-button" id="item-hover"><i class="fas fa-clipboard-list"></i> &nbsp Action Log</a>
-  <button onclick="document.getElementById('id01').style.display='block'" href="consolidate.php" class="w3-bar-item w3-button" id="dashboard" ><i class="fas fa-print"></i> &nbsp Consolidate</button>
-</div>
+  <div class="w3-sidebar w3-bar-block w3-collapse w3-card w3-animate-left" style="width:200px;" id="mySidebar">
+    <button class="w3-bar-item w3-button w3-large w3-hide-large" onclick="w3_close()" id="close">&times;</button>
+    <a href="index.php" class="w3-bar-item w3-button" id="item-hover"><i class="fas fa-th-large"></i> &nbsp Dashboard</a>
+    <a href="admin.php" class="w3-bar-item w3-button" id="item-hover"> <i class="fas fa-user-shield"></i> &nbsp Admin</a>
+    <a href="users.php" class="w3-bar-item w3-button" id="item-hover"><i class="fas fa-user"></i> &nbsp Users</a>
+    <a class="w3-bar-item w3-button w3-dropdown-hover modal-button" id="sendmodal" data-target="#ordersModal" aria-haspopup="true"><i class="fas fa-cubes"></i> &nbsp Orders</a>
+    <a href="request.php" class="w3-bar-item w3-button" id="item-hover"><i class="fas fa-envelope-open-text"></i> &nbsp Request</a>
+    <a href="sales.php" class="w3-bar-item w3-button" id="item-hover"><i class="fas fa-hand-holding-usd"></i> &nbsp Sales</a>
+    <a href="actionLog.php" class="w3-bar-item w3-button"  id="dashboard"><i class="fas fa-clipboard-list"></i> &nbsp Action Log</a>
+    <button onclick="document.getElementById('id01').style.display='block'" href="consolidate.php" class="w3-bar-item w3-button" id="item-hover" ><i class="fas fa-print"></i> &nbsp Consolidate</button>
+  </div>
 
   <div class="w3-main" style="margin-left:200px">
     <div class="w3-teal">
       <button class="w3-button w3-teal w3-xlarge w3-hide-large" onclick="w3_open()">&#9776;</button>
     </div>
 
-    <a href="print/activitylog.php"><button  class="button" id="home" ><i class="fas fa-print"></i> </button></a> 
 
     <div class="w3-container">
       <div class="columns">
         <div class="column">
-          <h1 class="button-category">ACTIVITY LOG</h1>
+          <h1 class="button-category">ACTION LOG</h1>
         </div>
       </div>
-
-     <!--  -->
-    <div class="columns">
-      <div class="column is-3" id="base">
-    <p id="startD">Start-date</p>
-     <box id="cal"><i class="far fa-calendar-alt"></i><input type="date" id="dateTime"></box>
-     </div>
-     <div class="column is-1" > TO </div>
-     <div class="column is-3" id="base">
-    <p id="endD">End-date</p>
-     <box id="cal"><i class="far fa-calendar-alt"></i><input type="date" id="dateTime"></box>
-     </div>
-     <div class="column">
-        <button class="button is-info" type="button" value="Filter" id="filter"><i class="fas fa-filter"></i> &nbspFilter</button>
-      </div>
-  </div>
-
-    <!--  -->
 
       <section class = "section">
         <div class = "container"> 
@@ -91,19 +68,50 @@ include 'Buttons/requestButtonFunction.php';
             <th>ID</th>
             <th>Author</th>
             <th>Action</th>
-            <th>Date Action</th>
+            <th>Date ACtion</th>
 
    
         </tr>
       </thead>
 
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
+      <?php 
 
+      if (isset($_POST['search_btn'])){
+        $searchValue = $_POST['searchValue'];
+
+        if ($searchValue===''){
+          echo '<script>window.location.href="?"</script>';
+        }else{
+          include 'searchFunction/searchactionLogFunction.php';
+        }
+      }else{
+        $sql = "SELECT * FROM tblactionlog LIMIT $offset, $no_of_records_per_page";
+        $res_data = $con->query($sql);
+        while($row = mysqli_fetch_array($res_data)){
+          $id = $row['id'];
+          $author = $row['Author'];
+          $action = $row['Action'];
+          $dateAction = $row['DateAction'];
+          ?>
+          <tbody>
+           <tr>
+            <td>
+              <?php echo $id; ?>.
+            </td>
+            <td>
+              <?php echo $author; ?>
+            </td>
+            <td>
+              <?php echo $action; ?>
+            </td>
+            <td>
+              <?php echo $dateAction; ?>
+            </td>
             </tr>
-                       
+            <?php 
+          }  
+        }        
+        ?>                        
 
       </tbody>
     </table>
@@ -174,19 +182,15 @@ include 'Buttons/requestButtonFunction.php';
 
 
 
-<!-- Modal -->
-
-
-
-    <?php
-include 'ordersModal.php';
-?>
-
-
-<?php
+  <?php
 include 'consolidate.php';
 ?>
 
+<?php
+include 'ordersModal.php';
+?>
+
+  
 
 
 
@@ -214,7 +218,5 @@ include 'consolidate.php';
     });
   </script>
 
-
 </body>
 </html>
-s

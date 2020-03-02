@@ -40,7 +40,7 @@ if ($result->num_rows > 0) {
 }
 else{
 	echo "<script>window.alert('NO RECORD FOUND!');</script>";
-	echo '<script>window.location.href="actionLog.php"</script>';
+	echo '<script>window.location.href="conso-act.php"</script>';
 }
 
 ?>

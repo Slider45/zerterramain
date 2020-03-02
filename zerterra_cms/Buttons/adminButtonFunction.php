@@ -9,7 +9,6 @@ if(isset($_POST['btn_add_admin'])){
   $contact = $_POST['contact'];
   $Email = $_POST['email'];
   $role = $_POST['role'];
-
   $dateNow = date("d/m/Y");
 
 
@@ -32,6 +31,7 @@ if(isset($_POST['btn_add_admin'])){
       if($con->query($sql) === TRUE){
 
         echo "<script>window.alert('New Admin is added!');</script>";
+        echo '<script>window.location.href="admin.php"</script>';
       }else{
         
         echo "<script>window.alert('Saving new record failed!');</script>";
@@ -50,22 +50,30 @@ if(isset($_POST['btn_add_admin'])){
 
 }
 
+
+
 if(isset($_POST['acnt_remove'])){
+  $author = $_SESSION['admin'];
   $delete_id = $_POST['delete_id'];
   $role = $_POST['role_id'];
-  
+  $dateNow = date("d/m/Y");
   if($role ==='Super Admin'){
     echo "<script>window.alert('THIS RECORD CANNOT BE DELETE!');</script>";
   }else{
 
-    $sql= "UPDATE admin_list SET is_active='0' WHERE id='$delete_id'";
+    $sql= "UPDATE admin_list SET is_active='0' WHERE id='$delete_id'"; 
     if($con->query($sql) === TRUE){
+
+      $sql = "INSERT INTO tblactionlog (Author,Action,DateAction) VALUES ('$author','Admin Deleted','$dateNow')";
+
+      if($con->query($sql) === TRUE){
       echo "<script>window.alert('RECORD IS DELETED!');</script>";
       echo '<script>window.location.href="admin.php"</script>';
     }else{
       echo "<script>window.alert('SOMETHING WENT WRONG, PLEASE TRY AGAIN!');</script>";
     }
   }
+}
 }
 
 if(isset($_POST['updated_id'])){

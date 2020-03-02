@@ -230,7 +230,7 @@ if(isset($_POST['update'])){
         // if($con->query($sql1) === TRUE){
         $sql = "UPDATE tblusers SET Password='$newpass' WHERE id='$id' AND is_active='1'";
         if($con->query($sql) === TRUE){
-          echo "<script>window.alert('Password Changed! You\'re about to logout');</script>";
+        echo "<script>window.alert('Password Changed! You\'re about to logout');</script>";
         echo '<script>window.location.href="logout.php"</script>';
         }
         else{

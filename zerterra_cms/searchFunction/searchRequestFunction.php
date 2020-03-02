@@ -9,19 +9,19 @@ if ($result->num_rows > 0) {
     while($row = $result->fetch_assoc()) 
     {
       $id = $row['id'];
-      $fname = $row['Firstname'];
-      $lname = $row['Lastname'];
-      $contact = $row['Contact'];
-      $email = $row['Email'];
-      $serialNum = $row['SerialNumber'];
-      $requestNum = $row['RequestNumber'];
-      $address = $row['Address'];
+          $fname = $row['Firstname'];
+          $lname = $row['Lastname'];
+          $contact = $row['Contact'];
+          $email = $row['Email'];
+          $serialNum = $row['SerialNumber'];
+          $requestNum = $row['RequestNumber'];
+          $address = $row['Address'];
       ?>
         
 
         <tr>
         <td>
-              <?php echo $id; ?>
+              <?php echo $id; ?>.
             </td>
             <td>
               <?php echo $serialNum; ?>
@@ -32,6 +32,9 @@ if ($result->num_rows > 0) {
             <td>
               <?php echo $fname; ?>
             </td>
+             <td>
+              <?php echo $lname; ?>
+            </td>
             <td>
               <?php echo $email; ?>
             </td>
@@ -39,17 +42,17 @@ if ($result->num_rows > 0) {
               <?php echo $contact; ?>
             </td>
 
-        <td>
-        <button data-target="#editrequest<?php echo $id;?>" class="button is-primary is-small modal-button" id="btn_update" name="btn-update"><i class="fas fa-pencil-alt"></i>
-        </button>
-        <?php
-        include 'Buttons/requestEditModal.php';
-        ?>
-        <button data-target="#deleterequest<?php echo $id;?>" class="button is-danger is-small modal-button"  id="btn_delete" name="btn-delete"><i class="fas fa-trash-alt"></i>
-        </button>
-        <?php
-        include 'Buttons/requestRemoveModal.php';
-        ?>
+            <td>
+              <button data-target="#editrequest<?php echo $id;?>" class="button is-primary is-small modal-button" id="btn_update" name="btn-update"><i class="fas fa-pencil-alt"></i>
+              </button>
+              <?php
+              include 'Buttons/requestEditModal.php';
+              ?>
+              <button data-target="#deleterequest<?php echo $id;?>" class="button is-danger is-small modal-button"  id="btn_delete" name="btn-delete"><i class="fas fa-trash-alt"></i>
+              </button>
+              <?php
+              include 'Buttons/requestRemoveModal.php';
+              ?>
             </td>
 
 

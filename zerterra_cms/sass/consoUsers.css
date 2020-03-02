@@ -78,8 +78,10 @@ html, body {
 }
 
 #filter {
-  margin-top: 12px;
+  margin-top: 15px;
   font-size: 11pt;
+  width: 20%;
+  font-family: Montserrat;
 }
 
 #home {
@@ -404,8 +406,10 @@ html, body {
 }
 
 #filter {
-  margin-top: 12px;
+  margin-top: 15px;
   font-size: 11pt;
+  width: 20%;
+  font-family: Montserrat;
 }
 
 #home {

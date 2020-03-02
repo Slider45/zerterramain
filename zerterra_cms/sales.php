@@ -76,7 +76,7 @@ $result = mysqli_query($connect, $query);
      <box id="cal"><i class="far fa-calendar-alt"></i><input type="date" id="dateTime"></box>
      </div>
      <div class="column">
-        <input class="button is-info" type="button" value="Filter" id="filter">
+        <input class="button is-primary" type="button" value="Filter" id="filter">
       </div>
   </div>
 

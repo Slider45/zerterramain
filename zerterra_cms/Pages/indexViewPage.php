@@ -4,7 +4,7 @@ if (isset($_GET['page'])) {
 } else {
   $page = 1;
 }
-$no_of_records_per_page = 2;
+$no_of_records_per_page = 3;
 $offset = ($page-1) * $no_of_records_per_page;
 
 $total_pages_sql = "SELECT COUNT(id) FROM tblactionlog";

@@ -185,7 +185,7 @@ if (mysqli_num_rows($result01) > 0)
 
          <?php 
 
-  $sql = "SELECT * FROM tblactionlog LIMIT $offset, $no_of_records_per_page";
+  $sql = "SELECT * FROM tblactionlog ORDER by id desc LIMIT $offset, $no_of_records_per_page";
   $res_data = $con->query($sql);
   while($row = mysqli_fetch_array($res_data)){
     $id = $row['id'];
@@ -200,7 +200,7 @@ if (mysqli_num_rows($result01) > 0)
           <tr>
             <td id="">
             <p><?php echo $action ?></p>
-              <span id="userinfo"><?php echo $author.' '. $dateAction ?></span>
+              <span id="userinfo"><?php echo $author.' | '. $dateAction ?></span>
             </td>
           </tr>
         </table>

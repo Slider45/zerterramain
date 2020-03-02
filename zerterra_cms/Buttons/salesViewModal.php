@@ -44,13 +44,13 @@
       <div class="control">
          <div class="columns">
               <div class="column is-2" id="label">Firstname:</div>
-              <div class="column" id="txtbox"><input class="input"   value="<?php echo $fname; ?>" disabled="disabled"></div>
+              <div class="column" id="txtbox"><input class="input"   value="<?php echo $firstname; ?>" disabled="disabled"></div>
          </div>
       </div>
       <div class="control">
          <div class="columns">
               <div class="column is-2" id="label">Lastname:</div>
-              <div class="column" id="txtbox"><input class="input"   value="<?php echo $lname; ?>"  disabled="disabled"></div>
+              <div class="column" id="txtbox"><input class="input"   value="<?php echo $lastname; ?>"  disabled="disabled"></div>
          </div>
       </div>
       <div class="control">

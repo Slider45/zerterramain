@@ -6,11 +6,9 @@ if(!isset($_SESSION["admin"]))
 }
 include '../PagesFunction/connection.php';
 
-include 'Buttons/requestButtonFunction.php';
+//include 'Buttons/requestButtonFunction.php';
 
 ?>
-
-
 
 
 <!DOCTYPE html>
@@ -22,18 +20,19 @@ include 'Buttons/requestButtonFunction.php';
 <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
 <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
 <link rel="icon" href="../images/plainlogo.png" type="image/x-icon" />
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>  
+<link rel="stylesheet" href="http://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">  
 <!-- <link href="assets/css/bulma-calendar.min.css" rel="stylesheet">
 <script src="/assets/js/bulma-calendar.min.js"></script> -->
-
-
 <!-- <link rel="stylesheet" href="sass/request.css"> -->
 <link rel="stylesheet" href="sass/conso.css">
 <body>
 
-  <?php
-  include 'Pages/requestViewPage.php'; 
+<?php
+  include 'Pages/consosalesViewPage.php'; 
   include 'admin-header.php';
-//   include 'Buttons/requestSearch.php'
+  include 'Buttons/consosalesSearch.php';
   ?>
 
 
@@ -64,49 +63,105 @@ include 'Buttons/requestButtonFunction.php';
       </div>
 
      <!--  -->
-    <div class="columns">
+     <div class="columns">
       <div class="column is-3" id="base">
     <p id="startD">Start-date</p>
-     <box id="cal"><i class="far fa-calendar-alt"></i><input type="date" id="dateTime"></box>
+     <box id="cal"><i class="far fa-calendar-alt"></i><input type="text" name="from_date" id="from_date" class="form-control"  /></box>
      </div>
      <div class="column is-1" > TO </div>
      <div class="column is-3" id="base">
     <p id="endD">End-date</p>
-     <box id="cal"><i class="far fa-calendar-alt"></i><input type="date" id="dateTime"></box>
+     <box id="cal"><i class="far fa-calendar-alt"></i><input type="text" name="to_date" id="to_date" class="form-control" />  </box>
      </div>
      <div class="column">
-        <input class="button is-info" type="button" value="Filter" id="filter">
+          <input type="button" name="filter" id="filter" value="Filter" class="btn btn-info" /> 
       </div>
   </div>
 
     <!--  -->
 
       <section class = "section">
-        <div class = "container"> 
+        <div class = "container" id="order_table"> 
 
          <table class = "table">
           <thead>
            <tr>
-            <th>Order #</th>
+            <th>#</th>
+            <th>Trans #</th>
             <th>Firstname</th>
             <th>Lastname</th>
             <th>Email</th>
             <th>Contact</th>
             <th>Amount</th>
             <th>Vat</th>
-            <th>Date-Purchased</th>
+            <th>Date Purchased</th>
 
    
         </tr>
       </thead>
 
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
+      <?php 
+
+          if (isset($_POST['search_btn'])){
+            $searchValue = $_POST['searchValue'];
+
+            if ($searchValue===''){
+              echo '<script>window.location.href="?"</script>';
+            }else{
+             include 'searchFunction/consosearchSalesFunction.php';
+           }
+         }else{     
+          $sql = "SELECT * FROM tblsales_list  ORDER BY id DESC LIMIT $offset, $no_of_records_per_page";
+          $res_data = $con->query($sql);
+          while($row = mysqli_fetch_array($res_data)){
+            $id = $row['id'];
+            $transcationNumber = $row['TransactionNumber'];
+            $firstname = $row['Firstname'];
+            $lastname = $row['Lastname'];
+            $email = $row['Email'];
+            $contact = $row['Contact'];
+            $amount = $row['Amount'];
+            $vat = $row['Vat'];
+            $datePurchased = $row['Date_Purchased'];
+            ?>
+            <tbody>
+            <tr>
+            <td>
+                # <?php echo $id; ?>
+            </td>
+            <td>
+                  <?php echo $transcationNumber; ?>
+            </td>
+            <td>
+                  <?php echo $firstname; ?>
+            </td>
+            <td>
+                  <?php echo $lastname; ?>
+            </td>
+            <td>
+                  <?php echo $email; ?>
+            </td>
+            <td>
+                  <?php echo $contact; ?>
+            </td>
+            <td>
+                  <?php echo $amount; ?>
+            </td>
+            <td>
+                  <?php echo $vat; ?>
+            </td>
+            <td>
+                  <?php echo $datePurchased; ?>
+            </td>
+            
 
             </tr>
-                       
+        
+            
+            <?php 
+          }  
+        }        
+        ?>
 
       </tbody>
     </table>
@@ -183,7 +238,7 @@ include 'Buttons/requestButtonFunction.php';
 
 
 <!-- Modal -->
-  <?php
+                        <?php
                         include 'ordersModal.php';
                         ?>
                         
@@ -222,6 +277,37 @@ include 'Buttons/requestButtonFunction.php';
     });
   </script>
 
+<script>  
+      $(document).ready(function(){  
+           $.datepicker.setDefaults({  
+                dateFormat: 'yy-mm-dd'   
+           });  
+           $(function(){  
+                $("#from_date").datepicker();  
+                $("#to_date").datepicker();  
+           });  
+           $('#filter').click(function(){  
+                var from_date = $('#from_date').val();  
+                var to_date = $('#to_date').val();  
+                if(from_date != '' && to_date != '')  
+                {  
+                     $.ajax({  
+                          url:"consoFilter.php",  
+                          method:"POST",  
+                          data:{from_date:from_date, to_date:to_date},  
+                          success:function(data)  
+                          {  
+                               $('#order_table').html(data);  
+                          }  
+                     });  
+                }  
+                else  
+                {  
+                     alert("Please Select Date");  
+                }  
+           });  
+      });  
+ </script>
 
 </body>
 </html>

@@ -1,7 +1,7 @@
 <?php
 include 'connection.php';
 
-$sql= "SELECT * FROM tblusers_list WHERE CONCAT(`Serial_Number`,`Firstname`, `Lastname`, `email`, `ContactNumber`) LIKE '%".$searchValue."%' AND is_active='1'";
+$sql= "SELECT * FROM tblusers WHERE CONCAT(`Serial_Number`,`Firstname`, `Lastname`, `email`, `ContactNumber`) LIKE '%".$searchValue."%' AND is_active='1'";
 $result = $con->query($sql);
 if ($result->num_rows > 0) {
 	while($row = $result->fetch_assoc()) 

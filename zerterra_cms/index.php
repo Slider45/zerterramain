@@ -84,8 +84,9 @@ if (mysqli_num_rows($result01) > 0)
   {
     $total = $total + $row['price'];
   }
-}
 
+}
+  
 ?>
 
 
@@ -106,7 +107,7 @@ if (mysqli_num_rows($result01) > 0)
                 <span id="view-sales">Click here to view details</span>
               </div>
               <div class="column" style="text-align: center;">
-                <span class="is-right"><?php echo $total;?></span>
+                <span class="is-right"><?php echo "P ",number_format($total),"";?></span>
               </div>
             </div>
           </div>

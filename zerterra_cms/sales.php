@@ -4,10 +4,9 @@ if(!isset($_SESSION["admin"]))
 {
  header("location:../Log-in.php");
 }
-$connect = mysqli_connect("localhost", "root", "", "zerterra_db");  
-$query = "SELECT * FROM tblsales_list ORDER BY Date_Purchased desc";  
-$result = mysqli_query($connect, $query);
-
+include '../PagesFunction/connection.php';
+// include 'connection.php';
+include 'Buttons/adminButtonFunction.php';
 
 ?>
 
@@ -23,6 +22,9 @@ $result = mysqli_query($connect, $query);
 <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
 <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
 <link rel="icon" href="../images/plainlogo.png" type="image/x-icon" />
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>  
+<link rel="stylesheet" href="http://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">  
 <!-- <link href="assets/css/bulma-calendar.min.css" rel="stylesheet">
 <script src="/assets/js/bulma-calendar.min.js"></script> -->
 
@@ -65,6 +67,7 @@ $result = mysqli_query($connect, $query);
       </div>
 
      <!--  -->
+<<<<<<< HEAD
     <div class="columns">
       <div class="column is-3" id="base">
     <p id="startD">Start-date</p>
@@ -79,31 +82,85 @@ $result = mysqli_query($connect, $query);
         <input class="button is-primary" type="button" value="Filter" id="filter">
       </div>
   </div>
+=======
+    
+>>>>>>> 922a52c0368c0238c22f9a618ca5f9b6daea0d81
 
     <!--  -->
 
       <section class = "section">
-        <div class = "container"> 
+        <div class = "container" id="order_table"> 
 
          <table class = "table">
           <thead>
            <tr>
             <th>#</th>
+            <th>Transaction Number</th>
             <th>Firstname</th>
             <th>Lastname</th>
             <th>Amount</th>
+            <th>Option </th> 
 
    
         </tr>
       </thead>
 
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
+      <?php 
 
+          if (isset($_POST['search_btn'])){
+            $searchValue = $_POST['searchValue'];
+
+            if ($searchValue===''){
+              echo '<script>window.location.href="?"</script>';
+            }else{
+             include 'searchFunction/searchSalesFunction.php';
+           }
+         }else{     
+          $sql = "SELECT * FROM tblsales_list  ORDER BY id DESC LIMIT $offset, $no_of_records_per_page";
+          $res_data = $con->query($sql);
+          while($row = mysqli_fetch_array($res_data)){
+            $id = $row['id'];
+            $transcationNumber = $row['TransactionNumber'];
+            $firstname = $row['Firstname'];
+            $lastname = $row['Lastname'];
+            $email = $row['Email'];
+            $contact = $row['Contact'];
+            $amount = $row['Amount'];
+            
+            
+            ?>
+            <tbody>
+            <tr>
+            <td>
+                # <?php echo $id; ?>
+            </td>
+            <td>
+                  <?php echo $transcationNumber; ?>
+            </td>
+            <td>
+                  <?php echo $firstname; ?>
+            </td>
+            <td>
+                  <?php echo $lastname; ?>
+            </td>
+            <td>
+                  <?php echo $amount; ?>
+            </td>
+            </td>
+            <td>
+            <button data-target="#view<?php echo $id;?>" class="button is-success is-small modal-button"  id="btn_delete" name="acnt_view"><i class="far fa-eye"></i>
+            </button>
+            <?php
+                include 'Buttons/salesViewModal.php';
+            ?>
+            </td>
+            
             </tr>
-                       
+      
+            <?php 
+          }  
+        }        
+        ?>
 
       </tbody>
     </table>
@@ -213,6 +270,38 @@ $result = mysqli_query($connect, $query);
       });
     });
   </script>
+
+<script>  
+      $(document).ready(function(){  
+           $.datepicker.setDefaults({  
+                dateFormat: 'yy-mm-dd'   
+           });  
+           $(function(){  
+                $("#from_date").datepicker();  
+                $("#to_date").datepicker();  
+           });  
+           $('#filter').click(function(){  
+                var from_date = $('#from_date').val();  
+                var to_date = $('#to_date').val();  
+                if(from_date != '' && to_date != '')  
+                {  
+                     $.ajax({  
+                          url:"salesFilter.php",  
+                          method:"POST",  
+                          data:{from_date:from_date, to_date:to_date},  
+                          success:function(data)  
+                          {  
+                               $('#order_table').html(data);  
+                          }  
+                     });  
+                }  
+                else  
+                {  
+                     alert("Please Select Date");  
+                }  
+           });  
+      });  
+ </script>
 
 
 </body>

@@ -86,11 +86,21 @@ html, body{
 
 }
 
-#filter{
-    margin-top: 15px;
-  font-size: 11pt;
-  width: 20%;
-  font-family: Montserrat;
+#filter, #refresh {
+    margin-top: 15px !important;
+    font-size: 11pt;
+    // width: 55%;
+    font-family: Montserrat;
+}
+
+#refresh{
+    width: 30%;
+    margin-left: 300px;
+}
+
+.is-2{
+    width: 120px !important;
+    padding-right: 0;
 }
 
 #home{
@@ -107,7 +117,7 @@ html, body{
     font-size: 22px;
     border-radius: 30px;
     
-  }
+}
 
 
 
@@ -170,9 +180,9 @@ html, body{
     color: white;
     font-weight: normal;
     text-align:left;
-   font-family: montserrat;
-   font-size: 12pt;
-   padding-left:25px;
+    font-family: montserrat;
+    font-size: 12pt;
+    padding-left:25px;
 }
 
 #item-hover:hover{
@@ -181,18 +191,18 @@ html, body{
     padding: 20px;
     color:white !important;
     padding-left:25px;
-   }
+}
 
-  
-   #sendmodal:hover{
+
+#sendmodal:hover{
     margin: 0;
     background-color: #80cbae !important;
     padding: 20px;
     color:white !important;
     padding-left:25px;
-   }
+}
 
-   
+
 // sidebar item
 #dashboard{  
     margin: 0;
@@ -205,12 +215,12 @@ html, body{
     
     
     &:hover{
-            margin: 0;
-            background-color: #85c184 !important;
-            border-left: solid 8px;
-            border-color: #a1e5a0 !important;
-            padding: 20px;
-            color: white !important;
+        margin: 0;
+        background-color: #85c184 !important;
+        border-left: solid 8px;
+        border-color: #a1e5a0 !important;
+        padding: 20px;
+        color: white !important;
     }
 }
 
@@ -250,6 +260,7 @@ html, body{
     margin-bottom:20px;
     margin-top: 20px;
     margin-left:10px;
+    font-family: Montserrat;
 }
 
 #add-admin{
@@ -272,46 +283,46 @@ html, body{
         margin-left:0;
         margin-top:0;
     }
-  }
+}
 @media only screen and (min-width: 360px) {
     #add-admin {
         margin-left:450px;
     }
-  }
-  @media only screen and (max-width: 360px) {
+}
+@media only screen and (max-width: 360px) {
     #add-admin {
         margin-left:0;
     }
-  }
-  @media only screen and (max-width: 460px) {
+}
+@media only screen and (max-width: 460px) {
     #add-admin {
         margin-left:0;
         margin-top: 0;
     }
-  }
+}
 
 
 
-  @media only screen and (max-width: 320px) {
+@media only screen and (max-width: 320px) {
     #input {
-       
+     
     }
-  }
+}
 @media only screen and (min-width: 360px) {
     #input{
         width: 150px;
     }
-  }
-  @media only screen and (max-width: 360px) {
+}
+@media only screen and (max-width: 360px) {
     #input {
       
     }
-  }
-  @media only screen and (max-width: 460px) {
+}
+@media only screen and (max-width: 460px) {
     #input {
         
     }
-  }
+}
 
 
 
@@ -348,7 +359,7 @@ html, body{
 thead th{
     background-color: #4cc5db;
     border-right-width: 5px;
-   color: white !important;
+    color: white !important;
 }
 
 .table{

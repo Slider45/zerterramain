@@ -24,34 +24,29 @@ include '../PagesFunction/connection.php';
 <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>  
 <link rel="stylesheet" href="http://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">  
 <!-- <link href="assets/css/bulma-calendar.min.css" rel="stylesheet">
-<script src="/assets/js/bulma-calendar.min.js"></script> -->
-<!-- <link rel="stylesheet" href="sass/request.css"> -->
-<link rel="stylesheet" href="sass/conso.css">
-<body>
+  <script src="/assets/js/bulma-calendar.min.js"></script> -->
+  <!-- <link rel="stylesheet" href="sass/request.css"> -->
+  <link rel="stylesheet" href="sass/conso.css">
+  <body>
 
-<?php
-  include 'Pages/consosalesViewPage.php'; 
-  include 'admin-header.php';
-  include 'Buttons/consosalesSearch.php';
-  ?>
+    <?php
+    include 'Pages/consosalesViewPage.php'; 
+    include 'admin-header.php';
+    include 'Buttons/consosalesSearch.php';
+    ?>
 
 
 
-<div class="w3-sidebar w3-bar-block w3-collapse w3-card w3-animate-left" style="width:200px;" id="mySidebar">
-  <button class="w3-bar-item w3-button w3-large w3-hide-large" onclick="w3_close()" id="close">&times;</button>
-  <a href="index.php" class="w3-bar-item w3-button" id="item-hover" ><i class="fas fa-th-large"></i> &nbsp Dashboard</a>
-  <a href="admin.php" class="w3-bar-item w3-button" id="item-hover"> <i class="fas fa-user-shield"></i> &nbsp Admin</a>
-  <a href="users.php" class="w3-bar-item w3-button" id="item-hover"><i class="fas fa-user"></i> &nbsp Users</a>
-  <a class="w3-bar-item w3-button w3-dropdown-hover modal-button" id="sendmodal" data-target="#ordersModal" aria-haspopup="true"><i class="fas fa-cubes"></i> &nbsp Orders</a>
-  <a href="request.php" class="w3-bar-item w3-button" id="item-hover"><i class="fas fa-envelope-open-text"></i> &nbsp Request</a>
-  <a href="sales.php" class="w3-bar-item w3-button" id="item-hover"><i class="fas fa-hand-holding-usd"></i> &nbsp Sales</a>
-  <a href="actionLog.php" class="w3-bar-item w3-button" id="item-hover"><i class="fas fa-clipboard-list"></i> &nbsp Action Log</a>
-  <button onclick="document.getElementById('id01').style.display='block'" href="consolidate.php" class="w3-bar-item w3-button" id="dashboard" ><i class="fas fa-print"></i> &nbsp Consolidate</button>
-</div>
-
-  <div class="w3-main" style="margin-left:200px">
-    <div class="w3-teal">
-      <button class="w3-button w3-teal w3-xlarge w3-hide-large" onclick="w3_open()">&#9776;</button>
+    <div class="w3-sidebar w3-bar-block w3-collapse w3-card w3-animate-left" style="width:200px;" id="mySidebar">
+      <button class="w3-bar-item w3-button w3-large w3-hide-large" onclick="w3_close()" id="close">&times;</button>
+      <a href="index.php" class="w3-bar-item w3-button" id="item-hover" ><i class="fas fa-th-large"></i> &nbsp Dashboard</a>
+      <a href="admin.php" class="w3-bar-item w3-button" id="item-hover"> <i class="fas fa-user-shield"></i> &nbsp Admin</a>
+      <a href="users.php" class="w3-bar-item w3-button" id="item-hover"><i class="fas fa-user"></i> &nbsp Users</a>
+      <a class="w3-bar-item w3-button w3-dropdown-hover modal-button" id="sendmodal" data-target="#ordersModal" aria-haspopup="true"><i class="fas fa-cubes"></i> &nbsp Orders</a>
+      <a href="request.php" class="w3-bar-item w3-button" id="item-hover"><i class="fas fa-envelope-open-text"></i> &nbsp Request</a>
+      <a href="sales.php" class="w3-bar-item w3-button" id="item-hover"><i class="fas fa-hand-holding-usd"></i> &nbsp Sales</a>
+      <a href="actionLog.php" class="w3-bar-item w3-button" id="item-hover"><i class="fas fa-clipboard-list"></i> &nbsp Action Log</a>
+      <button onclick="document.getElementById('id01').style.display='block'" href="consolidate.php" class="w3-bar-item w3-button" id="dashboard" ><i class="fas fa-print"></i> &nbsp Consolidate</button>
     </div>
     
 <!-- 
@@ -59,10 +54,18 @@ include '../PagesFunction/connection.php';
         
          <!-- </a>  -->
 
-    <div class="w3-container">
-      <div class="columns">
-        <div class="column">
-          <h1 class="button-category">SALES</h1>
+    <div class="w3-main" style="margin-left:200px">
+      <div class="w3-teal">
+        <button class="w3-button w3-teal w3-xlarge w3-hide-large" onclick="w3_open()">&#9776;</button>
+      </div>
+
+      
+
+      <div class="w3-container">
+        <div class="columns">
+          <div class="column">
+            <h1 class="button-category">SALES</h1>
+          </div>
         </div>
       </div>
       <form action="print/salesPrint.php" method="GET">
@@ -99,11 +102,11 @@ include '../PagesFunction/connection.php';
             <th>Date Purchased</th>
            
 
-   
-        </tr>
-      </thead>
+              
+            </tr>
+          </thead>
 
-      <?php 
+          <?php 
 
           if (isset($_POST['search_btn'])){
             $searchValue = $_POST['searchValue'];
@@ -128,59 +131,60 @@ include '../PagesFunction/connection.php';
             $datePurchased = $row['Date_Purchased'];
             ?>
             <tbody>
-            <tr>
-            <td>
-                # <?php echo $id; ?>
-            </td>
-            <td>
+              <tr>
+                <td>
+                  # <?php echo $id; ?>
+                </td>
+                <td>
                   <?php echo $transcationNumber; ?>
-            </td>
-            <td>
+                </td>
+                <td>
                   <?php echo $firstname; ?>
-            </td>
-            <td>
+                </td>
+                <td>
                   <?php echo $lastname; ?>
-            </td>
+                </td>
             <!-- <td>
                   <?php echo $email; ?>
-            </td> -->
-            <td>
+                </td> -->
+                <td>
                   <?php echo $contact; ?>
-            </td>
-            <td>
+                </td>
+                <td>
                   <?php echo $amount; ?>
-            </td>
+                </td>
             <!-- <td>
                   <?php echo $vat; ?>
-            </td> -->
-            <td>
+                </td> -->
+                <td>
                   <?php echo $datePurchased; ?>
-            </td>
-            
+                </td>
+             
+                
 
-            </tr>
-        
-            
-            <?php 
-          }  
-        }        
-        ?>
+              </tr>
+              
+              
+              <?php 
+            }  
+          }        
+          ?>
 
-      </tbody>
-    </table>
-    <nav class="pagination is-small" role="navigation" aria-label="pagination">
-      <a href="<?php if($page <= 1){ echo '#'; } else { echo "?page=".($page - 1); } ?>" class="pagination-previous" >Previous</a>
-      <a href="<?php if($page >= $total_pages){ echo '#'; } else { echo "?page=".($page + 1); } ?>" class="pagination-next">Next page</a>
-      <ul class="pagination-list">
-        <li><a href="?page=1" class="pagination-link" >1</a></li>
-        <li>
-          <span class="pagination-ellipsis">&hellip;</span>
-        </li>
-        <li><a href="?page=<?php echo $total_pages; ?>" class="pagination-link"><?php echo $total_pages; ?></a></li>
-      </ul>
-    </nav>
-  </div>
-</section>
+        </tbody>
+      </table>
+      <nav class="pagination is-small" role="navigation" aria-label="pagination">
+        <a href="<?php if($page <= 1){ echo '#'; } else { echo "?page=".($page - 1); } ?>" class="pagination-previous" >Previous</a>
+        <a href="<?php if($page >= $total_pages){ echo '#'; } else { echo "?page=".($page + 1); } ?>" class="pagination-next">Next page</a>
+        <ul class="pagination-list">
+          <li><a href="?page=1" class="pagination-link" >1</a></li>
+          <li>
+            <span class="pagination-ellipsis">&hellip;</span>
+          </li>
+          <li><a href="?page=<?php echo $total_pages; ?>" class="pagination-link"><?php echo $total_pages; ?></a></li>
+        </ul>
+      </nav>
+    </div>
+  </section>
 
 </div>
 
@@ -240,16 +244,16 @@ include '../PagesFunction/connection.php';
 
 
 
-<!-- Modal -->
-                        <?php
-                        include 'ordersModal.php';
-                        ?>
-                        
-                        
-                        <?php
-                        include 'consolidate.php';
-                        ?>
-                        
+  <!-- Modal -->
+  <?php
+  include 'ordersModal.php';
+  ?>
+  
+  
+  <?php
+  include 'consolidate.php';
+  ?>
+  
 
 
   

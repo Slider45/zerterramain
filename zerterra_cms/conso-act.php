@@ -6,7 +6,7 @@ if(!isset($_SESSION["admin"]))
 }
 include '../PagesFunction/connection.php';
 
-include 'Buttons/requestButtonFunction.php';
+
 
 ?>
 
@@ -15,7 +15,7 @@ include 'Buttons/requestButtonFunction.php';
 
 <!DOCTYPE html>
 <html>
-<title>Consolidate/sales</title>
+<title>Action Log</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css">
@@ -190,6 +190,7 @@ include 'Buttons/requestButtonFunction.php';
   include 'consolidate.php';
   ?>
 
+  
 
 
 
@@ -217,7 +218,37 @@ include 'Buttons/requestButtonFunction.php';
     });
   </script>
 
+<script>  
+      $(document).ready(function(){  
+           $.datepicker.setDefaults({  
+                dateFormat: 'yy-mm-dd'   
+           });  
+           $(function(){  
+                $("#from_date").datepicker();  
+                $("#to_date").datepicker();  
+           });  
+           $('#filter').click(function(){  
+                var from_date = $('#from_date').val();  
+                var to_date = $('#to_date').val();  
+                if(from_date != '' && to_date != '')  
+                {  
+                     $.ajax({  
+                          url:"consoLogFilter.php",  
+                          method:"POST",  
+                          data:{from_date:from_date, to_date:to_date},  
+                          success:function(data)  
+                          {  
+                               $('#order_table').html(data);  
+                          }  
+                     });  
+                }  
+                else  
+                {  
+                     alert("Please Select Date");  
+                }  
+           });  
+      });  
+ </script>
 
 </body>
 </html>
-s

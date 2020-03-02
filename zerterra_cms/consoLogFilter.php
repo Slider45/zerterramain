@@ -4,17 +4,17 @@
  {  
       $con = mysqli_connect("localhost", "root", "", "zerterra_db");  
       $output = '';  
-      $query = "SELECT * FROM tblusers WHERE DateRegistered BETWEEN '".$_POST["from_date"]."' AND '".$_POST["to_date"]."'   and is_active='1'";  
+      $query = "SELECT * FROM tblactionlog WHERE DateAction BETWEEN '".$_POST["from_date"]."' AND '".$_POST["to_date"]."'  
+      ";  
       $result = mysqli_query($con, $query);  
       $output .= '  
            <table class="table table-bordered">  
            <thead>
            <tr>
-           <th>#</th>
-              <th>Serial #</th>
-              <th>Firstname</th>
-              <th>Lastname</th>
-              <th>R. Days</th>
+            <th>ID</th>
+            <th>Author</th>
+            <th>Action</th>
+            <th>Date Action</th>
            </tr>
       </thead>
       ';  
@@ -25,11 +25,9 @@
                 $output .= '  
                      <tr>  
                           <td>'. $row["id"] .'</td>  
-                          <td>'. $row["SerialNumber"] .'</td>  
-                          <td>'. $row["Firstname"] .'</td>  
-                          <td>'. $row["Lastname"] .'</td>  
-                          <td>'. $row["RemainingDays"] .' Days </td>
-                          
+                          <td>'. $row["Author"] .'</td>  
+                          <td>'. $row["Action"] .'</td>  
+                          <td>'. $row["DateAction"] .'</td>  
                           
 
                      </tr>  
@@ -40,7 +38,7 @@
       {  
            $output .= '  
                 <tr>  
-                     <td colspan="6">No Record Found</td>  
+                     <td colspan="4">No Record Found</td>  
                 </tr>  
            ';  
       }  

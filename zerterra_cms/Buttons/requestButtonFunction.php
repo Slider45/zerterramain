@@ -27,7 +27,7 @@ if(isset($_POST['btn-update'])){
          
           $author = $_SESSION['admin'];
           $delete_id = $_POST['delete_id'];
-          $dateNow = date("d/m/Y");
+          $dateNow = date('Y/m/d');
           
        
   
@@ -54,7 +54,7 @@ if(isset($_POST['btn-update'])){
           $Email= $_POST['edit_email'];
           $contact = $_POST['edit_contact'];
           $address = $_POST['edit_address'];
-          $dateNow = date("d/m/Y");
+          $dateNow = date('Y/m/d');
           
   
   

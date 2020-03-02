@@ -98,7 +98,7 @@ include 'Buttons/requestButtonFunction.php';
               <th>Firstname</th>
               <th>Lastname</th>
               <th>R. Days</th>
-              <th>Action</th>
+             
             </tr>
           </thead>
 
@@ -147,14 +147,7 @@ include 'Buttons/requestButtonFunction.php';
                   <td>
                     <?php echo $rdays; ?> Days
                   </td>
-                  <td>
-                    
-                    <button data-target="#view<?php echo $id;?>" class="button is-success is-small modal-button"  id="btn_delete" name="acnt_view"><i class="far fa-eye"></i>
-                    </button>
-                    <?php
-                    include 'Buttons/usersViewModal.php';
-                    ?>
-                  </td>
+                 
                 </tr>
 
                 <?php 

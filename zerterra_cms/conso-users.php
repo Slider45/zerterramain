@@ -26,82 +26,85 @@ include 'Buttons/requestButtonFunction.php';
 <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>  
 <link rel="stylesheet" href="http://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
 <!-- <link href="assets/css/bulma-calendar.min.css" rel="stylesheet">
-<script src="/assets/js/bulma-calendar.min.js"></script> -->
+  <script src="/assets/js/bulma-calendar.min.js"></script> -->
 
 
-<!-- <link rel="stylesheet" href="sass/request.css"> -->
-<link rel="stylesheet" href="sass/consoUsers.css">
-<body>
+  <!-- <link rel="stylesheet" href="sass/request.css"> -->
+  <link rel="stylesheet" href="sass/consoUsers.css">
+  <body>
 
-  <?php
-  include 'Pages/consousersViewPage.php'; 
-  include 'admin-header.php';
-  include 'Buttons/consousersSearch.php';
-  ?>
+    <?php
+    include 'Pages/consousersViewPage.php'; 
+    include 'admin-header.php';
+    include 'Buttons/consousersSearch.php';
+    ?>
 
 
 
-<div class="w3-sidebar w3-bar-block w3-collapse w3-card w3-animate-left" style="width:200px;" id="mySidebar">
-  <button class="w3-bar-item w3-button w3-large w3-hide-large" onclick="w3_close()" id="close">&times;</button>
-  <a href="index.php" class="w3-bar-item w3-button" id="item-hover" ><i class="fas fa-th-large"></i> &nbsp Dashboard</a>
-  <a href="admin.php" class="w3-bar-item w3-button" id="item-hover"> <i class="fas fa-user-shield"></i> &nbsp Admin</a>
-  <a href="users.php" class="w3-bar-item w3-button" id="item-hover"><i class="fas fa-user"></i> &nbsp Users</a>
-  <a class="w3-bar-item w3-button w3-dropdown-hover modal-button" id="sendmodal" data-target="#ordersModal" aria-haspopup="true"><i class="fas fa-cubes"></i> &nbsp Orders</a>
-  <a href="request.php" class="w3-bar-item w3-button" id="item-hover"><i class="fas fa-envelope-open-text"></i> &nbsp Request</a>
-  <a href="sales.php" class="w3-bar-item w3-button" id="item-hover"><i class="fas fa-hand-holding-usd"></i> &nbsp Sales</a>
-  <button onclick="document.getElementById('id01').style.display='block'" href="consolidate.php" class="w3-bar-item w3-button" id="dashboard" ><i class="fas fa-print"></i> &nbsp Consolidate</button>
-</div>
-
-  <div class="w3-main" style="margin-left:200px">
-    <div class="w3-teal">
-      <button class="w3-button w3-teal w3-xlarge w3-hide-large" onclick="w3_open()">&#9776;</button>
+    <div class="w3-sidebar w3-bar-block w3-collapse w3-card w3-animate-left" style="width:200px;" id="mySidebar">
+      <button class="w3-bar-item w3-button w3-large w3-hide-large" onclick="w3_close()" id="close">&times;</button>
+      <a href="index.php" class="w3-bar-item w3-button" id="item-hover" ><i class="fas fa-th-large"></i> &nbsp Dashboard</a>
+      <a href="admin.php" class="w3-bar-item w3-button" id="item-hover"> <i class="fas fa-user-shield"></i> &nbsp Admin</a>
+      <a href="users.php" class="w3-bar-item w3-button" id="item-hover"><i class="fas fa-user"></i> &nbsp Users</a>
+      <a class="w3-bar-item w3-button w3-dropdown-hover modal-button" id="sendmodal" data-target="#ordersModal" aria-haspopup="true"><i class="fas fa-cubes"></i> &nbsp Orders</a>
+      <a href="request.php" class="w3-bar-item w3-button" id="item-hover"><i class="fas fa-envelope-open-text"></i> &nbsp Request</a>
+      <a href="sales.php" class="w3-bar-item w3-button" id="item-hover"><i class="fas fa-hand-holding-usd"></i> &nbsp Sales</a>
+      <a href="actionLog.php" class="w3-bar-item w3-button" id="item-hover"><i class="fas fa-clipboard-list"></i> &nbsp Action Log</a>
+      <button onclick="document.getElementById('id01').style.display='block'" href="consolidate.php" class="w3-bar-item w3-button" id="dashboard" ><i class="fas fa-print"></i> &nbsp Consolidate</button>
     </div>
 
-    <a href="print/usersPrint.php"><button  class="button" id="home" ><i class="fas fa-print"></i> </button></a> 
+    <div class="w3-main" style="margin-left:200px">
+      <div class="w3-teal">
+        <button class="w3-button w3-teal w3-xlarge w3-hide-large" onclick="w3_open()">&#9776;</button>
+      </div>
 
-    <div class="w3-container">
-      <div class="columns">
-        <div class="column">
-          <h1 class="button-category">USERS</h1>
+      <a href="print/usersPrint.php"><button  class="button" id="home" ><i class="fas fa-print"></i> </button></a> 
+
+      <div class="w3-container">
+        <div class="columns">
+          <div class="column">
+            <h1 class="button-category">USERS</h1>
+          </div>
         </div>
-      </div>
 
-     <!--  -->
-     <div class="columns">
-      <div class="column is-3" id="base">
-    <p id="startD">Start-date</p>
-     <box id="cal"><i class="far fa-calendar-alt"></i><input type="text" name="from_date" id="from_date" class="form-control"  /></box>
-     </div>
-     <div class="column is-1" > TO </div>
-     <div class="column is-3" id="base">
-    <p id="endD">End-date</p>
-     <box id="cal"><i class="far fa-calendar-alt"></i><input type="text" name="to_date" id="to_date" class="form-control" />  </box>
-     </div>
-     <div class="column">
-          <input type="button" name="filter" id="filter" value="Filter" class="btn btn-info" /> 
-      </div>
-  </div>
+        <!--  -->
+        <div class="columns">
+          <div class="column is-3" id="base">
+            <p id="startD">Start-date</p>
+            <box id="cal"><i class="far fa-calendar-alt"></i><input type="text" name="from_date" id="from_date" class="form-control"  /></box>
+          </div>
+          <div class="column is-1" > TO </div>
+          <div class="column is-3" id="base">
+            <p id="endD">End-date</p>
+            <box id="cal"><i class="far fa-calendar-alt"></i><input type="text" name="to_date" id="to_date" class="form-control" />  </box>
+          </div>
+          <div class="column is-2">
+            <button class="button is-primary" type="button" value="" id="filter"><i class="fas fa-filter"></i> &nbspFilter</button>
+          </div>
+          <div class="column is-2">
+            <button class="button is-success" type="button" value="" id="refresh"><i class="fas fa-sync-alt"></i></button>
+          </div>
+        </div>
 
-    <!--  -->
+        <!--  -->
 
-      <section class = "section">
-        <div class = "container" id="order_table"> 
+        <section class="section">
+          <div class="container"> 
+           <table class="table">
+            <thead>
+             <tr>
+              <th>#</th>
+              <th>Serial #</th>
+              <th>Firstname</th>
+              <th>Lastname</th>
+              <th>R. Days</th>
+             
+            </tr>
+          </thead>
 
-         <table class = "table">
-          <thead>
-           <tr>
-            <th>Serial #</th>
-            <th>Firstname</th>
-            <th>Lastname</th>
-            <th>Email</th>
-            <th>Contact</th>
-            <th>Remaining Days</th>
-            <th>Date-Registered</th>
-            <th>Date-Expired</th>
-        </tr>
-      </thead>
+          <tbody>
 
-      <?php 
+            <?php 
 
             if (isset($_POST['search_btn'])){
               $searchValue = $_POST['searchValue'];
@@ -109,108 +112,94 @@ include 'Buttons/requestButtonFunction.php';
               if ($searchValue===''){
                 echo '<script>window.location.href="?"</script>';
               }else{
-              include 'searchFunction/consosearchUsersFunction.php';
-            }
+                include 'searchFunction/searchUsersFunction.php';
+              }
             }else{     
-            $sql = "SELECT * FROM tblusers ORDER BY id DESC LIMIT $offset, $no_of_records_per_page";
-            $res_data = $con->query($sql);
-            while($row = mysqli_fetch_array($res_data)){
-              $id = $row['id'];
-              $serialNumber = $row['SerialNumber'];
-              $firstname = $row['Firstname'];
-              $lastname = $row['Lastname'];
-              $email = $row['Email'];
-              $contact = $row['Contact'];
-              $rdays = $row['RemainingDays'];
-              $dateRegister = $row['DateRegistered'];
-              $dateExpired = $row['DateExpired'];
-              
+              $sql = "SELECT * FROM tblusers WHERE is_active='1' ORDER BY id DESC LIMIT $offset, $no_of_records_per_page";
+              $res_data = $con->query($sql);
+              while($row = mysqli_fetch_array($res_data)){
+                $id = $row['id'];
+                $serialNum = $row['SerialNumber'];
+                $fname = $row['Firstname'];
+                $lname = $row['Lastname'];
+                $contact = $row['Contact'];   
+                $email = $row['Email'];
+                $rdays = $row['RemainingDays'];
+                $dateReg = $row['DateRegistered'];
+                $dateEnd= $row['DateExpired'];
+                
+                ?>
+                <tbody>
+                 <tr>
+                   <td>
+                     # <?php echo $id; ?>
+                   </td>
+                   <td>
+                    <?php echo $serialNum; ?>
+                  </td>
 
-              
-              ?>
-              <tbody>
-              <tr>
-              <td>
-                  # <?php echo $id; ?>
-              </td>
-              <td>
-                    <?php echo $serialNumber; ?>
-              </td>
-              <td>
-                    <?php echo $firstname; ?>
-              </td>
-              <td>
-                    <?php echo $lastname; ?>
-              </td>
-              <td>
-                    <?php echo $email; ?>
-              </td>
-              <td>
-                    <?php echo $contact; ?>
-              </td>
-              <td>
-                    <?php echo $rdays; ?>
-              </td>
-              <td>
-                    <?php echo $dateRegister; ?>
-              </td>
-              <td>
-                    <?php echo $dateExpired; ?>
-              </td>
-              
-              </tr>
+                  <td>
+                    <?php echo $fname; ?>
+                  </td>
+                  <td>
+                    <?php echo $lname; ?>
+                  </td>
+                  <td>
+                    <?php echo $rdays; ?> Days
+                  </td>
+                 
+                </tr>
 
-              
-              <?php 
-            }  
+                <?php 
+              }  
             }        
             ?>
-      </tbody>
-    </table>
-    <nav class="pagination is-small" role="navigation" aria-label="pagination">
-      <a href="<?php if($page <= 1){ echo '#'; } else { echo "?page=".($page - 1); } ?>" class="pagination-previous" >Previous</a>
-      <a href="<?php if($page >= $total_pages){ echo '#'; } else { echo "?page=".($page + 1); } ?>" class="pagination-next">Next page</a>
-      <ul class="pagination-list">
-        <li><a href="?page=1" class="pagination-link" >1</a></li>
-        <li>
-          <span class="pagination-ellipsis">&hellip;</span>
-        </li>
-        <li><a href="?page=<?php echo $total_pages; ?>" class="pagination-link"><?php echo $total_pages; ?></a></li>
-      </ul>
-    </nav>
+          </tbody>
+        </table>
+        <nav class="pagination is-small" role="navigation" aria-label="pagination">
+          <a href="<?php if($page <= 1){ echo '#'; } else { echo "?page=".($page - 1); } ?>" class="pagination-previous" >Previous</a>
+          <a href="<?php if($page >= $total_pages){ echo '#'; } else { echo "?page=".($page + 1); } ?>" class="pagination-next">Next page</a>
+          <ul class="pagination-list">
+            <li><a href="?page=1" class="pagination-link" >1</a></li>
+            <li>
+              <span class="pagination-ellipsis">&hellip;</span>
+            </li>
+            <li><a href="?page=<?php echo $total_pages; ?>" class="pagination-link"><?php echo $total_pages; ?></a></li>
+          </ul>
+        </nav>
+      </div>
+    </section>
+
   </div>
-</section>
-
-</div>
 
 
-<!-- modal transaction -->
+  <!-- modal transaction -->
 
-<div class="container" id="modal-container">
+  <div class="container" id="modal-container">
 
-  <div id="ordersModal" class="modal  modal-fx-slideTop">
-    <div class="modal-background"></div>
-    <div class="modal-content1">
-     <div class="modal-card1">
+    <div id="ordersModal" class="modal  modal-fx-slideTop">
+      <div class="modal-background"></div>
+      <div class="modal-content1">
+       <div class="modal-card1">
 
-      <section class="modal-card-body1" id="modal-card-body">
-        <!-- Content ... -->
-        <div class="field">
-          <div class="control">
-            <div class="card" id="modal-card">
-              <div class="card-content" id="trans-content">
-                <button class="modal-close" id="close9"></button>
-                <div class="columns is-mobile">
-                  <div class="column is-6">
-                    <a href="pending.php">
-                      <div class="card" id="card-pending" style="background:url(images/pendingicon.png);  background-size: 100% 100%; background-repeat: no-repeat; background-size: cover;">
-                       <!-- PENDING -->
-                     </div>
-                   </a>
-                 </div>
-                 <div class="column is-6">
-                  <a href="approved.php">
-                    <div class="card" id="card-approve" style="background:url(images/approvedicon.png);  background-size: 100% 100%; background-repeat: no-repeat; background-size: cover;">
+        <section class="modal-card-body1" id="modal-card-body">
+          <!-- Content ... -->
+          <div class="field">
+            <div class="control">
+              <div class="card" id="modal-card">
+                <div class="card-content" id="trans-content">
+                  <button class="modal-close" id="close9"></button>
+                  <div class="columns is-mobile">
+                    <div class="column is-6">
+                      <a href="pending.php">
+                        <div class="card" id="card-pending" style="background:url(images/pendingicon.png);  background-size: 100% 100%; background-repeat: no-repeat; background-size: cover;">
+                         <!-- PENDING -->
+                       </div>
+                     </a>
+                   </div>
+                   <div class="column is-6">
+                    <a href="approved.php">
+                      <div class="card" id="card-approve" style="background:url(images/approvedicon.png);  background-size: 100% 100%; background-repeat: no-repeat; background-size: cover;">
                         <!-- <div class="card-content" >
                           <a href="approved.php" id="pending">
                             APPROVED
@@ -234,15 +223,15 @@ include 'Buttons/requestButtonFunction.php';
 
 
 
-<!-- Modal -->
-<?php
-include 'ordersModal.php';
-?>
+  <!-- Modal -->
+  <?php
+  include 'ordersModal.php';
+  ?>
 
 
-<?php
-include 'consolidate.php';
-?>
+  <?php
+  include 'consolidate.php';
+  ?>
 
 
   
@@ -274,36 +263,36 @@ include 'consolidate.php';
   </script>
 
 
-<script>  
-      $(document).ready(function(){  
-           $.datepicker.setDefaults({  
-                dateFormat: 'yy-mm-dd'   
-           });  
-           $(function(){  
-                $("#from_date").datepicker();  
-                $("#to_date").datepicker();  
-           });  
-           $('#filter').click(function(){  
-                var from_date = $('#from_date').val();  
-                var to_date = $('#to_date').val();  
-                if(from_date != '' && to_date != '')  
-                {  
-                     $.ajax({  
-                          url:"consoUserFilter.php",  
-                          method:"POST",  
-                          data:{from_date:from_date, to_date:to_date},  
-                          success:function(data)  
-                          {  
-                               $('#order_table').html(data);  
-                          }  
-                     });  
-                }  
-                else  
-                {  
-                     alert("Please Select Date");  
-                }  
-           });  
-      });  
+  <script>  
+    $(document).ready(function(){  
+     $.datepicker.setDefaults({  
+      dateFormat: 'yy-mm-dd'   
+    });  
+     $(function(){  
+      $("#from_date").datepicker();  
+      $("#to_date").datepicker();  
+    });  
+     $('#filter').click(function(){  
+      var from_date = $('#from_date').val();  
+      var to_date = $('#to_date').val();  
+      if(from_date != '' && to_date != '')  
+      {  
+       $.ajax({  
+        url:"consoUserFilter.php",  
+        method:"POST",  
+        data:{from_date:from_date, to_date:to_date},  
+        success:function(data)  
+        {  
+         $('#order_table').html(data);  
+       }  
+     });  
+     }  
+     else  
+     {  
+       alert("Please Select Date");  
+     }  
+   });  
+   });  
  </script>
 
 

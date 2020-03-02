@@ -41,6 +41,7 @@ include 'Buttons/pendingButtonFunction.php';
     <a href="request.php" class="w3-bar-item w3-button" id="item-hover"><i class="fas fa-envelope-open-text"></i>
     &nbsp Request</a>
     <a href="sales.php" class="w3-bar-item w3-button" id="item-hover"><i class="fas fa-hand-holding-usd"></i> &nbspSales</a>
+    <a href="actionLog.php" class="w3-bar-item w3-button" id="item-hover"><i class="fas fa-clipboard-list"></i> &nbsp Action Log</a>
     <button onclick="document.getElementById('id01').style.display='block'" href="consolidate.php" class="w3-bar-item w3-button" id="item-hover" ><i class="fas fa-print"></i> &nbsp Consolidate</button>
   </div>
 
@@ -101,7 +102,7 @@ include 'Buttons/pendingButtonFunction.php';
                 include 'searchFunction/searchPendingFunction.php';
               }
             }else{     
-              $sql = "SELECT * FROM pending_order_list ORDER BY id DESC LIMIT $offset, $no_of_records_per_page";
+              $sql = "SELECT * FROM pending_order_list WHERE is_approved='0' ORDER BY id DESC LIMIT $offset, $no_of_records_per_page";
               $res_data = $con->query($sql);
               while($row = mysqli_fetch_array($res_data)){
 

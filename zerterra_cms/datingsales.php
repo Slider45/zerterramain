@@ -92,7 +92,7 @@ $result = mysqli_query($connect, $query);
                       if ($searchValue===''){
                         echo '<script>window.location.href="?"</script>';
                       }else{
-                        inclaude 'searchFunction/searchSalesFunction.php';
+                        include 'searchFunction/searchSalesFunction.php';
                       }
                     }else{     
                       $sql = "SELECT * FROM tblsales_list ORDER BY ID DESC LIMIT $offset, $no_of_records_per_page";

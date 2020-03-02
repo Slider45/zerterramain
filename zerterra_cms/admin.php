@@ -39,6 +39,7 @@ include 'Buttons/adminButtonFunction.php';
     <a class="w3-bar-item w3-button w3-dropdown-hover modal-button" id="sendmodal" data-target="#ordersModal" aria-haspopup="true"><i class="fas fa-cubes"></i> &nbsp Orders</a>
     <a href="request.php" class="w3-bar-item w3-button" id="item-hover"><i class="fas fa-envelope-open-text"></i> &nbsp Request</a>
     <a href="sales.php" class="w3-bar-item w3-button" id="item-hover"><i class="fas fa-hand-holding-usd"></i> &nbsp Sales</a>
+    <a href="actionLog.php" class="w3-bar-item w3-button" id="item-hover"><i class="fas fa-clipboard-list"></i> &nbsp Action Log</a>
     <button onclick="document.getElementById('id01').style.display='block'" href="consolidate.php" class="w3-bar-item w3-button" id="item-hover"  ><i class="fas fa-print"></i> &nbsp Consolidate</button>
   </div>
 
@@ -46,6 +47,8 @@ include 'Buttons/adminButtonFunction.php';
     <div class="w3-teal">
       <button class="w3-button w3-teal w3-xlarge w3-hide-large" onclick="w3_open()">&#9776;</button>
     </div>
+
+    <a href="print/printAdmin.php"><button  class="button" id="home" ><i class="fas fa-print"></i> </button></a> 
 
     <div class="w3-container">
       <div class="columns">
@@ -93,7 +96,6 @@ include 'Buttons/adminButtonFunction.php';
           while($row = mysqli_fetch_array($res_data)){
             $id = $row['id'];
             $fullname = $row['Fullname'];
-           
             $contact = $row['Contact'];
             $email = $row['Email'];
             $position = $row['Position'];
@@ -153,7 +155,6 @@ include 'Buttons/adminButtonFunction.php';
   </div>
 </section>
 
-<p><button class="btnn">Print Table</button></p>
 </div>
 
 

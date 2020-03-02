@@ -1,4 +1,10 @@
+<?php
 
+
+$dateFrom = $_GET['from_date'];
+$dateTo = $_GET['to_date'];
+
+?>
 
 <!DOCTYPE html>
 <html>
@@ -9,7 +15,7 @@
 <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
 <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
 
-<link rel="stylesheet" href="sass/usersPrint.css">
+<link rel="stylesheet" href="sass/salesPrint.css">
 
 <body>
   <center>
@@ -27,8 +33,8 @@
     <div class="card-content">
 
     <div id="date">
-        <span>FR:01-01-2020</span> <span id="date-today"> DATE:02-25-2020</span>
-        <p>TO:01-01-2021</p>
+        <p>FROM: <?php echo $dateFrom; ?> <span id="date-today"> DATE:02-25-2020</span></p>
+        <p>TO:<?php echo $dateTo; ?></p>
     </div>
 
     <div class="table">
@@ -43,68 +49,6 @@
     <th>Amount</th>
     <th>Vat</th>
     <th>Date-Purchased</th>
-  </tr>
-  <tr>
-    <td>Alfreds Futterkiste</td>
-    <td>Maria Anders</td>
-    <td>Germany</td>
-    <td>Alfreds Futterkiste</td>
-    <td>Maria Anders</td>
-    <td>Germany</td>
-    <td>Alfreds Futterkiste</td>
-    <td>Maria Anders</td>
-    
-  </tr>
-  <tr>
-    <td>Centro comercial Moctezuma</td>
-    <td>Francisco Chang</td>
-    <td>Mexico</td>
-    <td>Centro comercial Moctezuma</td>
-    <td>Francisco Chang</td>
-    <td>Mexico</td>
-    <td>Centro comercial Moctezuma</td>
-    <td>Francisco Chang</td>
-    
-  </tr>
-  <tr>
-    <td>Ernst Handel</td>
-    <td>Roland Mendel</td>
-    <td>Austria</td>
-    <td>Ernst Handel</td>
-    <td>Roland Mendel</td>
-    <td>Austria</td>
-    <td>Ernst Handel</td>
-    <td>Roland Mendel</td>
-  </tr>
-  <tr>
-  <td>Ernst Handel</td>
-    <td>Roland Mendel</td>
-    <td>Austria</td>
-    <td>Ernst Handel</td>
-    <td>Roland Mendel</td>
-    <td>Austria</td>
-    <td>Ernst Handel</td>
-    <td>Roland Mendel</td>
-  </tr>
-  <tr>
-  <td>Ernst Handel</td>
-    <td>Roland Mendel</td>
-    <td>Austria</td>
-    <td>Ernst Handel</td>
-    <td>Roland Mendel</td>
-    <td>Austria</td>
-    <td>Ernst Handel</td>
-    <td>Roland Mendel</td>
-  </tr>
-  <tr>
-  <td>Ernst Handel</td>
-    <td>Roland Mendel</td>
-    <td>Austria</td>
-    <td>Ernst Handel</td>
-    <td>Roland Mendel</td>
-    <td>Austria</td>
-    <td>Ernst Handel</td>
-    <td>Roland Mendel</td>
   </tr>
 </table>
 

@@ -75,6 +75,7 @@ html, body{
     padding-left:25px;
    }
 
+  
    #sendmodal:hover{
     margin: 0;
     background-color: #80cbae !important;
@@ -82,7 +83,6 @@ html, body{
     color:white !important;
     padding-left:25px;
    }
-   
 
    
 // sidebar item
@@ -135,7 +135,7 @@ html, body{
     font-size: 35px;
     color: #333;
     font-weight: bold;
-    border-left: solid #f7de62 6px;
+    border-left: solid #fcc174 6px;
     padding-left: 10px;
     height: 50px;
     border-radius:0;
@@ -221,8 +221,7 @@ html, body{
     width: 400px;
     font-size: 16pt;
     padding: 5px;
-    font-family: Montserrat;
-    font-weight: bold;
+    font-family: montserrat;
 
 }
 
@@ -231,11 +230,6 @@ html, body{
     border:none;
 }
 
-#search-btn{
-    padding-top:15px;
-    border:none;
-    background-color: transparent;
-}
 
 // table
 
@@ -245,8 +239,9 @@ html, body{
 }
 
 thead th{
-    background-color: #f7de62;
+    background-color: #fcc174;
     border-right-width: 5px;
+   color: white !important;
 }
 
 .table{
@@ -256,7 +251,6 @@ thead th{
 table,th,td{
     text-align: center !important;
 }
-
 
 
 
@@ -273,10 +267,11 @@ table,th,td{
     height: 180px;
     padding-top: 10px;
 }
+
 #card-pending, #card-approve{
     border: solid 2px;
     margin-top: 15px;
-    border-radius: 10px;
+    border-radius: 8px;
     width: 400px;
     height: 130px;
 }
@@ -288,41 +283,3 @@ table,th,td{
     padding-left:50%;   
     font-family: montserrat;
 }
-
-
-// button add
-
-#btn-add{
-    font-weight: bold;
-}
-
-
-
-// admin-update-btn
-
-#label{
-    font-weight: bold;
-    padding-top:20px;
-    padding-right:0;
-    font-family: Montserrat;
-}
-
-#txtbox{
-    padding-left:0;
-}
-
-#home{
-    position: fixed;
-    width: 50px;
-    height: 50px;
-    background: #f7de62;
-    bottom: 50px;
-    right: 50px;
-    text-decoration: none;
-    text-align: center;
-    line-height: 50px;
-    color: white;
-    font-size: 22px;
-    border-radius: 30px;
-    
-  }

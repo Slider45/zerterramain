@@ -26,86 +26,86 @@ include 'Buttons/adminButtonFunction.php';
 <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>  
 <link rel="stylesheet" href="http://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">  
 <!-- <link href="assets/css/bulma-calendar.min.css" rel="stylesheet">
-<script src="/assets/js/bulma-calendar.min.js"></script> -->
+  <script src="/assets/js/bulma-calendar.min.js"></script> -->
 
 
-<!-- <link rel="stylesheet" href="sass/request.css"> -->
-<link rel="stylesheet" href="sass/conso.css">
-<link rel="stylesheet" href="sass/sales.css">
-<body>
+  <!-- <link rel="stylesheet" href="sass/request.css"> -->
+  <!-- <link rel="stylesheet" href="sass/conso.css"> -->
+  <link rel="stylesheet" href="sass/sales.css">
+  <body>
 
-<?php
-  include 'Pages/salesViewPage.php'; 
-  include 'admin-header.php';
-  include 'Buttons/salesSearch.php';
-  ?>
+    <?php
+    include 'Pages/salesViewPage.php'; 
+    include 'admin-header.php';
+    include 'Buttons/salesSearch.php';
+    ?>
 
 
 
-<div class="w3-sidebar w3-bar-block w3-collapse w3-card w3-animate-left" style="width:200px;" id="mySidebar">
-  <button class="w3-bar-item w3-button w3-large w3-hide-large" onclick="w3_close()" id="close">&times;</button>
-  <a href="index.php" class="w3-bar-item w3-button" id="item-hover" ><i class="fas fa-th-large"></i> &nbsp Dashboard</a>
-  <a href="admin.php" class="w3-bar-item w3-button" id="item-hover"> <i class="fas fa-user-shield"></i> &nbsp Admin</a>
-  <a href="users.php" class="w3-bar-item w3-button" id="item-hover"><i class="fas fa-user"></i> &nbsp Users</a>
-  <a class="w3-bar-item w3-button w3-dropdown-hover modal-button" id="sendmodal" data-target="#ordersModal" aria-haspopup="true"><i class="fas fa-cubes"></i> &nbsp Orders</a>
-  <a href="request.php" class="w3-bar-item w3-button" id="item-hover"><i class="fas fa-envelope-open-text"></i> &nbsp Request</a>
-  <a href="sales.php" class="w3-bar-item w3-button" id="dashboard"><i class="fas fa-hand-holding-usd"></i> &nbsp Sales</a>
-  <button onclick="document.getElementById('id01').style.display='block'" href="consolidate.php" class="w3-bar-item w3-button" id="item-hover" ><i class="fas fa-print"></i> &nbsp Consolidate</button>
-</div>
-
-  <div class="w3-main" style="margin-left:200px">
-    <div class="w3-teal">
-      <button class="w3-button w3-teal w3-xlarge w3-hide-large" onclick="w3_open()">&#9776;</button>
+    <div class="w3-sidebar w3-bar-block w3-collapse w3-card w3-animate-left" style="width:200px;" id="mySidebar">
+      <button class="w3-bar-item w3-button w3-large w3-hide-large" onclick="w3_close()" id="close">&times;</button>
+      <a href="index.php" class="w3-bar-item w3-button" id="item-hover" ><i class="fas fa-th-large"></i> &nbsp Dashboard</a>
+      <a href="admin.php" class="w3-bar-item w3-button" id="item-hover"> <i class="fas fa-user-shield"></i> &nbsp Admin</a>
+      <a href="users.php" class="w3-bar-item w3-button" id="item-hover"><i class="fas fa-user"></i> &nbsp Users</a>
+      <a class="w3-bar-item w3-button w3-dropdown-hover modal-button" id="sendmodal" data-target="#ordersModal" aria-haspopup="true"><i class="fas fa-cubes"></i> &nbsp Orders</a>
+      <a href="request.php" class="w3-bar-item w3-button" id="item-hover"><i class="fas fa-envelope-open-text"></i> &nbsp Request</a>
+      <a href="sales.php" class="w3-bar-item w3-button" id="dashboard"><i class="fas fa-hand-holding-usd"></i> &nbsp Sales</a>
+      <a href="actionLog.php" class="w3-bar-item w3-button" id="item-hover"><i class="fas fa-clipboard-list"></i> &nbsp Action Log</a>
+      <button onclick="document.getElementById('id01').style.display='block'" href="consolidate.php" class="w3-bar-item w3-button" id="item-hover" ><i class="fas fa-print"></i> &nbsp Consolidate</button>
     </div>
 
+    <div class="w3-main" style="margin-left:200px">
+      <div class="w3-teal">
+        <button class="w3-button w3-teal w3-xlarge w3-hide-large" onclick="w3_open()">&#9776;</button>
+      </div>
 
-    <div class="w3-container">
-      <div class="columns">
-        <div class="column">
-          <h1 class="button-category">SALES</h1>
+
+      <div class="w3-container">
+        <div class="columns">
+          <div class="column">
+            <h1 class="button-category">SALES</h1>
+          </div>
         </div>
-      </div>
 
-     <!--  -->
-<<<<<<< HEAD
-    <div class="columns">
-      <div class="column is-3" id="base">
-    <p id="startD">Start-date</p>
-     <box id="cal"><i class="far fa-calendar-alt"></i><input type="date" id="dateTime"></box>
-     </div>
-     <div class="column is-1" > TO </div>
-     <div class="column is-3" id="base">
-    <p id="endD">End-date</p>
-     <box id="cal"><i class="far fa-calendar-alt"></i><input type="date" id="dateTime"></box>
-     </div>
-     <div class="column">
-        <input class="button is-primary" type="button" value="Filter" id="filter">
-      </div>
-  </div>
-=======
-    
->>>>>>> 922a52c0368c0238c22f9a618ca5f9b6daea0d81
+        <!--  -->
+        <div class="columns">
+          <div class="column is-3" id="base">
+            <p id="startD">Start-date</p>
+            <box id="cal"><i class="far fa-calendar-alt"></i><input type="date" id="from_date"></box>
+          </div>
+          <div class="column is-1" > TO </div>
+          <div class="column is-3" id="base">
+            <p id="endD">End-date</p>
+            <box id="cal"><i class="far fa-calendar-alt"></i><input type="date" id="to_date"></box>
+          </div>
+          <div class="column is-2">
+            <button class="button is-primary" type="button" value="" id="filter"><i class="fas fa-filter"></i> &nbspFilter</button>
+          </div>
+          <div class="column is-2">
+            <button class="button is-primary" type="button" value="" id="refresh"><i class="fas fa-redo-alt"></i></button>
+          </div>
+        </div>
 
-    <!--  -->
+        <!--  -->
 
-      <section class = "section">
-        <div class = "container" id="order_table"> 
+        <section class = "section">
+          <div class = "container" id="order_table"> 
 
-         <table class = "table">
-          <thead>
-           <tr>
-            <th>#</th>
-            <th>Transaction Number</th>
-            <th>Firstname</th>
-            <th>Lastname</th>
-            <th>Amount</th>
-            <th>Option </th> 
+           <table class = "table">
+            <thead>
+             <tr>
+              <th>#</th>
+              <th>Transaction Number</th>
+              <th>Firstname</th>
+              <th>Lastname</th>
+              <th>Amount</th>
+              <th>Option </th> 
 
-   
-        </tr>
-      </thead>
+              
+            </tr>
+          </thead>
 
-      <?php 
+          <?php 
 
           if (isset($_POST['search_btn'])){
             $searchValue = $_POST['searchValue'];
@@ -126,37 +126,39 @@ include 'Buttons/adminButtonFunction.php';
             $email = $row['Email'];
             $contact = $row['Contact'];
             $amount = $row['Amount'];
+            $vat = $row['Vat'];
+            $datePurchased = $row['Date_Purchased'];
             
             
             ?>
             <tbody>
-            <tr>
-            <td>
-                # <?php echo $id; ?>
-            </td>
-            <td>
+              <tr>
+                <td>
+                  # <?php echo $id; ?>
+                </td>
+                <td>
                   <?php echo $transcationNumber; ?>
-            </td>
-            <td>
+                </td>
+                <td>
                   <?php echo $firstname; ?>
-            </td>
-            <td>
+                </td>
+                <td>
                   <?php echo $lastname; ?>
-            </td>
-            <td>
+                </td>
+                <td>
                   <?php echo $amount; ?>
-            </td>
-            </td>
-            <td>
-            <button data-target="#view<?php echo $id;?>" class="button is-success is-small modal-button"  id="btn_delete" name="acnt_view"><i class="far fa-eye"></i>
-            </button>
-            <?php
+                </td>
+              </td>
+              <td>
+                <button data-target="#view<?php echo $id;?>" class="button is-success is-small modal-button"  id="btn_delete" name="acnt_view"><i class="far fa-eye"></i>
+                </button>
+                <?php
                 include 'Buttons/salesViewModal.php';
-            ?>
-            </td>
-            
+                ?>
+              </td>
+              
             </tr>
-      
+            
             <?php 
           }  
         }        
@@ -231,16 +233,16 @@ include 'Buttons/adminButtonFunction.php';
 
 
 
-<!-- Modal -->
+  <!-- Modal -->
   <?php
-                        include 'ordersModal.php';
-                        ?>
-                        
-                        
-                        <?php
-                        include 'consolidate.php';
-                        ?>
-                        
+  include 'ordersModal.php';
+  ?>
+  
+  
+  <?php
+  include 'consolidate.php';
+  ?>
+  
 
 
   
@@ -271,36 +273,36 @@ include 'Buttons/adminButtonFunction.php';
     });
   </script>
 
-<script>  
-      $(document).ready(function(){  
-           $.datepicker.setDefaults({  
-                dateFormat: 'yy-mm-dd'   
-           });  
-           $(function(){  
-                $("#from_date").datepicker();  
-                $("#to_date").datepicker();  
-           });  
-           $('#filter').click(function(){  
-                var from_date = $('#from_date').val();  
-                var to_date = $('#to_date').val();  
-                if(from_date != '' && to_date != '')  
-                {  
-                     $.ajax({  
-                          url:"salesFilter.php",  
-                          method:"POST",  
-                          data:{from_date:from_date, to_date:to_date},  
-                          success:function(data)  
-                          {  
-                               $('#order_table').html(data);  
-                          }  
-                     });  
-                }  
-                else  
-                {  
-                     alert("Please Select Date");  
-                }  
-           });  
-      });  
+  <script>  
+    $(document).ready(function(){  
+     $.datepicker.setDefaults({  
+      dateFormat: 'yy-mm-dd'   
+    });  
+     $(function(){  
+      $("#from_date").datepicker();  
+      $("#to_date").datepicker();  
+    });  
+     $('#filter').click(function(){  
+      var from_date = $('#from_date').val();  
+      var to_date = $('#to_date').val();  
+      if(from_date != '' && to_date != '')  
+      {  
+       $.ajax({  
+        url:"salesFilter.php",  
+        method:"POST",  
+        data:{from_date:from_date, to_date:to_date},  
+        success:function(data)  
+        {  
+         $('#order_table').html(data);  
+       }  
+     });  
+     }  
+     else  
+     {  
+       alert("Please Select Date");  
+     }  
+   });  
+   });  
  </script>
 
 

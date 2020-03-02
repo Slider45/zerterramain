@@ -15,7 +15,7 @@ include 'Buttons/requestButtonFunction.php';
 
 <!DOCTYPE html>
 <html>
-<title>Request</title>
+<title>Action Log</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css">
@@ -23,13 +23,13 @@ include 'Buttons/requestButtonFunction.php';
 <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
 <link rel="icon" href="../images/plainlogo.png" type="image/x-icon" />
 
-<link rel="stylesheet" href="sass/request.css">
+<link rel="stylesheet" href="sass/actLog.css">
 <body>
 
   <?php
-  include 'Pages/requestViewPage.php'; 
+  include 'Pages/actionLogViewPage.php'; 
   include 'admin-header.php';
-  include 'Buttons/requestSearch.php'
+  include 'Buttons/actionLogSearch.php';
   ?>
 
 
@@ -40,9 +40,9 @@ include 'Buttons/requestButtonFunction.php';
     <a href="admin.php" class="w3-bar-item w3-button" id="item-hover"> <i class="fas fa-user-shield"></i> &nbsp Admin</a>
     <a href="users.php" class="w3-bar-item w3-button" id="item-hover"><i class="fas fa-user"></i> &nbsp Users</a>
     <a class="w3-bar-item w3-button w3-dropdown-hover modal-button" id="sendmodal" data-target="#ordersModal" aria-haspopup="true"><i class="fas fa-cubes"></i> &nbsp Orders</a>
-    <a href="request.php" class="w3-bar-item w3-button" id="dashboard"><i class="fas fa-envelope-open-text"></i> &nbsp Request</a>
+    <a href="request.php" class="w3-bar-item w3-button" id="item-hover"><i class="fas fa-envelope-open-text"></i> &nbsp Request</a>
     <a href="sales.php" class="w3-bar-item w3-button" id="item-hover"><i class="fas fa-hand-holding-usd"></i> &nbsp Sales</a>
-    <a href="actionLog.php" class="w3-bar-item w3-button" id="item-hover"><i class="fas fa-clipboard-list"></i> &nbsp Action Log</a>
+    <a href="actionLog.php" class="w3-bar-item w3-button"  id="dashboard"><i class="fas fa-clipboard-list"></i> &nbsp Action Log</a>
     <button onclick="document.getElementById('id01').style.display='block'" href="consolidate.php" class="w3-bar-item w3-button" id="item-hover" ><i class="fas fa-print"></i> &nbsp Consolidate</button>
   </div>
 
@@ -55,7 +55,7 @@ include 'Buttons/requestButtonFunction.php';
     <div class="w3-container">
       <div class="columns">
         <div class="column">
-          <h1 class="button-category">REQUEST</h1>
+          <h1 class="button-category">ACTION LOG</h1>
         </div>
       </div>
 
@@ -65,14 +65,10 @@ include 'Buttons/requestButtonFunction.php';
          <table class = "table">
           <thead>
            <tr>
-            <th>#</th>
-            <th>Serial #</th>
-            <th>Request #</th>
-            <th>Firstname</th>
-            <th>Lastname</th>
-            <th>Email</th>
-            <th>Contact</th>
-            <th>Options</th>
+            <th>ID</th>
+            <th>Author</th>
+            <th>Action</th>
+            <th>Date ACtion</th>
 
    
         </tr>
@@ -80,26 +76,22 @@ include 'Buttons/requestButtonFunction.php';
 
       <?php 
 
-      if (isset($_POST['searchRequest_btn'])){
+      if (isset($_POST['search_btn'])){
         $searchValue = $_POST['searchValue'];
 
         if ($searchValue===''){
           echo '<script>window.location.href="?"</script>';
         }else{
-          include 'searchFunction/searchRequestFunction.php';
+          include 'searchFunction/searchactionLogFunction.php';
         }
       }else{
-        $sql = "SELECT * FROM request_repair_list WHERE is_approved='0'  LIMIT $offset, $no_of_records_per_page";
+        $sql = "SELECT * FROM tblactionlog LIMIT $offset, $no_of_records_per_page";
         $res_data = $con->query($sql);
         while($row = mysqli_fetch_array($res_data)){
           $id = $row['id'];
-          $fname = $row['Firstname'];
-          $lname = $row['Lastname'];
-          $contact = $row['Contact'];
-          $email = $row['Email'];
-          $serialNum = $row['SerialNumber'];
-          $requestNum = $row['RequestNumber'];
-          $address = $row['Address'];
+          $author = $row['Author'];
+          $action = $row['Action'];
+          $dateAction = $row['DateAction'];
           ?>
           <tbody>
            <tr>
@@ -107,37 +99,14 @@ include 'Buttons/requestButtonFunction.php';
               <?php echo $id; ?>.
             </td>
             <td>
-              <?php echo $serialNum; ?>
+              <?php echo $author; ?>
             </td>
             <td>
-              <?php echo $requestNum; ?>
+              <?php echo $action; ?>
             </td>
             <td>
-              <?php echo $fname; ?>
+              <?php echo $dateAction; ?>
             </td>
-             <td>
-              <?php echo $lname; ?>
-            </td>
-            <td>
-              <?php echo $email; ?>
-            </td>
-            <td>
-              <?php echo $contact; ?>
-            </td>
-
-            <td>
-              <button data-target="#editrequest<?php echo $id;?>" class="button is-primary is-small modal-button" id="btn_update" name="btn-update"><i class="fas fa-pencil-alt"></i>
-              </button>
-              <?php
-              include 'Buttons/requestEditModal.php';
-              ?>
-              <button data-target="#deleterequest<?php echo $id;?>" class="button is-danger is-small modal-button"  id="btn_delete" name="btn-delete"><i class="fas fa-trash-alt"></i>
-              </button>
-              <?php
-              include 'Buttons/requestRemoveModal.php';
-              ?>
-            </td>
-
             </tr>
             <?php 
           }  

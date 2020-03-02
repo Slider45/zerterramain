@@ -41,7 +41,7 @@ html, body {
   color: white;
 }
 
-#from_date, #to_date {
+#dateTime {
   height: 30px;
   margin: 10px;
   font-size: 14pt;
@@ -53,7 +53,7 @@ html, body {
 #cal {
   background-color: #ffffff;
   font-size: 14pt;
-  padding: 4px;
+  padding: 5px;
   margin-left: 10px;
 }
 
@@ -77,20 +77,11 @@ html, body {
   height: 50px;
 }
 
-#filter, #refresh {
-  margin-top: 15px !important;
+#filter {
+  margin-top: 15px;
   font-size: 11pt;
+  width: 20%;
   font-family: Montserrat;
-}
-
-#refresh {
-  width: 30%;
-  margin-left: 300px;
-}
-
-.is-2 {
-  width: 120px !important;
-  padding-right: 0;
 }
 
 #home {
@@ -229,7 +220,6 @@ html, body {
   margin-bottom: 20px;
   margin-top: 20px;
   margin-left: 10px;
-  font-family: Montserrat;
 }
 
 #add-admin {
@@ -339,111 +329,6 @@ table, th, td {
 html, body {
   font-family: Montserrat;
   background-color: #f2f1f6;
-}
-
-#content {
-  height: 410px;
-  width: 60%;
-  border-radius: 5px;
-  background-color: #f1f2f6;
-}
-
-.w3-card-4 {
-  border-radius: 8px;
-}
-
-#card-con {
-  height: 320px;
-  width: 100%;
-  margin-top: 50px;
-  border-radius: 8px;
-}
-
-#card-con:hover {
-  border: solid 1px;
-}
-
-.w3-display-topright {
-  border-radius: 8px;
-}
-
-.w3-display-topright:hover {
-  background-color: #f1f2f6 !important;
-}
-
-#text1 {
-  font-family: Montserrat;
-  font-weight: bold;
-  font-size: 18pt;
-  margin-top: 60%;
-  color: white;
-}
-
-#from_date, #to_date {
-  height: 30px;
-  margin: 10px;
-  font-size: 14pt;
-  font-family: Montserrat;
-  border: none;
-  margin-left: 5px;
-}
-
-#cal {
-  background-color: #ffffff;
-  font-size: 14pt;
-  padding: 4px;
-  margin-left: 10px;
-}
-
-#startD, #endD {
-  margin-left: 10px;
-  font-size: 10pt;
-  font-family: Montserrat;
-}
-
-.is-1 {
-  text-align: center;
-  padding-top: 32px;
-  width: 50px !important;
-}
-
-#base {
-  margin: 0;
-  margin-bottom: 20px;
-  margin-left: 10px;
-  padding: 0;
-  height: 50px;
-}
-
-#filter, #refresh {
-  margin-top: 15px !important;
-  font-size: 11pt;
-  font-family: Montserrat;
-}
-
-#refresh {
-  width: 30%;
-  margin-left: 300px;
-}
-
-.is-2 {
-  width: 120px !important;
-  padding-right: 0;
-}
-
-#home {
-  position: fixed;
-  width: 50px;
-  height: 50px;
-  background: #4cc5db;
-  bottom: 100px;
-  right: 50px;
-  text-decoration: none;
-  text-align: center;
-  line-height: 50px;
-  color: white;
-  font-size: 22px;
-  border-radius: 30px;
 }
 
 .navbar {
@@ -560,7 +445,7 @@ html, body {
   font-size: 35px;
   color: #333;
   font-weight: bold;
-  border-left: solid #4cc5db 6px;
+  border-left: solid #fcc174 6px;
   padding-left: 10px;
   height: 50px;
   border-radius: 0;
@@ -635,7 +520,7 @@ html, body {
 }
 
 thead th {
-  background-color: #4cc5db;
+  background-color: #fcc174;
   border-right-width: 5px;
   color: white !important;
 }
@@ -673,4 +558,4 @@ table, th, td {
   padding-left: 50%;
   font-family: montserrat;
 }
-/*# sourceMappingURL=consoUsers.css.map */
+/*# sourceMappingURL=actLog.css.map */

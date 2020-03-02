@@ -11,19 +11,19 @@ html,body{
 .card{
     width: 600px; 
     height:900px;
-    // margin-top:10px;
+  padding-top:20px;
 
 }
 
 .card-header{
     background-color:#6fbf6d;
-    height: 60px;
+    height: 80px;
     width:600px;
 
     #head-title{
         color: white;
         font-size: 20pt;
-        margin-top: 8px;
+        margin-top: 17px;
         margin-left: 24px;
     }
     
@@ -31,7 +31,7 @@ html,body{
         width: 100%;
         max-width: 150px;
         margin-left: 53%;
-        margin-top: 8px;
+        margin-top: 17px;
        
     }
 }
@@ -40,17 +40,16 @@ html,body{
 
 .card-content{
     height:550px;
-    padding-left: 0;
-    padding-top: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
 
     #reg{
         font-size:8pt;
     }
-
     #date{
         text-align: justify;
         font-size: 10pt;
-        margin-left: 30px;
+        margin-left: 10px;
     p{
         padding-top:3px;
         font-family: Montserrat;
@@ -64,7 +63,6 @@ html,body{
 
     .table{
         padding: 0;
-        margin-left:0 !important;
     }
 
     table{
@@ -72,7 +70,7 @@ html,body{
         margin-top: 10px;
         width: 100%;
         font-size: 10pt;
-        margin-left: 5px;
+        // margin-left: 5px;
 
         th{
             padding:0 !important;
@@ -86,7 +84,7 @@ html,body{
         }
 
         td{
-            font-size: 8pt;
+            font-size: 7pt;
             border-left: solid 1px;
            
         }
@@ -161,7 +159,7 @@ html,body{
         font-size: 30pt;
         font-weight: bold;
         margin-top:20px;
-        margin-left: 35px;
+        margin-left: 32px;
     }
     
     #h-img{
@@ -177,15 +175,14 @@ html,body{
 
 .card-content{
     height:1073px;
+    padding-left: 40px;
+    padding-right:40px;
 
-    #reg{
-        font-size:9pt;
-    }
-
+    
     #date{
         text-align: justify;
         font-size: 12pt;
-        margin-left: 30px;
+        margin-left: 12px;
     p{
         padding-top:3px;
         font-family: Montserrat;
@@ -198,17 +195,17 @@ html,body{
     }
 
     .table{
-        margin-left: 12px !important;
+        // margin-left: 12px !important;
         font-size: 12pt;
         margin-top: 30px !important;
 
         th{
-            font-size: 12pt;
+            font-size: 10pt;
             border-left: solid 2px;
         }
 
         td{
-            font-size: 12pt;
+            font-size: 10pt;
             border-left: solid 2px;
         }
     }

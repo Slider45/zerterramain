@@ -73,7 +73,7 @@ include '../PagesFunction/connection.php';
      <div class="columns">
       <div class="column is-3" id="base">
     <p id="startD">Start-date</p>
-     <box id="cal"><i class="far fa-calendar-alt"></i><input type="text" name="from_date" id="from_date" class="form-control"  /></box>
+     <box id="cal"><i class="far fa-calendar-alt"></i><input type="text" name="from_date" id="from_date" class="form-control" value="2020/01/01" /></box>
      </div>
      <div class="column is-1" > TO </div>
      <div class="column is-3" id="base">
@@ -93,12 +93,13 @@ include '../PagesFunction/connection.php';
          <table class = "table">
           <thead>
            <tr>
-            <th>#</th>
-            <th>Trans #</th>
+           <th>Trans #</th>
             <th>Firstname</th>
             <th>Lastname</th>
+            <th>Email</th>
             <th>Contact</th>
             <th>Amount</th>
+            <th>Vat</th>
             <th>Date Purchased</th>
            
 
@@ -132,9 +133,7 @@ include '../PagesFunction/connection.php';
             ?>
             <tbody>
               <tr>
-                <td>
-                  # <?php echo $id; ?>
-                </td>
+              
                 <td>
                   <?php echo $transcationNumber; ?>
                 </td>
@@ -144,18 +143,18 @@ include '../PagesFunction/connection.php';
                 <td>
                   <?php echo $lastname; ?>
                 </td>
-            <!-- <td>
+                <td>
                   <?php echo $email; ?>
-                </td> -->
+                </td>
                 <td>
                   <?php echo $contact; ?>
                 </td>
                 <td>
                   <?php echo $amount; ?>
                 </td>
-            <!-- <td>
+                <td>
                   <?php echo $vat; ?>
-                </td> -->
+                </td> 
                 <td>
                   <?php echo $datePurchased; ?>
                 </td>

@@ -1,5 +1,6 @@
 <?php
 
+include '../../PagesFunction/connection.php';
 
 $dateFrom = $_GET['from_date'];
 $dateTo = $_GET['to_date'];
@@ -29,7 +30,6 @@ $dateTo = $_GET['to_date'];
         </p>
       
       </header>
-
     <div class="card-content">
 
     <div id="date">
@@ -40,6 +40,7 @@ $dateTo = $_GET['to_date'];
     <div class="table">
 
     <table>
+    <thead>
   <tr>
     <th>Order #</th>
     <th>Firstname</th>
@@ -50,13 +51,65 @@ $dateTo = $_GET['to_date'];
     <th>Vat</th>
     <th>Date-Purchased</th>
   </tr>
+  </thead>
+
+<?php
+$sql = "SELECT * FROM tblsales_list WHERE Date_Purchased ORDER BY id DESC";
+$res_data = $con->query($sql);
+while($row = mysqli_fetch_array($res_data)){
+  $id = $row['id'];
+  $transcationNumber = $row['TransactionNumber'];
+  $firstname = $row['Firstname'];
+  $lastname = $row['Lastname'];
+  $email = $row['Email'];
+  $contact = $row['Contact'];
+  $amount = $row['Amount'];
+  $vat = $row['Vat'];
+  $datePurchased = $row['Date_Purchased'];
+  ?>
+
+<tbody>
+<tr>
+               
+                <td>
+                  <?php echo $transcationNumber; ?>
+                </td>
+                <td>
+                  <?php echo $firstname; ?>
+                </td>
+                <td>
+                  <?php echo $lastname; ?>
+                </td>
+                <td>
+                  <?php echo $email; ?>
+                </td>
+                <td>
+                  <?php echo $contact; ?>
+                </td>
+                <td>
+                  <?php echo $amount; ?>
+                </td>
+               <td>
+                  <?php echo $vat; ?>
+                </td>
+                <td>
+                  <?php echo $datePurchased; ?>
+                </td>
+              </tr>
+
+                </tbody>
+                <?php
+}
+
+?>
+
 </table>
 
 
 
 
     </div>
-
+    
     
     
     </div>

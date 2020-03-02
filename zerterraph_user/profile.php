@@ -244,8 +244,8 @@ while($row = mysqli_fetch_array($res_data)){
 
     
 
-    <div>
-        <p id="alrights">@2019 ZerterraPh</p>
+    <div class="footer">
+        <p>@2019 ZerterraPh</p>
     </div>
 
 </body>

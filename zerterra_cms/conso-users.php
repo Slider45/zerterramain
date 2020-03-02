@@ -78,7 +78,7 @@ include 'Buttons/requestButtonFunction.php';
      <box id="cal"><i class="far fa-calendar-alt"></i><input type="text" name="to_date" id="to_date" class="form-control" />  </box>
      </div>
      <div class="column">
-          <input class="btn btn-info" type="button" name="filter" id="filter" value="Filter"  /> 
+           <input class="button is-primary" type="button" value="Filter" id="filter"> 
       </div>
   </div>
 

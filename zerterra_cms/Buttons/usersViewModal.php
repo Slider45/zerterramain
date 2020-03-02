@@ -67,6 +67,12 @@
       </div>
       <div class="control">
         <div class="columns">
+              <div class="column is-2" id="label">R.Days:</div>
+              <div class="column" id="txtbox"><input class="input"  value="<?php echo $rdays; ?> Days" disabled="disabled"></div>
+         </div>
+      </div>
+      <div class="control">
+        <div class="columns">
               <div class="column is-2" id="label">Date Start:</div>
               <div class="column" id="txtbox"><input class="input"  value="<?php echo $dateReg; ?>" disabled="disabled"></div>
          </div>

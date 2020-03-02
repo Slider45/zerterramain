@@ -45,6 +45,7 @@ include '../PagesFunction/connection.php';
   <a class="w3-bar-item w3-button w3-dropdown-hover modal-button" id="sendmodal" data-target="#ordersModal" aria-haspopup="true"><i class="fas fa-cubes"></i> &nbsp Orders</a>
   <a href="request.php" class="w3-bar-item w3-button" id="item-hover"><i class="fas fa-envelope-open-text"></i> &nbsp Request</a>
   <a href="sales.php" class="w3-bar-item w3-button" id="item-hover"><i class="fas fa-hand-holding-usd"></i> &nbsp Sales</a>
+  <a href="actionLog.php" class="w3-bar-item w3-button" id="item-hover"><i class="fas fa-clipboard-list"></i> &nbsp Action Log</a>
   <button onclick="document.getElementById('id01').style.display='block'" href="consolidate.php" class="w3-bar-item w3-button" id="dashboard" ><i class="fas fa-print"></i> &nbsp Consolidate</button>
 </div>
 
@@ -74,7 +75,7 @@ include '../PagesFunction/connection.php';
      <box id="cal"><i class="far fa-calendar-alt"></i><input type="text" name="to_date" id="to_date" class="form-control" />  </box>
      </div>
      <div class="column">
-        <input class="button is-primary" type="button" value="Filter" id="filter">
+        <button class="button is-primary" type="button" value="" id="filter"><i class="fas fa-filter"></i> &nbspFilter</button>
       </div>
   </div>
 
@@ -90,11 +91,10 @@ include '../PagesFunction/connection.php';
             <th>Trans #</th>
             <th>Firstname</th>
             <th>Lastname</th>
-            <th>Email</th>
             <th>Contact</th>
             <th>Amount</th>
-            <th>Vat</th>
             <th>Date Purchased</th>
+            <th>Action</th>
 
    
         </tr>
@@ -138,22 +138,28 @@ include '../PagesFunction/connection.php';
             <td>
                   <?php echo $lastname; ?>
             </td>
-            <td>
+            <!-- <td>
                   <?php echo $email; ?>
-            </td>
+            </td> -->
             <td>
                   <?php echo $contact; ?>
             </td>
             <td>
                   <?php echo $amount; ?>
             </td>
-            <td>
+            <!-- <td>
                   <?php echo $vat; ?>
-            </td>
+            </td> -->
             <td>
                   <?php echo $datePurchased; ?>
             </td>
-            
+            <td>
+                    <button data-target="#view<?php echo $id;?>" class="button is-success is-small modal-button"  id="btn_delete" name="acnt_view"><i class="far fa-eye"></i>
+                    </button>
+                    <?php
+                    include 'Buttons/salesViewModal.php';
+                    ?>
+                  </td>
 
             </tr>
         

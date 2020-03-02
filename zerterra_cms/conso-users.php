@@ -76,7 +76,7 @@ include 'Buttons/requestButtonFunction.php';
      <div class="column is-1" > TO </div>
      <div class="column is-3" id="base">
     <p id="endD">End-date</p>
-     <box id="cal"><i class="far fa-calendar-alt"></i><input type="text" name="to_date" id="to_date" class="form-control" />  </box>
+     <box id="cal"><i class="far fa-calendar-alt"></i><input type="text" name="to_date" id="to_date" class="form-control" value="<?php echo date('Y/m/d'); ?>"  />  </box>
      </div>
      <div class="column">
            <button class="button is-primary" type="button" value="Filter" id="filter"> <i class="fas fa-filter"></i> &nbspFilter</button>
@@ -86,7 +86,7 @@ include 'Buttons/requestButtonFunction.php';
     <!--  -->
 
     <section class="section">
-          <div class="container"> 
+          <div class="container" id="order_table"> 
            <table class="table">
             <thead>
              <tr>
@@ -95,7 +95,7 @@ include 'Buttons/requestButtonFunction.php';
               <th>Firstname</th>
               <th>Lastname</th>
               <th>R. Days</th>
-              <th>Action</th>
+             
             </tr>
           </thead>
 
@@ -144,14 +144,7 @@ include 'Buttons/requestButtonFunction.php';
                   <td>
                     <?php echo $rdays; ?> Days
                   </td>
-                  <td>
-                    
-                    <button data-target="#view<?php echo $id;?>" class="button is-success is-small modal-button"  id="btn_delete" name="acnt_view"><i class="far fa-eye"></i>
-                    </button>
-                    <?php
-                    include 'Buttons/usersViewModal.php';
-                    ?>
-                  </td>
+                 
                 </tr>
 
                 <?php 

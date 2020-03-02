@@ -4,21 +4,17 @@
  {  
       $con = mysqli_connect("localhost", "root", "", "zerterra_db");  
       $output = '';  
-      $query = "SELECT * FROM tblusers WHERE DateRegistered BETWEEN '".$_POST["from_date"]."' AND '".$_POST["to_date"]."'  
-      ";  
+      $query = "SELECT * FROM tblusers WHERE DateRegistered BETWEEN '".$_POST["from_date"]."' AND '".$_POST["to_date"]."'   and is_active='1'";  
       $result = mysqli_query($con, $query);  
       $output .= '  
            <table class="table table-bordered">  
            <thead>
            <tr>
-           <th>Serial #</th>
-           <th>Firstname</th>
-           <th>Lastname</th>
-           <th>Email</th>
-           <th>Contact</th>
-           <th>Remaining Days</th>
-           <th>Date-Registered</th>
-           <th>Date-Expired</th>
+           <th>#</th>
+              <th>Serial #</th>
+              <th>Firstname</th>
+              <th>Lastname</th>
+              <th>R. Days</th>
            </tr>
       </thead>
       ';  
@@ -32,11 +28,8 @@
                           <td>'. $row["SerialNumber"] .'</td>  
                           <td>'. $row["Firstname"] .'</td>  
                           <td>'. $row["Lastname"] .'</td>  
-                          <td>'. $row["Email"] .'</td>
-                          <td>'. $row["Contact"] .'</td>
-                          <td>'. $row["RemainingDays"] .'</td>
-                          <td>'. $row["DateRegistered"] .'</td>
-                          <td>'. $row["DateExpired"] .'</td>
+                          <td>'. $row["RemainingDays"] .' Days </td>
+                          
                           
 
                      </tr>  

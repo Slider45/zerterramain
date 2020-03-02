@@ -72,7 +72,7 @@ include '../PagesFunction/connection.php';
      <div class="column is-1" > TO </div>
      <div class="column is-3" id="base">
     <p id="endD">End-date</p>
-     <box id="cal"><i class="far fa-calendar-alt"></i><input type="text" name="to_date" id="to_date" class="form-control" />  </box>
+     <box id="cal"><i class="far fa-calendar-alt"></i><input type="text" name="to_date" id="to_date" class="form-control"  value="<?php echo date('Y/m/d'); ?>" />  </box>
      </div>
      <div class="column">
         <button class="button is-primary" type="button" value="" id="filter"><i class="fas fa-filter"></i> &nbspFilter</button>

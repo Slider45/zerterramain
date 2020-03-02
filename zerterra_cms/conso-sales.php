@@ -53,8 +53,11 @@ include '../PagesFunction/connection.php';
     <div class="w3-teal">
       <button class="w3-button w3-teal w3-xlarge w3-hide-large" onclick="w3_open()">&#9776;</button>
     </div>
-
-         <a href="print/salesPrint.php"><button  class="button" id="home" ><i class="fas fa-print"></i> </button></a> 
+    
+<!-- 
+         <a href="print/salesPrint.php"> -->
+        
+         <!-- </a>  -->
 
     <div class="w3-container">
       <div class="columns">
@@ -62,7 +65,7 @@ include '../PagesFunction/connection.php';
           <h1 class="button-category">SALES</h1>
         </div>
       </div>
-
+      <form action="print/salesPrint.php" method="GET">
      <!--  -->
      <div class="columns">
       <div class="column is-3" id="base">
@@ -78,9 +81,9 @@ include '../PagesFunction/connection.php';
         <button class="button is-primary" type="button" value="" id="filter"><i class="fas fa-filter"></i> &nbspFilter</button>
       </div>
   </div>
-
+  <button  class="button" id="home" ><i class="fas fa-print"></i> </button>
     <!--  -->
-
+    </form>
       <section class = "section">
         <div class = "container" id="order_table"> 
 
@@ -94,7 +97,7 @@ include '../PagesFunction/connection.php';
             <th>Contact</th>
             <th>Amount</th>
             <th>Date Purchased</th>
-            <th>Action</th>
+           
 
    
         </tr>
@@ -153,13 +156,7 @@ include '../PagesFunction/connection.php';
             <td>
                   <?php echo $datePurchased; ?>
             </td>
-            <td>
-                    <button data-target="#view<?php echo $id;?>" class="button is-success is-small modal-button"  id="btn_delete" name="acnt_view"><i class="far fa-eye"></i>
-                    </button>
-                    <?php
-                    include 'Buttons/salesViewModal.php';
-                    ?>
-                  </td>
+            
 
             </tr>
         
@@ -286,7 +283,7 @@ include '../PagesFunction/connection.php';
 <script>  
       $(document).ready(function(){  
            $.datepicker.setDefaults({  
-                dateFormat: 'yy-mm-dd'   
+                dateFormat: 'yy/mm/dd'   
            });  
            $(function(){  
                 $("#from_date").datepicker();  

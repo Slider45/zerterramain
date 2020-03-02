@@ -173,26 +173,29 @@ if (mysqli_num_rows($result01) > 0)
            </p>
          </header>
 
+         <?php 
+
+  $sql = "SELECT * FROM tblactionlog";
+  $res_data = $con->query($sql);
+  while($row = mysqli_fetch_array($res_data)){
+    $id = $row['id'];
+    $author = $row['Author'];
+    $action = $row['Action'];
+    $dateAction = $row['DateAction'];
+    ?>
+      <?php 
+    }  
+     
+  ?>                        
+
 
          <table class="table">
           <tr>
-            <td id=""><p>Kumain</p>
-              <span id="userinfo">Serial No. 13215-46548-02 | Jan. 9, 2019 | 04:45 pm</span>
-            </td>
-          </tr>
-          <tr>
-            <td id=""><p>Kumain</p>
-              <span id="userinfo">Serial No. 13215-46548-02 | Jan. 9, 2019 | 04:45 pm</span>
-            </td>
-          </tr>
-          <tr>
-            <td id=""><p>Kumain</p>
-              <span id="userinfo">Serial No. 13215-46548-02 | Jan. 9, 2019 | 04:45 pm</span>
+            <td id=""><p><?php echo $action ?></p>
+              <span id="userinfo"><?php echo $author.' '. $dateAction ?></span>
             </td>
           </tr>
         </table>
-
-
 
 
 

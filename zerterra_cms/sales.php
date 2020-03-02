@@ -67,7 +67,6 @@ include 'Buttons/adminButtonFunction.php';
       </div>
 
      <!--  -->
-<<<<<<< HEAD
     <div class="columns">
       <div class="column is-3" id="base">
     <p id="startD">Start-date</p>
@@ -82,9 +81,6 @@ include 'Buttons/adminButtonFunction.php';
         <input class="button is-primary" type="button" value="Filter" id="filter">
       </div>
   </div>
-=======
-    
->>>>>>> 922a52c0368c0238c22f9a618ca5f9b6daea0d81
 
     <!--  -->
 

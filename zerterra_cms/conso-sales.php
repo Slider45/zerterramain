@@ -74,7 +74,7 @@ include '../PagesFunction/connection.php';
      <box id="cal"><i class="far fa-calendar-alt"></i><input type="text" name="to_date" id="to_date" class="form-control" />  </box>
      </div>
      <div class="column">
-          <input type="button" name="filter" id="filter" value="Filter" class="btn btn-info" /> 
+          <input class="button is-info" type="button" name="filter" id="filter" value="Filter"  /> 
       </div>
   </div>
 

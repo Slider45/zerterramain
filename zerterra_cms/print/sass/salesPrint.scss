@@ -56,7 +56,7 @@ html,body{
     }
 
     #date-today{
-        margin-left: 56%;
+        margin-left: 52%;
     }
 
     }
@@ -85,6 +85,7 @@ html,body{
 
         td{
             font-size: 7pt;
+            text-align: center;
             border-left: solid 1px;
            
         }
@@ -189,7 +190,7 @@ html,body{
     }
 
     #date-today{
-        margin-left: 76% !important;
+        margin-left: 72% !important;
     }
 
     }
@@ -200,12 +201,13 @@ html,body{
         margin-top: 30px !important;
 
         th{
-            font-size: 10pt;
+            font-size: 12pt;
             border-left: solid 2px;
         }
 
         td{
-            font-size: 10pt;
+            font-size: 12pt;
+            text-align: center;
             border-left: solid 2px;
         }
     }

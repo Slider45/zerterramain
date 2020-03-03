@@ -1,4 +1,11 @@
+<?php
 
+include '../../PagesFunction/connection.php';
+
+$dateFrom = $_GET['from_date'];
+$dateTo = $_GET['to_date'];
+
+?>
 
 <!DOCTYPE html>
 <html>
@@ -27,14 +34,14 @@
     <div class="card-content">
 
     <div id="date">
-        <p id="reg">REGISTERED DATE</p>
-        <span>FR:01-01-2020</span> <span id="date-today"> DATE:02-25-2020</span>
-        <p>TO:01-01-2021</p>
+        <p>FROM: <?php echo $dateFrom; ?> <span id="date-today"> DATE:02-25-2020</span></p>
+        <p>TO:<?php echo $dateTo; ?></p>
     </div>
 
     <div class="table">
 
     <table>
+    <thead>
   <tr>
     <th>Serial #</th>
     <th>Firstname</th>
@@ -45,68 +52,59 @@
     <th>Date Registered</th>
     <th>Date Expired</th>
   </tr>
-  <tr>
-    <td>Alfreds Futterkiste</td>
-    <td>Maria Anders</td>
-    <td>Germany</td>
-    <td>Alfreds Futterkiste</td>
-    <td>Maria Anders</td>
-    <td>Germany</td>
-    <td>Alfreds Futterkiste</td>
-    <td>Maria Anders</td>
-    
-  </tr>
-  <tr>
-    <td>Centro comercial Moctezuma</td>
-    <td>Francisco Chang</td>
-    <td>Mexico</td>
-    <td>Centro comercial Moctezuma</td>
-    <td>Francisco Chang</td>
-    <td>Mexico</td>
-    <td>Centro comercial Moctezuma</td>
-    <td>Francisco Chang</td>
-    
-  </tr>
-  <tr>
-    <td>Ernst Handel</td>
-    <td>Roland Mendel</td>
-    <td>Austria</td>
-    <td>Ernst Handel</td>
-    <td>Roland Mendel</td>
-    <td>Austria</td>
-    <td>Ernst Handel</td>
-    <td>Roland Mendel</td>
-  </tr>
-  <tr>
-  <td>Ernst Handel</td>
-    <td>Roland Mendel</td>
-    <td>Austria</td>
-    <td>Ernst Handel</td>
-    <td>Roland Mendel</td>
-    <td>Austria</td>
-    <td>Ernst Handel</td>
-    <td>Roland Mendel</td>
-  </tr>
-  <tr>
-  <td>Ernst Handel</td>
-    <td>Roland Mendel</td>
-    <td>Austria</td>
-    <td>Ernst Handel</td>
-    <td>Roland Mendel</td>
-    <td>Austria</td>
-    <td>Ernst Handel</td>
-    <td>Roland Mendel</td>
-  </tr>
-  <tr>
-  <td>Ernst Handel</td>
-    <td>Roland Mendel</td>
-    <td>Austria</td>
-    <td>Ernst Handel</td>
-    <td>Roland Mendel</td>
-    <td>Austria</td>
-    <td>Ernst Handel</td>
-    <td>Roland Mendel</td>
-  </tr>
+  </thead>
+  <?php
+  
+  $sql = "SELECT * FROM tblusers WHERE is_active='1' ORDER BY id DESC";
+              $res_data = $con->query($sql);
+              while($row = mysqli_fetch_array($res_data)){
+                $id = $row['id'];
+                $serialNum = $row['SerialNumber'];
+                $fname = $row['Firstname'];
+                $lname = $row['Lastname'];
+                $contact = $row['Contact'];   
+                $email = $row['Email'];
+                $rdays = $row['RemainingDays'];
+                $dateReg = $row['DateRegistered'];
+                $dateEnd= $row['DateExpired'];
+                
+                ?>
+
+
+<tbody>
+<tr>
+                   <td>
+                    <?php echo $serialNum; ?>
+                  </td>
+
+                  <td>
+                    <?php echo $fname; ?>
+                  </td>
+                  <td>
+                    <?php echo $lname; ?>
+                  </td>
+                  <td>
+                    <?php echo $email; ?> 
+                  </td>
+                  <td>
+                    <?php echo $contact; ?> Days
+                  </td>
+                  <td>
+                    <?php echo $rdays; ?> Days
+                  </td>
+                  <td>
+                    <?php echo $dateReg; ?>
+                  </td>
+                  <td>
+                    <?php echo $dateEnd; ?>
+                  </td>
+                 
+                </tr>
+
+</tbody>
+<?php
+              }
+?>
 </table>
 
 

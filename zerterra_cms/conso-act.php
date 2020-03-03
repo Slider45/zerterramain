@@ -31,9 +31,9 @@ include '../PagesFunction/connection.php';
   <body>
 
     <?php
-    include 'Pages/requestViewPage.php'; 
+    include 'Pages/consologViewPage.php'; 
     include 'admin-header.php';
-//   include 'Buttons/requestSearch.php'
+    include 'Buttons/consoLogSearch.php'
     ?>
 
 
@@ -65,23 +65,25 @@ include '../PagesFunction/connection.php';
         </div>
 
         <!--  -->
-        <div class="columns">
-          <div class="column is-3" id="base">
-            <p id="startD">Start-date</p>
-            <box id="cal"><i class="far fa-calendar-alt"></i><input type="date" id="dateTime"></box>
-          </div>
-          <div class="column is-1" > TO </div>
-          <div class="column is-3" id="base">
-            <p id="endD">End-date</p>
-            <box id="cal"><i class="far fa-calendar-alt"></i><input type="date" id="dateTime"></box>
-          </div>
-          <div class="column is-2">
-            <button class="button is-primary" type="button" value="" id="filter"><i class="fas fa-filter"></i> &nbspFilter</button>
-          </div>
-          <div class="column is-2">
-            <button class="button is-success" type="button" value="" id="refresh"><i class="fas fa-sync-alt"></i></button>
-          </div>
-        </div>
+        <form action="print/activitylogPrint.php" method="GET">
+     <!--  -->
+     <div class="columns">
+      <div class="column is-3" id="base">
+    <p id="startD">Start-date</p>
+     <box id="cal"><i class="far fa-calendar-alt"></i><input type="text" name="from_date" id="from_date" class="form-control" value="2020/01/01" /></box>
+     </div>
+     <div class="column is-1" > TO </div>
+     <div class="column is-3" id="base">
+    <p id="endD">End-date</p>
+     <box id="cal"><i class="far fa-calendar-alt"></i><input type="text" name="to_date" id="to_date" class="form-control"  value="<?php echo date('Y/m/d'); ?>" />  </box>
+     </div>
+     <div class="column">
+        <button class="button is-primary" type="button" value="" id="filter"><i class="fas fa-filter"></i> &nbspFilter</button>
+      </div>
+  </div>
+  <button  class="button" id="home" ><i class="fas fa-print"></i> </button>
+    <!--  -->
+    </form>
 
         <!--  -->
 
@@ -91,7 +93,6 @@ include '../PagesFunction/connection.php';
            <table class = "table">
             <thead>
              <tr>
-              <th>ID</th>
               <th>Author</th>
               <th>Action</th>
               <th>Date Action</th>
@@ -100,13 +101,47 @@ include '../PagesFunction/connection.php';
             </tr>
           </thead>
 
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
+          <?php 
 
-        </tr>
+          if (isset($_POST['search_btn'])){
+            $searchValue = $_POST['searchValue'];
+
+            if ($searchValue===''){
+              echo '<script>window.location.href="?"</script>';
+            }else{
+             include 'searchFunction/consoactionLogFunction.php';
+           }
+         }else{     
+          $sql = "SELECT * FROM tblactionlog  ORDER BY id DESC LIMIT $offset, $no_of_records_per_page";
+          $res_data = $con->query($sql);
+          while($row = mysqli_fetch_array($res_data)){
+            $id = $row['id'];
+            $author = $row['Author'];
+            $action = $row['Action'];
+            $dateAction = $row['DateAction'];
+            
+            ?>
         
+        <tbody>
+              <tr>
+              
+                <td>
+                  <?php echo $author; ?>
+                </td>
+                <td>
+                  <?php echo $action; ?>
+                </td>
+                <td>
+                  <?php echo $dateAction; ?>
+                </td>
+        
+              </tr>
+              
+              
+              <?php 
+            }  
+          }        
+          ?>
 
       </tbody>
     </table>

@@ -42,7 +42,7 @@ $dateTo = $_GET['to_date'];
     <table>
     <thead>
   <tr>
-    <th>Order #</th>
+    <th>Transaction #</th>
     <th>Firstname</th>
     <th>Lastname</th>
     <th>Email</th>

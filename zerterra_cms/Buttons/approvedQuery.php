@@ -6,9 +6,10 @@ if(isset($_POST['delivered_btn'])){
 	$approvedID =$_POST['delivered_id'];
 	$dateNow = date('Y/m/d');
 
-	$sqlSelect="SELECT * FROM approved_order_list";
+	$sqlSelect="SELECT * FROM approved_order_list WHERE id='$id'";
   	$res_data = $con->query($sqlSelect);
   	while($row = mysqli_fetch_array($res_data)){
+	$id = $row['id'];
 	$serialNum = $row['SerialNumber'];
 	$fname = $row['Firstname'];
 	$lname = $row['Lastname'];

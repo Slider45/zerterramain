@@ -68,28 +68,30 @@ include 'Buttons/requestButtonFunction.php';
         </div>
 
         <!--  -->
-        <div class="columns">
-          <div class="column is-3" id="base">
-            <p id="startD">Start-date</p>
-            <box id="cal"><i class="far fa-calendar-alt"></i><input type="text" name="from_date" id="from_date" class="form-control"  /></box>
-          </div>
-          <div class="column is-1" > TO </div>
-          <div class="column is-3" id="base">
-            <p id="endD">End-date</p>
-            <box id="cal"><i class="far fa-calendar-alt"></i><input type="text" name="to_date" id="to_date" class="form-control" />  </box>
-          </div>
-          <div class="column is-2">
-            <button class="button is-primary" type="button" value="" id="filter"><i class="fas fa-filter"></i> &nbspFilter</button>
-          </div>
-          <div class="column is-2">
-            <button class="button is-success" type="button" value="" id="refresh"><i class="fas fa-sync-alt"></i></button>
-          </div>
-        </div>
+        <form action="print/usersPrint.php" method="GET">
+     <!--  -->
+     <div class="columns">
+      <div class="column is-3" id="base">
+    <p id="startD">Start-date</p>
+     <box id="cal"><i class="far fa-calendar-alt"></i><input type="text" name="from_date" id="from_date" class="form-control" value="2020/01/01" /></box>
+     </div>
+     <div class="column is-1" > TO </div>
+     <div class="column is-3" id="base">
+    <p id="endD">End-date</p>
+     <box id="cal"><i class="far fa-calendar-alt"></i><input type="text" name="to_date" id="to_date" class="form-control"  value="<?php echo date('Y/m/d'); ?>" />  </box>
+     </div>
+     <div class="column">
+        <button class="button is-primary" type="button" value="" id="filter"><i class="fas fa-filter"></i> &nbspFilter</button>
+      </div>
+  </div>
+  <button  class="button" id="home" ><i class="fas fa-print"></i> </button>
+    <!--  -->
+    </form>
 
         <!--  -->
 
         <section class="section">
-          <div class="container"> 
+          <div class="container"  id="order_table"> 
            <table class="table">
             <thead>
              <tr>

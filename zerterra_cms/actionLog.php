@@ -59,6 +59,9 @@ include 'Buttons/requestButtonFunction.php';
         </div>
       </div>
 
+      
+
+
       <section class = "section">
         <div class = "container"> 
 
@@ -85,7 +88,7 @@ include 'Buttons/requestButtonFunction.php';
           include 'searchFunction/searchactionLogFunction.php';
         }
       }else{
-        $sql = "SELECT * FROM tblactionlog LIMIT $offset, $no_of_records_per_page";
+        $sql = "SELECT * FROM tblactionlog order by id desc LIMIT $offset, $no_of_records_per_page";
         $res_data = $con->query($sql);
         while($row = mysqli_fetch_array($res_data)){
           $id = $row['id'];

@@ -1,4 +1,3 @@
-
 <?php
 session_start();
 if(!isset($_SESSION["admin"]))
@@ -99,7 +98,7 @@ include 'Buttons/approvedQuery.php';
                         include 'searchFunction/searchApprovedFunction.php';
                     }
                 }else{     
-                    $sql = "SELECT * FROM approved_order_list ORDER BY id DESC LIMIT $offset, $no_of_records_per_page";
+                    $sql = "SELECT * FROM approved_order_list WHERE is_delivered='0' ORDER BY id DESC LIMIT $offset, $no_of_records_per_page";
                     $res_data = $con->query($sql);
                     while($row = mysqli_fetch_array($res_data)) 
                     {

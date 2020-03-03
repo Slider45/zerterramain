@@ -50,6 +50,15 @@ html, body {
   margin-left: 5px;
 }
 
+#from_date, #to_date {
+  height: 30px;
+  margin: 10px;
+  font-size: 14pt;
+  font-family: Montserrat;
+  border: none;
+  margin-left: 5px;
+}
+
 #cal {
   background-color: #ffffff;
   font-size: 14pt;
@@ -72,7 +81,7 @@ html, body {
 #base {
   margin: 0;
   margin-bottom: 20px;
-  margin-left: 10px;
+  margin-left: 30px;
   padding: 0;
   height: 50px;
 }
@@ -98,7 +107,7 @@ html, body {
   width: 50px;
   height: 50px;
   background: #fcc174;
-  bottom: 100px;
+  bottom: 30px;
   right: 50px;
   text-decoration: none;
   text-align: center;

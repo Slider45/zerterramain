@@ -11,7 +11,7 @@
            <table class="table table-bordered">  
            <thead>
            <tr>
-            <th>#</th>
+           
             <th>Trans #</th>
             <th>Firstname</th>
             <th>Lastname</th>
@@ -31,7 +31,7 @@
            {  
                 $output .= '  
                      <tr>  
-                          <td>'. $row["id"] .'</td>  
+                          
                           <td>'. $row["TransactionNumber"] .'</td>  
                           <td>'. $row["Firstname"] .'</td>  
                           <td>'. $row["Lastname"] .'</td>  

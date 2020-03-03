@@ -9,8 +9,8 @@ html,body{
 }
 
 .card{
-    width: 600px; 
-    height:900px;
+    width:900px; 
+    height:600px;
   padding-top:20px;
 
 }
@@ -18,7 +18,7 @@ html,body{
 .card-header{
     background-color:#6fbf6d;
     height: 80px;
-    width:600px;
+    width:900px;
 
     #head-title{
         color: white;
@@ -30,7 +30,7 @@ html,body{
     #h-img{
         width: 100%;
         max-width: 150px;
-        margin-left: 53%;
+        margin-left: 68%;
         margin-top: 17px;
        
     }
@@ -56,7 +56,7 @@ html,body{
     }
 
     #date-today{
-        margin-left: 58%;
+        margin-left: 69%;
     }
 
     }
@@ -84,8 +84,9 @@ html,body{
         }
 
         td{
-            font-size: 7pt;
+            font-size: 5pt;
             border-left: solid 1px;
+            text-align: center;
            
         }
     }
@@ -146,7 +147,7 @@ html,body{
 
 .card{
     width: 2200px; 
-    height:1580px;
+    height:900px;
 
 }
 
@@ -174,7 +175,7 @@ html,body{
 // --
 
 .card-content{
-    height:1073px;
+    height:800px;
     padding-left: 40px;
     padding-right:40px;
 
@@ -197,15 +198,17 @@ html,body{
     .table{
         // margin-left: 12px !important;
         font-size: 12pt;
+        text-align: center;
         margin-top: 30px !important;
 
         th{
-            font-size: 10pt;
+            font-size: 12pt;
             border-left: solid 2px;
         }
 
         td{
-            font-size: 10pt;
+            font-size: 12pt;
+            text-align: center;
             border-left: solid 2px;
         }
     }
@@ -257,7 +260,11 @@ html,body{
   }
 }
 
-
+@media print{
+    @page {
+      size: landscape
+        }
+            }
 // media print
 
     

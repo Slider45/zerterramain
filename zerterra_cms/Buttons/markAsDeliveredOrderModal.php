@@ -16,7 +16,7 @@
 
                                                   <div class="field">
                                                     <input type="hidden" name="delivered_id" value="<?php echo $id; ?>">
-                                                    <input type="hidden" name="delivered_sNum" value="<?php echo $serialNum; ?>">
+                                              
                                                     
                                                 </div>
 

@@ -73,7 +73,8 @@ $dateTo = $_GET['to_date'];
             </tr>
 
             </tbody>
-            <?php 
+            
+          <?php 
           }  
            
         ?>      

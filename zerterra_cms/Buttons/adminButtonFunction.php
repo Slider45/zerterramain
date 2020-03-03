@@ -77,15 +77,21 @@ if(isset($_POST['acnt_remove'])){
 }
 
 if(isset($_POST['updated_id'])){
+  $author = $_SESSION['admin'];
   $id = $_POST['edit_id'];
   $name = $_POST['edit_name'];
   $contact = $_POST['edit_contact'];
   $email= $_POST['edit_email'];
+  $dateNow = date("d/m/Y");
   
   
   
   $sql = "UPDATE admin_list SET Fullname='$name',Contact='$contact',Email='$email' WHERE id='$id'";
   if($con->query($sql) === TRUE){
+
+    $sql = "INSERT INTO tblactionlog (Author,Action,DateAction) VALUES ('$author','Admin Update','$dateNow')";
+
+      if($con->query($sql) === TRUE){
     echo "<script>window.alert('RECORD IS UPDATED!');</script>";
     echo '<script>window.location.href="admin.php"</script>';
   }else{
@@ -93,6 +99,6 @@ if(isset($_POST['updated_id'])){
   }
   
   
-  
+}
 }
 ?>

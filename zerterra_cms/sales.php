@@ -69,22 +69,19 @@ include 'Buttons/adminButtonFunction.php';
 
         <!--  -->
         <div class="columns">
-          <div class="column is-3" id="base">
-            <p id="startD">Start-date</p>
-            <box id="cal"><i class="far fa-calendar-alt"></i><input type="date" id="from_date"></box>
-          </div>
-          <div class="column is-1" > TO </div>
-          <div class="column is-3" id="base">
-            <p id="endD">End-date</p>
-            <box id="cal"><i class="far fa-calendar-alt"></i><input type="date" id="to_date"></box>
-          </div>
-          <div class="column is-2">
-            <button class="button is-primary" type="button" value="" id="filter"><i class="fas fa-filter"></i> &nbspFilter</button>
-          </div>
-          <div class="column is-2">
-            <button class="button is-primary" type="button" value="" id="refresh"><i class="fas fa-redo-alt"></i></button>
-          </div>
-        </div>
+      <div class="column is-3" id="base">
+    <p id="startD">Start-date</p>
+     <box id="cal"><i class="far fa-calendar-alt"></i><input type="text" name="from_date" id="from_date" class="form-control" value="2020/01/01" /></box>
+     </div>
+     <div class="column is-1" > TO </div>
+     <div class="column is-3" id="base">
+    <p id="endD">End-date</p>
+     <box id="cal"><i class="far fa-calendar-alt"></i><input type="text" name="to_date" id="to_date" class="form-control"  value="<?php echo date('Y/m/d'); ?>" />  </box>
+     </div>
+     <div class="column">
+        <button class="button is-primary" type="button" value="" id="filter"><i class="fas fa-filter"></i> &nbspFilter</button>
+      </div>
+  </div>
 
         <!--  -->
 

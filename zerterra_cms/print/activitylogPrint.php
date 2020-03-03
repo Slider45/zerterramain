@@ -1,4 +1,11 @@
+<?php
 
+include '../../PagesFunction/connection.php';
+
+$dateFrom = $_GET['from_date'];
+$dateTo = $_GET['to_date'];
+
+?>
 
 <!DOCTYPE html>
 <html>
@@ -27,53 +34,50 @@
     <div class="card-content">
 
     <div id="date">
-        <p id="reg">ACTIVITY DATE</p>
-        <span>FR:01-01-2020</span> <span id="date-today"> DATE:02-25-2020</span>
-        <p>TO:01-01-2021</p>
+        <p>FROM: <?php echo $dateFrom; ?> <span id="date-today"> DATE:02-25-2020</span></p>
+        <p>TO:<?php echo $dateTo; ?></p>
     </div>
 
     <div class="table">
 
     <table>
+    <thead>
   <tr>
     <th>Author</th>
     <th>Action</th>
     <th>Date of Action</th>
-    
   </tr>
-  <tr>
-    <td>Alfreds Futterkiste</td>
-    <td>Maria Anders</td>
-    <td>Germany</td>
-   
-    
-  </tr>
-  <tr>
-  <td>Alfreds Futterkiste</td>
-    <td>Maria Anders</td>
-    <td>Germany</td>
-    
-  </tr>
-  <tr>
-  <td>Alfreds Futterkiste</td>
-    <td>Maria Anders</td>
-    <td>Germany</td>
-  </tr>
-  <tr>
-  <td>Alfreds Futterkiste</td>
-    <td>Maria Anders</td>
-    <td>Germany</td>
-  </tr>
-  <tr>
-  <td>Alfreds Futterkiste</td>
-    <td>Maria Anders</td>
-    <td>Germany</td>
-  </tr>
-  <tr>
-  <td>Alfreds Futterkiste</td>
-    <td>Maria Anders</td>
-    <td>Germany</td>
-  </tr>
+    </thead>
+  
+  <?php
+  $sql = "SELECT * FROM tblactionlog ";
+  $res_data = $con->query($sql);
+  while($row = mysqli_fetch_array($res_data)){
+    $id = $row['id'];
+    $author = $row['Author'];
+    $action = $row['Action'];
+    $dateAction = $row['DateAction'];
+    ?>
+
+<tbody>
+           <tr>
+            <td>
+              <?php echo $author; ?>
+            </td>
+            <td>
+              <?php echo $action; ?>
+            </td>
+            <td>
+              <?php echo $dateAction; ?>
+            </td>
+            </tr>
+
+            </tbody>
+            <?php 
+          }  
+           
+        ?>      
+  
 </table>
 
 

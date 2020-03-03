@@ -85,7 +85,7 @@ include 'Buttons/approvedQuery.php';
                         <thead>
                           <tr>
                             <th>#</th>
-                            <th>Pending ID</th>
+                            <th>Serial Number</th>
                             <th>Firstname</th>
                             <th>Lastname</th>
                             <th>Email</th>

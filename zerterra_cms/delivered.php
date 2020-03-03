@@ -112,12 +112,12 @@ include 'Buttons/approvedQuery.php';
                             while($row = mysqli_fetch_array($res_data)){ 
                               {
                                 $id = $row['id'];
-                                $id1 = $row['pendingID'];
-                                $fname = $row['FirstName'];
-                                $lname = $row['LastName'];
+                                $serialNum = $row['SerialNumber'];
+                                $fname = $row['Firstname'];
+                                $lname = $row['Lastname'];
                                 $email = $row['Email'];
-                                $Contact = $row['ContactNumber'];
-                                $Address = $row['Address'];
+                                $contact = $row['Contact'];
+                                $address = $row['Address'];
 
                                 ?>
                                 <tr>
@@ -126,7 +126,7 @@ include 'Buttons/approvedQuery.php';
                                  </td>
 
                                  <td>
-                                  <?php echo $id1; ?>
+                                  <?php echo $serialNum; ?>
                                 </td>
 
                                 <td>
@@ -142,11 +142,11 @@ include 'Buttons/approvedQuery.php';
                                 </td>
 
                                 <td>
-                                  <?php echo $Contact; ?>
+                                  <?php echo $contact; ?>
                                 </td>
 
                                 <td>
-                                  <?php echo $Address; ?>
+                                  <?php echo $address; ?>
                                 </td>
 
                               </tr>

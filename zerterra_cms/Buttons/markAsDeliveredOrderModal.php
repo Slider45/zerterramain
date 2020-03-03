@@ -2,6 +2,8 @@
  include 'approvedQuery.php';
  ?>
  
+
+ 
  <div id="delivered<?php echo $id; ?>" class="modal" role="dialog">
 
                                               <div class="modal-background"></div>
@@ -16,7 +18,8 @@
 
                                                   <div class="field">
                                                     <input type="hidden" name="delivered_id" value="<?php echo $id; ?>">
-                                              
+                                                    <input type="hidden" name="serialNum" value="<?php echo $serialNum; ?>">
+                                                    
                                                     
                                                 </div>
 

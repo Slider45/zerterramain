@@ -20,11 +20,12 @@
 
 
     $sql="INSERT INTO approved_order_list(OrderNumber, SerialNumber, Firstname, Lastname, Email, Contact, Address) VALUES('$orderNum',' $serialNum','$fname','$lname','$email','$contact','$address')";
-
     if($con->query($sql) === TRUE){
-      $sqlupdate = "UPDATE pending_order_list SET is_approved='1' WHERE id='$id'";
- if($con->query($sqlupdate) === TRUE){
-      $sql = "INSERT INTO tblactionlog (Author,Action,DateAction) VALUES ('$author','Approve Order [ $id ] ','$dateNow')";
+
+    $sqlupdate = "UPDATE pending_order_list SET is_approved='1' WHERE id='$id'";
+    if($con->query($sqlupdate) === TRUE){
+
+    $sql = "INSERT INTO tblactionlog (Author,Action,DateAction) VALUES ('$author','Approve Order [ $id ] ','$dateNow')";
 
       if($con->query($sql) === TRUE){
 

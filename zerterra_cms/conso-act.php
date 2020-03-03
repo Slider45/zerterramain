@@ -50,12 +50,14 @@ include '../PagesFunction/connection.php';
       <button onclick="document.getElementById('id01').style.display='block'" href="consolidate.php" class="w3-bar-item w3-button" id="dashboard" ><i class="fas fa-print"></i> &nbsp Consolidate</button>
     </div>
 
+    <a href="print/activitylog.php"><button  class="button" id="home" ><i class="fas fa-print"></i> </button></a> 
+  
     <div class="w3-main" style="margin-left:200px">
       <div class="w3-teal">
         <button class="w3-button w3-teal w3-xlarge w3-hide-large" onclick="w3_open()">&#9776;</button>
       </div>
 
-      <a href="print/activitylog.php"><button  class="button" id="home" ><i class="fas fa-print"></i> </button></a> 
+     
 
       <div class="w3-container">
         <div class="columns">

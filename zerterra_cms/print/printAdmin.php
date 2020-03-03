@@ -160,7 +160,7 @@ while($row = mysqli_fetch_array($res_data)){
       <!-- -- -->
 
 
-         <a href="../conso-sales.php"><button class="button is-danger" id="return" ><i class="fas fa-arrow-left"></i> </button></a>
+         <a href="../admin.php"><button class="button is-danger" id="return" ><i class="fas fa-arrow-left"></i> </button></a>
           <button onclick="window.print();" class="button" id="home" ><i class="fas fa-print"></i> </button>
 
           

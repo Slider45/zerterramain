@@ -140,7 +140,7 @@ $serialNum = "";?>
                           ?>
                         </section>
                         <footer class="modal-card-foot3">
-                         <button class="button is-medium btn">Accept &nbsp<i class="far fa-thumbs-up"></i></button>
+                        <a href="Log-in.php"> <button class="button is-medium btn">Accept &nbsp<i class="far fa-thumbs-up"></i></button></a>
                        </footer>
                      </div>
                    </div>

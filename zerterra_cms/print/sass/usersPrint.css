@@ -120,7 +120,7 @@ html, body {
   }
   .card {
     width: 2200px;
-    height: 1580px;
+    height: 900px;
   }
   .card-header {
     background-color: #6fbf6d;
@@ -140,7 +140,7 @@ html, body {
     margin-top: 10px;
   }
   .card-content {
-    height: 1073px;
+    height: 800px;
     padding-left: 40px;
     padding-right: 40px;
   }
@@ -203,6 +203,12 @@ html, body {
   }
   #return {
     display: none;
+  }
+}
+
+@media print {
+  @page {
+    size: landscape;
   }
 }
 /*# sourceMappingURL=usersPrint.css.map */

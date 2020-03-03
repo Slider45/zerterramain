@@ -146,7 +146,7 @@ html,body{
 
 .card{
     width: 2200px; 
-    height:1580px;
+    height:900px;
 
 }
 
@@ -174,7 +174,7 @@ html,body{
 // --
 
 .card-content{
-    height:1073px;
+    height:800px;
     padding-left: 40px;
     padding-right:40px;
 
@@ -257,7 +257,11 @@ html,body{
   }
 }
 
-
+@media print{
+    @page {
+      size: landscape
+        }
+            }
 // media print
 
     

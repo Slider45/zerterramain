@@ -1,23 +1,20 @@
 <?php
 
 
-$sql= "SELECT * FROM tblactionlog WHERE CONCAT(`id`,`Author`, `Action`, `DateAction`) LIKE '%".$searchValue."%'";
- //$sql = "SELECT * FROM request_list WHERE is_approved='0'" ;
+$sql= "SELECT * FROM tbl_activity_log WHERE CONCAT(`id`,`AdminName`, `Description`, `DateAction`) LIKE '%".$searchValue."%'";
 $result = $con->query($sql);
 if ($result->num_rows > 0) {
   while($row = $result->fetch_assoc()) 
   {
     $id = $row['id'];
-    $author = $row['Author'];
-    $action = $row['Action'];
+    $author = $row['AdminName'];
+    $action = $row['Description'];
     $dateAction = $row['DateAction'];
     
     ?>
     
     <tr>
-            <td>
-              <?php echo $id; ?>.
-            </td>
+           
             <td>
               <?php echo $author; ?>
             </td>
@@ -31,16 +28,16 @@ if ($result->num_rows > 0) {
 
 
 
-  <?php }
+  <?php 
 
-
-
-
-
+  }
 }
+
+
+
 else{
-	echo "<script>window.alert('NO RECORD FOUND!');</script>";
-	echo '<script>window.location.href="actionLog.php"</script>';
+	$msg='<p style="color: red;" class="is-size-4">NO RECORD FOUND</p>';
+      include 'Modals/act_log_alert.php';
 }
 
 ?>

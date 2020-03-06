@@ -22,8 +22,8 @@
       <div class="is-danger">Are you Sure you want Delete <strong>
         "<?php echo $fullname;?>"?</strong><br> ENTER YOUR PASSWORD TO CONFIRM
 
-        <input type="input" name="adminName" value="<?php echo $fullname; ?>">
-        <input type="input" name="adminEmail" value="<?php echo $_SESSION['admin']; ?>">
+        <input type="hidden" name="adminName" value="<?php echo $fullname; ?>">
+        <input type="hidden" name="adminEmail" value="<?php echo $_SESSION['admin']; ?>">
 
         <input class="input" name="adminpass" type="password" placeholder="Password" required>
 

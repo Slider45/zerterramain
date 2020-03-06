@@ -65,7 +65,7 @@ include 'Buttons/requestButtonFunction.php';
          <table class = "table">
           <thead>
            <tr>
-            <th>#</th>
+            
             <th>Serial #</th>
             <th>Request #</th>
             <th>Firstname</th>
@@ -103,9 +103,6 @@ include 'Buttons/requestButtonFunction.php';
           ?>
           <tbody>
            <tr>
-            <td>
-              <?php echo $id; ?>.
-            </td>
             <td>
               <?php echo $serialNum; ?>
             </td>

@@ -114,14 +114,15 @@ include '../PagesFunction/connection.php';
              include 'searchFunction/consoactionLogFunction.php';
            }
          }else{     
-          $sql = "SELECT * FROM tblactionlog  ORDER BY id DESC LIMIT $offset, $no_of_records_per_page";
+          $sql = "SELECT * FROM tbl_activity_log  ORDER BY id DESC LIMIT $offset, $no_of_records_per_page";
           $res_data = $con->query($sql);
           while($row = mysqli_fetch_array($res_data)){
-            $id = $row['id'];
-            $author = $row['Author'];
-            $action = $row['Action'];
-            $dateAction = $row['DateAction'];
-            
+           
+    $id = $row['id'];
+    $author = $row['AdminName'];
+    $action = $row['Description'];
+    $dateAction = $row['DateAction'];
+    
             ?>
         
         <tbody>

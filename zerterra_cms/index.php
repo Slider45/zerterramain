@@ -118,7 +118,7 @@ include '../PagesFunction/connection.php';
                   <span id="view-sales">Click here to view details</span>
                 </div>
                 <div class="column" style="text-align: center;">
-                  <span class="is-right"><?php echo "P ",number_format($total),"";?></span>
+                  <span class="is-right is-size-3"><?php echo "P ",number_format($total),"";?></span>
                 </div>
               </div>
             </div>
@@ -134,7 +134,7 @@ include '../PagesFunction/connection.php';
                   <span id="view-sales">Click here to view details</span>
                 </div>
                 <div class="column" style="text-align: center;">
-                  <span class="is-right"><?php echo $adminUserCount;?></span>
+                  <span class="is-right is-size-3"><?php echo $adminUserCount;?></span>
                 </div>
               </div>
             </div>
@@ -151,7 +151,7 @@ include '../PagesFunction/connection.php';
                   <span id="view-sales">Click here to view details</span>
                 </div>
                 <div class="column" style="text-align: center;">
-                  <span class="is-right"><?php echo $regUserCount;?></span>
+                  <span class="is-right is-size-3"><?php echo $regUserCount;?></span>
                 </div>
               </div>
             </div>
@@ -168,7 +168,7 @@ include '../PagesFunction/connection.php';
                   <span id="view-sales">Click here to view details</span>
                 </div>
                 <div class="column" style="text-align: center;">
-                  <span class="is-right"><?php echo $requestCount;?></span>
+                  <span class="is-right is-size-3"><?php echo $requestCount;?></span>
                 </div>
               </div>
             </div>
@@ -189,8 +189,8 @@ include '../PagesFunction/connection.php';
            $res_data = $con->query($sql);
            while($row = mysqli_fetch_array($res_data)){
             $id = $row['id'];
-            $author = $row['Author'];
-            $action = $row['Action'];
+            $author = $row['AdminName'];
+            $action = $row['Description'];
             $dateAction = $row['DateAction'];
             ?>
             
@@ -234,7 +234,7 @@ include '../PagesFunction/connection.php';
               <p style="margin-left: 21px;
               font-size: 21pt;">TOTAL COUNT:</p>
             </div>
-            <div class="column" style="text-align: center; margin-top: 25px; font-size: 21pt;">
+            <div class="column is-size-3" style="text-align: center; margin-top: 25px;">
               <span class="is-right"><?php echo $penUserCount;?></span>
             </div>
           </div>

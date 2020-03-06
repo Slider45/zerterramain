@@ -79,7 +79,7 @@ include 'Buttons/pendingButtonFunction.php';
         <table class="table">
           <thead>
             <tr>
-              <th>#</th>
+              
               <th>Order#</th>
               <th>Firstname</th>
               <th>Lastname</th>
@@ -118,9 +118,7 @@ include 'Buttons/pendingButtonFunction.php';
                 ?>
 
                 <tr>
-                  <td>
-                   # <?php echo $id; ?>
-                 </td>
+                
 
                  <td>
                   <?php echo $orderNum; ?>

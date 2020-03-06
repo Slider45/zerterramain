@@ -42,7 +42,7 @@ $SerialNum=date("Ymd-")  .$approvedCount;
 
 <link rel="stylesheet" href="sass/approved.css">
 
-<body>
+<body >
   <?php
   include 'Pages/approvedViewPage.php'; 
   ?>
@@ -206,10 +206,10 @@ $SerialNum=date("Ymd-")  .$approvedCount;
 
 
                          <!-- MODAL PRINT -->
-                         <div class="modal" id="modal-print">
-                          <div class="modal-background"></div>
+                         <div class="modal" id="modal-print" >
+                          <div class="modal-background" ></div>
                           <div class="modal-content">
-                            <div class="card">
+                            <div class="card" style="height: 200px;">
                               <header class="card-header">
                                 <div class="card-header-title">
                                   PRINT RECORD
@@ -221,6 +221,7 @@ $SerialNum=date("Ymd-")  .$approvedCount;
                               <form  method="POST"action="for_approve.php" accept-charset="utf-8">
                                 <div class="card-content">
                                   <div class="content">
+                                    <input type="hidden" name="id" value="<?php echo $id; ?>">
                                     <input class="input" type="hidden" name="serialNum" value="<?php echo $SerialNum; ?>">
                                     <input class="input" type="hidden" name="orderNum" value="<?php echo $orderNum; ?>">
                                     <input class="input" type="hidden" name="id"value="<?php echo $id; ?>"
@@ -234,96 +235,101 @@ $SerialNum=date("Ymd-")  .$approvedCount;
 
 
 
-                                  <div class="buttons" style="margin-right: auto;">
-                                    <button type="submit" class="button is-success" name="printRecord" id="confirm"><i class="fas fa-check-circle"></i>&nbspPRINT & SAVE</button>
+                                  <div class="buttons" style="margin-right: auto;
+                                  justify-content: center;">
+                                  <button type="submit" class="button is-success" name="printRecord" id="confirm" style=" font-family: Montserrat;"><i class="fas fa-check-circle"></i>&nbspPRINT & SAVE</button>
 
-                                    <button class="button is-primary" name="saveApprove" id="modal-close-print"><i class="fas fa-ban"></i>&nbspSAVE ONLY!</button>
-                                  </div>
-                                </form>
-                              </center>
+                                  <button class="button is-primary" name="saveApprove" id="modal-close-print" style=" font-family: Montserrat;"><i class="fas fa-ban"></i>&nbspSAVE ONLY!</button>
+                                </div>
+                              </form>
+                            </center>
 
-                            </div>
                           </div>
-
-                        </div> 
-                        <!-- END MODAL PRINT -->
-
-
-
-
-                        <div class="column is-6">
-
-                          <a href="pending.php"> <button class="button is-danger" name="cancelbtn"><i class="fas fa-ban"></i>&nbspCancel</button></a>
-                          <!-- </form> -->
                         </div>
+
+                      </div> 
+                      <!-- END MODAL PRINT -->
+
+
+
+
+                      <div class="column is-6">
+
+                        <a href="pending.php"> <button class="button is-danger" name="cancelbtn"><i class="fas fa-ban"></i>&nbspCancel</button></a>
+                        <!-- </form> -->
                       </div>
                     </div>
                   </div>
+                </div>
 
-                  <?php
+                <?php
 
-                  include 'Buttons/for_approveButtonFunction.php';
+                include 'Buttons/for_approveButtonFunction.php';
 
-                  ?>
-
-              
-
-
-                  <!-- form -->
-
-                  <form method="POST" action="for_approve.php">
-
-                    <div class="column" id="for-img">
-                      <figure class="image" id="Qr-img">
-                        <img src="qrGenerator/generate.php?text=<?php echo $SerialNum?>">
-                        <!-- https://bulma.io/images/placeholders/256x256.png -->
-                      </figure>
-
-                      <button class="button is-success" name="RFqrcode" type="submit" id="refresh"><i class="fas fa-sync-alt"></i> &nbspRefresh</button>
-                    </div>
-                  </div>    
-
-                </form>
+                ?>
 
 
 
-                <script>
-                  function w3_open() {
-                    document.getElementById("mySidebar").style.display = "block";
-                  }
-                  function w3_close() {
-                    document.getElementById("mySidebar").style.display = "none";
-                  }
-                  document.querySelectorAll('.modal-button').forEach(function(el) {
-                    el.addEventListener('click', function() {
-                      var target = document.querySelector(el.getAttribute('data-target'));
 
-                      target.classList.add('is-active');
+                <!-- form -->
 
-                      target.querySelector('.modal-close').addEventListener('click', function(){
-                        target.classList.remove('is-active');
-                      });
+                <form method="POST" action="for_approve.php">
+
+                  <div class="column" id="for-img">
+                    <figure class="image" id="Qr-img">
+                      <img src="qrGenerator/generate.php?text=<?php echo $SerialNum?>">
+                      <!-- https://bulma.io/images/placeholders/256x256.png -->
+                    </figure>
+
+                    <!--    <button class="button is-success" name="RFqrcode" type="submit" id="refresh"><i class="fas fa-sync-alt"></i> &nbspRefresh</button> -->
+                  </div>
+                </div>    
+
+              </form>
+
+
+
+              <script>
+                function w3_open() {
+                  document.getElementById("mySidebar").style.display = "block";
+                }
+                function w3_close() {
+                  document.getElementById("mySidebar").style.display = "none";
+                }
+                document.querySelectorAll('.modal-button').forEach(function(el) {
+                  el.addEventListener('click', function() {
+                    var target = document.querySelector(el.getAttribute('data-target'));
+
+                    target.classList.add('is-active');
+
+                    target.querySelector('.modal-close').addEventListener('click', function(){
+                      target.classList.remove('is-active');
                     });
                   });
+                });
 
 
 
-                  var btn1 = document.querySelector('#btn_print');
-                  var modalDlg1 = document.querySelector('#modal-print');
-                  var imageModalCloseBtn1 = document.querySelector('#modal-close-print');
-                  btn1.addEventListener('click', function(){
-                    modalDlg1.classList.add('is-active');
-                  });
+                var btn1 = document.querySelector('#btn_print');
+                var modalDlg1 = document.querySelector('#modal-print');
+                var imageModalCloseBtn1 = document.querySelector('#modal-close-print');
+                btn1.addEventListener('click', function(){
+                  modalDlg1.classList.add('is-active');
+                });
 
-                  imageModalCloseBtn1.addEventListener('click', function(){
-                    modalDlg1.classList.remove('is-active');
-                  });
-                </script>
+                imageModalCloseBtn1.addEventListener('click', function(){
+                  modalDlg1.classList.remove('is-active');
+                });
+              </script>
 
-<?php
+              <?php
 
-include 'consolidate.php';
+              include 'consolidate.php';
 
-?>
-              </body>
-              </html>
+              ?>
+
+              <script type="text/javascript" src="dist/js/modal-fx.min.js"></script>
+
+              <script type="text/javascript" src="https://unpkg.com/bulma-modal-fx/dist/js/modal-fx.min.js"></script>
+            </body>
+            </html>

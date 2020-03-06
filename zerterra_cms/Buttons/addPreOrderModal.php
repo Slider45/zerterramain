@@ -64,7 +64,7 @@ $orderNum=date("Ymd-His-") . 0 .$pendingCount;
       <div class="control">
         <input class="input" type="number" name="contact" placeholder="Contact" required>
       </div>
-       <div class="control">
+      <div class="control">
         <input class="input" type="text" name="address" placeholder="Address" required>
       </div>
       
@@ -81,6 +81,7 @@ $orderNum=date("Ymd-His-") . 0 .$pendingCount;
 if(isset($_POST['preOrder-save'])){
   // date_default_timezone_set('Asia/Manila');
 
+    
   $author = $_SESSION['admin'];
   $fname = $_POST['fname'];
   $lname = $_POST['lname'];
@@ -88,27 +89,36 @@ if(isset($_POST['preOrder-save'])){
   $contact = $_POST['contact'];
   $address = $_POST['address'];
   $dateNow = date("d/m/Y");
+ 
   //$dateRegs = date('Y-m-d');
   // $newEndingDate = date("Y-m-d", strtotime(date("Y-m-d", strtotime($dateRegs)) . " + 365 day"));
   //$end = date('Y-m-d', strtotime('+1 years'));
 
   //$endWarranty = $end;
 
-  $sql ="INSERT INTO pending_order_list(OrderNumber,Firstname,Lastname,Email,Contact,Address) VALUES ('$orderNum','$fname','$lname','$email','$contact','$address')";
+  $sql ="INSERT INTO pending_order_list(OrderNumber,Firstname,Lastname,Email,Contact,Address,Message,is_approved) VALUES ('$orderNum','$fname','$lname','$email','$contact','$address','N/A','0')";
 
   if($con->query($sql) === TRUE){
-    $sql = "INSERT INTO tblactionlog (Author,Action,DateAction) VALUES ('$author','Add New Pre-Order','$dateNow')";
 
-      if($con->query($sql) === TRUE){
+   $sqlactionlog = "INSERT INTO tbl_activity_log (AdminName, Description, DateAction) VALUES ('$author','Add new Pre-Order [ $orderNum ]','$dateNow')";
+   if($con->query($sqlactionlog)===TRUE){
 
-    echo "<script>window.alert('PRE-ORDER HAS BEEN ADDED');</script>";
-    
-  }else{
+     $msg='<p class="is-size-4">PRE-ORDER HAS BEEN ADDED</p> ';
+     include 'Modals/pending_modal_alert.php';
 
-    echo "<script>window.alert('PRE-ORDER SAVING FAILED!');</script>";
 
-  }
-}
+   }else{
+     $msg='<p style="color: red;" class="is-size-4">PRE-ORDER SAVING FAILED! action log</p>';
+     include 'Modals/pending_modal_alert.php';
+
+
+   }
+ }else{
+   $msg='<p style="color: red;" class="is-size-4">PRE-ORDER SAVING FAILED! query</p>';
+   include 'Modals/pending_modal_alert.php';
+
+
+ }
 }
 ?>
 

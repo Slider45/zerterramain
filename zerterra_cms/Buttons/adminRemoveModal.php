@@ -20,21 +20,47 @@
       </div>
 
       <div class="is-danger">Are you Sure you want Delete <strong>
-        "<?php echo $fullname;?>"?</strong> </div>
-        
-        <div style = " margin-bottom: 10px;
-        margin-top: 20px;
-        margin-right: auto;">
+        "<?php echo $fullname;?>"?</strong><br> ENTER YOUR PASSWORD TO CONFIRM
 
-        <button  class="button is-success" name="acnt_remove">
-          <i class="fas fa-user-times"></i>&nbspREMOVE</button>
-          <button class="button is-danger"><i class="fas fa-ban">
-          </i>&nbspCancel</button>
+        <input type="input" name="adminName" value="<?php echo $fullname; ?>">
+        <input type="input" name="adminEmail" value="<?php echo $_SESSION['admin']; ?>">
+
+        <input class="input" name="adminpass" type="password" placeholder="Password" required>
+
+      </div>
 
 
-        </div>
-      </form>
+
+      <div style = " margin-bottom: 10px;
+      margin-top: 20px;
+      margin-right: auto;">
+    </form>
+    <button  class="button is-success" name="acnt_remove">
+      <i class="fas fa-user-times"></i>&nbspREMOVE</button>
+      <button class="button is-danger" onclick="cancelevent()"><i class="fas fa-ban">
+      </i>&nbspCancel</button></a>
+
 
     </div>
+
+
   </div>
 </div>
+</div>
+
+<?php
+
+
+// if(isset($_POST['closeModal'])){
+
+
+//    echo '<script>window.location.href="admin.php"</script>';
+// }
+
+?>
+
+<script>
+  function cancelevent() {
+    window.location.href="admin.php";
+  }
+</script>

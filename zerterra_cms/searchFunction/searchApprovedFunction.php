@@ -1,7 +1,7 @@
 <?php
 
 
-$sql= "SELECT * FROM approved_order_list WHERE CONCAT(`SerialNumber`,`Firstname`, `Lastname`, `Email`, `Contact`) LIKE '%".$searchValue."%'";
+$sql= "SELECT * FROM approved_order_list WHERE CONCAT(`OrderNumber`,`SerialNumber`,`Firstname`, `Lastname`, `Email`, `Contact`) LIKE '%".$searchValue."%'";
  //$sql = "SELECT * FROM request_list WHERE is_approved='0'" ;
 $result = $con->query($sql);
 if ($result->num_rows > 0) {
@@ -22,7 +22,7 @@ if ($result->num_rows > 0) {
      
 
     <td>
-                             # <?php echo $id; ?>
+                             <?php echo $orderNum; ?>
                          </td>
                          <td>
                             <?php echo $serialNum; ?>
@@ -65,8 +65,10 @@ if ($result->num_rows > 0) {
 
 }
 else{
-	echo "<script>window.alert('NO RECORD FOUND!');</script>";
-	echo '<script>window.location.href="approved.php"</script>';
+
+     $msg='<p class="is-size-3" style="color:red;">NO RECORD FOUND!</p>';
+         include 'Modals/for_approved_modal_alert.php';
+	
 }
 
 ?>

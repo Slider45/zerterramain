@@ -52,7 +52,7 @@ include 'connection.php';
  </div>
 </div>
 
-<button type="submit" name="updated_id" class="button is-success">Save</button>
+<button type="submit" name="updated_id" class="button is-success"><i class="far fa-save"></i>&nbspSave</button>
 <button class="is-danger button" id="closeMdl"><i class="fas fa-ban"></i>&nbspCancel</button>
 
 </form>

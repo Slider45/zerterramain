@@ -7,6 +7,7 @@ include 'connection.php';
 <?php
 
 if(isset($_POST['updated_id'])){
+  $orderNum = $_POST['ordernum'];
   $author = $_SESSION['admin'];
   $id = $_POST['id'];
   $fname = $_POST['fname'];
@@ -20,31 +21,42 @@ if(isset($_POST['updated_id'])){
 
   $sql = "UPDATE pending_order_list SET Firstname='$fname',Lastname='$lname',Contact='$contact',Email='$email',Address='$address' WHERE id='$id'";
   if($con->query($sql) === TRUE){
-    $sql = "INSERT INTO tblactionlog (Author,Action,DateAction) VALUES ('$author','Edit Pending Order [ $id ] ','$dateNow')";
 
-      if($con->query($sql) === TRUE){
-    echo "<script>window.alert('RECORD IS UPDATED!');</script>";
-    echo '<script>window.location.href="pending.php"</script>';
+
+   $sqlactionlog = "INSERT INTO tbl_activity_log (AdminName, Description, DateAction) VALUES ('$author','Pending Edit [$orderNum]','$dateNow')";
+   if($con->query($sqlactionlog)===TRUE){
+
+    $msg='<p class="is-size-4">RECORD IS UPDATED!</p>';
+    include 'Modals/pending_modal_alert.php';
+
   }else{
-    echo "<script>window.alert('SOMETHING WENT WRONG, PLEASE TRY AGAIN!');</script>";
+
+    $msg='<p style="color: red;" class="is-size-4">SOMETHING WENT WRONG, PLEASE TRY AGAIN!</p>';
+    include 'Modals/pending_modal_alert.php';
+
+
   }
 
 
 
-}
-}
+}else{
 
-  
+    $msg='<p style="color: red;" class="is-size-4">SOMETHING WENT WRONG, PLEASE TRY AGAIN!</p>';
+      include 'Modals/pending_modal_alert.php';
+
+}}
+
+
 if(isset($_POST['btnapproved'])){
 
   $edit_id = $_POST['edit_id'];
 
-   $_SESSION['id'] = $edit_id;
-   
-   echo '<script>window.location.href="for_approve.php"</script>';
+  $_SESSION['id'] = $edit_id;
+
+  echo '<script>window.location.href="for_approve.php"</script>';
   
   
-  }
+}
 // if(isset($_POST['btnapproved'])){
 //   $id = $_POST['edit_id'];
 //   $orderNum = $_POST['OrderNumber'];
@@ -62,9 +74,9 @@ if(isset($_POST['btnapproved'])){
 
 //    $sql ="INSERT INTO approved_order_list(Pending_id,Firstname,Lastname,Email,Contact,Address) VALUES ('$id','$fname','$lname','$email','$address','$contact')";
 //    if($con->query($sql) === TRUE){
-    
+
 //    }else{
-    
+
 //     echo "<script>window.alert('Saving new record failed!');</script>";
 //   }
 

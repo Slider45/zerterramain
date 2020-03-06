@@ -231,27 +231,27 @@ if(isset($_POST['update'])){
     $newemail = $_POST['newemail'];
     $password = $_POST['password'];
     $cpassword = $_POST['cpassword'];
-    
-    // $sql = "UPDATE tblusers SET Email=' $newemail' WHERE id='$id'";
-    // if($con->query($sql) === TRUE){
-        
-    // }
+
+    $sql = "SELECT * FROM tblusers";
+    $res_data = $con->query($sql);
+    while($row = mysqli_fetch_array($res_data)){
+    $fname = $row['Firstname'];
+    $fname = $row['Lastname'];
+    $email = $row['Email'];
+  
     if($password === $cpassword){
-        // $sql1 = "SELECT * FROM tblusers WHERE Password = $cpassword AND is_active = '1'";
-        // if($con->query($sql1) === TRUE){
+       
         $sql = "UPDATE tblusers SET Email='$newemail' WHERE id='$id' AND is_active='1'";
         if($con->query($sql) === TRUE){
-          echo "<script>window.alert('Email Changed! You\'re about to logout');</script>";
-          echo '<script>window.location.href="logout.php"</script>';
-        }
-        else{
-            echo "<script>window.alert('SOMETHING WENT WRONG, PLEASE TRY AGAIN!');</script>";
-          }
-        }
+          $msg='EMAIL  <p style="color: red;" class="is-size-4">'.  $newemail . '</p> HAS BEEN UPDATED!';
+          include 'Modals/change_email_alert.php';
+      
+        }else{
+         $msg='<p style="color: red;" class="is-size-4">SOMETHING WENT WRONG, PLEASE TRY AGAIN!</p>';
+         include 'Modals/change_email_alert.php';
+       }
     
     }
-    // else{
-    //     echo "<script>window.alert('SOMETHING WENT WRONG, PLEASE TRY AGAIN!');</script>";
-    //   }
-// }
+  }
+}
   ?>

@@ -221,26 +221,20 @@ if(isset($_POST['update'])){
     $newpass = $_POST['newpass'];
     $cnewpass = $_POST['cnewpass'];
     
-    // $sql = "UPDATE tblusers SET Email=' $newemail' WHERE id='$id'";
-    // if($con->query($sql) === TRUE){
-        
-    // }
     if($newpass === $cnewpass){
-        // $sql1 = "SELECT * FROM tblusers WHERE Password = $cpassword AND is_active = '1'";
-        // if($con->query($sql1) === TRUE){
+       
         $sql = "UPDATE tblusers SET Password='$newpass' WHERE id='$id' AND is_active='1'";
         if($con->query($sql) === TRUE){
-        echo "<script>window.alert('Password Changed! You\'re about to logout');</script>";
-        echo '<script>window.location.href="logout.php"</script>';
-        }
-        else{
-            echo "<script>window.alert('SOMETHING WENT WRONG, PLEASE TRY AGAIN!');</script>";
-          }
-        }
+          $msg='PASSWORD  <p style="color: red;" class="is-size-4"></p> HAS BEEN UPDATED!';
+          include 'Modals/change_password_alert.php';
+          
+        }else{
+         $msg='<p style="color: red;" class="is-size-4">SOMETHING WENT WRONG, PLEASE TRY AGAIN!</p>';
+         include 'Modals/change_password_alert.php';
+       }
     
     }
-    // else{
-    //     echo "<script>window.alert('SOMETHING WENT WRONG, PLEASE TRY AGAIN!');</script>";
-    //   }
-// }
+  }
+
+   
   ?>

@@ -241,14 +241,15 @@ if(isset($_POST['updated_user'])){
   
   $sql = "UPDATE tblusers SET Firstname='$fname',Lastname='$lname',Email='$email', Contact='$contact', Address='$address' WHERE id='$id' AND is_active='1'";
   if($con->query($sql) === TRUE){
-    echo "<script>window.alert('RECORD IS UPDATED!');</script>";
-    echo '<script>window.location.href="acc_setting.php"</script>';
+   
+    $msg='RECORD  <p style="color: red;" class="is-size-4">'.  $fname.' '.$lname . '</p> HAS BEEN UPDATED!';
+    include 'Modals/acc_settings_alert.php';
+
   }else{
-    echo "<script>window.alert('SOMETHING WENT WRONG, PLEASE TRY AGAIN!');</script>";
-  }
-  
+   $msg='<p style="color: red;" class="is-size-4">SOMETHING WENT WRONG, PLEASE TRY AGAIN!</p>';
+   include 'Modals/acc_settings_alert.php';
+ }
+
 }
-
-
 
 ?>

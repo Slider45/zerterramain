@@ -69,7 +69,7 @@ include 'Buttons/adminButtonFunction.php';
            <table class="table" id="table">
             <thead>
              <tr>
-              <th>#</th>
+            
               <th>Full Name</th>
               <th>Contact</th>
               <th>Email</th>
@@ -103,9 +103,7 @@ include 'Buttons/adminButtonFunction.php';
             ?>
             <tbody>
              <tr>
-               <td>
-                # <?php echo $id; ?>
-              </td>
+              
               <td>
                 <?php echo $fullname; ?>
               </td>
@@ -134,7 +132,7 @@ include 'Buttons/adminButtonFunction.php';
                 ?>
               </td>
             </tr>
-
+            
             <?php 
           }  
         }        

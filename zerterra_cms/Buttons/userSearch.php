@@ -26,7 +26,7 @@
      <p class="modal-card-title" id="admin-header">SEARCH</p>
      <button class="modal-close" aria-label="close"></button>
    </header>
-   <form method="POST" action="admin.php" class="modal-card-body" style="border-bottom-left-radius: 10px; border-bottom-right-radius: 10px;" >
+   <form method="POST" action="users.php" class="modal-card-body" style="border-bottom-left-radius: 10px; border-bottom-right-radius: 10px;" >
      <div class="field">   
       <div class="control">
         <input class="input" type="text" name="searchValue" placeholder="Search..." required="">

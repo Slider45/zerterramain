@@ -67,7 +67,7 @@ include 'Buttons/usersButtonFunction.php';
            <table class="table">
             <thead>
              <tr>
-              <th>#</th>
+              
               <th>Serial #</th>
               <th>Firstname</th>
               <th>Lastname</th>
@@ -84,7 +84,7 @@ include 'Buttons/usersButtonFunction.php';
               $searchValue = $_POST['searchValue'];
 
               if ($searchValue===''){
-                echo '<script>window.location.href="?"</script>';
+                echo '<script>window.location.href="user.php"</script>';
               }else{
                 include 'searchFunction/searchUsersFunction.php';
               }
@@ -105,9 +105,7 @@ include 'Buttons/usersButtonFunction.php';
                 ?>
                 <tbody>
                  <tr>
-                   <td>
-                     # <?php echo $id; ?>
-                   </td>
+                   
                    <td>
                     <?php echo $serialNum; ?>
                   </td>

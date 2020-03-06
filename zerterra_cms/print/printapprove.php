@@ -192,7 +192,7 @@ $serialNum =$_SESSION['serialNum'];
             </footer>
 
             <a href="../for_approve.php"><button class="button is-danger" id="return" ><i class="fas fa-arrow-left"></i> </button></a>
-            <button onclick="window.print();" class="button" name="printdocs" id="home" ><i class="fas fa-print"></i> </button>
+            <button  class="button" name="printdocs" id="home" ><i class="fas fa-print"></i> </button>
 
           </form>
 
@@ -202,7 +202,7 @@ $serialNum =$_SESSION['serialNum'];
       <?php
 
       if(isset($_POST['printdocs'])){
-
+        $author = $_SESSION['admin'];
         $serialNum =$_POST['serialNum'];
         $orderNum =$_POST['orderNum'];
         $fname =$_POST['fname'];
@@ -210,6 +210,8 @@ $serialNum =$_SESSION['serialNum'];
         $email =$_POST['email'];
         $contact =$_POST['contact'];
         $address =$_POST['address'];
+        $dateNow = date('Y/m/d');
+
 
 
 
@@ -219,9 +221,20 @@ $serialNum =$_SESSION['serialNum'];
           $sqlupdate = "UPDATE pending_order_list SET is_approved='1' WHERE OrderNumber=' $orderNum'";
 
 
-
-
           if($con->query($sqlupdate) === TRUE){
+
+            $sqlactionlog = "INSERT INTO tbl_activity_log (AdminName, Description, DateAction) VALUES ('$author','Approve Order [$orderNum] ','$dateNow')";
+            if($con->query($sqlactionlog)===TRUE){
+
+              echo"<script>window.print();</script>";
+
+
+
+            }else{
+              $msg='<p class="is-size-3" style="color:red;">UNABLE TO PRINT PLEASE TRY AGAIN LATER! update pending</p>';
+              include '../Modals/for_approved_modal_alert.php';
+
+            }
 
 
            //echo '<script>window.location.href="pending.php"</script>';
@@ -229,26 +242,33 @@ $serialNum =$_SESSION['serialNum'];
 
 
 
-         }else{
-          echo "<script>alert('UNABLE TO UPDATE PLEASE TRY AGAIN LATER!');</script>";
-        }
+          }else{
 
-      }else{
-       echo "<script>alert('UNABLE TO SAVE PLEASE TRY AGAIN LATER!');</script>";
+             $msg='<p class="is-size-3" style="color:red;">UNABLE TO PRINT PLEASE TRY AGAIN LATER! update pending</p>';
+              include '../Modals/for_approved_modal_alert.php';
+
+            // echo "<script>alert('UNABLE TO UPDATE PLEASE TRY AGAIN LATER!');</script>";
+          }
+
+        }else{
+           $msg='<p class="is-size-3" style="color:red;">UNABLE TO PRINT PLEASE TRY AGAIN LATER! update pending</p>';
+              include '../Modals/for_approved_modal_alert.php';
+
+         // echo "<script>alert('UNABLE TO SAVE PLEASE TRY AGAIN LATER!');</script>";
+       }
+
+
+
+
      }
 
 
-
-
-   }
-
-
-   ?>
-<script>
-function changepage() {
- window.location.href="../approved.php";
-}
-</script>
+     ?>
+     <script>
+      function changepage() {
+       window.location.href="../approved.php";
+     }
+   </script>
 
  </body>
  </html>

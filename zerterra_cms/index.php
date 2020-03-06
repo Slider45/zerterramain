@@ -48,6 +48,7 @@ include 'Buttons/adminButtonFunction.php';
       <button class="w3-button w3-teal w3-xlarge w3-hide-large" onclick="w3_open()">&#9776;</button>
     </div>
 
+<<<<<<< HEAD
     <a href="print/printAdmin.php"><button  class="button" id="home" ><i class="fas fa-print"></i> </button></a> 
 
     <div class="w3-container">
@@ -62,6 +63,75 @@ include 'Buttons/adminButtonFunction.php';
             include 'Buttons/addAdminModal.php';
             ?>
           </div>
+=======
+    <div class="w3-container">
+     <h1 class="button-category">DASHBOARD</h1>
+     <div class="columns is-multiline is-mobile">
+      <div class="column is-half">
+        <a href="sales.php">
+          <div class="box" style="background:url(images/sales_bg.png); background-repeat: no-repeat; background-size: cover;">
+            <div class="columns">
+              <div class="column">
+                <p>SALES</P>
+                  <span id="view-sales">Click here to view details</span>
+                </div>
+                <div class="column" style="text-align: center;">
+                  <span class="is-right is-size-3"><?php echo "P ",number_format($total),"";?></span>
+                </div>
+              </div>
+            </div>
+          </a>
+
+        </div>
+        <div class="column is-half">
+          <a href="admin.php">
+            <div class="box" style="background:url(images/yellow_bg.png); background-repeat: no-repeat; background-size: cover;">
+              <div class="columns">
+                <div class="column">
+                  <p>ADMIN</p>
+                  <span id="view-sales">Click here to view details</span>
+                </div>
+                <div class="column" style="text-align: center;">
+                  <span class="is-right is-size-3"><?php echo $adminUserCount;?></span>
+                </div>
+              </div>
+            </div>
+          </a>
+        </div>
+
+
+        <div class="column is-half">
+          <a href="users.php">
+            <div class="box" style="background:url(images/blue_bg.png); background-repeat: no-repeat; background-size: cover;">
+              <div class="columns">
+                <div class="column">
+                  <p>USERS</p>
+                  <span id="view-sales">Click here to view details</span>
+                </div>
+                <div class="column" style="text-align: center;">
+                  <span class="is-right is-size-3"><?php echo $regUserCount;?></span>
+                </div>
+              </div>
+            </div>
+          </a>
+        </div>
+
+
+        <div class="column is-half">
+          <a href="request.php">
+            <div class="box" style="background:url(images/request_bg.png); background-repeat: no-repeat; background-size: cover;">
+              <div class="columns">
+                <div class="column">
+                  <p>REQUEST LIST</p>
+                  <span id="view-sales">Click here to view details</span>
+                </div>
+                <div class="column" style="text-align: center;">
+                  <span class="is-right is-size-3"><?php echo $requestCount;?></span>
+                </div>
+              </div>
+            </div>
+          </a>
+>>>>>>> 2eab43c312c1159370a09894bcfffb850219fb14
         </div>
 
         <section class="section">
@@ -95,10 +165,17 @@ include 'Buttons/adminButtonFunction.php';
           $res_data = $con->query($sql);
           while($row = mysqli_fetch_array($res_data)){
             $id = $row['id'];
+<<<<<<< HEAD
             $fullname = $row['Fullname'];
             $contact = $row['Contact'];
             $email = $row['Email'];
             $position = $row['Position'];
+=======
+            $author = $row['AdminName'];
+            $action = $row['Description'];
+            $dateAction = $row['DateAction'];
+            ?>
+>>>>>>> 2eab43c312c1159370a09894bcfffb850219fb14
             
             ?>
             <tbody>
@@ -136,6 +213,7 @@ include 'Buttons/adminButtonFunction.php';
             </tr>
 
             <?php 
+<<<<<<< HEAD
           }  
         }        
         ?>
@@ -152,6 +230,47 @@ include 'Buttons/adminButtonFunction.php';
         <li><a href="?page=<?php echo $total_pages; ?>" class="pagination-link"><?php echo $total_pages; ?></a></li>
       </ul>
     </nav>
+=======
+          } 
+          
+          ?>     
+
+
+          <footer class="card-footer">
+            <div class="card-footer-item">
+              <nav class="pagination is-small" role="navigation" aria-label="pagination">
+                <a href="<?php if($page <= 1){ echo '#'; } else { echo "?page=".($page - 1); } ?>" class="pagination-previous" ><i class="fas fa-angle-double-left"></i>&nbsp PREV</a> 
+                <a href="<?php if($page >= $total_pages){ echo '#'; } else { echo "?page=".($page + 1); } ?>" class="pagination-next">NEXT&nbsp<i class="fas fa-angle-double-right"></i></a>
+                
+              </nav>
+            </div>
+          </footer>
+        </div>
+      </div>
+      <div class="column is-5">
+        <div class="card">
+          <header class="card-header">
+            <p class="card-header-title">
+              PENDING ORDERS
+            </p>
+          </header>
+          <div class="columns">
+            <div class="column">
+              <p style="margin-left: 21px;
+              font-size: 21pt;">TOTAL COUNT:</p>
+            </div>
+            <div class="column is-size-3" style="text-align: center; margin-top: 25px;">
+              <span class="is-right"><?php echo $penUserCount;?></span>
+            </div>
+          </div>
+      <!-- <div class="card-content">
+        <div class="content">
+          <p>TOTAL PENDING : </p>
+          <span class="is-right"><?php echo $adminUserCount;?></span>
+        </div>
+      </div> -->
+    </div>
+>>>>>>> 2eab43c312c1159370a09894bcfffb850219fb14
   </div>
 </section>
 

@@ -76,7 +76,7 @@ include 'Buttons/approvedQuery.php';
         <table class="table">
             <thead>
                 <tr>
-                    <th>#</th>
+                    <th>Order #</th>
                     <th>Serial #</th>
                     <th>First Name</th>
                     <th>Last Name</th>
@@ -112,10 +112,9 @@ include 'Buttons/approvedQuery.php';
                         $address = $row['Address'];
 
                         ?>
-                        <tr>
-                            <td>
-                             # <?php echo $id; ?>
-                         </td>
+                         <td>
+                            <?php echo $orderNum; ?>
+                        </td>
                          <td>
                             <?php echo $serialNum; ?>
                         </td>

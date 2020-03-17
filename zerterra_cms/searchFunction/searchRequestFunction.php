@@ -20,9 +20,7 @@ if ($result->num_rows > 0) {
         
 
         <tr>
-        <td>
-              <?php echo $id; ?>.
-            </td>
+        
             <td>
               <?php echo $serialNum; ?>
             </td>
@@ -72,8 +70,8 @@ if ($result->num_rows > 0) {
 
 }
 else{
- echo "<script>window.alert('NO RECORD FOUND!');</script>";
- echo '<script>window.location.href="request.php"</script>';
+ $msg='<p style="color: red;" class="is-size-4">NO RECORD FOUND</p>';
+  include 'Modals/request_alert.php';
 }
 
 ?>

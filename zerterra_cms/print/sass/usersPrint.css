@@ -137,7 +137,7 @@ html, body {
   .card-header #h-img {
     width: 100%;
     max-width: 270px;
-    margin-left: 30%;
+    margin-left: 45%;
     margin-top: 10px;
   }
   .card-content {
@@ -155,7 +155,7 @@ html, body {
     font-family: Montserrat;
   }
   .card-content #date #date-today {
-    margin-left: 76% !important;
+    margin-left: 90% !important;
   }
   .card-content .table {
     font-size: 12pt;

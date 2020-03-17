@@ -1,7 +1,7 @@
 <?php
 include 'connection.php';
 
-$sql= "SELECT * FROM tblusers WHERE CONCAT(`SerialNumber`,`Firstname`, `Lastname`, `Email`) LIKE '%".$searchValue."%'";
+$sql= "SELECT * FROM tblusers WHERE CONCAT(`SerialNumber`,`Firstname`, `Lastname`, `Email`, `Contact`) LIKE '%".$searchValue."%' AND is_active='1'";
 $result = $con->query($sql);
 if ($result->num_rows > 0) {
 	while($row = $result->fetch_assoc()) 
@@ -21,9 +21,7 @@ if ($result->num_rows > 0) {
 		<tr>
 
 
-		<td>
-                  # <?php echo $id; ?>
-              </td>
+		
               <td>
                     <?php echo $serialNumber; ?>
               </td>
@@ -61,8 +59,8 @@ if ($result->num_rows > 0) {
 
 
 		else{
-			echo "<script>window.alert('NO RECORD FOUND!');</script>";
-			echo '<script>window.location.href="conso-users.php"</script>';
+		$msg='<p style="color: red;" class="is-size-4">NO RECORD FOUND</p>';
+             include 'Modals/consoUsers_alert.php';
 		}
 
 		?>

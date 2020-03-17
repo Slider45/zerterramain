@@ -40,6 +40,7 @@ include 'Buttons/approvedQuery.php';
       <a href="sales.php" class="w3-bar-item w3-button" id="item-hover"><i class="fas fa-hand-holding-usd"></i> &nbsp Sales</a>
       <a href="actionLog.php" class="w3-bar-item w3-button" id="item-hover"><i class="fas fa-clipboard-list"></i> &nbsp Action Log</a>
       <button onclick="document.getElementById('id01').style.display='block'" href="consolidate.php" class="w3-bar-item w3-button" id="item-hover" ><i class="fas fa-print"></i> &nbsp Consolidate</button>
+     <a href="../zerterraph_user/logout.php" class="w3-bar-item w3-button" id="item-hover"><i class="fas fa-sign-out-alt"></i>&nbsp Logout</a> 
   </div>
 
   <div class="w3-main" style="margin-left:200px">
@@ -78,8 +79,8 @@ include 'Buttons/approvedQuery.php';
                 <tr>
                     <th>Order #</th>
                     <th>Serial #</th>
-                    <th>First Name</th>
-                    <th>Last Name</th>
+                    <th>Firstname</th>
+                    <th>Lastname</th>
                     <th>Email</th>
                     <th>Contact</th>
                     <th>Action</th>

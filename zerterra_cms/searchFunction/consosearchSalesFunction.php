@@ -61,9 +61,9 @@ if ($result->num_rows > 0) {
 
 
 		else{
-			echo "<script>window.alert('NO RECORD FOUND!');</script>";
-			echo '<script>window.location.href="conso-sales.php"</script>';
-		}
+                  $msg='<p style="color: red;" class="is-size-4">NO RECORD FOUND</p>';
+                  include 'Modals/consoSales_alert.php';
+                }
 
 		?>
 

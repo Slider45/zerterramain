@@ -205,23 +205,23 @@ include 'PagesFunction/connection.php';
 
             <div class="field">   
              <div class="control">
-              <input class="input1" name="fname" type="text" placeholder="Firstname" required="">
+              <input class="input1" name="fname_order" type="text" placeholder="Firstname" required="">
             </div>
             <div class="control">
-              <input class="input1" name="lname" type="text" placeholder="Lastname" required="">
+              <input class="input1" name="lname_order" type="text" placeholder="Lastname" required="">
             </div>
             <div class="control">
-              <input class="input1" name="email" type="email" placeholder="Email" required="">
+              <input class="input1" name="email_order" type="email" placeholder="Email" required="">
             </div>
             <div class="control">
-              <input type="number" maxlength="13" class="input1" name="contact" placeholder="Contact Number" required="">
+              <input type="number" maxlength="13" class="input1" name="contact_order" placeholder="Contact Number" required="">
             </div>
             <div>
-             <input class="input1" name="address" type="text" placeholder="Address" required="">
+             <input class="input1" name="address_order" type="text" placeholder="Address" required="">
            </div>
          </div>
          <div class="control">
-          <textarea class="textarea1" name="message" placeholder="Message"></textarea>
+          <textarea class="textarea1" name="message_order" placeholder="Message"></textarea>
         </div>
         <div></div>
         <button  class="btn" id="SendOrder" name="OrderNumber" type="submit">ORDER NOW&nbsp&nbsp<i class="fas fa-paper-plane"></i></button>

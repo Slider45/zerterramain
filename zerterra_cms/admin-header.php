@@ -13,12 +13,12 @@
             <i class="fa fa-search"></i></i> &nbspSearch
           </a>
           <a class="button btn-user">
-             <?= $_SESSION['admin']?>&nbsp<i class="far fa-user"></i>
+             <?= $_SESSION['admin']?>&nbsp&nbsp<img src="images/userIcon.png" id="userIcon"></i>
 
           </a>
-          <a href="../zerterraph_user/logout.php" class="button btn-logout">
-             Logout &nbsp<i class="fas fa-sign-out-alt"></i>
-          </a>
+          <!--<a href="../zerterraph_user/logout.php" class="button btn-logout">-->
+          <!--   Logout &nbsp<i class="fas fa-sign-out-alt"></i>-->
+          <!--</a>-->
         </div>
       </div>
     </div>

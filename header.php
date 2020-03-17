@@ -32,13 +32,13 @@ $serialNum = "";?>
                     <div class="container">
                       <div id="serv-modal" class="modal">
                         <div class="modal-background"></div>
-                        <div class="modal-content1">
+                        <div class="modal-content1" id="serv-modal">
                          <div class="modal-card1">
-                          <header class="modal-card-head1" id="modal-card-head">
+                          <header class="modal-card-head1" id="modal-card-head1">
                            <p class="modal-card-title">SERIAL NUMBER</p>
                            <button class="modal-close is-large" aria-label="close" id="image-modal-close4"></button>
                          </header>
-                         <section class="modal-card-body1" id="modal-card-body">
+                         <section class="modal-card-body1" id="modal-card-body1">
                           <!-- Content ... -->
                           <div class="field">
                             <div class="control">
@@ -46,7 +46,7 @@ $serialNum = "";?>
                             </div>
                           </div>
                         </section>
-                        <footer class="modal-card-foot1" id="modal-card-foot">
+                        <footer class="modal-card-foot1" id="modal-card-foot1">
                           <button class="btn" id="showModal1" type="submit" style="font-family: Montserrat;"><i class="far fa-calendar-check"></i> Check Warranty</button>
 
                         </footer>
@@ -111,10 +111,10 @@ $serialNum = "";?>
                       </section>
                       <footer class="modal-card-foot2">
                         <button class="btn" name="sndRequest" type="submit">Send Request &nbsp<i class="far fa-paper-plane"></i></button>
-                      </footer> 
+                      </footer>  
                     </div></div></div>
                   </div>
- </form>
+</form>
 
               
 
@@ -140,7 +140,7 @@ $serialNum = "";?>
                           ?>
                         </section>
                         <footer class="modal-card-foot3">
-                        <a href="Log-in.php"> <button class="button is-medium btn">Accept &nbsp<i class="far fa-thumbs-up"></i></button></a>
+                        <a href="index.php"><button class="button is-medium btn">Accept &nbsp<i class="far fa-thumbs-up"></i></button></a>
                        </footer>
                      </div>
                    </div>
@@ -155,16 +155,16 @@ $serialNum = "";?>
                   </div>
                 </button>
 
-                <div class="container" >
+                  <div class="container" >
                   <div id="serv-download-modal" class="modal">
                     <div class="modal-background"></div>
-                    <div class="modal-content1" style="margin-left:580px;">
+                    <div class="modal-content1" id="download-app-modal">
                      <div class="modal-card1">
-                      <header class="modal-card-head3" id="modal-card-head" style="width: 300px; text-align:center;">
+                      <header class="modal-card-head3" id="modal-card-head">
                        <p class="modal-card-title">Download App</p>
                        <!--    <button class="delete" aria-label="close" id="image-modal-close7"></button> -->
                      </header>
-                     <section class="modal-card-body1" id="modal-card-body" style="width: 300px;">
+                     <section class="modal-card-body1" id="modal-card-body">
                       <!-- Content ... -->
                       <div class="field">
                         <div class="control">
@@ -172,8 +172,8 @@ $serialNum = "";?>
                         </div>
                       </div>
                     </section>
-                    <footer class="modal-card-foot1" id="modal-card-foot" style="width: 300px;">
-                      <a href="download/zerterra.zip" download class="button is-success" style="margin-right: 10px; margin-left: 30px;">Download</a>
+                    <footer class="modal-card-foot1" id="modal-card-foot">
+                      <a href="app-debug.apk" download class="button is-success">Download</a>
                       <button class="button is-danger" aria-label="close" id="image-modal-close7">Cancel</button>
                     </footer>
                   </div>

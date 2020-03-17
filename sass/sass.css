@@ -664,8 +664,8 @@ nav ul li a {
 
 @media (min-width: 701px) and (max-width: 768px) {
   .modal-content {
-    max-width: 250px;
-    max-height: 380px;
+    max-width: 500px;
+    max-height: 780px;
   }
 }
 
@@ -697,65 +697,42 @@ nav ul li a {
   min-height: 510px;
 }
 
-@media screen and (max-width: 640px) {
+@media screen and (max-width: 360px) {
   #card-modal {
-    min-height: 1660px;
+    min-height: 1500px;
   }
 }
 
-@media (min-width: 641px) and (max-width: 700px) {
+@media (min-width: 361px) and (max-width: 375px) {
   #card-modal {
-    min-height: 1660px;
+    min-height: 1500px;
   }
 }
 
-@media (min-width: 701px) and (max-width: 768px) {
+@media (min-width: 376px) and (max-width: 411px) {
   #card-modal {
-    min-height: 1550px;
+    min-height: 1500px;
   }
 }
 
-@media (min-width: 769px) and (max-width: 800px) {
+@media (min-width: 412px) and (max-width: 414px) {
+  #card-modal {
+    min-height: 1500px;
+  }
+}
+
+@media (min-width: 415px) and (max-width: 768px) {
+  #card-modal {
+    min-height: 2000px;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
   #card-modal {
     min-height: 420px;
   }
 }
 
-@media (min-width: 801px) and (max-width: 850px) {
-  #card-modal {
-    min-height: 435px;
-  }
-}
-
-@media (min-width: 851px) and (max-width: 900px) {
-  #card-modal {
-    min-height: 450px;
-  }
-}
-
-@media (min-width: 901px) and (max-width: 950px) {
-  #card-modal {
-    min-height: 455px;
-  }
-}
-
-@media (min-width: 951px) and (max-width: 1025px) {
-  #card-modal {
-    min-height: 470px;
-  }
-}
-
-@media (min-width: 901px) and (max-width: 950px) {
-  #card-modal {
-    min-height: 420px;
-  }
-}
-
-@media (min-width: 951px) and (max-width: 1025px) {
-  #card-modal {
-    min-height: 420px;
-  }
-}
 
 #serv-warranty, #serv-RR, #serv-TAC, #serv-download {
   height: 100%;
@@ -1482,13 +1459,103 @@ footer {
   }
 }
 
-.form_error span {
-  width: 80%;
-  height: 35px;
-  margin: 3px 10%;
-  font-size: 1.1em;
-  color: #D83D5A;
-}
+
+
 
 /* end footer */
+
+
+#serv-download-modal #download-app-modal {
+  margin-left: 580px;
+}
+
+#modal-card-head {
+  width: 300px;
+  text-align: center;
+}
+
+#modal-card-body {
+  width: 300px;
+}
+
+#modal-card-foot {
+  width: 300px;
+}
+
+a.button, .is-success {
+  margin-right: 10px;
+  margin-left: 30px;
+}
+
+@media screen and (max-width: 320px) {
+  #serv-download-modal #download-app-modal {
+    margin-left: 0px;
+  }
+  #modal-card-head, #modal-card-body, #modal-card-foot {
+    width: 250px;
+  }
+  a.button, .is-success {
+    margin-left: 10px;
+  }
+}
+
+@media (min-width: 321px) and (max-width: 360px) {
+  #serv-download-modal #download-app-modal {
+    margin-left: 0px;
+  }
+  #modal-card-head, #modal-card-body, #modal-card-foot {
+    width: 250px;
+  }
+  a.button, .is-success {
+    margin-left: 10px;
+  }
+}
+
+@media (min-width: 361px) and (max-width: 375px) {
+  #serv-download-modal #download-app-modal {
+    margin-left: 0px;
+  }
+  #modal-card-head, #modal-card-body, #modal-card-foot {
+    width: 250px;
+  }
+  a.button, .is-success {
+    margin-left: 10px;
+  }
+}
+
+@media (min-width: 376px) and (max-width: 411px) {
+  #serv-download-modal #download-app-modal {
+    margin-left: 0px;
+  }
+  #modal-card-head, #modal-card-body, #modal-card-foot {
+    width: 250px;
+  }
+  a.button, .is-success {
+    margin-left: 10px;
+  }
+}
+
+@media (min-width: 412px) and (max-width: 414px) {
+  #serv-download-modal #download-app-modal {
+    margin-left: 0px;
+  }
+  #modal-card-head, #modal-card-body, #modal-card-foot {
+    width: 250px;
+  }
+  a.button, .is-success {
+    margin-left: 10px;
+  }
+}
+
+@media (min-width: 415px) and (max-width: 768px) {
+  #serv-download-modal #download-app-modal {
+    margin-left: 0px;
+  }
+  #modal-card-head, #modal-card-body, #modal-card-foot {
+    width: 250px;
+  }
+  a.button, .is-success {
+    margin-left: 10px;
+  }
+}
 /*# sourceMappingURL=sass.css.map */

@@ -2,7 +2,7 @@
  //filter.php  
  if(isset($_POST["from_date"], $_POST["to_date"]))  
  {  
-      $con = mysqli_connect("localhost", "root", "", "zerterra_db");  
+      $con = mysqli_connect("localhost", "zerterra", "zerterra", "zerterra_db");  
       $output = '';  
       $query = "SELECT * FROM tblactionlog WHERE DateAction BETWEEN '".$_POST["from_date"]."' AND '".$_POST["to_date"]."'  
       ";  
@@ -11,7 +11,7 @@
            <table class="table table-bordered">  
            <thead>
            <tr>
-            <th>ID</th>
+            
             <th>Author</th>
             <th>Action</th>
             <th>Date Action</th>
@@ -24,7 +24,7 @@
            {  
                 $output .= '  
                      <tr>  
-                          <td>'. $row["id"] .'</td>  
+                         
                           <td>'. $row["Author"] .'</td>  
                           <td>'. $row["Action"] .'</td>  
                           <td>'. $row["DateAction"] .'</td>  

@@ -21,6 +21,13 @@ include 'PagesFunction/connection.php';
   <title>Contact Us</title>
 </head>
 
+<style>
+    
+    #image-modal-close7{
+        margin-left:0;
+    }
+</style>
+
 <body>
  <div class="parallax">
   <nav>
@@ -58,7 +65,7 @@ include 'PagesFunction/connection.php';
       <hr class="hr">
 
       <?php
-
+use PHPMailer\PHPMailer\PHPMailer;
 
       if (isset($_POST["sendmsg"])) 
       {

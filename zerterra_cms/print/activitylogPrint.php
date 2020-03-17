@@ -50,12 +50,12 @@ $dateTo = $_GET['to_date'];
     </thead>
   
   <?php
-  $sql = "SELECT * FROM tblactionlog ";
+  $sql = "SELECT * FROM tbl_activity_log ";
   $res_data = $con->query($sql);
   while($row = mysqli_fetch_array($res_data)){
     $id = $row['id'];
-    $author = $row['Author'];
-    $action = $row['Action'];
+    $author = $row['AdminName'];
+    $action = $row['Description'];
     $dateAction = $row['DateAction'];
     ?>
 

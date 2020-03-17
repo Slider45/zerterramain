@@ -4,6 +4,8 @@ session_start();
 
 
 include '../PagesFunction/connection.php';
+
+
 ?>
 
 <!DOCTYPE html>
@@ -60,7 +62,9 @@ include 'user-header.php';
 
     <!-- SIDE BAR -->
     <div class="sidebar">
-    <header><span>Name</header>
+    <header><span><figure class="image is-128x128" style="margin-top: 70px;">
+  <img class="is-rounded" src="images\avatar.png">
+</figure></header>
       <a href="index.php">
         <i class="fas fa-qrcode"></i>
         <span>Dashboard</span>
@@ -173,7 +177,7 @@ while($row = mysqli_fetch_array($res_data)){
       <div class="control">
         <div class="columns">
               <div class="column is-3" id="label">E-mail</div>
-              <div class="column" id="txtbox"><input class="input"  value="<?php echo $email; ?>" readonly></div>
+              <div class="column" id="txtbox"><input class="input"  value="<?php echo $_SESSION["userEmail"]; ?>" readonly></div>
          </div>
       </div>
       <div class="control">
@@ -220,8 +224,8 @@ while($row = mysqli_fetch_array($res_data)){
     </div>
     </section>
 
-    <div>
-        <p id="alrights">@2019 ZerterraPh</p>
+    <div class="footer">
+        <p>@2019 ZerterraPh</p>
     </div>
 
 </body>

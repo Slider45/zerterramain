@@ -1,31 +1,32 @@
 <?php
 
 
-$sql= "SELECT * FROM approveorders_list WHERE CONCAT(`FirstName`, `LastName`, `Email`, `ContactNumber`) LIKE '%".$searchValue."%' AND is_delivered='1'";
+$sql= "SELECT * FROM `delivered_order_list` WHERE CONCAT(`OrderNumber`,`SerialNumber`,`Firstname`, `Lastname`, `Email`, `Contact`) LIKE '%".$searchValue."%' AND is_activated='1'";
  //$sql = "SELECT * FROM request_list WHERE is_approved='0'" ;
 $result = $con->query($sql);
 if ($result->num_rows > 0) {
   while($row = $result->fetch_assoc()) 
   {
     $id = $row['id'];
-    $id1 = $row['pendingID'];
-    $fname = $row['FirstName'];
-    $lname = $row['LastName'];
+    $orderNum = $row['OrderNumber'];
+    $serialNum =$row['SerialNumber'];
+    $fname = $row['Firstname'];
+    $lname = $row['Lastname'];
     $email = $row['Email'];
-    $Contact = $row['ContactNumber'];
+    $Contact = $row['Contact'];
     $Address = $row['Address'];
     
     ?>
     
     <tr>
-       
+
 
         <td>
-         # <?php echo $id; ?>
-     </td>
-     
-     <td>
-        <?php echo $id1; ?>
+          <?php echo  $orderNum; ?>
+      </td>
+
+      <td>
+        <?php echo $serialNum; ?>
     </td>
 
     <td>
@@ -53,7 +54,8 @@ if ($result->num_rows > 0) {
 
 
 
-<?php }
+    <?php 
+}
 
 
 

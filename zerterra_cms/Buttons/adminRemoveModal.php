@@ -22,8 +22,8 @@
       <div class="is-danger">Are you Sure you want Delete <strong>
         "<?php echo $fullname;?>"?</strong><br> ENTER YOUR PASSWORD TO CONFIRM
 
-        <input type="input" name="adminName" value="<?php echo $fullname; ?>">
-        <input type="input" name="adminEmail" value="<?php echo $_SESSION['admin']; ?>">
+        <input type="hidden" name="adminName" value="<?php echo $fullname; ?>">
+        <input type="hidden" name="adminEmail" value="<?php echo $_SESSION['admin']; ?>">
 
         <input class="input" name="adminpass" type="password" placeholder="Password" required>
 
@@ -36,7 +36,7 @@
       margin-right: auto;">
     </form>
     <button  class="button is-success" name="acnt_remove">
-      <i class="fas fa-user-times"></i>&nbspREMOVE</button>
+      <i class="fas fa-user-times"></i>&nbspCONFIRM</button>
       <button class="button is-danger" onclick="cancelevent()"><i class="fas fa-ban">
       </i>&nbspCancel</button></a>
 

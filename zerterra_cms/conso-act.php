@@ -48,6 +48,7 @@ include '../PagesFunction/connection.php';
       <a href="sales.php" class="w3-bar-item w3-button" id="item-hover"><i class="fas fa-hand-holding-usd"></i> &nbsp Sales</a>
       <a href="actionLog.php" class="w3-bar-item w3-button" id="item-hover"><i class="fas fa-clipboard-list"></i> &nbsp Action Log</a>
       <button onclick="document.getElementById('id01').style.display='block'" href="consolidate.php" class="w3-bar-item w3-button" id="dashboard" ><i class="fas fa-print"></i> &nbsp Consolidate</button>
+        <a href="../zerterraph_user/logout.php" class="w3-bar-item w3-button" id="item-hover"><i class="fas fa-sign-out-alt"></i>&nbsp Logout</a> 
     </div>
 
     <a href="print/activitylog.php"><button  class="button" id="home" ><i class="fas fa-print"></i> </button></a> 
@@ -114,13 +115,14 @@ include '../PagesFunction/connection.php';
              include 'searchFunction/consoactionLogFunction.php';
            }
          }else{     
-          $sql = "SELECT * FROM tblactionlog  ORDER BY id DESC LIMIT $offset, $no_of_records_per_page";
+                   $sql = "SELECT * FROM tbl_activity_log  ORDER BY id DESC LIMIT $offset, $no_of_records_per_page";
+
           $res_data = $con->query($sql);
           while($row = mysqli_fetch_array($res_data)){
-            $id = $row['id'];
-            $author = $row['Author'];
-            $action = $row['Action'];
-            $dateAction = $row['DateAction'];
+             $id = $row['id'];
+    $author = $row['AdminName'];
+    $action = $row['Description'];
+    $dateAction = $row['DateAction'];
             
             ?>
         
@@ -183,14 +185,14 @@ include '../PagesFunction/connection.php';
                 <div class="columns is-mobile">
                   <div class="column is-6">
                     <a href="pending.php">
-                      <div class="card" id="card-pending" style="background:url(images/pendingicon.png);  background-size: 100% 100%; background-repeat: no-repeat; background-size: cover;">
+                      <div class="card" id="card-pending" style="background:url(images/pendingIcon.png);  background-size: 100% 100%; background-repeat: no-repeat; background-size: cover;">
                        <!-- PENDING -->
                      </div>
                    </a>
                  </div>
                  <div class="column is-6">
                   <a href="approved.php">
-                    <div class="card" id="card-approve" style="background:url(images/approvedicon.png);  background-size: 100% 100%; background-repeat: no-repeat; background-size: cover;">
+                    <div class="card" id="card-approve" style="background:url(images/approvedIcon.png);  background-size: 100% 100%; background-repeat: no-repeat; background-size: cover;">
                         <!-- <div class="card-content" >
                           <a href="approved.php" id="pending">
                             APPROVED

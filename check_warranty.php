@@ -37,12 +37,12 @@
 
         include 'PagesFunction/connection.php';
 
-        $serialNum = $_GET["SerialNumber"];
+        $serialNum = $_GET['SerialNumber'];
 
 
         $sql="SELECT * FROM tblusers WHERE SerialNumber='$serialNum'";
         $result = $con->query($sql);
-        if($result->num_rows < 1){ ?>
+        if($result->num_rows < 1 ){ ?>
 
          <div class="notification is-danger alert">
           <center>

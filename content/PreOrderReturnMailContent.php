@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-include 'PagesFunction/connection.php';
+include 'http://zerterra.com/PagesFunction/connection.php';
 $orderNum = $_SESSION["orderNum"]; 
 
 $sql ="SELECT * FROM pending_order_list WHERE OrderNumber = $orderNum";

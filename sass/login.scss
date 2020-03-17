@@ -2,55 +2,56 @@ html,
 body {
   width: 100%;
   height: 100%;
-  font-family: 'Montserrat' !important ;
+  font-family: 'Montserrat' !important;
   scroll-behavior: smooth;
 }
 
 .bg {
-    /* The image used */
-    background-image: url(images/login_bg.png);
-
-    /* Full height */
-    background-size: cover;
-    background-repeat: no-repeat;
-    max-width: 100%;
-    min-height: 100%;
-  }  
-
-  /* NOTIFICATION */
-
-  #toast {
-    visibility: hidden;
-    max-width: 50px;
-    height: 50px;
-
-    /*margin-left: -125px;*/
-    margin: auto;
-    background-color: #27a745;
-    color: #fff;
-    text-align: center;
-    border-radius: 2px;
-    position: fixed;
-    z-index: 1;
-    left: 0;right:0;
-    bottom: 30px;
-    font-size: 17px;
-    white-space: nowrap;
+  /* The image used */
+  background-image: url(images/login_bg.png);
+  /* Full height */
+  background-size: cover;
+  background-repeat: no-repeat;
+  max-width: 100%;
+  min-height: 100%;
 }
-#toast #img{
-	width: 50px;
-	height: 50px;
+
+/* NOTIFICATION */
+#toast {
+  visibility: hidden;
+  max-width: 50px;
+  height: 50px;
+  /*margin-left: -125px;*/
+  margin: auto;
+  background-color: #27a745;
+  color: #fff;
+  text-align: center;
+  border-radius: 2px;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  right: 0;
+  bottom: 30px;
+  font-size: 17px;
+  white-space: nowrap;
+}
+
+#toast #img {
+  width: 50px;
+  height: 50px;
   float: left;
   padding-top: 0px;
   padding-bottom: 16px;
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   background-color: #111;
   color: #fff;
 }
-#toast, #img, #desc{
+
+#toast, #img, #desc {
   color: #fff;
   overflow: hidden;
-	white-space: nowrap;
+  white-space: nowrap;
 }
 
 #toast #desc {
@@ -58,851 +59,874 @@ body {
 }
 
 #toast.show {
-    visibility: visible;
-    -webkit-animation: fadein 0.5s, expand 0.5s 0.5s,stay 3s 1s, shrink 0.5s 2s, fadeout 0.5s 2.5s;
-    animation: fadein 0.5s, expand 0.5s 0.5s,stay 3s 1s, shrink 0.5s 4s, fadeout 0.5s 4.5s;
+  visibility: visible;
+  -webkit-animation: fadein 0.5s, expand 0.5s 0.5s,stay 3s 1s, shrink 0.5s 2s, fadeout 0.5s 2.5s;
+  animation: fadein 0.5s, expand 0.5s 0.5s,stay 3s 1s, shrink 0.5s 4s, fadeout 0.5s 4.5s;
 }
 
 @-webkit-keyframes fadein {
-    from {bottom: 0; opacity: 0;} 
-    to {bottom: 30px; opacity: 1;}
+  from {
+    bottom: 0;
+    opacity: 0;
+  }
+  to {
+    bottom: 30px;
+    opacity: 1;
+  }
 }
 
 @keyframes fadein {
-    from {bottom: 0; opacity: 0;}
-    to {bottom: 30px; opacity: 1;}
+  from {
+    bottom: 0;
+    opacity: 0;
+  }
+  to {
+    bottom: 30px;
+    opacity: 1;
+  }
 }
 
 @-webkit-keyframes expand {
-    from {min-width: 50px} 
-    to {min-width: 350px}
+  from {
+    min-width: 50px;
+  }
+  to {
+    min-width: 350px;
+  }
 }
 
 @keyframes expand {
-    from {min-width: 50px}
-    to {min-width: 350px}
+  from {
+    min-width: 50px;
+  }
+  to {
+    min-width: 350px;
+  }
 }
+
 @-webkit-keyframes stay {
-    from {min-width: 350px} 
-    to {min-width: 350px}
+  from {
+    min-width: 350px;
+  }
+  to {
+    min-width: 350px;
+  }
 }
 
 @keyframes stay {
-    from {min-width: 350px}
-    to {min-width: 350px}
+  from {
+    min-width: 350px;
+  }
+  to {
+    min-width: 350px;
+  }
 }
+
 @-webkit-keyframes shrink {
-    from {min-width: 350px;} 
-    to {min-width: 50px;}
+  from {
+    min-width: 350px;
+  }
+  to {
+    min-width: 50px;
+  }
 }
 
 @keyframes shrink {
-    from {min-width: 350px;} 
-    to {min-width: 50px;}
+  from {
+    min-width: 350px;
+  }
+  to {
+    min-width: 50px;
+  }
 }
 
 @-webkit-keyframes fadeout {
-    from {bottom: 30px; opacity: 1;} 
-    to {bottom: 60px; opacity: 0;}
+  from {
+    bottom: 30px;
+    opacity: 1;
+  }
+  to {
+    bottom: 60px;
+    opacity: 0;
+  }
 }
 
 @keyframes fadeout {
-    from {bottom: 30px; opacity: 1;}
-    to {bottom: 60px; opacity: 0;}
+  from {
+    bottom: 30px;
+    opacity: 1;
+  }
+  to {
+    bottom: 60px;
+    opacity: 0;
+  }
 }
 
 /**/
+.card {
+  width: 100%;
+  height: 450px;
+  max-width: 400px;
+  top: 140px;
+  left: 37%;
+  right: auto;
+  border-radius: 6px;
+}
 
+.card-content {
+  width: 100%;
+  height: 400px;
+  max-width: 400px;
+}
+
+.logo img {
+  position: absolute;
+  margin-left: 15px;
+}
+
+.header h2 {
+  text-align: center;
+  color: #99cc67;
+  margin-top: 0;
+}
+
+.field .input {
+  max-width: 400px;
+  width: 100%;
+  font-family: 'Montserrat', sans-serif;
+  border-radius: 5px;
+  padding-left: 20px;
+  border: solid 1px #333;
+}
+
+.field .input:hover {
+  border: solid #27a745 1px;
+}
+
+.columns .column {
+  margin-left: 0px;
+  font-size: 15px;
+}
+
+.forgot {
+  color: black;
+  margin-left: 20px;
+}
+
+.forgot:hover {
+  color: #99cc67;
+}
+
+.buttons .button {
+  background-color: #99cc67;
+  color: white;
+  width: 200px;
+  margin-top: 20px;
+  margin-left: 75px;
+  font-family: 'Montserrat';
+}
+
+.buttons .button:hover {
+  color: black;
+  background-color: #a5d547;
+}
+
+.last {
+  color: #99cc67;
+  font-size: 10px;
+  text-align: center;
+  margin-top: 25px;
+  margin-bottom: 0;
+}
+
+.home {
+  position: fixed;
+  width: 50px;
+  height: 50px;
+  background: #a5d547;
+  bottom: 40px;
+  right: 50px;
+  text-decoration: none;
+  text-align: center;
+  line-height: 50px;
+  color: white;
+  font-size: 22px;
+  border-radius: 30px;
+}
+
+a:hover {
+  color: #363636;
+}
+
+@media screen and (max-width: 320px) {
   .card {
     width: 100%;
     height: 450px;
-    max-width: 400px;
-    top: 140px;
-    left: 37%;
-    right: auto;
-    border-radius: 6px;
+    max-width: 310px;
+    top: 70px;
+    left: 2%;
   }
-
-  .card-content {
-    width: 100%;
-    height: 400px;
-    max-width: 400px;
+  .image.is-128x128 {
+    height: 96px;
+    width: 96px;
   }
-
-  .logo img{
-     position: absolute;
-
+  .logo img {
+    /*margin-left: 50px;*/
   }
-
-  .header h2 {
-    text-align: center;
-    color: #99cc67;
-    margin-top: 0;
-  }
-
   .field .input {
     max-width: 400px;
     width: 100%;
-    font-family: 'Montserrat', sans-serif;
-    border-radius:5px;
-    padding-left: 20px;
-    border:solid 1px #333;
+    margin-bottom: 10px;
   }
-
-  .field .input:hover{
-    border: solid #27a745 1px; 
-  }
-
   .columns .column {
-    margin-left: 0px;
-    font-size: 15px;
-  }
-
-  .forgot {
-    color: black;
-    margin-left: 20px;
-  }
-
-  .forgot:hover {
-    color: #99cc67;
-  }
-
-  .buttons .button {
-    background-color: #99cc67;
-    color: white;
-    width: 200px;
-    margin-top: 20px;
-    margin-left: 75px;
-    font-family: 'Montserrat';
-
-  }
-
-  .buttons .button:hover {
-    color: black;
-    background-color: #a5d547;
-  }
-
-  .last {
-    color: #99cc67;
-    font-size: 10px;
+    font-size: 12px;
+    margin-left: 10px;
+    padding: 5px;
     text-align: center;
-    margin-top: 25px;
-    margin-bottom: 0;
   }
+  .forgot {
+    margin-left: 0;
+  }
+  .buttons .button {
+    margin-left: 30px;
+  }
+  .home {
+    width: 30px;
+    height: 30px;
+    bottom: 10px;
+    right: 10px;
+    line-height: 30px;
+  }
+}
 
-  .home{
-    position: fixed;
+@media (min-width: 321px) and (max-width: 360px) {
+  .card {
+    width: 100%;
+    height: 500px;
+    max-width: 345px;
+    top: 70px;
+    left: 2%;
+  }
+  .field .input {
+    max-width: 400px;
+    width: 100%;
+    margin-bottom: 10px;
+  }
+  .columns .column {
+    font-size: 12px;
+    margin-left: 10px;
+    padding: 5px;
+    text-align: center;
+}
+  .forgot {
+    margin-left: 0;
+  }
+  .buttons .button {
+    margin-top: 40px;
+    margin-left: 50px;
+  }
+  .home {
+    width: 30px;
+    height: 30px;
+    bottom: 10px;
+    right: 10px;
+    line-height: 30px;
+  }
+  .content figure {
+     margin-left: 0;
+  }
+}
+
+@media (min-width: 361px) and (max-width: 375px) {
+  .card {
+    width: 100%;
+    height: 530px;
+    max-width: 360px;
+    top: 60px;
+    left: 2%;
+  }
+  .field .input {
+    max-width: 400px;
+    width: 100%;
+    margin-bottom: 10px;
+  }
+  .columns .column {
+    font-size: 15px;
+    margin-left: 10px;
+    padding: 5px;
+    text-align: center;
+  }
+  .forgot {
+    margin-left: 0;
+  }
+  .buttons .button {
+    width: 250px;
+    height: 40px;
+    font-size: 18px;
+    margin-top: 40px;
+    margin-left: 30px;
+    margin-bottom: 25px;
+  }
+  .home {
+    width: 30px;
+    height: 30px;
+    bottom: 10px;
+    right: 10px;
+    line-height: 30px;
+  }
+  .last {
+    font-size: 13px;
+  }
+  .logo img {
+     margin-left: 0; 
+}
+}
+
+@media (min-width: 376px) and (max-width: 411px) {
+  .card {
+    width: 100%;
+    height: 600px;
+    max-width: 393px;
+    top: 60px;
+    left: 2%;
+  }
+  .image.is-128x128 {
+    height: 180px;
+    width: 180px;
+  }
+  .content figure {
+     margin-left: 0;
+}
+    .logo img {
+        margin-left: 0;
+    }
+  .field .input {
+    max-width: 400px;
+    width: 100%;
+    margin-bottom: 10px;
+  }
+  .columns .column {
+    font-size: 15px;
+    margin-left: 10px;
+    padding: 5px;
+    text-align: center;
+  }
+  .forgot {
+    margin-left: 0;
+  }
+  .buttons .button {
+    width: 250px;
+    height: 40px;
+    font-size: 18px;
+    margin-top: 60px;
+    margin-left: 50px;
+    margin-bottom: 25px;
+  }
+  .home {
     width: 50px;
     height: 50px;
-    background: #a5d547;
-    bottom: 40px;
-    right: 50px;
-    text-decoration: none;
-    text-align: center;
+    bottom: 10px;
+    right: 10px;
     line-height: 50px;
-    color: white;
-    font-size: 22px;
-    border-radius: 30px;
   }
-
-  a:hover {
-    color: #363636;
+  .last {
+    font-size: 13px;
   }
+}
 
-
-  // MEDIA QUERY //
-
-  @media screen and (max-width: 320px){
-    .card {  
-      width: 100%;
-      height: 450px;
-      max-width: 310px;
-      top: 70px;
-      left: 2%;
-    }
-
-    .image.is-128x128 {
-      height: 96px;
-      width: 96px;
-    }
-
-    .field .input {
-      max-width: 400px;
-      width: 100%;
-      margin-bottom: 10px;
-    }
-
-    .columns .column {
-      font-size: 12px;
-      margin-left: 10px;
-      padding: 5px;
-      text-align: center;
-    }
-
-    .forgot {
-      margin-left: 0;
-    }
-
-    .buttons .button {
-      margin-left: 30px;
-    }
-
-    .home {
-      width: 30px;
-      height: 30px;
-      bottom: 10px;
-      right: 10px;
-      line-height: 30px;
-    }
+@media (min-width: 412px) and (max-width: 414px) {
+  .card {
+    width: 100%;
+    height: 600px;
+    max-width: 395px;
+    top: 60px;
+    left: 2%;
   }
-  
-  @media (min-width: 321px) and (max-width: 360px){
-    .card {  
-      width: 100%;
-      height: 500px;
-      max-width: 345px;
-      top: 50px;
-      left: 2%;
-    }
-
-    .image.is-128x128 {
-      margin-left: 20px;
-    }
-
-    .field .input {
-      max-width: 400px;
-      width: 100%;
-      margin-bottom: 10px;
-    }
-
-    .columns .column {
-      font-size: 12px;
-      margin-left: 10px;
-      padding: 5px;
-      text-align: center;
-    }
-
-    .forgot {
-      margin-left: 0;
-    }
-
-    .buttons .button {
-      margin-top: 40px;
-      margin-left: 50px;
-    }
-
-    .home {
-      width: 30px;
-      height: 30px;
-      bottom: 10px;
-      right: 10px;
-      line-height: 30px;
-    }
-
+  .logo img {
+    margin-left: 0;
   }
-  
-  @media (min-width: 361px) and (max-width: 375px){
-    .card {  
-      width: 100%;
-      height: 530px;
-      max-width: 360px;
-      top: 60px;
-      left: 2%;
+  .content figure {
+     margin-left: 0;
     }
-    .image.is-128x128 {
-      margin-left: 25px;
-    }
-    
-    .field .input {
-      max-width: 400px;
-      width: 100%;
-      margin-bottom: 10px;
-    }
-
-    .columns .column {
-      font-size: 15px;
-      margin-left: 10px;
-      padding: 5px;
-      text-align: center;
-    }
-
-    .forgot {
-      margin-left: 0;
-    }
-
-    .buttons .button {
-      width: 250px;
-      height: 40px;
-      font-size: 18px;
-      margin-top: 40px;
-      margin-left: 30px;
-      margin-bottom: 25px;
-    }
-
-    .home {
-      width: 30px;
-      height: 30px;
-      bottom: 10px;
-      right: 10px;
-      line-height: 30px;
-    }
-
-    .last {
-      font-size: 13px;
-    }
+  .image.is-128x128 {
+    height: 180px;
+    width: 180px;
   }
-  
-  @media (min-width: 376px) and (max-width: 411px){
-    .card {  
-      width: 100%;
-      height: 600px;
-      max-width: 393px;
-      top: 60px;
-      left: 2%;
-    }
-
-    .image.is-128x128 {
-      height: 180px;
-      width: 180px;
-      margin-left: 0;
-    }
-
-    .field .input {
-      max-width: 400px;
-      width: 100%;
-      margin-bottom: 10px;
-    }
-
-    .columns .column {
-      font-size: 15px;
-      margin-left: 10px;
-      padding: 5px;
-      text-align: center;
-    }
-
-    .forgot {
-      margin-left: 0;
-    }
-
-    .buttons .button {
-      width: 250px;
-      height: 40px;
-      font-size: 18px;
-      margin-top: 60px;
-      margin-left: 50px;
-      margin-bottom: 25px;
-    }
-
-    .home {
-      width: 50px;
-      height: 50px;
-      bottom: 10px;
-      right: 10px;
-      line-height: 50px;
-    }
-
-    .last {
-      font-size: 13px;
-    }
+  .field .input {
+    max-width: 400px;
+    width: 100%;
+    margin-bottom: 10px;
   }
-  
-  @media (min-width: 412px) and (max-width: 414px){
-    .card {  
-      width: 100%;
-      height: 600px;
-      max-width: 395px;
-      top: 60px;
-      left: 2%;
-    }
-
-    .image.is-128x128 {
-      height: 180px;
-      width: 180px;
-      margin-left: 0;
-    }
-
-    .field .input {
-      max-width: 400px;
-      width: 100%;
-      margin-bottom: 10px;
-    }
-
-    .columns .column {
-      font-size: 15px;
-      margin-left: 10px;
-      padding: 5px;
-      text-align: center;
-    }
-
-    .forgot {
-      margin-left: 0;
-    }
-
-    .buttons .button {
-      width: 250px;
-      height: 40px;
-      font-size: 18px;
-      margin-top: 60px;
-      margin-left: 50px;
-      margin-bottom: 25px;
-    }
-
-    .home {
-      width: 50px;
-      height: 50px;
-      bottom: 10px;
-      right: 10px;
-      line-height: 50px;
-    }
-
-    .last {
-      font-size: 13px;
-    }
-  }
-
-  @media (min-width: 415px) and (max-width: 450px){
-    .card {
-      top: 70px;
-      left: 5%;
-    }
-    .columns .column {
-      font-size: 13px;
-      margin-left: 10px;
-      padding: 5px;
-      text-align: center;
-    }
-    .forgot {
-      margin-left: 0;
-    }
-    .buttons .button {
-      width: 220px;
-      height: 40px;
-      font-size: 18px;
-      margin-top: 15px;
-      margin-left: 65px;
-      margin-bottom: 0;
-    }
-    .home {
-      width: 50px;
-      height: 50px;
-      bottom: 10px;
-      right: 10px;
-      line-height: 50px;
-    }
-  }
-  
-  @media (min-width: 451px) and (max-width: 500px){
-    .card {
-      top: 70px;
-      left: 10%;
-    }
-    .columns .column {
-      font-size: 13px;
-      margin-left: 10px;
-      padding: 5px;
-      text-align: center;
-    }
-    .forgot {
-      margin-left: 0;
-    }
-    .buttons .button {
-      width: 220px;
-      height: 40px;
-      font-size: 18px;
-      margin-top: 15px;
-      margin-left: 65px;
-      margin-bottom: 0;
-    }
-    .home {
-      width: 50px;
-      height: 50px;
-      bottom: 10px;
-      right: 10px;
-      line-height: 50px;
-    }
-  }
-  
-  @media (min-width: 501px) and (max-width: 550px){
-    .card {
-      top: 70px;
-      left: 15%;
-    }
-    .columns .column {
-      font-size: 13px;
-      margin-left: 10px;
-      padding: 5px;
-      text-align: center;
-    }
-    .forgot {
-      margin-left: 0;
-    }
-    .buttons .button {
-      width: 220px;
-      height: 40px;
-      font-size: 18px;
-      margin-top: 15px;
-      margin-left: 65px;
-      margin-bottom: 0;
-    }
-    .home {
-      width: 50px;
-      height: 50px;
-      bottom: 10px;
-      right: 10px;
-      line-height: 50px;
-    }
-  }
-
-  @media (min-width: 551px) and (max-width: 600px){
-    .card {
-      top: 70px;
-      left: 18%;
-    }
-    .columns .column {
-      font-size: 13px;
-      margin-left: 10px;
-      padding: 5px;
-      text-align: center;
-    }
-    .forgot {
-      margin-left: 0;
-    }
-    .buttons .button {
-      width: 220px;
-      height: 40px;
-      font-size: 18px;
-      margin-top: 15px;
-      margin-left: 65px;
-      margin-bottom: 0;
-    }
-    .home {
-      width: 50px;
-      height: 50px;
-      bottom: 10px;
-      right: 10px;
-      line-height: 50px;
-    }
-  }
-  @media (min-width: 601px) and (max-width: 640px){
-    .card {
-      top: 70px;
-      left: 20%;
-    }
-    .columns .column {
-      font-size: 13px;
-      margin-left: 10px;
-      padding: 5px;
-      text-align: center;
-    }
-    .forgot {
-      margin-left: 0;
-    }
-    .buttons .button {
-      width: 220px;
-      height: 40px;
-      font-size: 18px;
-      margin-top: 15px;
-      margin-left: 65px;
-      margin-bottom: 0;
-    }
-    .home {
-      width: 50px;
-      height: 50px;
-      bottom: 10px;
-      right: 10px;
-      line-height: 50px;
-    }
-  }
-  @media (min-width: 641px) and (max-width: 699px){
-    .card {
-      top: 70px;
-      left: 25%;
-    }
-    .columns .column {
-      font-size: 13px;
-      margin-left: 10px;
-      padding: 5px;
-      text-align: center;
-    }
-    .forgot {
-      margin-left: 0;
-    }
-    .buttons .button {
-      width: 220px;
-      height: 40px;
-      font-size: 18px;
-      margin-top: 15px;
-      margin-left: 65px;
-      margin-bottom: 0;
-    }
-    .home {
-      width: 50px;
-      height: 50px;
-      bottom: 10px;
-      right: 10px;
-      line-height: 50px;
-    }
-  }
-
-  @media (min-width: 700px) and (max-width: 767px){
-    .card {
-      top: 70px;
-      left: 22%;
-    }
-    .columns .column {
-      font-size: 13px;
-      margin-left: 10px;
-      padding: 5px;
-      text-align: center;
-    }
-    .forgot {
-      margin-left: 0;
-    }
-    .buttons .button {
-      width: 220px;
-      height: 40px;
-      font-size: 18px;
-      margin-top: 15px;
-      margin-left: 65px;
-      margin-bottom: 0;
-    }
-    .home {
-      width: 50px;
-      height: 50px;
-      bottom: 10px;
-      right: 10px;
-      line-height: 50px;
-    }
-  }
-
-  @media (min-width: 767px) and (max-width: 768px){
-    .card {  
-      width: 100%;
-      height: 600px;
-      max-width: 393px;
-      top: 200px;
-      left: 25%;
-    }
-    .image.is-128x128 {
-      height: 180px;
-      width: 180px;
-      margin-left: 0;
-    }
-    .field .input {
-      max-width: 400px;
-      width: 100%;
-      margin-bottom: 10px;
-    }
-    .columns .column {
-      font-size: 15px;
-      margin-left: 10px;
-      padding: 5px;
-      text-align: center;
-    }
-    .forgot {
-      margin-left: 0;
-    }
-    .buttons .button {
-      width: 250px;
-      height: 40px;
-      font-size: 18px;
-      margin-top: 60px;
-      margin-left: 50px;
-      margin-bottom: 25px;
-    }
-    .home {
-      width: 50px;
-      height: 50px;
-      bottom: 10px;
-      right: 10px;
-      line-height: 50px;
-    }
-    .last {
-      font-size: 13px;
-    }
-  }
-  
-  @media (min-width: 769px) and (max-width: 800px){
-    .card {
-      top: 70px;
-      left: 25%;
-    }
-    .columns .column {
-      font-size: 13px;
-      margin-left: 10px;
-      padding: 5px;
-    }
-    .forgot {
-      margin-left: 40px;
-    }
-    .buttons .button {
-      width: 220px;
-      height: 40px;
-      font-size: 18px;
-      margin-top: 35px;
-      margin-left: 65px;
-    }
-    .home {
-      width: 50px;
-      height: 50px;
-      bottom: 10px;
-      right: 10px;
-      line-height: 50px;
-    }
-  }
-  
-  @media (min-width: 801px) and (max-width: 900px){
-    .card {
-      top: 70px;
-      left: 28%;
-    }
-    .columns .column {
-      font-size: 13px;
-      margin-left: 10px;
-      padding: 5px;
-    }    
-    .forgot {
-      margin-left: 40px;
-    }
-    .buttons .button {
-      width: 220px;
-      height: 40px;
-      font-size: 18px;
-      margin-top: 35px;
-      margin-left: 65px;
-      font-family: 'Montserrat';
-    }
-    .home {
-      width: 50px;
-      height: 50px;
-      bottom: 10px;
-      right: 10px;
-      line-height: 50px;
-    }
-  }
-  
-  @media (min-width: 901px) and (max-width: 1000px){
-    .card {
-      top: 70px;
-      left: 30%;
-    }
-    .columns .column {
-      font-size: 13px;
-      margin-left: 10px;
-      padding: 5px;
-    }  
-    .forgot {
-      margin-left: 40px;
-    }
-    .buttons .button {
-      width: 220px;
-      height: 40px;
-      font-size: 18px;
-      margin-top: 35px;
-      margin-left: 65px;
-
-    }
-    .home {
-      width: 50px;
-      height: 50px;
-      bottom: 10px;
-      right: 10px;
-      line-height: 50px;
-    }
-  }
-  
-  @media (min-width: 1001px) and (max-width: 1024px){
-    .card {  
-      width: 100%;
-      height: 600px;
-      max-width: 393px;
-      top: 200px;
-      left: 31%;
-    }
-
-    .image.is-128x128 {
-      height: 180px;
-      width: 180px;
-      margin-left: 0;
-    }
-
-    .field .input {
-      max-width: 400px;
-      width: 100%;
-      margin-bottom: 10px;
-    }
-
-    .columns .column {
-      font-size: 15px;
-      margin-left: 10px;
-      padding: 5px;
-    }
-
-    .forgot {
-      margin-left: 40px;
-    }
-
-    .buttons .button {
-      width: 250px;
-      height: 40px;
-      font-size: 18px;
-      margin-top: 70px;
-      margin-left: 50px;
-      margin-bottom: 45px;
-    }
-
-    .home {
-      width: 60px;
-      height: 60px;
-      bottom: 10px;
-      right: 10px;
-      line-height: 60px;
-    }
-
-    .last {
-      font-size: 13px;
-    }
-  }
-
-  @media (min-width: 1025px) and (max-width: 1366px){
-    .card {
-      top: 70px;
-      left: 36%;
-    }
-    .columns .column {
-      font-size: 13px;
-      margin-left: 10px;
-      padding: 5px;
-      font-family: 'Montserrat';
-    }
-    .forgot {
-      margin-left: 40px;
-    }
-    .buttons .button {
-      width: 220px;
-      height: 40px;
-      font-size: 18px;
-      margin-top: 35px;
-      margin-left: 65px;
-    }
-    .home {
-      width: 50px;
-      height: 50px;
-      bottom: 10px;
-      right: 10px;
-      line-height: 50px;
-    }
-  }
-
-
-
-  // notfication 
-
-  .notification{
-    padding-top: 15px;
-    padding-bottom: 15px;
-  }
-
-  #notif{
+  .columns .column {
+    font-size: 15px;
+    margin-left: 10px;
+    padding: 5px;
     text-align: center;
   }
+  .forgot {
+    margin-left: 0;
+  }
+  .buttons .button {
+    width: 250px;
+    height: 40px;
+    font-size: 18px;
+    margin-top: 60px;
+    margin-left: 50px;
+    margin-bottom: 25px;
+  }
+  .home {
+    width: 50px;
+    height: 50px;
+    bottom: 10px;
+    right: 10px;
+    line-height: 50px;
+  }
+  .last {
+    font-size: 13px;
+  }
+}
+
+@media (min-width: 415px) and (max-width: 450px) {
+  .card {
+    top: 70px;
+    left: 5%;
+  }
+  .columns .column {
+    font-size: 13px;
+    margin-left: 10px;
+    padding: 5px;
+    text-align: center;
+  }
+  .forgot {
+    margin-left: 0;
+  }
+  .buttons .button {
+    width: 220px;
+    height: 40px;
+    font-size: 18px;
+    margin-top: 15px;
+    margin-left: 65px;
+    margin-bottom: 0;
+  }
+  .home {
+    width: 50px;
+    height: 50px;
+    bottom: 10px;
+    right: 10px;
+    line-height: 50px;
+  }
+}
+
+@media (min-width: 451px) and (max-width: 500px) {
+  .card {
+    top: 70px;
+    left: 10%;
+  }
+  .columns .column {
+    font-size: 13px;
+    margin-left: 10px;
+    padding: 5px;
+    text-align: center;
+  }
+  .forgot {
+    margin-left: 0;
+  }
+  .buttons .button {
+    width: 220px;
+    height: 40px;
+    font-size: 18px;
+    margin-top: 15px;
+    margin-left: 65px;
+    margin-bottom: 0;
+  }
+  .home {
+    width: 50px;
+    height: 50px;
+    bottom: 10px;
+    right: 10px;
+    line-height: 50px;
+  }
+}
+
+@media (min-width: 501px) and (max-width: 550px) {
+  .card {
+    top: 70px;
+    left: 15%;
+  }
+  .columns .column {
+    font-size: 13px;
+    margin-left: 10px;
+    padding: 5px;
+    text-align: center;
+  }
+  .forgot {
+    margin-left: 0;
+  }
+  .buttons .button {
+    width: 220px;
+    height: 40px;
+    font-size: 18px;
+    margin-top: 15px;
+    margin-left: 65px;
+    margin-bottom: 0;
+  }
+  .home {
+    width: 50px;
+    height: 50px;
+    bottom: 10px;
+    right: 10px;
+    line-height: 50px;
+  }
+}
+
+@media (min-width: 551px) and (max-width: 600px) {
+  .card {
+    top: 70px;
+    left: 18%;
+  }
+  .columns .column {
+    font-size: 13px;
+    margin-left: 10px;
+    padding: 5px;
+    text-align: center;
+  }
+  .forgot {
+    margin-left: 0;
+  }
+  .buttons .button {
+    width: 220px;
+    height: 40px;
+    font-size: 18px;
+    margin-top: 15px;
+    margin-left: 65px;
+    margin-bottom: 0;
+  }
+  .home {
+    width: 50px;
+    height: 50px;
+    bottom: 10px;
+    right: 10px;
+    line-height: 50px;
+  }
+}
+
+@media (min-width: 601px) and (max-width: 640px) {
+  .card {
+    top: 70px;
+    left: 20%;
+  }
+  .columns .column {
+    font-size: 13px;
+    margin-left: 10px;
+    padding: 5px;
+    text-align: center;
+  }
+  .forgot {
+    margin-left: 0;
+  }
+  .buttons .button {
+    width: 220px;
+    height: 40px;
+    font-size: 18px;
+    margin-top: 15px;
+    margin-left: 65px;
+    margin-bottom: 0;
+  }
+  .home {
+    width: 50px;
+    height: 50px;
+    bottom: 10px;
+    right: 10px;
+    line-height: 50px;
+  }
+}
+
+@media (min-width: 641px) and (max-width: 699px) {
+  .card {
+    top: 70px;
+    left: 25%;
+  }
+  .columns .column {
+    font-size: 13px;
+    margin-left: 10px;
+    padding: 5px;
+    text-align: center;
+  }
+  .forgot {
+    margin-left: 0;
+  }
+  .buttons .button {
+    width: 220px;
+    height: 40px;
+    font-size: 18px;
+    margin-top: 15px;
+    margin-left: 65px;
+    margin-bottom: 0;
+  }
+  .home {
+    width: 50px;
+    height: 50px;
+    bottom: 10px;
+    right: 10px;
+    line-height: 50px;
+  }
+}
+
+@media (min-width: 700px) and (max-width: 767px) {
+  .card {
+    top: 70px;
+    left: 22%;
+  }
+  .columns .column {
+    font-size: 13px;
+    margin-left: 10px;
+    padding: 5px;
+    text-align: center;
+  }
+  .forgot {
+    margin-left: 0;
+  }
+  .buttons .button {
+    width: 220px;
+    height: 40px;
+    font-size: 18px;
+    margin-top: 15px;
+    margin-left: 65px;
+    margin-bottom: 0;
+  }
+  .home {
+    width: 50px;
+    height: 50px;
+    bottom: 10px;
+    right: 10px;
+    line-height: 50px;
+  }
+}
+
+@media (min-width: 767px) and (max-width: 768px) {
+  .card {
+    width: 100%;
+    height: 600px;
+    max-width: 393px;
+    top: 200px;
+    left: 25%;
+  }
+  .logo img {
+    margin-left: 50px;
+  }
+  .image.is-128x128 {
+    height: 180px;
+    width: 180px;
+  }
+  .field .input {
+    max-width: 400px;
+    width: 100%;
+    margin-bottom: 10px;
+  }
+  .columns .column {
+    font-size: 15px;
+    margin-left: 10px;
+    padding: 5px;
+    text-align: center;
+  }
+  .forgot {
+    margin-left: 0;
+  }
+  .buttons .button {
+    width: 250px;
+    height: 40px;
+    font-size: 18px;
+    margin-top: 60px;
+    margin-left: 50px;
+    margin-bottom: 25px;
+  }
+  .home {
+    width: 50px;
+    height: 50px;
+    bottom: 10px;
+    right: 10px;
+    line-height: 50px;
+  }
+  .last {
+    font-size: 13px;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 800px) {
+  .card {
+    top: 70px;
+    left: 25%;
+  }
+  .columns .column {
+    font-size: 13px;
+    margin-left: 10px;
+    padding: 5px;
+  }
+  .forgot {
+    margin-left: 40px;
+  }
+  .buttons .button {
+    width: 220px;
+    height: 40px;
+    font-size: 18px;
+    margin-top: 35px;
+    margin-left: 65px;
+  }
+  .home {
+    width: 50px;
+    height: 50px;
+    bottom: 10px;
+    right: 10px;
+    line-height: 50px;
+  }
+}
+
+@media (min-width: 801px) and (max-width: 900px) {
+  .card {
+    top: 70px;
+    left: 28%;
+  }
+  .columns .column {
+    font-size: 13px;
+    margin-left: 10px;
+    padding: 5px;
+  }
+  .forgot {
+    margin-left: 40px;
+  }
+  .buttons .button {
+    width: 220px;
+    height: 40px;
+    font-size: 18px;
+    margin-top: 35px;
+    margin-left: 65px;
+    font-family: 'Montserrat';
+  }
+  .home {
+    width: 50px;
+    height: 50px;
+    bottom: 10px;
+    right: 10px;
+    line-height: 50px;
+  }
+}
+
+@media (min-width: 901px) and (max-width: 1000px) {
+  .card {
+    top: 70px;
+    left: 30%;
+  }
+  .columns .column {
+    font-size: 13px;
+    margin-left: 10px;
+    padding: 5px;
+  }
+  .forgot {
+    margin-left: 40px;
+  }
+  .buttons .button {
+    width: 220px;
+    height: 40px;
+    font-size: 18px;
+    margin-top: 35px;
+    margin-left: 65px;
+  }
+  .home {
+    width: 50px;
+    height: 50px;
+    bottom: 10px;
+    right: 10px;
+    line-height: 50px;
+  }
+}
+
+@media (min-width: 1001px) and (max-width: 1024px) {
+  .card {
+    width: 100%;
+    height: 600px;
+    max-width: 393px;
+    top: 200px;
+    left: 31%;
+  }
+  .image.is-128x128 {
+    height: 180px;
+    width: 180px;
+  }
+  .content figure {
+      margin-left: 0;
+  }
+  .logo img {
+      margin-left:0;
+  }
+  .field .input {
+    max-width: 400px;
+    width: 100%;
+    margin-bottom: 10px;
+  }
+  .columns .column {
+    font-size: 15px;
+    margin-left: 10px;
+    padding: 5px;
+  }
+  .forgot {
+    margin-left: 40px;
+  }
+  .buttons .button {
+    width: 250px;
+    height: 40px;
+    font-size: 18px;
+    margin-top: 70px;
+    margin-left: 50px;
+    margin-bottom: 45px;
+  }
+  .home {
+    width: 60px;
+    height: 60px;
+    bottom: 10px;
+    right: 10px;
+    line-height: 60px;
+  }
+  .last {
+    font-size: 13px;
+  }
+}
+
+@media (min-width: 1025px) and (max-width: 1366px) {
+  .card {
+    top: 70px;
+    left: 36%;
+  }
+  .columns .column {
+    font-size: 13px;
+    margin-left: 10px;
+    padding: 5px;
+    font-family: 'Montserrat';
+  }
+  .forgot {
+    margin-left: 40px;
+  }
+  .buttons .button {
+    width: 220px;
+    height: 40px;
+    font-size: 18px;
+    margin-top: 35px;
+    margin-left: 65px;
+  }
+  .home {
+    width: 50px;
+    height: 50px;
+    bottom: 10px;
+    right: 10px;
+    line-height: 50px;
+  }
+}
+
+.notification {
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+
+#notif {
+  text-align: center;
+}
+/*# sourceMappingURL=login.css.map */

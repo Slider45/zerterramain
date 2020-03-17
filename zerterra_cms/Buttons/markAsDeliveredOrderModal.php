@@ -29,6 +29,9 @@
         "<?php echo $fname. " " .$lname ;?>"?</strong> has been delivered? </div>
 
         <div>
+            
+            <div class="columns">
+                <div class="column is-3" style="margin-left:25%;">
           <form action="Modals/delivered_confirmation.php" method="GET" accept-charset="utf-8">
             <div class="field">
              <input type="hidden" name="orderNum" value="<?php echo $orderNum; ?>">
@@ -39,12 +42,20 @@
               <i class="fas fa-check-double"></i>&nbspDone</button> 
 
             </form>
+            </div>
+            </div>
+            
+            <div class="column is-2">
             <form action="approved.php" method="POST" accept-charset="utf-8">
               
               <button class="button is-danger" id="btndeliver"><i class="fas fa-ban">
               </i>&nbspCancel</button>
             </form>
+            </div>
             
+          </div>
+          
+          
           </div>
 
         </div>

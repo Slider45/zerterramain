@@ -1,20 +1,20 @@
 <?php
 include 'connection.php';
 
-$sql= "SELECT * FROM tblusers WHERE CONCAT(`Serial_Number`,`Firstname`, `Lastname`, `email`, `ContactNumber`) LIKE '%".$searchValue."%' AND is_active='1'";
+$sql= "SELECT * FROM tblusers WHERE CONCAT(`SerialNumber`,`Firstname`, `Lastname`, `Email`, `Contact`) LIKE '%".$searchValue."%' AND is_active='1'";
 $result = $con->query($sql);
 if ($result->num_rows > 0) {
 	while($row = $result->fetch_assoc()) 
 	{
 		$id = $row['id'];
-		$serialNum = $row['Serial_Number'];
-		$fname = $row['Firstname'];
-		$lname = $row['Lastname'];
-		$rdays = $row['remaining_days'];
-		$email = $row['email'];
-		$dateReg = $row['dateRegistered'];
-		$dateEnd= $row['dateExpired'];
-		$contact = $row['ContactNumber'];
+		$serialNum = $row['SerialNumber'];
+              $fname = $row['Firstname'];
+              $lname = $row['Lastname'];
+              $email = $row['Email'];
+              $contact = $row['Contact'];
+              $rdays = $row['RemainingDays'];
+              $dateRegister = $row['DateRegistered'];
+              $dateExpired = $row['DateExpired'];
 
 		?>
 

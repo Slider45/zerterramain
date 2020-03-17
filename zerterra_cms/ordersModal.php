@@ -15,14 +15,14 @@
                 <div class="columns is-mobile">
                   <div class="column is-6">
                     <a href="pending.php">
-                      <div class="card" id="card-pending" style="background:url(images/pendingicon.png);  background-size: 100% 100%; background-repeat: no-repeat; background-size: cover;">
+                      <div class="card" id="card-pending" style="background:url(images/pendingIcon.png);  background-size: 100% 100%; background-repeat: no-repeat; background-size: cover;">
                        <!-- PENDING -->
                      </div>
                    </a>
                  </div>
                  <div class="column is-6">
                   <a href="approved.php">
-                    <div class="card" id="card-approve" style="background:url(images/approvedicon.png);  background-size: 100% 100%; background-repeat: no-repeat; background-size: cover;">
+                    <div class="card" id="card-approve" style="background:url(images/approvedIcon.png);  background-size: 100% 100%; background-repeat: no-repeat; background-size: cover;">
                         <!-- <div class="card-content" >
                           <a href="approved.php" id="pending">
                             APPROVED

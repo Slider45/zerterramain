@@ -1,9 +1,0 @@
-{
-    "version": 3,
-    "mappings": "AAAA,AAAA,MAAM,EAAE,WAAW,CAAA;EACf,UAAU,EAAE,MAAM;EAClB,WAAW,EAAE,UAAU;EACvB,KAAK,EAAE,GAAG;CACb;;AAED,AAAA,MAAM,CAAC;EACH,MAAM,EAAE,IAAI;EACZ,gBAAgB,EAAE,WAAW;EAC7B,UAAU,EAAE,IAAI;EAChB,KAAK,EAAE,OAAO;EACd,WAAW,EAAE,UAAU;CAC1B",
-    "sources": [
-        "order-conf.scss"
-    ],
-    "names": [],
-    "file": "order-conf.css"
-}

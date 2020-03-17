@@ -23,6 +23,18 @@ include 'Buttons/usersButtonFunction.php';
 <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
 <link rel="icon" href="../images/plainlogo.png" type="image/x-icon" />
 <link rel="stylesheet" href="sass/users.css">
+
+<style>
+  #userIcon {
+  width: 50px  !important;
+  max-width: 40px;
+  height: 50px;
+  position: relative;
+  display: inline-block;
+}
+    
+</style>
+
 <body>
 
   <?php
@@ -41,7 +53,10 @@ include 'Buttons/usersButtonFunction.php';
     <a href="sales.php" class="w3-bar-item w3-button" id="item-hover"><i class="fas fa-hand-holding-usd"></i> &nbsp Sales</a>
     <a href="actionLog.php" class="w3-bar-item w3-button" id="item-hover"><i class="fas fa-clipboard-list"></i> &nbsp Action Log</a>
     <button onclick="document.getElementById('id01').style.display='block'" href="consolidate.php" class="w3-bar-item w3-button" id="item-hover" ><i class="fas fa-print"></i> &nbsp Consolidate</button>
+    <a href="../zerterraph_user/logout.php" class="w3-bar-item w3-button" id="item-hover"><i class="fas fa-sign-out-alt"></i>&nbsp Logout</a> 
   </div>
+  
+
 
   <div class="w3-main" style="margin-left:200px">
     <div class="w3-teal">
@@ -60,8 +75,10 @@ include 'Buttons/usersButtonFunction.php';
           //  include 'Buttons/addUsersModal.php';
             ?>
           </div> -->
+          
+       
         </div>
-
+   
         <section class="section">
           <div class="container"> 
            <table class="table">
@@ -71,7 +88,7 @@ include 'Buttons/usersButtonFunction.php';
               <th>Serial #</th>
               <th>Firstname</th>
               <th>Lastname</th>
-              <th>R. Days</th>
+              <th>Warranty</th>
               <th>Action</th>
             </tr>
           </thead>
@@ -84,7 +101,7 @@ include 'Buttons/usersButtonFunction.php';
               $searchValue = $_POST['searchValue'];
 
               if ($searchValue===''){
-                echo '<script>window.location.href="user.php"</script>';
+                echo '<script>window.location.href="?"</script>';
               }else{
                 include 'searchFunction/searchUsersFunction.php';
               }

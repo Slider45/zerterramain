@@ -77,26 +77,26 @@ if (isset($_POST['sendOrder'])) {
       if ($mailfromadmin->send()){
 
 
-        $cmdsql= "INSERT INTO pending_order_list(OrderNumber,Firstname,Lastname,Email,Contact,Address,Message,is_approved) VALUES ('$orderNum','$fname','$lname','$email_from','$contact','$addres','$message')";        
-        if($con->query($cmdsql) === TRUE)
-        {
-          echo "<script>alert('Return Mail Sent!'); </script>";
-
+       $cmdsql= "INSERT INTO pending_order_list(OrderNumber,Firstname,Lastname,Email,Contact,Address,Message,is_approved) VALUES ('$orderNum','$fname','$lname','$email_from','$contact','$address','$message','0')";        
+        if($con->query($cmdsql) === TRUE){
+            
+           echo "<script>alert('Return Email Sent!'); </script>";
 
         }else{
           echo "<script>alert('QUERY FAILED!'); </script>";
         }
       }else{
-
-        echo "<script>alert('Return Mail Not Sent!'); </script>";
+        
+         echo "<script>alert('Return Mail Not Sent!'); </script>";
       }
     }else{
 
-      echo "<script>alert('Sending Request Failed!'); </script>";
+      
+    echo "<script>alert('Sending Request Failed!'); </script>";
 
 
     }
-    echo '<script>window.location.href="../"</script>';
-  }
+     echo '<script>window.location.href="../"</script>';
+}
 
   ?>

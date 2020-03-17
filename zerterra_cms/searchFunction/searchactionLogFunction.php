@@ -2,7 +2,10 @@
 
 
 $sql= "SELECT * FROM tbl_activity_log WHERE CONCAT(`id`,`AdminName`, `Description`, `DateAction`) LIKE '%".$searchValue."%'";
+<<<<<<< HEAD
  
+=======
+>>>>>>> origin/master
 $result = $con->query($sql);
 if ($result->num_rows > 0) {
   while($row = $result->fetch_assoc()) 
@@ -15,7 +18,11 @@ if ($result->num_rows > 0) {
     ?>
     
     <tr>
+<<<<<<< HEAD
             
+=======
+           
+>>>>>>> origin/master
             <td>
               <?php echo $author; ?>
             </td>
@@ -29,16 +36,20 @@ if ($result->num_rows > 0) {
 
 
 
-  <?php }
+  <?php 
 
-
-
-
-
+  }
 }
+
+
+
 else{
 	$msg='<p style="color: red;" class="is-size-4">NO RECORD FOUND</p>';
+<<<<<<< HEAD
     include 'Modals/act_log_alert.php';
+=======
+      include 'Modals/act_log_alert.php';
+>>>>>>> origin/master
 }
 
 ?>

@@ -70,7 +70,11 @@ if ($result->num_rows > 0) {
 
 }
 else{
+<<<<<<< HEAD
  $msg='<p style="color: red;" class="is-size-4">NO RECORD FOUND</p>';
+=======
+  $msg='<p style="color: red;" class="is-size-4">NO RECORD FOUND</p>';
+>>>>>>> origin/master
   include 'Modals/request_alert.php';
 }
 

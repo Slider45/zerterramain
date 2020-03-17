@@ -92,7 +92,9 @@ if((!$fname===null) && (!lname===null ) && (!$email===null) &&(!$message===null)
       <!-- Content ... -->
       <div class="field">
         <div class="control">
-         <h1 id="text-content"><?php echo $result ; ?></h1>
+         <h1 id="text-content"><?php echo $result ;    }
+}else{
+  ?></h1>
 
         
        </div>
@@ -106,7 +108,3 @@ if((!$fname===null) && (!lname===null ) && (!$email===null) &&(!$message===null)
 </div>
 </div>
 </div>
-<?php
-    }
-}else{
- ?>

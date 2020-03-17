@@ -1,0 +1,10 @@
+[06-Mar-2020 18:40:47 Asia/Manila] PHP Parse error:  syntax error, unexpected 'if' (T_IF) in /home/z16a9qj2ojlr/public_html/zerterra_cms/Modals/decline_function_alert.php on line 6
+[06-Mar-2020 18:41:04 Asia/Manila] PHP Parse error:  syntax error, unexpected 'if' (T_IF) in /home/z16a9qj2ojlr/public_html/zerterra_cms/Modals/decline_function_alert.php on line 6
+[06-Mar-2020 21:23:04 Asia/Manila] PHP Parse error:  syntax error, unexpected 'if' (T_IF) in /home/z16a9qj2ojlr/public_html/zerterra_cms/Modals/decline_function_alert.php on line 6
+[06-Mar-2020 21:25:19 Asia/Manila] PHP Parse error:  syntax error, unexpected 'if' (T_IF) in /home/z16a9qj2ojlr/public_html/zerterra_cms/Modals/decline_function_alert.php on line 6
+[06-Mar-2020 21:46:52 Asia/Manila] PHP Notice:  Undefined index: admin in /home/z16a9qj2ojlr/public_html/zerterra_cms/Modals/decline_pending.php on line 6
+[07-Mar-2020 02:09:02 Asia/Manila] PHP Warning:  trim() expects at least 1 parameter, 0 given in /home/z16a9qj2ojlr/public_html/zerterra_cms/Modals/delivered_modal_alert.php on line 30
+[07-Mar-2020 02:11:14 Asia/Manila] PHP Warning:  trim() expects at least 1 parameter, 0 given in /home/z16a9qj2ojlr/public_html/zerterra_cms/Modals/delivered_modal_alert.php on line 30
+[07-Mar-2020 02:12:04 Asia/Manila] PHP Warning:  trim() expects at least 1 parameter, 0 given in /home/z16a9qj2ojlr/public_html/zerterra_cms/Modals/delivered_modal_alert.php on line 30
+[07-Mar-2020 02:12:19 Asia/Manila] PHP Warning:  trim() expects at least 1 parameter, 0 given in /home/z16a9qj2ojlr/public_html/zerterra_cms/Modals/delivered_modal_alert.php on line 30
+[07-Mar-2020 02:15:37 Asia/Manila] PHP Warning:  trim() expects at least 1 parameter, 0 given in /home/z16a9qj2ojlr/public_html/zerterra_cms/Modals/delivered_modal_alert.php on line 37

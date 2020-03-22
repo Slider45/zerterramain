@@ -91,22 +91,26 @@ if (isset($_POST['sendOrder'])) {
 
     if(mail($email_user, $subject, $template_file, $headers)){
 
+        $cmdsql= "INSERT INTO pending_order_list(OrderNumber,Firstname,Lastname,Email,Contact,Address,Message,is_approved) VALUES ('$orderNum','$fname','$lname','$email_from','$contact','$addres','$message')";        
+        if($con->query($cmdsql) === TRUE)
+        {
+          $msg='PRE-ORDER SENT!';
+          include 'Modals/order_alert.php';
 
-     $cmdsql= "INSERT INTO pending_order_list(OrderNumber,Firstname,Lastname,Email,Contact,Address,Message,is_approved) VALUES ('$orderNum','$fname','$lname','$email_user','$contact','$address','$message_from_user','0')";        
-     if($con->query($cmdsql) === TRUE){
-
-        //message alert if all the 3 conditions is true
-      $msg='<div class="notification is-success">
-      <center>
-      <strong>SENDING PRE-ORDER REQUEST SUCCESS<br>WE WILL CONTACT YOU AS SOON AS OUR TEAM IS AVAILABLE OR <br> YOU CAN SEND AS AN EMAIL AT<br>support@zerterra.com</strong> 
-      </center>
-      </div>';
-
-      include '../Modals/pre_order_alert.php';
-
-
+        }else{
+          $msg='<p style="color: red;" class="is-size-4">FAILED SENDING PRE-ORDER!</p>';
+          include 'Modals/order_alert.php';
+        }
+      }else{
+        
+        $msg='<p style="color: red;" class="is-size-4">Return Mail Not Sent!</p>';
+        include 'Modals/order_alert.php';
+      }
     }else{
 
+      
+      $msg='<p style="color: red;" class="is-size-4">Sending Request Failed!</p>';
+      include 'Modals/order_alert.php';
 
         //error message if the query failed
       $msg='<div class="notification is-danger alert">

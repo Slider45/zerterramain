@@ -203,47 +203,30 @@ include 'PagesFunction/connection.php';
           </header>
           <section class="modal-card-body">
 
-            <form action="Modals/orderconfirmation.php" method="POST" accept-charset="utf-8">
-
-              <div class="field">   
-               <div class="control">
-                <input class="input1" name="fname_order" type="text" placeholder="Firstname" required="">
-              </div>
-
-              <div class="control">
-                <input class="input1" name="lname_order" type="text" placeholder="Lastname" required="">
-              </div>
-
-              <div class="control">
-                <input class="input1" name="email_order" type="email" placeholder="Email" required="">
-              </div>
-
-              <div class="control ">
-                <p class="control has-icons-right">
-                  <input type="text" id="contact_order" minlength="10" maxlength="10" class="input1" name="contact_order" placeholder="Contact (919XXXXXXX)" required="" onkeyup="mobileValidation()">
-                  <span class="icon is-medium is-right">
-                    <i class="fas fa-check" id="iconcheck"></i>
-                    <i class="fas fa-times" id="icontimes"></i>
-                    <p id="lblwarning" style="text-align: center" class="is-size-7"></p>
-                  </span>
-                </p>
-
-              </div>
-
-
-              <div>
-               <input class="input1" name="address_order" type="text" placeholder="Address" required="">
-             </div>
+            <div class="field">   
+             <div class="control">
+              <input class="input1" name="fname_order" type="text" placeholder="Firstname" required="">
+            </div>
+            <div class="control">
+              <input class="input1" name="lname_order" type="text" placeholder="Lastname" required="">
+            </div>
+            <div class="control">
+              <input class="input1" name="email_order" type="email" placeholder="Email" required="">
+            </div>
+            <div class="control">
+              <input type="number" maxlength="13" class="input1" name="contact_order" placeholder="Contact Number" required="">
+            </div>
+            <div>
+             <input class="input1" name="address_order" type="text" placeholder="Address" required="">
            </div>
-
-           <div class="control">
-            <textarea class="textarea1" name="message_order" placeholder="Message (Optional)"></textarea>
-          </div>
-          <div></div>
-          <button  class="btn" id="SendOrder" name="OrderNow" type="submit">ORDER NOW&nbsp&nbsp<i class="fas fa-paper-plane"></i></button>
-          <div></div>
-        </section>
-      </div>
+         </div>
+         <div class="control">
+          <textarea class="textarea1" name="message_order" placeholder="Message"></textarea>
+        </div>
+        <div></div>
+        <button  class="btn" id="SendOrder" name="OrderNumber" type="submit">ORDER NOW&nbsp&nbsp<i class="fas fa-paper-plane"></i></button>
+        <div></div>
+      </section>
     </div>
   </div>
 </div>

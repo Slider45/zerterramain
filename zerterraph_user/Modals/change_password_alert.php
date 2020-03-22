@@ -61,7 +61,7 @@
 
        </section>
        <footer class="modal-card-foot" >
-        <a href="change-email.php"><button class="button is-danger" style="font-family: Montserrat;"><i class="fas fa-arrow-left"></i>&nbspBACK</button></a>
+        <a href="Logout.php"><button class="button is-danger" style="font-family: Montserrat;"><i class="fas fa-arrow-left"></i>&nbspBACK</button></a>
       </footer>
     </div>
   </div>

@@ -64,35 +64,32 @@ include 'user-header.php';
 
     <!-- SIDE BAR -->
     <div class="sidebar">
-    <header><span>Name</header>
+    <header><span><figure class="image is-128x128" style="margin-top: 70px;">
+  <img class="is-rounded" src="images\avatar.png">
+</figure></header>
       <a href="index.php">
         <i class="fas fa-qrcode"></i>
-        <span>Dashboard</span>
+        &nbspDashboard
       </a>
-      <a href="profile.php">
+      <a href="profile.php"  class="active">
         <i class="fas fa-user"></i>
-        <span>Profile</span>
+        &nbspProfile
       </a>
       <a href="acc_setting.php">
         <i class="fas fa-pen-nib"></i>
-        <span>Edit Profile</span>
+        &nbspEdit Profile
       </a>
-      <a href="login-setting.php"  class="active">
+      <a href="login-setting.php">
         <i class="fas fa-cog"></i>
-        <span>Login Setting</span>
-      </a>
+        &nbspLogin Setting
       <a href="request-repair.php">
         <i class="fas fa-inbox"></i>
-        <span>Request Repair</span>
+        &nbspRequest Repair
       </a>
       <a href="contact-us.php">
         <i class="fas fa-envelope-open-text"></i>
-        <span>Contact Us</span>
+        &nbspContact Us
       </a>
-      <!-- <a href="#">
-        <i class="far fa-envelope"></i>
-        <span>Contact</span>
-      </a> -->
     </div>
     <?php 
 
@@ -171,7 +168,7 @@ if (isset($_POST['search_btn'])){
                 <label for="currentpass">Current Password </label>
                 </div>
                 <div class="col-75">
-                <input type="password" name="oldpass" value="<?php echo $password ?>" readonly>
+                <input type="password" name="oldpass" placeholder="">
                 </div>
             </div>
             <div class="row">
@@ -221,9 +218,9 @@ if(isset($_POST['update'])){
     $newpass = $_POST['newpass'];
     $cnewpass = $_POST['cnewpass'];
     
-    if($newpass === $cnewpass){
+    if ($newpass === $cnewpass){
        
-        $sql = "UPDATE tblusers SET Password='$newpass' WHERE id='$id' AND is_active='1'";
+        $sql = "UPDATE tblusers SET Password='$newpass' WHERE id='$id' AND Password='$oldpass'";
         if($con->query($sql) === TRUE){
           $msg='PASSWORD  <p style="color: green;" class="is-size-4"></p> HAS BEEN UPDATED!';
           include 'Modals/change_password_alert.php';

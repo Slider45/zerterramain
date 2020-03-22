@@ -140,7 +140,7 @@ include '../PagesFunction/connection.php';
            <input  class="input is-primary" id="input" type="text" name="fname_order" value="<?php echo $fname_order; ?>" readonly>
            <input  class="input is-primary" id="input" type="text" name="lname_order" value="<?php echo $lname_order; ?>" readonly>
            <input  class="input is-primary" id="input" type="text" name="email_order" value="<?php echo $email_order; ?>" readonly>
-           <input  class="input is-primary" id="input" type="text" name="contact_order" value="<?php echo $contact_order; ?>" readonly>
+           <input  class="input is-primary" id="input" type="text" name="contact_order" value="(+63) <?php echo $contact_order; ?>" readonly>
            <input  class="input is-primary" id="input" type="text" name="address_order" value="<?php echo $address_order; ?>" readonly> 
            <input  class="input is-primary" id="input" type="textarea" name="message_order" value="<?php echo $message_order; ?>" readonly>
          </div>

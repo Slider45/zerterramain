@@ -164,6 +164,14 @@ while($row = mysqli_fetch_array($res_data)){
   $dateReg = $row['DateRegistered'];
   $dateEnd= $row['DateExpired'];
   
+}
+
+    $dateToday = date("Y/m/d");
+    $start_date = strtotime($dateToday);
+    $end_date = strtotime($dateEnd);
+
+    $diffdate = ($end_date - $start_date)/60/60/24;
+
   ?>
 
     <section class="section">
@@ -177,16 +185,15 @@ while($row = mysqli_fetch_array($res_data)){
                 </div>
 
                 <div id="serialno">
-                    <p style="padding:0;font-family:'Montserrat';font-size:90px;"><?php echo $rdays; ?></p>
+                    <input type="text" name="" value="<?php echo $rdays; ?>" >
+                    <p style="padding:0;font-family:'Montserrat';font-size:90px;"><?php echo $diffdate; ?></p>
                     <p id="userinfo" style="padding:0;font-family:'Montserrat';font-size:20px;">Remaining Days</p>
                 </div>
 
             </div>
         </div>
     </section>
-<?php
-}
-?>
+
     <div class="footer">
         <p>@2019 ZerterraPh</p>
     </div>

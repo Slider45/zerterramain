@@ -118,7 +118,7 @@ nav ul li a {
   background: #000;
   text-align: right;
   -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
   padding: 15px 24px;
   cursor: pointer;
   color: #fff;
@@ -143,7 +143,7 @@ nav ul li a {
   }
   nav ul li {
     -webkit-box-sizing: border-box;
-            box-sizing: border-box;
+    box-sizing: border-box;
     width: 100%;
     padding: 24px;
     text-align: center;
@@ -162,7 +162,7 @@ nav ul li a {
   top: 40%;
   left: 50%;
   -webkit-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
   font-size: 60px;
   font-weight: 400;
   white-space: nowrap;
@@ -215,7 +215,7 @@ nav ul li a {
   top: 50%;
   left: 50%;
   -webkit-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
   font-size: 150%;
   font-weight: 400;
   white-space: nowrap;
@@ -266,7 +266,7 @@ nav ul li a {
   left: 50%;
   top: 60%;
   -webkit-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
   position: absolute;
   font-family: Montserrat;
   font-size: 20px;
@@ -374,10 +374,10 @@ nav ul li a {
 .modal-card-body2 {
   background-color: #fff;
   -webkit-box-flex: 1;
-      -ms-flex-positive: 1;
-          flex-grow: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
   -ms-flex-negative: 1;
-      flex-shrink: 1;
+  flex-shrink: 1;
   overflow: auto;
   padding: 20px;
   padding-bottom: 0px;
@@ -387,10 +387,10 @@ nav ul li a {
 .modal-card-body3 {
   background-color: #fff;
   -webkit-box-flex: 1;
-      -ms-flex-positive: 1;
-          flex-grow: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
   -ms-flex-negative: 1;
-      flex-shrink: 1;
+  flex-shrink: 1;
   overflow: auto;
   padding: 20px;
   line-height: normal;
@@ -404,8 +404,8 @@ nav ul li a {
   display: flex;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
   max-height: calc(100vh - 40px);
   overflow: hidden;
   -ms-overflow-y: visible;
@@ -437,10 +437,10 @@ nav ul li a {
   display: -ms-flexbox;
   display: flex;
   -ms-flex-negative: 0;
-      flex-shrink: 0;
+  flex-shrink: 0;
   -webkit-box-pack: start;
-      -ms-flex-pack: start;
-          justify-content: flex-start;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
   padding: 20px;
   position: relative;
 }
@@ -466,8 +466,8 @@ nav ul li a {
   display: flex;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
   max-height: calc(100vh - 40px);
   overflow: hidden;
   -ms-overflow-y: visible;
@@ -492,10 +492,10 @@ nav ul li a {
   display: -ms-flexbox;
   display: flex;
   -ms-flex-negative: 0;
-      flex-shrink: 0;
+  flex-shrink: 0;
   -webkit-box-pack: start;
-      -ms-flex-pack: start;
-          justify-content: flex-start;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
   padding: 20px;
   position: relative;
 }
@@ -517,8 +517,8 @@ nav ul li a {
   display: flex;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
   max-height: calc(100vh - 40px);
   overflow: hidden;
   -ms-overflow-y: visible;
@@ -543,10 +543,10 @@ nav ul li a {
   display: -ms-flexbox;
   display: flex;
   -ms-flex-negative: 0;
-      flex-shrink: 0;
+  flex-shrink: 0;
   -webkit-box-pack: start;
-      -ms-flex-pack: start;
-          justify-content: flex-start;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
   padding: 20px;
   position: relative;
 }
@@ -776,22 +776,22 @@ nav ul li a {
 
 #serv-warranty:hover {
   -webkit-box-shadow: 2px 2px 2px 2px rgba(40, 40, 40, 0.6);
-          box-shadow: 2px 2px 2px 2px rgba(40, 40, 40, 0.6);
+  box-shadow: 2px 2px 2px 2px rgba(40, 40, 40, 0.6);
 }
 
 #serv-RR:hover {
   -webkit-box-shadow: 2px 2px 2px 2px rgba(40, 40, 40, 0.6);
-          box-shadow: 2px 2px 2px 2px rgba(40, 40, 40, 0.6);
+  box-shadow: 2px 2px 2px 2px rgba(40, 40, 40, 0.6);
 }
 
 #serv-TAC:hover {
   -webkit-box-shadow: 2px 2px 2px 2px rgba(40, 40, 40, 0.6);
-          box-shadow: 2px 2px 2px 2px rgba(40, 40, 40, 0.6);
+  box-shadow: 2px 2px 2px 2px rgba(40, 40, 40, 0.6);
 }
 
 #serv-download:hover {
   -webkit-box-shadow: 2px 2px 2px 2px rgba(40, 40, 40, 0.6);
-          box-shadow: 2px 2px 2px 2px rgba(40, 40, 40, 0.6);
+  box-shadow: 2px 2px 2px 2px rgba(40, 40, 40, 0.6);
 }
 
 /* END OF SERVICES MODAL */
@@ -936,7 +936,7 @@ hr.new5 {
   top: 20%;
   left: 50%;
   -webkit-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
   font-size: 110px;
   font-weight: 400;
   white-space: nowrap;
@@ -953,7 +953,7 @@ hr.new5 {
   top: 32%;
   left: 50%;
   -webkit-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
   font-size: 20px;
   font-weight: 400;
   white-space: nowrap;
@@ -974,7 +974,7 @@ hr.new5 {
   left: 50%;
   top: 60%;
   -webkit-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
   position: absolute;
   font-family: Montserrat;
   font-size: 20px;
@@ -983,7 +983,7 @@ hr.new5 {
 .cover1 .button1:hover {
   background-color: rgba(51, 51, 51, 0.5);
   -webkit-box-shadow: 0 0 10px #000;
-          box-shadow: 0 0 10px #000;
+  box-shadow: 0 0 10px #000;
 }
 
 @media screen and (max-width: 320px) {
@@ -1224,6 +1224,7 @@ hr.new5 {
   padding: 10px;
   font-size: 16px;
   border-radius: 5px;
+  font-family: 'Montserrat';
 }
 
 /*.input1:hover{
@@ -1232,7 +1233,7 @@ hr.new5 {
  .textarea1:hover{
   border: solid #27a745 1px; 
  }*/
-.textarea1 {
+ .textarea1 {
   display: block;
   width: 100%;
   max-width: 1158px;
@@ -1243,6 +1244,7 @@ hr.new5 {
   border: solid #333 1px;
   font-size: 16px;
   border-radius: 5px;
+  font-family: 'Montserrat';
 }
 
 .btn {
@@ -1286,6 +1288,20 @@ hr.new5 {
   padding-bottom: 0;
 }
 
+
+#iconcheck{
+  display: none;
+  color: #48c774;
+
+}
+
+
+#icontimes{
+  display:block;
+  color:#f14668;
+  height: .5em;
+}
+
 /* END OF PRE-ORDER */
 /* FOOTER */
 footer {
@@ -1305,7 +1321,7 @@ footer {
 .footer-distributed {
   background-color: #2c292f;
   -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
   width: 100%;
   text-align: left;
   font: bold 16px sans-serif;

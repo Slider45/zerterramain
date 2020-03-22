@@ -22,32 +22,32 @@ while($row = mysqli_fetch_array($res_data)){
 	$dateReg = $row['DateRegistered'];
 	$dateEnd= $row['DateExpired'];
 
-	$dateToday = date("2021/03/06");
+	// $dateToday = date("2021/03/06");
 
-	$testTime = date("His");
-	$start_date = strtotime($dateToday);
-	$end_date = strtotime($dateEnd);
+	// $testTime = date("His");
+	// $start_date = strtotime($dateToday);
+	// $end_date = strtotime($dateEnd);
 
-	$diffdate = ($end_date - $start_date)/60/60/24;
+	// $diffdate = ($end_date - $start_date)/60/60/24;
 
 	// $autoupdate_sql = "UPDATE tblusers SET RemainingDays = '$diffdate' WHERE id='$userid' AND time >= now() - INTERVAL 1 HOUR";
 
 	// if($con->query($autoupdate_sql) === TRUE)
-	if($userid == 7){
-		// echo "<script>alert('UPDATE SUCCESS');</script>";
-		$sql = "UPDATE tblusers SET RemainingDays = '170' WHERE id='$userid";
+	// if($userid == 7){
+	// 	// echo "<script>alert('UPDATE SUCCESS');</script>";
+	// 	$sql = "UPDATE tblusers SET RemainingDays = '170' WHERE id='$userid";
 
-		if($con->query($sql)){
-			echo "<script>alert('UPDATE SUCCESS');</script>";
-		}else{
-			echo "<script>alert('UPDATE FAILED');</script>";
-		}
+	// 	if($con->query($sql)){
+	// 		echo "<script>alert('UPDATE SUCCESS');</script>";
+	// 	}else{
+	// 		echo "<script>alert('UPDATE FAILED');</script>";
+	// 	}
 
 
 
-	}else{
-		echo "<script>alert('UPDATE FAILED');</script>";
-	}
+	// }else{
+	// 	echo "<script>alert('UPDATE FAILED');</script>";
+	// }
 
 
 
@@ -122,11 +122,11 @@ while($row = mysqli_fetch_array($res_data)){
 		<br>
 		<p class="is-size-4">DATE REGS: <?php echo $dateReg; ?></p>
 		<br>
-		<p class="is-size-4">DATE END: <?php echo $dateEnd; ?></p>
+		<input type="text" class="is-size-4" id="dateExp" value="<?php echo $dateEnd ?>" readonly>
 		<br>
-		<p class="is-size-4">TIME NOW: <?php echo $dateToday; ?></p>
+	<!-- 	<p class="is-size-4">TIME NOW: <?php echo $dateToday; ?></p> -->
 		<br>
-		
+		<p class="is-size-4" id="demo"></p>
 
 	</div>
 
@@ -136,28 +136,42 @@ while($row = mysqli_fetch_array($res_data)){
 
 	<script>
 
-		function mobileValidation() {
-			var myTextBox = document.getElementById('phonetxt');
-			var value = myTextBox.value;
-			var btn = document.getElementById('checknumber');
-			var wrning = document.getElementById('textwarning');
-			var checkicon = document.getElementById('iconcheck');
-			var erroricon = document.getElementById('icontimes');
-			
-
-			var regx =/^(9)\d{9}/;
 
 
 
 
-			if (regx.test(value)){
-				
-				
-				myTextBox.style.borderColor = 'blue';
-				btn.disabled = false;
-				wrning.innerHTML="Valid";
-				checkicon.style.display = "block";
-				erroricon.style.display = "none";
+
+
+
+
+
+
+
+
+
+
+function mobileValidation() {
+	var myTextBox = document.getElementById('phonetxt');
+	var value = myTextBox.value;
+	var btn = document.getElementById('checknumber');
+	var wrning = document.getElementById('textwarning');
+	var checkicon = document.getElementById('iconcheck');
+	var erroricon = document.getElementById('icontimes');
+
+
+	var regx =/^(9)\d{9}/;
+
+
+
+
+	if (regx.test(value)){
+
+
+		myTextBox.style.borderColor = 'blue';
+		btn.disabled = false;
+		wrning.innerHTML="Valid";
+		checkicon.style.display = "block";
+		erroricon.style.display = "none";
 				// erroricon.css('display','none');
 
 				
@@ -172,8 +186,56 @@ while($row = mysqli_fetch_array($res_data)){
 		}
 
 
-		
+
+
+
+
+
+
 	</script>
+
+
+<script>
+// Set the date we're counting down to
+var dateExp = document.getElementById("dateExp").value;
+var countDownDate = new Date(dateExp).getTime();
+// var currentTime = new Date();
+// Update the count down every 1 second
+var x = setInterval(function() {
+
+  // Get today's date and time
+  var now = new Date().getTime();
+    
+  // Find the distance between now and the count down date
+  var distance = countDownDate - now;
+    
+  // Time calculations for days, hours, minutes and seconds
+  var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+  var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+  var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+    
+  // Output the result in an element with id="demo"
+  document.getElementById("demo").innerHTML = days + "d " + hours + "h "
+  + minutes + "m " + seconds + "s ";
+    
+  // If the count down is over, write some text 
+  if (distance < 0) {
+    clearInterval(x);
+    document.getElementById("demo").innerHTML = "EXPIRED";
+  }
+}, 1000);
+
+// var h = currentTime.getHours();
+// var m = currentTime.getMinutes();
+// document.getElementById("demo").innerHTML = m;
+// if(h==0){
+// 	alert("hello");
+// }else{
+// 	alert("world")
+// }
+
+</script>
 
 	<script type="text/javascript" src="dist/js/modal-fx.min.js"></script>
 	<script type="text/javascript" src="https://unpkg.com/bulma-modal-fx/dist/js/modal-fx.min.js"></script>

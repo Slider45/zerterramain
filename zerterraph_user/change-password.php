@@ -168,7 +168,7 @@ if (isset($_POST['search_btn'])){
                 <label for="currentpass">Current Password </label>
                 </div>
                 <div class="col-75">
-                <input type="password" name="oldpass" value="<?php echo $password ?>" readonly>
+                <input type="password" name="oldpass" placeholder="">
                 </div>
             </div>
             <div class="row">
@@ -218,9 +218,9 @@ if(isset($_POST['update'])){
     $newpass = $_POST['newpass'];
     $cnewpass = $_POST['cnewpass'];
     
-    if($newpass === $cnewpass){
+    if ($newpass === $cnewpass){
        
-        $sql = "UPDATE tblusers SET Password='$newpass' WHERE id='$id' AND is_active='1'";
+        $sql = "UPDATE tblusers SET Password='$newpass' WHERE id='$id' AND Password='$oldpass'";
         if($con->query($sql) === TRUE){
           $msg='PASSWORD  <p style="color: green;" class="is-size-4"></p> HAS BEEN UPDATED!';
           include 'Modals/change_password_alert.php';

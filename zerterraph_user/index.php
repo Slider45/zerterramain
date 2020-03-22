@@ -69,7 +69,9 @@ include 'user-header.php';
     <!-- SIDE BAR -->
   
     <div class="sidebar">
-    <header><span>Name</header>
+    <header><span><figure class="image is-128x128" style="margin-top: 70px;">
+  <img class="is-rounded" src="images\avatar.png">
+</figure></header>
       <a href="index.php" class="active">
         <i class="fas fa-qrcode"></i>
         <span>Dashboard</span>
@@ -128,7 +130,8 @@ include 'user-header.php';
 
  
     <?php
-$sql = "SELECT * FROM tblusers WHERE is_active='1'";
+    $userid = $_SESSION['userID'];
+$sql = "SELECT * FROM tblusers WHERE id='$userid' AND is_active='1'";
 $res_data = $con->query($sql);
 while($row = mysqli_fetch_array($res_data)){
   $id = $row['id'];
@@ -142,12 +145,20 @@ while($row = mysqli_fetch_array($res_data)){
   $dateReg = $row['DateRegistered'];
   $dateEnd= $row['DateExpired'];
   
+}
+
+    $dateToday = date("Y/m/d");
+    $start_date = strtotime($dateToday);
+    $end_date = strtotime($dateEnd);
+
+    $diffdate = ($end_date - $start_date)/60/60/24;
+
   ?>
 
     <section class="section">
         <div class="container">
             <div class="notification is-info">
-                <h1 id="title" style="font-family:'Montserrat';font-size:40px;font-weight:bolder;">DATA STATUS</h1>
+                <h1 id="title" style="font-family:'Montserrat';font-size:40px;font-weight:bolder;">WARRANTY STATUS</h1>
 
                 <div id="serialno">
                     <p style="padding:0; font-size: 40px;"></p>
@@ -155,16 +166,15 @@ while($row = mysqli_fetch_array($res_data)){
                 </div>
 
                 <div id="serialno">
-                    <p style="padding:0;font-family:'Montserrat';font-size:90px;"><?php echo $rdays; ?></p>
+                    <input type="text" name="" value="<?php echo $rdays; ?>" >
+                    <p style="padding:0;font-family:'Montserrat';font-size:90px;"><?php echo $diffdate; ?></p>
                     <p id="userinfo" style="padding:0;font-family:'Montserrat';font-size:20px;">Remaining Days</p>
                 </div>
 
             </div>
         </div>
     </section>
-<?php
-}
-?>
+
     <div class="footer">
         <p>@2019 ZerterraPh</p>
     </div>

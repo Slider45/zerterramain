@@ -119,11 +119,11 @@ $address = $_GET['address'];
      Serial # : <strong>
       <div class="field" >
        <div class="control" style="text-align: center;">
-         <input  class="input" type="text" name="Fname" value="<?php echo $fname; ?>" readonly>
-         <input  class="input" type="text" name="Lname" value="<?php echo $lname; ?>" readonly>
-         <input  class="input" type="text" name="email" value="<?php echo $email; ?>" readonly>
-         <input  class="input" type="text" name="contact" value="<?php echo $contact; ?>" readonly>
-         <input  class="input" type="text" name="address" value="<?php echo $address; ?>" readonly> 
+         <input  class="input" type="hidden" name="Fname" value="<?php echo $fname; ?>" readonly>
+         <input  class="input" type="hidden" name="Lname" value="<?php echo $lname; ?>" readonly>
+         <input  class="input" type="hidden" name="email" value="<?php echo $email; ?>" readonly>
+         <input  class="input" type="hidden" name="contact" value="<?php echo $contact; ?>" readonly>
+         <input  class="input" type="hidden" name="address" value="<?php echo $address; ?>" readonly> 
          <input style="text-align: center; font-family: Montserrat; width: 50%;" class="input is-primary" type="text" name="SNumber" value="<?php echo $serialNum; ?>" readonly> </div>
        </div>
      </strong><br>
@@ -139,7 +139,7 @@ $address = $_GET['address'];
     PLEASE CLICK CONFIRM
   </section>
   <footer class="modal-card-foot" >
-    <a href="../index.php"><button class="button is-success" name="saveRequest" style="font-family: Montserrat;"><i class="far fa-thumbs-up"></i>&nbspCONFIRM</button></a>
+    <a href="../"><button class="button is-success" name="saveRequest" style="font-family: Montserrat;"><i class="far fa-thumbs-up"></i>&nbspCONFIRM</button></a>
   </footer>
 </form>
 </div>

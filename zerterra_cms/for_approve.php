@@ -199,7 +199,7 @@ $SerialNum=date("Ymd-")  .$approvedCount;
                         ?>
 
                         <div class="columns is-multiline">
-                         <div class="column is-8"  id="print-Qr" > 
+                         <div class="column is-4"  id="print-Qr" > 
                            <button class="button is-success" id="btn_print" name="approveOrder"><i class="fas fa-print"></i>&nbspPrint QR/Save</button></a>
                          </div>
 
@@ -253,7 +253,7 @@ $SerialNum=date("Ymd-")  .$approvedCount;
 
 
 
-                      <div class="column is-6">
+                      <div class="column is-6" id="cancel">
 
                         <a href="pending.php"> <button class="button is-danger" name="cancelbtn"><i class="fas fa-ban"></i>&nbspCancel</button></a>
                         <!-- </form> -->

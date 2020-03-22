@@ -63,7 +63,9 @@ include 'user-header.php';
 
     <!-- SIDE BAR -->
     <<div class="sidebar">
-    <header><span>Name</header>
+    <header><span><figure class="image is-128x128" style="margin-top: 70px;">
+  <img class="is-rounded" src="images\avatar.png">
+</figure></header>
       <a href="index.php">
         <i class="fas fa-qrcode"></i>
         <span>Dashboard</span>
@@ -236,13 +238,13 @@ if(isset($_POST['updated_user'])){
   $lname = $_POST['lname'];
   $contact = $_POST['contact'];
   $address = $_POST['address']; 
-  $email = $_POST['email'];
+//   $email = $_POST['email'];
   
   
   $sql = "UPDATE tblusers SET Firstname='$fname',Lastname='$lname',Email='$email', Contact='$contact', Address='$address' WHERE id='$id' AND is_active='1'";
   if($con->query($sql) === TRUE){
    
-    $msg='RECORD  <p style="color: red;" class="is-size-4">'.  $fname.' '.$lname . '</p> HAS BEEN UPDATED!';
+    $msg='RECORD  <p style="color: green;" class="is-size-4">'.  $fname.' '.$lname . '</p> HAS BEEN UPDATED!';
     include 'Modals/acc_settings_alert.php';
 
   }else{

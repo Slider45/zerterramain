@@ -13,13 +13,13 @@
 
 <div class="field">
   <input type="hidden" name="delete_id" value="<?php echo $id; ?>">
-  <input type="hidden" name="role_id" value="<?php echo $position; ?>">
+  <!--<input type="hidden" name="role_id" value=""> --><?php //echo $position; ?>
 </div>
 
 <div class="is-danger">Are you Sure you want Delete <strong>
   "<?php echo $fname.' '.$lname;?>"?</strong><br> ENTER YOUR PASSWORD TO CONFIRM
 
-  <input type="hidden" name="adminName" value="<?php echo $fullname; ?>">
+  <!--<input type="hidden" name="adminName" value=""><?php //echo $fullname; ?>-->
   <input type="hidden" name="adminEmail" value="<?php echo $_SESSION['admin']; ?>">
 
   <input class="input" name="adminpass" type="password" placeholder="Password" required>
@@ -33,7 +33,7 @@ margin-top: 20px;
 margin-right: auto;">
 </form>
 <button  class="button is-success" name="acnt_remove">
-      <i class="fas fa-user-times"></i>&nbspREMOVE</button>
+      <i class="fas fa-user-times"></i>&nbspCONFIRM</button>
       <button class="button is-danger" onclick="cancelevent()"><i class="fas fa-ban">
       </i>&nbspCancel</button></a>
 

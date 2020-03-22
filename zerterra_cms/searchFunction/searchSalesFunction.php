@@ -21,9 +21,7 @@ if ($result->num_rows > 0) {
     
     
     <tr>
-            <td>
-                # <?php echo $id; ?>
-            </td>
+          
             <td>
                   <?php echo $transcationNumber; ?>
             </td>
@@ -56,7 +54,7 @@ if ($result->num_rows > 0) {
 
 }
 else{
-      $msg='<p style="color: red;" class="is-size-4">NO RECORD FOUND</p>';
+$msg='<p style="color: red;" class="is-size-4">NO RECORD FOUND</p>';
       include 'Modals/sales_alert.php';
 }
 

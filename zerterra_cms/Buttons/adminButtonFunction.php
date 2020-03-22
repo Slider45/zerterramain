@@ -35,7 +35,7 @@ if(isset($_POST['btn_add_admin'])){
 
       }else{
 
-       $msg='<p style="color: red;" class="is-size-4">SAVING NEW RECORD FAILED!</p>';
+       $msg='<p style="color: red;" class="is-size-4">SAVING NEW RECORD FAILED! action log</p>';
        include 'Modals/remove_admin_alert.php';
      }
 
@@ -43,7 +43,7 @@ if(isset($_POST['btn_add_admin'])){
 
 
    }else{
-    $msg='<p style="color: red;" class="is-size-4">SAVING NEW RECORD FAILED!</p>';
+    $msg='<p style="color: red;" class="is-size-4">SAVING NEW RECORD FAILED! admin list</p>';
     include 'Modals/remove_admin_alert.php';
   }
 }

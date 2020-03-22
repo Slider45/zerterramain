@@ -325,17 +325,31 @@ table,th,td{
 #Qr-img{
     width: 360px;
     height: 360px;
-    margin-left:150px;
+    margin-left:120px;
 }
 
-.is-8{
+#print-Qr{
     padding-top:0;
     padding-bottom:0;
-    margin-left: 61%;
+    margin-left: 200px;
+    margin-right:0;
 }
 
 .is-6{
-    margin-left: 73%;
+    // margin-left: 73%;
+    width:0% !important;
+    margin-left: 0;
+    padding-left:0 !important;
+}
+
+#print-Qr{
+    margin-left:160px;
+   
+}
+
+#cancel{
+    width:0;
+    padding-left:20px;
 }
 
 #refresh{

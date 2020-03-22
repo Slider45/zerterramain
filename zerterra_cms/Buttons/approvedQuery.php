@@ -31,9 +31,9 @@ if(isset($_POST['delivered_btn'])){
 	
 	
 		echo "<script>window.alert('RECORD HAS BEEN UPDATED!');</script>";
-		echo '<script>window.location.href="approved.php"</script>';
+		//echo '<script>window.location.href="approved.php"</script>';
 	}else{
-		echo "<script>window.alert('SOMETHING WENT WRONG, PLEASE TRY AGAIN!');</script>";
+		//echo "<script>window.alert('SOMETHING WENT WRONG, PLEASE TRY AGAIN!');</script>";
 	}
 
 

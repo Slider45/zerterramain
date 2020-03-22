@@ -86,7 +86,7 @@ if(isset($_POST['btn-update'])){
           $sql = "UPDATE request_repair_list SET Firstname='$fname',Lastname='$lname',Email='$Email',Address='$address', Contact='$contact' WHERE id='$id'";
           if($con->query($sql) === TRUE){
 
-            $sqlactionlog = "INSERT INTO tbl_activity_log (AdminName, Description, DateAction) VALUES ('$author','REQUEST DETAILS UPDATED [$fname.' '.$lname]','$dateNow')";
+            $sqlactionlog = "INSERT INTO tbl_activity_log (AdminName, Description, DateAction) VALUES ('$author','REQUEST DETAILS UPDATED [$fname.'  '.$lname]','$dateNow')";
             if($con->query($sqlactionlog)===TRUE){
          
           

@@ -5,7 +5,7 @@ if(!isset($_SESSION["admin"]))
  header("location:../Log-in.php");
 }
 include '../PagesFunction/connection.php';
-include 'Buttons/approvedQuery.php';
+//include 'Buttons/approvedQuery.php';
 
 
 ?>
@@ -37,7 +37,9 @@ include 'Buttons/approvedQuery.php';
     <a class="w3-bar-item w3-button" id="sendmodal" ><i class="fas fa-cubes"></i> &nbsp Orders</a>
     <a href="request.php" class="w3-bar-item w3-button" id="item-hover"><i class="fas fa-envelope-open-text"></i> &nbsp Request</a>
     <a href="sales.php" class="w3-bar-item w3-button" id="item-hover"><i class="fas fa-hand-holding-usd"></i> &nbsp Sales</a>
-    <a href="consolidate.php" class="w3-bar-item w3-button" id="item-hover"><i class="fas fa-print"></i> &nbsp Consolidate</a>
+    <a href="actionLog.php" class="w3-bar-item w3-button" id="item-hover"><i class="fas fa-clipboard-list"></i> &nbsp Action Log</a>
+    <button onclick="document.getElementById('id01').style.display='block'" href="consolidate.php" class="w3-bar-item w3-button" id="item-hover" ><i class="fas fa-print"></i> &nbsp Consolidate</button>
+    <a href="../zerterraph_user/logout.php" class="w3-bar-item w3-button" id="item-hover"><i class="fas fa-sign-out-alt"></i>&nbsp Logout </a> 
   </div>
 
   <div class="w3-main" style="margin-left:200px">
@@ -84,8 +86,9 @@ include 'Buttons/approvedQuery.php';
                       <table class="table">
                         <thead>
                           <tr>
-                            <th>#</th>
-                            <th>Serial Number</th>
+                            
+                            <th>Order #</th>
+                            <th>Serial #</th>
                             <th>Firstname</th>
                             <th>Lastname</th>
                             <th>Email</th>
@@ -112,6 +115,7 @@ include 'Buttons/approvedQuery.php';
                             while($row = mysqli_fetch_array($res_data)){ 
                               {
                                 $id = $row['id'];
+                                $orderNum = $row['OrderNumber'];
                                 $serialNum = $row['SerialNumber'];
                                 $fname = $row['Firstname'];
                                 $lname = $row['Lastname'];
@@ -121,11 +125,11 @@ include 'Buttons/approvedQuery.php';
 
                                 ?>
                                 <tr>
-                                  <td>
-                                   # <?php echo $id; ?>
-                                 </td>
-
                                  <td>
+                                  <?php echo $orderNum; ?>
+                                </td>
+
+                                <td>
                                   <?php echo $serialNum; ?>
                                 </td>
 

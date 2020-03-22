@@ -216,7 +216,7 @@ if (isset($_POST['search_btn'])){
   }
 }
 ?>
-    <div id="alrights">
+    <div class="footer">
         <p>@2019 ZerterraPh</p>
     </div>
 
@@ -243,7 +243,7 @@ if(isset($_POST['update'])){
        
         $sql = "UPDATE tblusers SET Email='$newemail' WHERE id='$id' AND is_active='1'";
         if($con->query($sql) === TRUE){
-          $msg='EMAIL  <p style="color: red;" class="is-size-4">'.  $newemail . '</p> HAS BEEN UPDATED!';
+          $msg='EMAIL  <p style="color: green;" class="is-size-4">'. $newemail . '</p> HAS BEEN UPDATED!';
           include 'Modals/change_email_alert.php';
       
         }else{

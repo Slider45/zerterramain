@@ -190,8 +190,8 @@ include 'PagesFunction/connection.php';
     </p>
     <button class="button1" id="showModal3">ORDER NOW</button>
 
-    <form action="Modals/orderconfirmation.php" method="GET" accept-charset="utf-8">
-     <div class="container" id="app">
+
+    <div class="container" id="app">
       <div id="orderModal" class="modal">
         <div class="modal-background"></div>
         <div class="modal-content" id="order-modal-content">
@@ -230,7 +230,6 @@ include 'PagesFunction/connection.php';
     </div>
   </div>
 </div>
-</div>
 
 </div>
 </div>
@@ -238,6 +237,45 @@ include 'PagesFunction/connection.php';
 
 
 
+
+<script>
+
+  function mobileValidation() {
+    var myTextBox = document.getElementById('contact_order');
+    var value = myTextBox.value;
+    var btn = document.getElementById('SendOrder');
+    var wrning = document.getElementById('lblwarning');
+    var checkicon = document.getElementById('iconcheck');
+    var erroricon = document.getElementById('icontimes');
+
+
+
+
+
+
+    var regx =/^(9)\d{9}/;
+
+
+
+
+    if (regx.test(value)){
+
+      myTextBox.style.borderColor = "#48c774";
+      checkicon.style.display = "block";
+      erroricon.style.display = "none";
+      btn.disabled = false;
+      wrning.innerHTML="";
+
+    }else{
+      myTextBox.style.borderColor = "#f14668";
+      btn.disabled = true;
+      checkicon.style.display = "none";
+      erroricon.style.display = "block";
+      wrning.innerHTML="INVALID NUMBER";
+      wrning.style.color = "#f14668";
+    }
+  }
+</script>
 
 
 
@@ -372,22 +410,22 @@ include 'PagesFunction/connection.php';
     });
 
     (function(){
-                    document.getElementById("navMenu").style.backgroundColor = "transparent";
-                    document.getElementById("navMenu").style.textAlign="left";
-                    document.getElementById("navburger").style.marginTop = "20px";
-                    document.getElementById("navburger").style.marginRight ="20px";
-                    document.getElementById("navburger").style.color ="#99cc27";
-                    document.getElementById("hero-text").style.userSelect="none";
-                    var burger = document.querySelector('.burger');
-                    var nav = document.querySelector('#'+burger.dataset.target);
-                    burger.addEventListener('click', function(){
-                      burger.classList.toggle('is-active');
-                      navMenu.classList.toggle('is-active');
+      document.getElementById("navMenu").style.backgroundColor = "transparent";
+      document.getElementById("navMenu").style.textAlign="left";
+      document.getElementById("navburger").style.marginTop = "20px";
+      document.getElementById("navburger").style.marginRight ="20px";
+      document.getElementById("navburger").style.color ="#99cc27";
+      document.getElementById("hero-text").style.userSelect="none";
+      var burger = document.querySelector('.burger');
+      var nav = document.querySelector('#'+burger.dataset.target);
+      burger.addEventListener('click', function(){
+        burger.classList.toggle('is-active');
+        navMenu.classList.toggle('is-active');
 
-                    });
+      });
 
 
-                  });
+    });
 
   });
    //   $("#SendOrder").click(function() {
@@ -412,7 +450,7 @@ include 'PagesFunction/connection.php';
 
 
   <script type="text/javascript" src="dist/js/modal-fx.min.js"></script>
-  <script type="text/javascript" src="js/script.js"></script>
+
   <script type="text/javascript" src="https://unpkg.com/bulma-modal-fx/dist/js/modal-fx.min.js"></script>
   <script type="text/javascript" src="js/script.js"></script>
 

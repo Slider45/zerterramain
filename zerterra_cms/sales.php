@@ -52,6 +52,7 @@ include 'Buttons/adminButtonFunction.php';
       <a href="sales.php" class="w3-bar-item w3-button" id="dashboard"><i class="fas fa-hand-holding-usd"></i> &nbsp Sales</a>
       <a href="actionLog.php" class="w3-bar-item w3-button" id="item-hover"><i class="fas fa-clipboard-list"></i> &nbsp Action Log</a>
       <button onclick="document.getElementById('id01').style.display='block'" href="consolidate.php" class="w3-bar-item w3-button" id="item-hover" ><i class="fas fa-print"></i> &nbsp Consolidate</button>
+      <a href="../zerterraph_user/logout.php" class="w3-bar-item w3-button" id="item-hover"><i class="fas fa-sign-out-alt"></i>&nbsp Logout</a> 
     </div>
 
     <div class="w3-main" style="margin-left:200px">
@@ -91,7 +92,7 @@ include 'Buttons/adminButtonFunction.php';
            <table class = "table">
             <thead>
              <tr>
-              <th>#</th>
+              
               <th>Transaction Number</th>
               <th>Firstname</th>
               <th>Lastname</th>
@@ -130,9 +131,7 @@ include 'Buttons/adminButtonFunction.php';
             ?>
             <tbody>
               <tr>
-                <td>
-                  # <?php echo $id; ?>
-                </td>
+                
                 <td>
                   <?php echo $transcationNumber; ?>
                 </td>
@@ -199,14 +198,14 @@ include 'Buttons/adminButtonFunction.php';
                 <div class="columns is-mobile">
                   <div class="column is-6">
                     <a href="pending.php">
-                      <div class="card" id="card-pending" style="background:url(images/pendingicon.png);  background-size: 100% 100%; background-repeat: no-repeat; background-size: cover;">
+                      <div class="card" id="card-pending" style="background:url(images/pendingIcon.png);  background-size: 100% 100%; background-repeat: no-repeat; background-size: cover;">
                        <!-- PENDING -->
                      </div>
                    </a>
                  </div>
                  <div class="column is-6">
                   <a href="approved.php">
-                    <div class="card" id="card-approve" style="background:url(images/approvedicon.png);  background-size: 100% 100%; background-repeat: no-repeat; background-size: cover;">
+                    <div class="card" id="card-approve" style="background:url(images/approvedIcon.png);  background-size: 100% 100%; background-repeat: no-repeat; background-size: cover;">
                         <!-- <div class="card-content" >
                           <a href="approved.php" id="pending">
                             APPROVED

@@ -2,7 +2,7 @@
  //filter.php  
  if(isset($_POST["from_date"], $_POST["to_date"]))  
  {  
-      $con = mysqli_connect("localhost", "root", "", "zerterra_db");  
+      $con = mysqli_connect("localhost", "zerterra", "zerterra", "zerterra_db");  
       $output = '';  
       $query = "SELECT * FROM tblusers WHERE DateRegistered BETWEEN '".$_POST["from_date"]."' AND '".$_POST["to_date"]."'   and is_active='1'";  
       $result = mysqli_query($con, $query);  
@@ -10,7 +10,7 @@
            <table class="table table-bordered">  
            <thead>
            <tr>
-           <th>#</th>
+           
               <th>Serial #</th>
               <th>Firstname</th>
               <th>Lastname</th>
@@ -24,7 +24,7 @@
            {  
                 $output .= '  
                      <tr>  
-                          <td>'. $row["id"] .'</td>  
+                         
                           <td>'. $row["SerialNumber"] .'</td>  
                           <td>'. $row["Firstname"] .'</td>  
                           <td>'. $row["Lastname"] .'</td>  

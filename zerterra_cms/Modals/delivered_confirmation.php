@@ -5,17 +5,17 @@ $orderNum = $_GET['orderNum'];
 $id = $_GET['delivered_id'];
 $adminName = $_SESSION['admin'];
 
-$sql ="SELECT * FROM approved_order_list WHERE id ='$id'";
+// $sql ="SELECT * FROM approved_order_list WHERE id ='$id'";
 
-$res_data = $con->query($sql);
-while($row = mysqli_fetch_array($res_data)){
-	$id = $row['id'];
-	$orderNum= $row['OrderNumber'];
-	$fname = $row['Firstname'];
-	$lname = $row['Lastname'];
-	$email = $row['Email'];
-	$contact = $row['Contact'];
-	$address = $row['Address'];
+// $res_data = $con->query($sql);
+// while($row = mysqli_fetch_array($res_data)){
+// 	$id = $row['id'];
+	// $orderNum= $row['OrderNumber'];
+	// $fname = $row['Firstname'];
+	// $lname = $row['Lastname'];
+	// $email = $row['Email'];
+	// $contact = $row['Contact'];
+	// $address = $row['Address'];
 
 
 	
@@ -26,7 +26,7 @@ while($row = mysqli_fetch_array($res_data)){
 	<!DOCTYPE html>
 	<html>
 	<head>
-		<title>Pending</title>
+		<title>Delivery</title>
 	</head>
 
 
@@ -67,7 +67,7 @@ while($row = mysqli_fetch_array($res_data)){
 			<div class="modal-background"></div>
 			<div class="modal-card">
 				<header class="modal-card-head is-success">
-					<p class="modal-card-title">DECLINE ORDER</p>
+					<p class="modal-card-title">ORDER DELIVERED</p>
 
 				</header>
 				<section class="modal-card-body" id="modalbody">
@@ -75,19 +75,15 @@ while($row = mysqli_fetch_array($res_data)){
 
 
 
-					<form action="decline_function_alert.php"method="POST" accept-charset="utf-8">
+					<form action="delivered_modal_alert.php"method="POST" accept-charset="utf-8">
 						<!-- modal here -->
 						<div class="notification is-primary is-light" style = "background-color: #ebfffc;">
-							<div class="is-danger" style="color: red; text-align: center;">Are you Sure you want Decline this order from<br><strong>
-								"<?php echo $fname.' '.$lname;?>"?</strong> 
-								<br> ENTER YOUR PASSWORD TO CONFIRM<br>
+							<div class="is-danger" style="color: #00947e; text-align: center;">
+							<strong>ENTER YOUR PASSWORD TO CONFIRM<br></strong> 
 								<input type="hidden" name="id" id="input" value="<?php echo $id;?>" readonly/>
-								<input type="hidden" name="orderNum" id="input" value="<?php echo $orderNum;?>" readonly/>
-								<input type="hidden" name="fname" id="input" value="<?php echo $fname;?>" readonly/>
-								<input type="hidden" name="lname" id="input" value="<?php echo $lname;?>" readonly/>
-								<input type="hidden" name="email" id="input" value="<?php echo $email;?>" readonly/>
+							
 
-								<input type="hidden" name="adminName" id="input" value="<?php echo $adminName;}?>" required=""/>
+								<input type="hidden" name="adminName" id="input" value="<?php echo $adminName;?>" required=""/>
 
 								<div class="field">
 									<div class="control">
@@ -96,15 +92,15 @@ while($row = mysqli_fetch_array($res_data)){
 
 										<input class="input is-primary" name="password" type="PASSWORD" placeholder="Enter Password">
 										<center>
-											<span style="font-size: 8pt;">*This record will be permanently deleted!</span></center>
+											
 										</div>	</div>
 									</div>
 								</section>
 
 								<footer class="modal-card-foot" style="place-content: center;">
 
-									<button class="button is-success" type="submit" name="confirm_decline" style="font-family: Montserrat;"><i class="far fa-check-circle"></i>&nbspConfirm</button></form>
-									<a href="../pending.php"><button class="button is-danger" style="font-family: Montserrat;"><i class="fas fa-ban"></i>&nbspCancel</button></a>
+									<button class="button is-success" type="submit" name="confirm_deliver" style="font-family: Montserrat;"><i class="far fa-check-circle"></i>&nbspConfirm</button></form>
+									<a href="../approved.php"><button class="button is-danger" style="font-family: Montserrat;"><i class="fas fa-ban"></i>&nbspCancel</button></a>
 
 								</footer>
 							</div>
@@ -112,7 +108,7 @@ while($row = mysqli_fetch_array($res_data)){
 
 
 						<?php
-						include 'decline_function_alert.php';
+						include 'delivered_modal_alert.php';
 						?>
 
 

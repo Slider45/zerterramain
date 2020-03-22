@@ -1,7 +1,7 @@
 <?php
 
 include'../connection.php';
-$msg=""
+$msg="";
 
 if(isset($_POST['confirm_decline'])){
 	$orderNum = $_POST['orderNum'];

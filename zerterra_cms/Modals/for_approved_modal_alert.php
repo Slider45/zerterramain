@@ -48,7 +48,7 @@
     <div class="modal-card">
       <header class="modal-card-head is-success">
         <p class="modal-card-title">FOR APPROVED</p>
-       
+        
       </header>
       <section class="modal-card-body" id="modalbody">
 
@@ -56,19 +56,19 @@
 
 
 
-          <!-- modal here -->
-          <div class="notification is-primary is-light" style = "background-color: #ebfffc;color: #00947e;">
-            <center>
-             <strong><?php echo $msg?></strong> 
-           </center>
-         </div>
+        <!-- modal here -->
+        <div class="notification is-primary is-light" style = "background-color: #ebfffc;color: #00947e;">
+          <center>
+           <strong><?php echo $msg?></strong> 
+         </center>
+       </div>
 
-       </section>
-       <footer class="modal-card-foot" >
-        <a href="users.php"><button class="button is-danger" style="font-family: Montserrat;"><i class="fas fa-arrow-left"></i>&nbspBACK</button></a>
-      </footer>
-    </div>
+     </section>
+     <footer class="modal-card-foot" >
+      <a href="approved.php"><button class="button is-danger" style="font-family: Montserrat;"><i class="fas fa-arrow-left"></i>&nbspBACK</button></a>
+    </footer>
   </div>
+</div>
 
 
 

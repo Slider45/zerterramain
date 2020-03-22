@@ -2,9 +2,9 @@
  //filter.php  
  if(isset($_POST["from_date"], $_POST["to_date"]))  
  {  
-      $con = mysqli_connect("localhost", "root", "", "zerterra_db");  
+      $con = mysqli_connect("localhost", "zerterra", "zerterra", "zerterra_db");  
       $output = '';  
-      $query = "SELECT * FROM tblsales_list  WHERE Date_Purchased BETWEEN '".$_POST["from_date"]."' AND '".$_POST["to_date"]."'  
+      $query = "SELECT * FROM tblsales_list WHERE Date_Purchased BETWEEN '".$_POST["from_date"]."' AND '".$_POST["to_date"]."'  
       ";  
       $result = mysqli_query($con, $query);  
       $output .= '  

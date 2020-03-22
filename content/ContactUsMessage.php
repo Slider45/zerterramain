@@ -4,7 +4,7 @@ session_start();
 $fname = $_GET["fname"] ;
 $lname = $_GET['lname'] ;
 $email = $_GET['email'] ;
-$subject = $_GET['email_subject'] ;
+$subjectpost = $_GET['subject'] ;
 $message = $_GET['message'] ;
 
 
@@ -78,7 +78,7 @@ $message = $_GET['message'] ;
                                                                     </tr>
                                                                     <tr style="color: #000; font-family:Montserrat; font-size: 16px; line-height: 20px; font-weight:bold;">
                                                                         <td>Subject:</td>
-                                                                        <td style="padding-left:10px"><?php echo $subject;?></td>
+                                                                        <td style="padding-left:10px"><?php echo $subjectpost;?></td>
                                                                     </tr>
                                                                     <tr style="color: #000; font-family:Montserrat; font-size: 16px; line-height: 20px; font-weight:bold;">
                                                                         <td>Message:</td>

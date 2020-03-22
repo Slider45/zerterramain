@@ -36,7 +36,7 @@
       margin-right: auto;">
     </form>
     <button  class="button is-success" name="acnt_remove">
-      <i class="fas fa-user-times"></i>&nbspREMOVE</button>
+      <i class="fas fa-user-times"></i>&nbspCONFIRM</button>
       <button class="button is-danger" onclick="cancelevent()"><i class="fas fa-ban">
       </i>&nbspCancel</button></a>
 

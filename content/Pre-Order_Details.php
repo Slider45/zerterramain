@@ -1,32 +1,10 @@
-<?php
-session_start();
 
-include '../PagesFunction/connection.php';
-// $requestNum = $_SESSION["reqNumber"]; 
-// $SNumber = $_SESSION['SN'] ;
-// $fname = $_SESSION['FN'];
-// $lname  = $_SESSION['LN'];
-// $email = $_SESSION['EM'];
-// $contact = $_SESSION['CN'];
-// $address = $_SESSION['AD'];
-// $requestnum = $_SESSION['RN'];
-
-// $SNumber=$_REQUEST['SNumber'];
-
-$fname = $_GET['fname'];
-$lname = $_GET['lname'];
-$email_from = $_GET['email_from'];
-$contact = $_GET['contact'];
-$address = $_GET['address'];
-$orderNum =$_GET['orderNum'];
-// $sndRequest=$_GET['sndRequest'];
-?>
-
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <title>PRE-ORDER</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>PRE-ORDER</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 </head>
 <body style="margin: 0; padding: 0;">
     <table border="0" cellpadding="0" cellspacing="0" width="100%"> 
@@ -44,7 +22,7 @@ $orderNum =$_GET['orderNum'];
                             <table border="0" cellpadding="0" cellspacing="0" width="100%">
                                 <tr>
                                     <td style="color: #333; font-family: Arial, sans-serif; font-size: 24px;">
-                                        <b>Hi <?php echo $fname;?>!<br></b>
+                                        <b>Hi {{ FIRSTNAME }},<br></b>
                                     </td>
                                 </tr>
                                 <tr>
@@ -76,29 +54,26 @@ $orderNum =$_GET['orderNum'];
                                                             <td style="padding: 25px 0 0 0; color: #153643; font-family: Arial, sans-serif; font-size: 16px; line-height: 20px;">
 
                                                                 <table style="width:100%; height:200px;">
-                                                                   <!--  <tr style="color: #000; font-family:Montserrat; font-size: 16px; line-height: 20px; font-weight:bold; margin-bottom:50px;">
-                                                                        <td>Serial #:</td>
-                                                                        <td style="padding-left:10px; margin-bottom:50px;"><?php echo $SerialNumber;?></td>    
-                                                                    </tr>--> 
+                                                            
                                                                     <tr style="color: #000; font-family:Montserrat; font-size: 16px; line-height: 20px; font-weight:bold; margin-bottom:50px;">
                                                                         <td>Firstname:</td>
-                                                                        <td style="padding-left:10px; margin-bottom:50px;"><?php echo $fname;?></td>    
+                                                                        <td style="padding-left:10px; margin-bottom:50px;">{{ FIRSTNAME }}</td>    
                                                                     </tr>
                                                                     <tr style="color: #000; font-family:Montserrat; font-size: 16px; line-height: 20px; font-weight:bold;">
                                                                         <td>Lastname:</td>
-                                                                        <td style="padding-left:10px"><?php echo $lname;?></td>
+                                                                        <td style="padding-left:10px">{{ LASTNAME }}</td>
                                                                     </tr>
                                                                     <tr style="color: #000; font-family:Montserrat; font-size: 16px; line-height: 20px; font-weight:bold;">
                                                                         <td>Email:</td>
-                                                                        <td style="padding-left:10px"><?php echo $email_from;?></td>
+                                                                        <td style="padding-left:10px">{{ EMAILADD }}</td>
                                                                     </tr>
                                                                     <tr style="color: #000; font-family:Montserrat; font-size: 16px; line-height: 20px; font-weight:bold;">
                                                                         <td>Contact:</td>
-                                                                        <td style="padding-left:10px"><?php echo $contact;?></td>
+                                                                        <td style="padding-left:10px">{{ CONTACT }}</td>
                                                                     </tr>
                                                                     <tr style="color: #000; font-family:Montserrat; font-size: 16px; line-height: 20px; font-weight:bold;">
                                                                         <td>Address:</td>
-                                                                        <td style="padding-left:10px"><?php echo $address;?></td>
+                                                                        <td style="padding-left:10px">{{ ADDRESS }}</td>
                                                                     </tr>
                                                                 </table>
                                                             </td>
@@ -118,7 +93,7 @@ $orderNum =$_GET['orderNum'];
                                                         <tr>
                                                             <td style="padding: 150px 0 0 0; color: #153643; font-family: Arial, sans-serif; font-size: 16px; line-height: 20px;">
                                                              <div style="color:#4a8169; background-color:#d1d1d1; text-align:center; height:50px; padding-top:30px; font-size:15pt; font-weight:bold;">
-                                                                 <?php echo $orderNum;?>
+                                                                 {{ ORDERNUMBER }}
                                                              </div>
                                                              <p style="text-align:center; font-family:Montserrat; font-size:10pt;  font-weight:bold;">ORDER NUMBER</p>
                                                          </td>

@@ -601,12 +601,22 @@ table, th, td {
   font-family: montserrat;
 }
 
+<<<<<<< HEAD
 #home {
+=======
+
+
+#adminIcon {
+>>>>>>> ca195995ebe01f822af726c7e7d4750a8b8f3407
   position: fixed;
   width: 50px;
   height: 50px;
   background: #f7de62;
+<<<<<<< HEAD
   bottom: 570px;
+=======
+  bottom: 565px;
+>>>>>>> ca195995ebe01f822af726c7e7d4750a8b8f3407
   right: 50px;
   text-decoration: none;
   text-align: center;
@@ -617,7 +627,11 @@ table, th, td {
   padding-top: 0;
 }
 
+<<<<<<< HEAD
 #home #userIcon {
+=======
+#adminIcon #userIcon {
+>>>>>>> ca195995ebe01f822af726c7e7d4750a8b8f3407
   width: 50px  !important;
   max-width: 50px;
   height: 50px;

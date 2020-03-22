@@ -10,7 +10,7 @@
 
       <div class="field">
         <input type="hidden" name="delete_id" value="<?php echo $id; ?>">
-        <input type="hidden" name="role_id" value="<?php echo $role; ?>">
+        <!--<input type="hidden" name="role_id" value="<?php echo $role; ?>">-->
       </div>
 
       <div class="is-danger">Are you Sure you want Delete <strong>
@@ -26,7 +26,7 @@
       </div>
       <div style = "margin-bottom: 10px; margin-top: 20px;  margin-right: auto;">
        <button  class="button is-success" name="acnt_remove">
-        <i class="fas fa-user-times"></i>&nbspREMOVE</button>  </form>
+        <i class="fas fa-user-times"></i>&nbspCONFIRM</button>  </form>
          <button class="button is-danger" onclick="cancelevent()"><i class="fas fa-ban">
       </i>&nbspCancel</button></a>
       </div>

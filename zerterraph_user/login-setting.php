@@ -64,7 +64,9 @@ include 'user-header.php';
 
     <!-- SIDE BAR -->
     <div class="sidebar">
-    <header><span>Name</header>
+    <header><span><figure class="image is-128x128" style="margin-top: 70px;">
+  <img class="is-rounded" src="images\avatar.png">
+</figure></header>
       <a href="index.php">
         <i class="fas fa-qrcode"></i>
         <span>Dashboard</span>
@@ -154,10 +156,6 @@ include 'user-header.php';
 
     </div>
     </section>
-
-    <div>
-        <p id="alrights">@2019 ZerterraPh</p>
-    </div>
 
 </body>
 

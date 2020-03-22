@@ -225,7 +225,7 @@ if(isset($_POST['update'])){
        
         $sql = "UPDATE tblusers SET Password='$newpass' WHERE id='$id' AND is_active='1'";
         if($con->query($sql) === TRUE){
-          $msg='PASSWORD  <p style="color: red;" class="is-size-4"></p> HAS BEEN UPDATED!';
+          $msg='PASSWORD  <p style="color: green;" class="is-size-4"></p> HAS BEEN UPDATED!';
           include 'Modals/change_password_alert.php';
           
         }else{

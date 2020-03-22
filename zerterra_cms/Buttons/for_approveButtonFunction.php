@@ -45,14 +45,14 @@ if(isset($_POST['saveApprove'])){
        }
 
      }else{
-       $msg='<p class="is-size-3" style="color:red;">UNABLE TO UPDATE PLEASE TRY AGAIN LATER! update pending</p>';
+       $msg='<p class="is-size-3" style="color:red;">UNABLE TO UPDATE PLEASE TRY AGAIN LATER! </p>';
          include 'Modals/for_approved_modal_alert.php';
      
      }
 
 
    }else{
-      $msg='<p class="is-size-3" style="color:red;">UNABLE TO UPDATE PLEASE TRY AGAIN LATER! insert query</p>';
+      $msg='<p class="is-size-3" style="color:red;">UNABLE TO UPDATE PLEASE TRY AGAIN LATER!</p>';
          include 'Modals/for_approved_modal_alert.php';
    }
  }

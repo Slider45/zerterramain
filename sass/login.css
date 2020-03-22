@@ -181,6 +181,7 @@ body {
 
 .logo img {
   position: absolute;
+  margin-left: 15px;
 }
 
 .header h2 {
@@ -269,6 +270,9 @@ a:hover {
     height: 96px;
     width: 96px;
   }
+  .logo img {
+    /*margin-left: 50px;*/
+  }
   .field .input {
     max-width: 400px;
     width: 100%;
@@ -300,11 +304,8 @@ a:hover {
     width: 100%;
     height: 500px;
     max-width: 345px;
-    top: 50px;
+    top: 70px;
     left: 2%;
-  }
-  .image.is-128x128 {
-    margin-left: 20px;
   }
   .field .input {
     max-width: 400px;
@@ -316,7 +317,7 @@ a:hover {
     margin-left: 10px;
     padding: 5px;
     text-align: center;
-  }
+}
   .forgot {
     margin-left: 0;
   }
@@ -331,6 +332,9 @@ a:hover {
     right: 10px;
     line-height: 30px;
   }
+  .content figure {
+     margin-left: 0;
+  }
 }
 
 @media (min-width: 361px) and (max-width: 375px) {
@@ -340,9 +344,6 @@ a:hover {
     max-width: 360px;
     top: 60px;
     left: 2%;
-  }
-  .image.is-128x128 {
-    margin-left: 25px;
   }
   .field .input {
     max-width: 400px;
@@ -376,6 +377,9 @@ a:hover {
   .last {
     font-size: 13px;
   }
+  .logo img {
+     margin-left: 0; 
+}
 }
 
 @media (min-width: 376px) and (max-width: 411px) {
@@ -389,8 +393,13 @@ a:hover {
   .image.is-128x128 {
     height: 180px;
     width: 180px;
-    margin-left: 0;
   }
+  .content figure {
+     margin-left: 0;
+}
+    .logo img {
+        margin-left: 0;
+    }
   .field .input {
     max-width: 400px;
     width: 100%;
@@ -433,10 +442,15 @@ a:hover {
     top: 60px;
     left: 2%;
   }
+  .logo img {
+    margin-left: 0;
+  }
+  .content figure {
+     margin-left: 0;
+    }
   .image.is-128x128 {
     height: 180px;
     width: 180px;
-    margin-left: 0;
   }
   .field .input {
     max-width: 400px;
@@ -697,10 +711,12 @@ a:hover {
     top: 200px;
     left: 25%;
   }
+  .logo img {
+    margin-left: 50px;
+  }
   .image.is-128x128 {
     height: 180px;
     width: 180px;
-    margin-left: 0;
   }
   .field .input {
     max-width: 400px;
@@ -835,7 +851,12 @@ a:hover {
   .image.is-128x128 {
     height: 180px;
     width: 180px;
-    margin-left: 0;
+  }
+  .content figure {
+      margin-left: 0;
+  }
+  .logo img {
+      margin-left:0;
   }
   .field .input {
     max-width: 400px;

@@ -69,34 +69,28 @@ include 'user-header.php';
 </figure></header>
       <a href="index.php">
         <i class="fas fa-qrcode"></i>
-        <span>Dashboard</span>
+        &nbspDashboard
       </a>
-      <a href="profile.php">
+      <a href="profile.php" >
         <i class="fas fa-user"></i>
-        <span>Profile</span>
+        &nbspProfile
       </a>
       <a href="acc_setting.php">
         <i class="fas fa-pen-nib"></i>
-        <span>Edit Profile</span>
+        &nbspEdit Profile
       </a>
-      <a href="login-setting.php" class="active">
+      <a href="login-setting.php"  class="active">
         <i class="fas fa-cog"></i>
-        <span>Login Setting</span>
-      </a>
+        &nbspLogin Setting
       <a href="request-repair.php">
         <i class="fas fa-inbox"></i>
-        <span>Request Repair</span>
+        &nbspRequest Repair
       </a>
       <a href="contact-us.php">
         <i class="fas fa-envelope-open-text"></i>
-        <span>Contact Us</span>
+        &nbspContact Us
       </a>
-      <!-- <a href="#">
-        <i class="far fa-envelope"></i>
-        <span>Contact</span>
-      </a> -->
     </div>
-
     <script>
     function myAccFunc() {
     var x = document.getElementById("demoAcc");

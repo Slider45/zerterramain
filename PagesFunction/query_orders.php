@@ -80,19 +80,23 @@ if (isset($_POST['sendOrder'])) {
         $cmdsql= "INSERT INTO pending_order_list(OrderNumber,Firstname,Lastname,Email,Contact,Address,Message,is_approved) VALUES ('$orderNum','$fname','$lname','$email_from','$contact','$addres','$message')";        
         if($con->query($cmdsql) === TRUE)
         {
-          echo "<script>alert('Return Mail Sent!'); </script>";
-
+          $msg='PRE-ORDER SENT!';
+          include 'Modals/order_alert.php';
 
         }else{
-          echo "<script>alert('QUERY FAILED!'); </script>";
+          $msg='<p style="color: red;" class="is-size-4">FAILED SENDING PRE-ORDER!</p>';
+          include 'Modals/order_alert.php';
         }
       }else{
-
-        echo "<script>alert('Return Mail Not Sent!'); </script>";
+        
+        $msg='<p style="color: red;" class="is-size-4">Return Mail Not Sent!</p>';
+        include 'Modals/order_alert.php';
       }
     }else{
 
-      echo "<script>alert('Sending Request Failed!'); </script>";
+      
+      $msg='<p style="color: red;" class="is-size-4">Sending Request Failed!</p>';
+      include 'Modals/order_alert.php';
 
 
     }

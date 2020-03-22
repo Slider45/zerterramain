@@ -141,6 +141,10 @@ include '../PagesFunction/connection.php';
           </a>
         </div>
 
+    
+        <button  class="button" id="home" data-tooltip="User" ><img src="images/userIcon.png" id="userIcon"></button> 
+
+
 
         <div class="column is-half">
           <a href="users.php">

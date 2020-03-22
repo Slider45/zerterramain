@@ -106,7 +106,9 @@ if((!$fname===null) && (!lname===null ) && (!$email===null) &&(!$message===null)
 </div>
 </div>
 </div>
+
 <?php
     }
-}else{
- ?>
+  }
+}
+?>

@@ -15,9 +15,6 @@ if(isset($_POST['btn_add_admin'])){
   if($password != $cpassword){
     $msg='<p style="color: red;" class="is-size-4">PASSWORD NOT MATCHED<br>PLEASE TRY AGAIN!</p>';
        include 'Modals/remove_admin_alert.php';
-  
-
-
  }else{
    $sql = "SELECT * FROM admin_list WHERE Email='$Email'";
    $result = $con->query($sql);
@@ -90,10 +87,7 @@ if(isset($_POST['acnt_remove'])){
 
         $msg='ADMIN <p style="color: red;" class="is-size-4">'. $adminName . '</p> HAS BEEN DELETED!';
         include 'Modals/remove_admin_alert.php';
-        // echo "<script>window.alert('RECORD IS DELETED!');</script>";
-        // echo '<script>window.location.href="admin.php"</script>';
-      }else{
-
+  
         $msg='<p style="color: red;" class="is-size-4">SOMETHING WENT WRONG, PLEASE TRY AGAIN!</p>';
         include 'Modals/remove_admin_alert.php';
         

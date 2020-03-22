@@ -126,26 +126,7 @@ include 'user-header.php';
     }
     </script>
 
-    <!-- side navbar -->
-
-<!-- 
-    <script>
-        (function () {
-            var burger = document.querySelector('.burger');
-            var nav = document.querySelector('#' + burger.dataset.target);
-            burger.addEventListener('click', function () {
-                burger.classList.toggle('is-active');
-                navMenu.classList.toggle('is-active');
-
-            });
-
-
-        })();
-    </script> -->
-
-    <!-- END OF SIDE NAVBAR -->
-
-    <!-- END OF SIDE BAR -->
+ 
     <?php
 $sql = "SELECT * FROM tblusers WHERE is_active='1'";
 $res_data = $con->query($sql);

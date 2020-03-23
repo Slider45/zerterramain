@@ -69,6 +69,14 @@ $diff = round($datediff / (60 * 60 * 24));
 //     is_active = 1
 
 
+// UPDATE
+//     tblusers AS t
+// SET
+//     t.RemainingDays = DATEDIFF(t.DateExpired, NOW())
+// WHERE
+//     is_active = 1
+
+
 // CREATE EVENT `update_warranty` ON SCHEDULE EVERY 5 MINUTE STARTS '2020-03-23 00:00:00.000000' ENDS '2030-03-23 00:00:00.000000' ON COMPLETION NOT PRESERVE ENABLE DO UPDATE tblusers SET RemaingDays = 1 WHERE id=id AND is_active='1'
 
 // CREATE EVENT IFupdate_warranty

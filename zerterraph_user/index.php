@@ -122,7 +122,7 @@ include '../PagesFunction/connection.php';
         }
       }
 
-      
+
 
     </script>
 
@@ -165,9 +165,10 @@ include '../PagesFunction/connection.php';
 
           <div id="serialno">
             <input type="hidden" class="is-size-4" id="dateExp" value="<?php echo $dateEnd ?>" readonly>
-            <input type="hidden" name="" value="<?php echo $rdays; ?>" >
+            
             <p style="padding:0;font-family:'Montserrat';font-size:50pt;" id="Rdays"></p>
-            <p id="userinfo" style="padding:0;font-family:'Montserrat';font-size:20px;">Remaining Days</p>
+            <p id="userinfo" style="padding:0;font-family:'Montserrat';font-size:20px;">Remaining warranty days</p>
+            
           </div>
 
         </div>
@@ -183,6 +184,8 @@ include '../PagesFunction/connection.php';
      // Set the date we're counting down to
      var dateExp = document.getElementById("dateExp").value;
      var countDownDate = new Date(dateExp).getTime();
+
+
 
     // Update the count down every 1 second
     var x = setInterval(function() {
@@ -207,9 +210,11 @@ include '../PagesFunction/connection.php';
     clearInterval(x);
     document.getElementById("Rdays").innerHTML = "EXPIRED";
   }
-}, 1000);
 
-</script>
+}, 1000);
+    
+
+  </script>
 
 
 </body>

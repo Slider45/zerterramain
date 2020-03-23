@@ -167,7 +167,7 @@ include '../PagesFunction/connection.php';
             <input type="hidden" class="is-size-4" id="dateExp" value="<?php echo $dateEnd ?>" readonly>
             
             <p style="padding:0;font-family:'Montserrat';font-size:50pt;" id="Rdays"></p>
-            <p id="userinfo" style="padding:0;font-family:'Montserrat';font-size:20px;">Remaining warranty days</p>
+            <p id="userinfo" style="padding:0;font-family:'Montserrat';font-size:20px;">Remaining warrantydays</p>
             
           </div>
 
@@ -214,7 +214,7 @@ include '../PagesFunction/connection.php';
 }, 1000);
     
 
-  </script>
+</script>
 
 
 </body>

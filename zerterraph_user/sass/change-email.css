@@ -52,9 +52,9 @@ body {
   text-align: center;
   background: #1faa74;
   -webkit-user-select: none;
-     -moz-user-select: none;
-      -ms-user-select: none;
-          user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
   font-family: 'Montserrat';
   margin-top: 49px;
 }
@@ -67,7 +67,7 @@ body {
   line-height: 65px;
   padding-left: 30px;
   -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
   border-bottom: 1px solid white;
   border-top: 1px solid rgba(255, 255, 255, 0.1);
   border-left: 5px solid transparent;
@@ -227,8 +227,6 @@ label {
   text-align: center;
 }
 
-/*# sourceMappingURL=change-email.css.map */
-
 @media (min-width: 801px) and (max-width: 860px) {
   .sidebar {
     height: auto;
@@ -306,14 +304,18 @@ label {
   .title {
     font-size: 24px;
   }
+  /*.form-edit {*/
+  /*  margin-left: 20px;*/
+  /*  width: 180px;*/
+  /*}*/
   .header {
     margin-bottom: 0;
     padding-bottom: 0;
   }
   .container1 {
-      margin-left: 20px;
+    margin-left: 20px;
   }
-  label,input[type=text] {
+  label, input[type=text] {
     font-size: 14px;
     padding-bottom: 0;
   }
@@ -368,17 +370,21 @@ label {
     padding-bottom: 0;
     padding-right: 0;
   }
-  .header, .title {
+  .title {
     font-size: 28px;
   }
+  /*.form-edit {*/
+  /*  margin-left: 20px;*/
+  /*  width: 180px;*/
+  /*}*/
   .header {
     margin-bottom: 0;
     padding-bottom: 0;
   }
   .container1 {
-      margin-left: 20px;
+    margin-left: 20px;
   }
-  label,input[type=text] {
+  label, input[type=text] {
     font-size: 14px;
     padding-bottom: 0;
   }
@@ -444,9 +450,9 @@ label {
     padding-bottom: 0;
   }
   .container1 {
-      margin-left: 20px;
+    margin-left: 20px;
   }
-  label,input[type=text] {
+  label, input[type=text] {
     font-size: 14px;
     padding-bottom: 0;
   }
@@ -512,9 +518,9 @@ label {
     padding-bottom: 0;
   }
   .container1 {
-      margin-left: 20px;
+    margin-left: 20px;
   }
-  label,input[type=text] {
+  label, input[type=text] {
     font-size: 14px;
     padding-bottom: 0;
   }
@@ -565,7 +571,7 @@ label {
     padding-top: 5px;
   }
   .footer {
-      position: fixed;
+    position: fixed;
   }
 }
 
@@ -593,6 +599,7 @@ label {
     font-size: 40px;
   }
   .footer {
-      position: fixed;
+    position: fixed;
   }
 }
+/*# sourceMappingURL=change-email.css.map */

@@ -98,7 +98,7 @@ html, body {
   width: 50px;
   height: 50px;
   background: #a5d547;
-  bottom: 100px;
+  bottom: 25px;
   right: 50px;
   text-decoration: none;
   text-align: center;
@@ -603,29 +603,26 @@ table, th, td {
   margin-left: 120px;
 }
 
-#txtbox #print-Qr{
+#txtbox #print-Qr {
   padding-top: 0;
   padding-bottom: 0;
   margin-left: 200px;
-  margin-right:0;
-  width:0% !important;
+  margin-right: 0;
 }
 
 #txtbox .is-6 {
-  /*margin-left: 73%;*/
-   width:0 !important;
-    margin-left: 0;
-    padding-left:0 !important;
+  width: 0% !important;
+  margin-left: 0;
+  padding-left: 0 !important;
 }
 
-#print-Qr{
-    margin-left:160px;
-    
+#txtbox #print-Qr {
+  margin-left: 160px;
 }
 
-#cancel{
-    width:0;
-    padding-left:20px;
+#txtbox #cancel {
+  width: 0;
+  padding-left: 20px;
 }
 
 #txtbox #refresh {

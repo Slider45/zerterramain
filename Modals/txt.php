@@ -107,14 +107,9 @@ if((!$fname===null) && (!lname===null ) && (!$email===null) &&(!$message===null)
 </div>
 </div>
 </div>
-<<<<<<< HEAD
-</div>
 
 <?php
     }
   }
-}
+
 ?>
-=======
-</div>
->>>>>>> ca195995ebe01f822af726c7e7d4750a8b8f3407

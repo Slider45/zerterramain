@@ -5,13 +5,35 @@ session_start();
 
 
 include '../PagesFunction/connection.php';
+$userID=$_SESSION['userID'];
+
+$sql = "SELECT * FROM tblusers WHERE id='$userID' AND is_active='1'";
+
+$res_data = $con->query($sql);
+while($row = mysqli_fetch_array($res_data)){
+    $id = $row['id'];
+    $serialNum = $row['SerialNumber'];
+    $fname = $row['Firstname'];
+    $lname = $row['Lastname'];
+    $contact = $row['Contact'];
+    $address = $row['Address']; 
+    $email = $row['Email'];
+    $pass = $row['Password'];
+    $rdays = $row['RemainingDays'];
+    $dateReg = $row['DateRegistered'];
+    $dateEnd= $row['DateExpired'];
+}
+
+
+
+
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-<meta charset="UTF-8">
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.min.css">
@@ -37,174 +59,201 @@ include '../PagesFunction/connection.php';
 
    <!--NAVBAR-->
 
-   
-<?php
-include 'user-header.php';
 
-?>
+   <?php
+   include 'user-header.php';
 
-    <!-- script navbar -->
+   ?>
 
-
-    <script>
-        (function () {
-            var burger = document.querySelector('.burger');
-            var nav = document.querySelector('#' + burger.dataset.target);
-            burger.addEventListener('click', function () {
-                burger.classList.toggle('is-active');
-                navMenu.classList.toggle('is-active');
-
-            });
+   <!-- script navbar -->
 
 
-        })();
-    </script>
+   <script>
+    (function () {
+        var burger = document.querySelector('.burger');
+        var nav = document.querySelector('#' + burger.dataset.target);
+        burger.addEventListener('click', function () {
+            burger.classList.toggle('is-active');
+            navMenu.classList.toggle('is-active');
 
-    <!-- END OF NAVBAR -->
+        });
 
-    <!-- SIDE BAR -->
-    <div class="sidebar">
+
+    })();
+</script>
+
+<!-- END OF NAVBAR -->
+
+<!-- SIDE BAR -->
+<div class="sidebar">
     <header><span><figure class="image is-128x128" style="margin-top: 70px;">
-  <img class="is-rounded" src="images\avatar.png">
-</figure></header>
-      <a href="index.php">
-        <i class="fas fa-qrcode"></i>
-        &nbspDashboard
-      </a>
-      <a href="profile.php"  class="active">
-        <i class="fas fa-user"></i>
-        &nbspProfile
-      </a>
-      <a href="acc_setting.php">
-        <i class="fas fa-pen-nib"></i>
-        &nbspEdit Profile
-      </a>
-      <a href="login-setting.php">
-        <i class="fas fa-cog"></i>
-        &nbspLogin Setting
-      <a href="request-repair.php">
+      <img class="is-rounded" src="images\avatar.png">
+  </figure></header>
+  <a href="index.php">
+    <i class="fas fa-qrcode"></i>
+    &nbspDashboard
+</a>
+<a href="profile.php"  class="active">
+    <i class="fas fa-user"></i>
+    &nbspProfile
+</a>
+<a href="acc_setting.php">
+    <i class="fas fa-pen-nib"></i>
+    &nbspEdit Profile
+</a>
+<a href="login-setting.php">
+    <i class="fas fa-cog"></i>
+    &nbspLogin Setting
+    <a href="request-repair.php">
         <i class="fas fa-inbox"></i>
         &nbspRequest Repair
-      </a>
-      <a href="contact-us.php">
+    </a>
+    <a href="contact-us.php">
         <i class="fas fa-envelope-open-text"></i>
         &nbspContact Us
-      </a>
-    </div>
-    <?php 
+    </a>
+</div>
 
-if (isset($_POST['search_btn'])){
-  $searchValue = $_POST['searchValue'];
-
-  if ($searchValue===''){
-    echo '<script>window.location.href="?"</script>';
-  }else{
-    include 'searchFunction/searchUsersFunction.php';
-  }
-}else{     
-    $userID = $_SESSION['userID'];
-  $sql = "SELECT * FROM tblusers WHERE id='$userID' AND is_active='1'";
-  $res_data = $con->query($sql);
-  while($row = mysqli_fetch_array($res_data)){
-    $id = $row['id'];
-    $serialNum = $row['SerialNumber'];
-    $fname = $row['Firstname'];
-    $lname = $row['Lastname'];
-    $contact = $row['Contact'];   
-    $email = $row['Email'];
-    $password = $row['Password'];
-    $rdays = $row['RemainingDays'];
-    $dateReg = $row['DateRegistered'];
-    $dateEnd= $row['DateExpired'];
-    
-    ?>
-    <script>
+<script>
     function myAccFunc() {
-    var x = document.getElementById("demoAcc");
-    if (x.className.indexOf("w3-show") == -1) {
-        x.className += " w3-show";
-        x.previousElementSibling.className += " w3-green";
-    } else { 
-        x.className = x.className.replace(" w3-show", "");
-        x.previousElementSibling.className = 
-        x.previousElementSibling.className.replace(" w3-green", "");
-    }
+        var x = document.getElementById("demoAcc");
+        if (x.className.indexOf("w3-show") == -1) {
+            x.className += " w3-show";
+            x.previousElementSibling.className += " w3-green";
+        } else { 
+            x.className = x.className.replace(" w3-show", "");
+            x.previousElementSibling.className = 
+            x.previousElementSibling.className.replace(" w3-green", "");
+        }
     }
 
     function myAccFunc1() {
-    var x = document.getElementById("demoAcc1");
-    if (x.className.indexOf("w3-show") == -1) {
-        x.className += " w3-show";
-        x.previousElementSibling.className += " w3-green";
-    } else { 
-        x.className = x.className.replace(" w3-show", "");
-        x.previousElementSibling.className = 
-        x.previousElementSibling.className.replace(" w3-green", "");
+        var x = document.getElementById("demoAcc1");
+        if (x.className.indexOf("w3-show") == -1) {
+            x.className += " w3-show";
+            x.previousElementSibling.className += " w3-green";
+        } else { 
+            x.className = x.className.replace(" w3-show", "");
+            x.previousElementSibling.className = 
+            x.previousElementSibling.className.replace(" w3-green", "");
+        }
     }
-    }
-    </script>
+</script>
 
-    <!-- END OF SIDE BAR -->
-    <section class="section">
+<!-- END OF SIDE BAR -->
+<section class="section">
     <div class="container" id="form_edit">
         <div class="header">
             <h1 class="title">
-            CHANGE PASSWORD
+                CHANGE PASSWORD
             </h1>
         </div>
 
         <div class="container1">
             <form method="POST" action="change-password.php">
-            <div class="row">
-                <div class="col-25">
-                <label for="currentpass"></label>
+                <div class="row">
+                    <div class="col-25">
+                        <label for="currentpass"></label>
+                    </div>
+                    <div class="col-75">
+                        <input type="hidden" name="id"  value="<?php echo $id ?>" readonly>
+                    </div>
                 </div>
-                <div class="col-75">
-                <input type="hidden" name="id"  value="<?php echo $id ?>" readonly>
+                <div class="row">
+                    <div class="col-25">
+                        <label for="currentpass">Current Password </label>
+                    </div>
+                    <div class="col-75">
+                        <input type="text" id="oldpassfromDB" name="oldpassfromDB" placeholder="" value="<?php echo $pass;?>">
+                        <p class="control has-icons-right">
+                         <input type="text"  id="oldpass" name="oldpass" placeholder="Enter old password" required="" onkeyup="passvalidation()">
+                         <span class="icon is-medium is-right">
+                            <i class="fas fa-check" id="iconcheck" style="display: none;color: #48c774;margin-top: 10px;"></i> 
+                            <i class="fas fa-times" id="icontimes" style="display:none;color:#f14668;margin-top: 10px;"></i>
+                            <p id="lblwarning" style="text-align: center; font-family: 'Montserrat';" class="is-size-6 "></p>
+                        </span>
+                        <script>
+
+                            function passvalidation() {
+
+                                var currentpass = document.getElementById("oldpass").value();
+                                var oldpassfromDB = document.getElementById("oldpassfromDB").value();
+                                var btnsave = document.getElementById("save");
+
+                                var wrning = document.getElementById("lblwarning");
+                                var checkicon = document.getElementById("iconcheck");
+                                var erroricon = document.getElementById("icontimes");
+
+
+
+
+
+
+                                if(currentpass != oldpassfromDB){
+
+                                    currentpass.style.borderColor = "#f14668";
+                                    btnsave.disabled = true;
+                                    checkicon.style.display = "none";
+                                    erroricon.style.display = "block";
+                                    wrning.innerHTML="INCORRECT PASSWORD";
+                                    wrning.style.color = "#f14668";
+
+                                }else{
+
+                                    currentpass.style.borderColor = "none";
+                                    checkicon.style.display = "block";
+                                    erroricon.style.display = "none";
+                                    btnsave.disabled = false;
+                                    wrning.innerHTML="";
+                                }
+
+
+                            }
+
+
+
+                        </script>
+                    </p>
                 </div>
             </div>
             <div class="row">
                 <div class="col-25">
-                <label for="currentpass">Current Password </label>
+                    <label for="newpass">New Password </label>
                 </div>
                 <div class="col-75">
-                <input type="password" name="oldpass" placeholder="">
+                    <input type="password"  name="newpass" placeholder="">
                 </div>
             </div>
             <div class="row">
                 <div class="col-25">
-                <label for="newpass">New Password </label>
+                    <label for="retypepass">Re-type New Password </label>
                 </div>
                 <div class="col-75">
-                <input type="password"  name="newpass" placeholder="">
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-25">
-                <label for="retypepass">Re-type New Password </label>
-                </div>
-                <div class="col-75">
-                <input type="password"  name="cnewpass" placeholder="">
+                    <input type="password"  name="cnewpass" placeholder="">
                 </div>
             </div>
             <div class="row">
                 <button type="submit" class="button is-rounded" name="update" id="save">Save Changes</button>
             </div>
             <div class="row">
-                <a href="login-setting.php" class="button is-info is-rounded is-hovered" id="back">Back</a>
+                <a href="login-setting.php" class="button is-info is-rounded is-hovered" id="back"> Back </a>
             </div>
-            </form>
-        </div>
 
+        </form>
     </div>
-    </section>
+
+</div>
+</section>
 <?php
-  }
-}
+
+
 ?>
-    <div>
-        <p id="alrights">@2019 ZerterraPh</p>
-    </div>
+<div>
+    <p id="alrights">@2019 ZerterraPh</p>
+</div>
+
+
+
 
 </body>
 
@@ -219,19 +268,19 @@ if(isset($_POST['update'])){
     $cnewpass = $_POST['cnewpass'];
     
     if ($newpass === $cnewpass){
-       
+
         $sql = "UPDATE tblusers SET Password='$newpass' WHERE id='$id' AND Password='$oldpass'";
         if($con->query($sql) === TRUE){
           $msg='PASSWORD  <p style="color: green;" class="is-size-4"></p> HAS BEEN UPDATED!';
           include 'Modals/change_password_alert.php';
           
-        }else{
+      }else{
          $msg='<p style="color: red;" class="is-size-4">SOMETHING WENT WRONG, PLEASE TRY AGAIN!</p>';
          include 'Modals/change_password_alert.php';
-       }
-    
-    }
-  }
+     }
 
-   
-  ?>
+ }
+}
+
+
+?>

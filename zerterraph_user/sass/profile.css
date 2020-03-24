@@ -52,9 +52,9 @@ body {
   text-align: center;
   background: #1faa74;
   -webkit-user-select: none;
-     -moz-user-select: none;
-      -ms-user-select: none;
-          user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
   font-family: 'Montserrat';
   margin-top: 49px;
 }
@@ -67,7 +67,7 @@ body {
   line-height: 65px;
   padding-left: 30px;
   -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
   border-bottom: 1px solid white;
   border-top: 1px solid rgba(255, 255, 255, 0.1);
   border-left: 5px solid transparent;
@@ -145,7 +145,7 @@ a.active, #item:hover {
   font-family: 'Montserrat';
   background-color: transparent;
   -webkit-box-shadow: none;
-          box-shadow: none;
+  box-shadow: none;
   border: none;
   border-bottom: 1px solid black;
   border-radius: 0;
@@ -938,7 +938,7 @@ a.active, #item:hover {
   position: fixed;
   width: 50px;
   height: 50px;
-  background: #a5d547;
+  background: #4cc5db;
   bottom: 25px;
   right: 50px;
   text-decoration: none;

@@ -16,7 +16,7 @@ $testTime = date("i");
 
 // $sql1="SELECT GROUP_CONCAT(id) FROM `tblusers`";
 
-$sql = "SELECT * FROM tblusers WHERE is_active='1'";
+$sql = "SELECT * FROM tblusers WHERE id = '7' AND is_active='1'";
 
 $res_data = $con->query($sql);
 while($row = mysqli_fetch_array($res_data)){
@@ -27,6 +27,7 @@ while($row = mysqli_fetch_array($res_data)){
 	$contact = $row['Contact'];
 	$address = $row['Address']; 
 	$email = $row['Email'];
+	$pass = $row['Password'];
 	$rdays = $row['RemainingDays'];
 	$dateReg = $row['DateRegistered'];
 	$dateEnd= $row['DateExpired'];
@@ -40,16 +41,16 @@ while($row = mysqli_fetch_array($res_data)){
 	$diff = round($datediff / (60 * 60 * 24));
 
 
-	if($testTime==2){
-		$query ="UPDATE tblusers SET RemainingDays = '$diff' WHERE id='$id'";
-		if($con->query($query) === TRUE){
-			$msge="HELLO";
-		}else{
-			$msge="query Failed";
-		}
-	}else{
-		$msge="world";
-	}
+	// if($testTime==2){
+	// 	$query ="UPDATE tblusers SET RemainingDays = '$diff' WHERE id='$id'";
+	// 	if($con->query($query) === TRUE){
+	// 		$msge="HELLO";
+	// 	}else{
+	// 		$msge="query Failed";
+	// 	}
+	// }else{
+	// 	$msge="world";
+	// }
 
 }
 
@@ -119,7 +120,10 @@ $diff = round($datediff / (60 * 60 * 24));
 		margin-left: 100px;
 	}
 
-
+	.testpass{
+		margin-top: 20px;
+		margin-left: 100px;
+	}
 
 
 </style>
@@ -130,7 +134,7 @@ $diff = round($datediff / (60 * 60 * 24));
 		<form action="connection.php" method="get" accept-charset="utf-8">
 			<input type="text" name="remainingDays" id="warrantyLeft" value="<?php echo $diff;?>">
 			<input type="text" value="<?php echo $testTime; ?>" >
-			<input type="text" value="<?php echo $msge; ?>" >
+			<input type="text" value="" >
 			<input type="text" value="<?php echo $id; ?>" >
 		</form>
 	</div>
@@ -139,6 +143,8 @@ $diff = round($datediff / (60 * 60 * 24));
 
 
 	<hr>
+	
+
 
 	<!-- <form action="testnumber.php" method="POST" accept-charset="utf-8">
 	-->
@@ -178,7 +184,12 @@ $diff = round($datediff / (60 * 60 * 24));
 	</div>
 
 
-
+	<script>
+		$(document).ready(function () {
+			alert("hello");
+		
+		});
+	</script>
 
 
 
@@ -186,6 +197,28 @@ $diff = round($datediff / (60 * 60 * 24));
 
 
 
+		
+		// var oldpassword = document.getElementById('oldpass').value();
+		// var newpassword = document.getElementById('newpass').value();
+		// var wrning = document.getElementById('lblpasswrng');
+		// var checkicon = document.getElementById('iconcheck');
+		// var erroricon = document.getElementById('icontimes');
+
+
+
+		// $('#newpass').on('keyup', function () {
+		// 	if ($('#oldpass').val() == $('#newpass').val()) {
+		// 		wrning.innerHTML="Valid";
+		// 	}else{
+		// 		wrning.innerHTML="invalid";
+		// 	}
+
+			// if(newpassword == oldpassword){
+			// 	
+
+			// }else{
+			// 	
+			// }
 
 
 
@@ -198,28 +231,33 @@ $diff = round($datediff / (60 * 60 * 24));
 
 
 
-		function mobileValidation() {
-			var myTextBox = document.getElementById('phonetxt');
-			var value = myTextBox.value;
-			var btn = document.getElementById('checknumber');
-			var wrning = document.getElementById('textwarning');
-			var checkicon = document.getElementById('iconcheck');
-			var erroricon = document.getElementById('icontimes');
-
-
-			var regx =/^(9)\d{9}/;
 
 
 
+			function mobileValidation() {
+				var myTextBox = document.getElementById('phonetxt');
+				var value = myTextBox.value;
+				var btn = document.getElementById('checknumber');
+				var wrning = document.getElementById('textwarning');
+				var checkicon = document.getElementById('iconcheck');
+				var erroricon = document.getElementById('icontimes');
 
-			if (regx.test(value)){
+
+				var regx =/^(9)\d{9}/;
 
 
-				myTextBox.style.borderColor = 'blue';
-				btn.disabled = false;
-				wrning.innerHTML="Valid";
-				checkicon.style.display = "block";
-				erroricon.style.display = "none";
+
+
+				if (regx.test(value)){
+
+
+
+
+					myTextBox.style.borderColor = 'blue';
+					btn.disabled = false;
+					wrning.innerHTML="Valid";
+					checkicon.style.display = "block";
+					erroricon.style.display = "none";
 				// erroricon.css('display','none');
 
 				
@@ -309,6 +347,10 @@ var x = setInterval(function() {
 // }
 
 </script>
+
+
+
+
 
 <script type="text/javascript" src="dist/js/modal-fx.min.js"></script>
 <script type="text/javascript" src="https://unpkg.com/bulma-modal-fx/dist/js/modal-fx.min.js"></script>

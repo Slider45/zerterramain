@@ -6,9 +6,6 @@
 html, body {
   font-family: Montserrat;
 }
-#scanMe{
-    font-size:10pt;
-}
 
 .card {
   width: 600px;
@@ -130,6 +127,10 @@ html, body {
   color: #000;
   text-align: justify;
   margin-left: 50px;
+}
+
+#scanMe {
+  font-size: 10pt;
 }
 
 .card-footer {
@@ -389,10 +390,9 @@ html, body {
     font-size: 22px;
     border-radius: 30px;
   }
-  
-  #scanMe{
-    font-size:15pt;
-}
+  #scanMe {
+    font-size: 15pt;
+  }
 }
 
 @media print {

@@ -92,6 +92,41 @@ a.active, a:hover {
   text-transform: uppercase;
 }
 
+@media (max-width: 860px) {
+  .sidebar {
+    height: auto;
+    width: 70px;
+    left: 0;
+    margin: 100px 0;
+  }
+  .sidebar header {
+    display: none;
+  }
+  span {
+    position: absolute;
+    margin-left: 23px;
+    opacity: 0;
+    visibility: hidden;
+  }
+  .sidebar a {
+    height: 60px;
+  }
+  .sidebar a i {
+    margin-left: -10px;
+  }
+  a:hover {
+    width: 200px;
+    background: inherit;
+  }
+  .sidebar a:hover span {
+    opacity: 1;
+    visibility: visible;
+  }
+  .sidebar header {
+    margin: 0;
+  }
+}
+
 #acc-setting {
   background-color: #80cbae;
   font-family: 'Montserrat';
@@ -150,6 +185,11 @@ a.active, a:hover {
   font-size: 26px;
 }
 
+#alrights {
+  text-align: center !important;
+  font-size: 12px;
+  margin-top: 80px;
+}
 
 @media (min-width: 801px) and (max-width: 860px) {
   .sidebar {
@@ -232,12 +272,12 @@ a.active, a:hover {
     padding-bottom: 0;
   }
   .button.is-success.is-outlined {
-      width: 250px;
+    width: 250px;
   }
   .button .head {
-  font-size: 20px;
-}
-.container1 {
+    font-size: 20px;
+  }
+  .container1 {
     margin-left: 0;
   }
 }
@@ -286,12 +326,12 @@ a.active, a:hover {
     margin-bottom: 10px;
   }
   .button.is-success.is-outlined {
-      width: 250px;
+    width: 250px;
   }
   .button .head {
-  font-size: 20px;
-}
-.container1 {
+    font-size: 20px;
+  }
+  .container1 {
     margin-left: 0;
   }
 }
@@ -340,12 +380,12 @@ a.active, a:hover {
     margin-bottom: 10px;
   }
   .button.is-success.is-outlined {
-      width: 250px;
+    width: 250px;
   }
   .button .head {
-  font-size: 20px;
-}
-.container1 {
+    font-size: 20px;
+  }
+  .container1 {
     margin-left: 0;
   }
 }
@@ -394,12 +434,12 @@ a.active, a:hover {
     margin-bottom: 10px;
   }
   .button.is-success.is-outlined {
-      width: 250px;
+    width: 250px;
   }
   .button .head {
-  font-size: 20px;
-}
-.container1 {
+    font-size: 20px;
+  }
+  .container1 {
     margin-left: 0;
   }
 }
@@ -456,5 +496,4 @@ a.active, a:hover {
     font-size: 40px;
   }
 }
-
 /*# sourceMappingURL=login-setting.css.map */

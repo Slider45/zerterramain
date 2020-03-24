@@ -142,21 +142,19 @@ if (isset($_POST['sendOrder'])) {
 
 
 
-}else{
+// }else{
 
-      //error message if the email for support is failed to send
- $msg='<div class="notification is-danger alert">
- <center>
- <strong>WHOPS, SOMETHING WENT WRONG<br>SORRY FOR INCONVINIENT!<br>FOR MORE CONCERN YOU CAN SEND US AN EMAIL AT<br>support@zerterra.com</strong> 
- </center>
- </div>';
+//       //error message if the email for support is failed to send
+//  $msg='<div class="notification is-danger alert">
+//  <center>
+//  <strong>WHOPS, SOMETHING WENT WRONG<br>SORRY FOR INCONVINIENT!<br>FOR MORE CONCERN YOU CAN SEND US AN EMAIL AT<br>support@zerterra.com</strong> 
+//  </center>
+//  </div>';
 
- include '../Modals/pre_order_alert.php';
+//  include '../Modals/pre_order_alert.php';
 
-    // echo "<script>alert('failed mail');</script>";
-}
-
-
+//     // echo "<script>alert('failed mail');</script>";
+// }
 
 
 
@@ -164,7 +162,9 @@ if (isset($_POST['sendOrder'])) {
 
 
 
-}
+
+
+
 
 
 

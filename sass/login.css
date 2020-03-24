@@ -43,7 +43,7 @@ body {
   padding-top: 0px;
   padding-bottom: 16px;
   -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
   background-color: #111;
   color: #fff;
 }
@@ -317,7 +317,7 @@ a:hover {
     margin-left: 10px;
     padding: 5px;
     text-align: center;
-}
+  }
   .forgot {
     margin-left: 0;
   }
@@ -333,7 +333,7 @@ a:hover {
     line-height: 30px;
   }
   .content figure {
-     margin-left: 0;
+    margin-left: 0;
   }
 }
 
@@ -378,8 +378,8 @@ a:hover {
     font-size: 13px;
   }
   .logo img {
-     margin-left: 0; 
-}
+    margin-left: 0;
+  }
 }
 
 @media (min-width: 376px) and (max-width: 411px) {
@@ -395,11 +395,11 @@ a:hover {
     width: 180px;
   }
   .content figure {
-     margin-left: 0;
-}
-    .logo img {
-        margin-left: 0;
-    }
+    margin-left: 0;
+  }
+  .logo img {
+    margin-left: 0;
+  }
   .field .input {
     max-width: 400px;
     width: 100%;
@@ -446,8 +446,8 @@ a:hover {
     margin-left: 0;
   }
   .content figure {
-     margin-left: 0;
-    }
+    margin-left: 0;
+  }
   .image.is-128x128 {
     height: 180px;
     width: 180px;
@@ -853,10 +853,10 @@ a:hover {
     width: 180px;
   }
   .content figure {
-      margin-left: 0;
+    margin-left: 0;
   }
   .logo img {
-      margin-left:0;
+    margin-left: 0;
   }
   .field .input {
     max-width: 400px;

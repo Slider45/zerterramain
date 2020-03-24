@@ -98,15 +98,26 @@ $serialNum = "";?>
                           <div class="control1">
                             <input class="input2" type="email" name="email" placeholder="Email" required>
                           </div>
-                          <div class="control1">
-                            <input class="input2" type="number" name="contactNum" placeholder="Contact Number" required>
+
+                          <div class="control2">
+                              <p class="control has-icons-right">
+                                <box id="box">
+                                <input type="text" placeholder="+63" style="width:43px; border:none;padding-top: 6px;padding-bottom: 11px;padding-left:6px;font-weight: bold;font-family: Montserrat; 7px;border-bottom: solid 1px;" disabled="disabled"><input class="input2"  minlength="10" maxlength="10" placeholder="Contact (919XXXXXXX)" onkeyup="mobileValidation()" id="contactNum" name="contactNum" style="width:788px;height:37px;border-top:0;border-right:0;border-radius:0;border-bottom:0;border-bottom-right-radius: 5px;
+                    border-top-right-radius: 5px;">
+                                  <span class="icon is-medium is-right">
+                                    <i class="fas fa-check" id="iconcheck" style="display: none;color: #48c774;margin-top: 15px;"></i>
+                                    <i class="fas fa-times" id="icontimes" style="display:none;color:#f14668;margin-top: 15px;"></i>
+                                    <p id="lblwarning" style="text-align: center" class="is-size-7"></p>
+                                  </span>
+                                </box>
+                              </p>
                           </div>
+            
+
                           <div class="control1">
                             <input class="input2" type="text" name="address" placeholder="Address" required>
                           </div>
-                          <!-- <div class="control">
-                            <textarea class="textarea1" placeholder="Message"></textarea>
-                          </div> -->                     
+                                           
                         </div>
                       </section>
                       <footer class="modal-card-foot2">
@@ -197,4 +208,53 @@ $serialNum = "";?>
 </div>
 </nav>
 </div>
+
+
+<script>
+
+  function mobileValidation() {
+    var myTextBox = document.getElementById('contactNum');
+    var value = myTextBox.value;
+    var btn = document.getElementById('sndRequest');
+    var wrning = document.getElementById('lblwarning');
+    var checkicon = document.getElementById('iconcheck');
+    var erroricon = document.getElementById('icontimes');
+    var boxnumber = document.getElementById('box');
+
+
+
+
+
+
+    var regx =/^(9)\d{9}/;
+
+
+
+
+    if (regx.test(value)){
+
+      boxnumber.style.borderColor = "#48c774";
+      checkicon.style.display = "block";
+      erroricon.style.display = "none";
+      btn.disabled = false;
+      wrning.innerHTML="";
+
+    }else if (value == ""){
+     boxnumber.style.borderColor = "black";
+     checkicon.style.display = "none";
+     erroricon.style.display = "none";
+     btn.disabled = false;
+     wrning.innerHTML="";
+
+
+   }else{
+    boxnumber.style.borderColor = "#f14668";
+    btn.disabled = true;
+    checkicon.style.display = "none";
+    erroricon.style.display = "block";
+    wrning.innerHTML="INVALID NUMBER";
+    wrning.style.color = "#f14668";
+  }
+}
+</script>
 

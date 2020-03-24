@@ -44,7 +44,7 @@ include '../PagesFunction/connection.php';
         <div class="buttons">
 
           <a class="button btn-user">
-           <?= $_SESSION['admin']?>&nbsp&nbsp<img src="images/userIcon.png" id="userIcon"></i>
+           <?= $_SESSION['admin']?>&nbsp&nbsp<i class="fas fa-user-tie"></i>
 
          </a>
          <!--<a href="../zerterraph_user/logout.php" class="button btn-logout">-->
@@ -84,7 +84,7 @@ include '../PagesFunction/connection.php';
   $result=mysqli_query($con,$sql);
   $penUserCount=mysqli_num_rows($result);
 
-  $sql = "SELECT id FROM admin_list";
+  $sql = "SELECT id FROM admin_list where is_active='1'";
   $result=mysqli_query($con,$sql);
   $adminUserCount=mysqli_num_rows($result);
 
@@ -146,10 +146,6 @@ include '../PagesFunction/connection.php';
             </div>
           </a>
         </div>
-
-    
-        <button  class="button" id="home" data-tooltip="User" ><img src="images/userIcon.png" id="userIcon"></button> 
-
 
 
         <div class="column is-half">

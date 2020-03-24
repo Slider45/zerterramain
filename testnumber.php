@@ -186,8 +186,7 @@ $diff = round($datediff / (60 * 60 * 24));
 
 	<script>
 		$(document).ready(function () {
-			alert("hello");
-		
+			alert("hello");		
 		});
 	</script>
 

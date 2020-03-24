@@ -48,17 +48,17 @@ include '../PagesFunction/connection.php';
       <a href="sales.php" class="w3-bar-item w3-button" id="item-hover"><i class="fas fa-hand-holding-usd"></i> &nbsp Sales</a>
       <a href="actionLog.php" class="w3-bar-item w3-button" id="item-hover"><i class="fas fa-clipboard-list"></i> &nbsp Action Log</a>
       <button onclick="document.getElementById('id01').style.display='block'" href="consolidate.php" class="w3-bar-item w3-button" id="dashboard" ><i class="fas fa-print"></i> &nbsp Consolidate</button>
-      <a href="../zerterraph_user/logout.php" class="w3-bar-item w3-button" id="item-hover"><i class="fas fa-sign-out-alt"></i>&nbsp Logout</a> 
+        <a href="../zerterraph_user/logout.php" class="w3-bar-item w3-button" id="item-hover"><i class="fas fa-sign-out-alt"></i>&nbsp Logout</a> 
     </div>
 
     <a href="print/activitylog.php"><button  class="button" id="home" ><i class="fas fa-print"></i> </button></a> 
-    
+  
     <div class="w3-main" style="margin-left:200px">
       <div class="w3-teal">
         <button class="w3-button w3-teal w3-xlarge w3-hide-large" onclick="w3_open()">&#9776;</button>
       </div>
 
-      
+     
 
       <div class="w3-container">
         <div class="columns">
@@ -69,83 +69,83 @@ include '../PagesFunction/connection.php';
 
         <!--  -->
         <form action="print/activitylogPrint.php" method="GET">
-         <!--  -->
-         <div class="columns">
-          <div class="column is-3" id="base">
-            <p id="startD">Start-date</p>
-            <box id="cal"><i class="far fa-calendar-alt"></i><input type="text" name="from_date" id="from_date" class="form-control" value="2020/01/01" /></box>
-          </div>
-          <div class="column is-1" > TO </div>
-          <div class="column is-3" id="base">
-            <p id="endD">End-date</p>
-            <box id="cal"><i class="far fa-calendar-alt"></i><input type="text" name="to_date" id="to_date" class="form-control"  value="<?php echo date('Y/m/d'); ?>" />  </box>
-          </div>
-          <div class="column">
-            <button class="button is-primary" type="button" value="" id="filter"><i class="fas fa-filter"></i> &nbspFilter</button>
-          </div>
-        </div>
-        <button  class="button" id="home" ><i class="fas fa-print"></i> </button>
+     <!--  -->
+     <div class="columns">
+      <div class="column is-3" id="base">
+    <p id="startD">Start-date</p>
+     <box id="cal"><i class="far fa-calendar-alt"></i><input type="text" name="from_date" id="from_date" class="form-control" value="2020/01/01" /></box>
+     </div>
+     <div class="column is-1" > TO </div>
+     <div class="column is-3" id="base">
+    <p id="endD">End-date</p>
+     <box id="cal"><i class="far fa-calendar-alt"></i><input type="text" name="to_date" id="to_date" class="form-control"  value="<?php echo date('Y/m/d'); ?>" />  </box>
+     </div>
+     <div class="column">
+        <button class="button is-primary" type="button" value="" id="filter"><i class="fas fa-filter"></i> &nbspFilter</button>
+      </div>
+  </div>
+  <button  class="button" id="home" ><i class="fas fa-print"></i> </button>
+    <!--  -->
+    </form>
+
         <!--  -->
-      </form>
 
-      <!--  -->
+        <section class = "section">
+          <div class = "container"> 
 
-      <section class = "section">
-        <div class = "container"> 
+           <table class = "table">
+            <thead>
+             <tr>
+              <th>Author</th>
+              <th>Action</th>
+              <th>Date Action</th>
 
-         <table class = "table">
-          <thead>
-           <tr>
-            <th>Author</th>
-            <th>Action</th>
-            <th>Date Action</th>
-
-            
-          </tr>
-        </thead>
-
-        <?php 
-
-        if (isset($_POST['search_btn'])){
-          $searchValue = $_POST['searchValue'];
-
-          if ($searchValue===''){
-            echo '<script>window.location.href="?"</script>';
-          }else{
-           include 'searchFunction/consoactionLogFunction.php';
-         }
-       }else{     
-         $sql = "SELECT * FROM tbl_activity_log  ORDER BY id DESC LIMIT $offset, $no_of_records_per_page";
-
-         $res_data = $con->query($sql);
-         while($row = mysqli_fetch_array($res_data)){
-           $id = $row['id'];
-           $author = $row['AdminName'];
-           $action = $row['Description'];
-           $dateAction = $row['DateAction'];
-           
-           ?>
-           
-           <tbody>
-            <tr>
-              
-              <td>
-                <?php echo $author; ?>
-              </td>
-              <td>
-                <?php echo $action; ?>
-              </td>
-              <td>
-                <?php echo $dateAction; ?>
-              </td>
               
             </tr>
+          </thead>
+
+          <?php 
+
+          if (isset($_POST['search_btn'])){
+            $searchValue = $_POST['searchValue'];
+
+            if ($searchValue===''){
+              echo '<script>window.location.href="?"</script>';
+            }else{
+             include 'searchFunction/consoactionLogFunction.php';
+           }
+         }else{     
+                   $sql = "SELECT * FROM tbl_activity_log  ORDER BY id DESC LIMIT $offset, $no_of_records_per_page";
+
+          $res_data = $con->query($sql);
+          while($row = mysqli_fetch_array($res_data)){
+             $id = $row['id'];
+    $author = $row['AdminName'];
+    $action = $row['Description'];
+    $dateAction = $row['DateAction'];
             
-            
-            <?php 
-          }  
-        }        
-        ?>
+            ?>
+        
+        <tbody>
+              <tr>
+              
+                <td>
+                  <?php echo $author; ?>
+                </td>
+                <td>
+                  <?php echo $action; ?>
+                </td>
+                <td>
+                  <?php echo $dateAction; ?>
+                </td>
+        
+              </tr>
+              
+              
+              <?php 
+            }  
+          }        
+          ?>
 
       </tbody>
     </table>
@@ -257,36 +257,36 @@ include '../PagesFunction/connection.php';
     });
   </script>
 
-  <script>  
-    $(document).ready(function(){  
-     $.datepicker.setDefaults({  
-      dateFormat: 'yy-mm-dd'   
-    });  
-     $(function(){  
-      $("#from_date").datepicker();  
-      $("#to_date").datepicker();  
-    });  
-     $('#filter').click(function(){  
-      var from_date = $('#from_date').val();  
-      var to_date = $('#to_date').val();  
-      if(from_date != '' && to_date != '')  
-      {  
-       $.ajax({  
-        url:"consoLogFilter.php",  
-        method:"POST",  
-        data:{from_date:from_date, to_date:to_date},  
-        success:function(data)  
-        {  
-         $('#order_table').html(data);  
-       }  
-     });  
-     }  
-     else  
-     {  
-       alert("Please Select Date");  
-     }  
-   });  
-   });  
+<script>  
+      $(document).ready(function(){  
+           $.datepicker.setDefaults({  
+                dateFormat: 'yy-mm-dd'   
+           });  
+           $(function(){  
+                $("#from_date").datepicker();  
+                $("#to_date").datepicker();  
+           });  
+           $('#filter').click(function(){  
+                var from_date = $('#from_date').val();  
+                var to_date = $('#to_date').val();  
+                if(from_date != '' && to_date != '')  
+                {  
+                     $.ajax({  
+                          url:"consoLogFilter.php",  
+                          method:"POST",  
+                          data:{from_date:from_date, to_date:to_date},  
+                          success:function(data)  
+                          {  
+                               $('#order_table').html(data);  
+                          }  
+                     });  
+                }  
+                else  
+                {  
+                     alert("Please Select Date");  
+                }  
+           });  
+      });  
  </script>
 
 </body>

@@ -45,6 +45,15 @@ include 'PagesFunction/connection.php';
     background-repeat: no-repeat;
     background-attachment: fixed;
   }
+
+  box{
+    background:#f2f2f2;
+    width:40px;
+    border: solid black 1px;
+    border-radius:5px;
+    padding: 10px;
+    padding-right:0;
+  }
 </style>
 
 <body>
@@ -218,14 +227,17 @@ include 'PagesFunction/connection.php';
                 <input class="input1" name="email_order" type="email" placeholder="Email" required="">
               </div>
 
-              <div class="control ">
+              <div class="control">
                 <p class="control has-icons-right">
-                  <input type="text" id="contact_order" minlength="10" maxlength="10" class="input1" name="contact_order" placeholder="Contact (919XXXXXXX)" required="" onkeyup="mobileValidation()">
-                  <span class="icon is-medium is-right">
-                    <i class="fas fa-check" id="iconcheck" style="display: none;color: #48c774;margin-top: 20px;"></i>
-                    <i class="fas fa-times" id="icontimes" style="display:none;color:#f14668;margin-top: 20px;"></i>
-                    <p id="lblwarning" style="text-align: center" class="is-size-7"></p>
-                  </span>
+                  <box id="box"><span>+63</span>
+                    <input type="text" id="contact_order" minlength="10" maxlength="10" class="input1" name="contact_order" placeholder="Contact (919XXXXXXX)" required="" onkeyup="mobileValidation()" style="width:910px;height:37px;border-top:0;border-right:0;border-radius:0;border-bottom:0;border-bottom-right-radius: 5px;
+                    border-top-right-radius: 5px;">
+                    <span class="icon is-medium is-right">
+                      <i class="fas fa-check" id="iconcheck" style="display: none;color: #48c774;margin-top: 20px;"></i>
+                      <i class="fas fa-times" id="icontimes" style="display:none;color:#f14668;margin-top: 20px;"></i>
+                      <p id="lblwarning" style="text-align: center" class="is-size-7"></p>
+                    </span>
+                  </box>
                 </p>
 
               </div>
@@ -264,6 +276,7 @@ include 'PagesFunction/connection.php';
     var wrning = document.getElementById('lblwarning');
     var checkicon = document.getElementById('iconcheck');
     var erroricon = document.getElementById('icontimes');
+    var boxnumber = document.getElementById('box');
 
 
 
@@ -277,21 +290,29 @@ include 'PagesFunction/connection.php';
 
     if (regx.test(value)){
 
-      myTextBox.style.borderColor = "#48c774";
+      boxnumber.style.borderColor = "#48c774";
       checkicon.style.display = "block";
       erroricon.style.display = "none";
       btn.disabled = false;
       wrning.innerHTML="";
 
-    }else{
-      myTextBox.style.borderColor = "#f14668";
-      btn.disabled = true;
-      checkicon.style.display = "none";
-      erroricon.style.display = "block";
-      wrning.innerHTML="INVALID NUMBER";
-      wrning.style.color = "#f14668";
-    }
+    }else if (value == ""){
+     boxnumber.style.borderColor = "black";
+     checkicon.style.display = "none";
+     erroricon.style.display = "none";
+     btn.disabled = false;
+     wrning.innerHTML="";
+
+
+   }else{
+    boxnumber.style.borderColor = "#f14668";
+    btn.disabled = true;
+    checkicon.style.display = "none";
+    erroricon.style.display = "block";
+    wrning.innerHTML="INVALID NUMBER";
+    wrning.style.color = "#f14668";
   }
+}
 </script>
 
 

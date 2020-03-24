@@ -98,7 +98,7 @@ html, body {
   width: 50px;
   height: 50px;
   background: #a5d547;
-  bottom: 25px;
+  bottom: 100px;
   right: 50px;
   text-decoration: none;
   text-align: center;
@@ -601,12 +601,14 @@ table, th, td {
   font-family: montserrat;
 }
 
-#home {
+
+
+#adminIcon {
   position: fixed;
   width: 50px;
   height: 50px;
   background: #f7de62;
-  bottom: 570px;
+  bottom: 565px;
   right: 50px;
   text-decoration: none;
   text-align: center;
@@ -617,7 +619,7 @@ table, th, td {
   padding-top: 0;
 }
 
-#home #userIcon {
+#adminIcon #userIcon {
   width: 50px  !important;
   max-width: 50px;
   height: 50px;

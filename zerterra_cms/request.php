@@ -118,10 +118,7 @@ include 'Buttons/requestButtonFunction.php';
           ?>
           <tbody>
            <tr>
-<<<<<<< HEAD
            
-=======
->>>>>>> origin/master
             <td>
               <?php echo $serialNum; ?>
             </td>

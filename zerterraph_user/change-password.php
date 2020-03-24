@@ -29,6 +29,9 @@ while($row = mysqli_fetch_array($res_data)){
 
 ?>
 
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -55,6 +58,10 @@ while($row = mysqli_fetch_array($res_data)){
     <title>zerTERRA</title>
 </head>
 
+
+
+
+
 <body>
 
    <!--NAVBAR-->
@@ -69,7 +76,7 @@ while($row = mysqli_fetch_array($res_data)){
 
 
    <script>
-    (function () {
+    $(document).ready(function () {
         var burger = document.querySelector('.burger');
         var nav = document.querySelector('#' + burger.dataset.target);
         burger.addEventListener('click', function () {
@@ -79,7 +86,8 @@ while($row = mysqli_fetch_array($res_data)){
         });
 
 
-    })();
+    });
+
 </script>
 
 <!-- END OF NAVBAR -->
@@ -164,55 +172,14 @@ while($row = mysqli_fetch_array($res_data)){
                         <label for="currentpass">Current Password </label>
                     </div>
                     <div class="col-75">
-                        <input type="text" id="oldpassfromDB" name="oldpassfromDB" placeholder="" value="<?php echo $pass;?>">
+                        <input type="hidden" id="oldpass" name="oldpassfromDB" placeholder="" value="<?php echo $pass;?>">
                         <p class="control has-icons-right">
-                         <input type="text"  id="oldpass" name="oldpass" placeholder="Enter old password" required="" onkeyup="passvalidation()">
+                         <input type="text" id="currpass" name="oldpass" placeholder="Enter old password" required="">
                          <span class="icon is-medium is-right">
                             <i class="fas fa-check" id="iconcheck" style="display: none;color: #48c774;margin-top: 10px;"></i> 
                             <i class="fas fa-times" id="icontimes" style="display:none;color:#f14668;margin-top: 10px;"></i>
                             <p id="lblwarning" style="text-align: center; font-family: 'Montserrat';" class="is-size-6 "></p>
                         </span>
-                        <script>
-
-                            function passvalidation() {
-
-                                var currentpass = document.getElementById("oldpass").value();
-                                var oldpassfromDB = document.getElementById("oldpassfromDB").value();
-                                var btnsave = document.getElementById("save");
-
-                                var wrning = document.getElementById("lblwarning");
-                                var checkicon = document.getElementById("iconcheck");
-                                var erroricon = document.getElementById("icontimes");
-
-
-
-
-
-
-                                if(currentpass != oldpassfromDB){
-
-                                    currentpass.style.borderColor = "#f14668";
-                                    btnsave.disabled = true;
-                                    checkicon.style.display = "none";
-                                    erroricon.style.display = "block";
-                                    wrning.innerHTML="INCORRECT PASSWORD";
-                                    wrning.style.color = "#f14668";
-
-                                }else{
-
-                                    currentpass.style.borderColor = "none";
-                                    checkicon.style.display = "block";
-                                    erroricon.style.display = "none";
-                                    btnsave.disabled = false;
-                                    wrning.innerHTML="";
-                                }
-
-
-                            }
-
-
-
-                        </script>
                     </p>
                 </div>
             </div>
@@ -221,7 +188,7 @@ while($row = mysqli_fetch_array($res_data)){
                     <label for="newpass">New Password </label>
                 </div>
                 <div class="col-75">
-                    <input type="password"  name="newpass" placeholder="">
+                    <input type="password" id="newpass" name="newpass" placeholder="" required=""> 
                 </div>
             </div>
             <div class="row">
@@ -229,20 +196,26 @@ while($row = mysqli_fetch_array($res_data)){
                     <label for="retypepass">Re-type New Password </label>
                 </div>
                 <div class="col-75">
-                    <input type="password"  name="cnewpass" placeholder="">
+                    <p class="control has-icons-right">
+                        <input type="password" id="cnewpass" name="cnewpass" placeholder="" required="">
+                        <span class="icon is-medium is-right">
+                            <i class="fas fa-check" id="iconcheck1" style="display: none;color: #48c774;margin-top: 10px;"></i> 
+                            <i class="fas fa-times" id="icontimes1" style="display:none;color:#f14668;margin-top: 10px;"></i>
+                            <p id="lblwarning1" style="text-align: center; font-family: 'Montserrat';" class="is-size-6 "></p>
+                        </span>
+                    </div>
                 </div>
-            </div>
-            <div class="row">
-                <button type="submit" class="button is-rounded" name="update" id="save">Save Changes</button>
-            </div>
-            <div class="row">
-                <a href="login-setting.php" class="button is-info is-rounded is-hovered" id="back"> Back </a>
-            </div>
+                <div class="row">
+                    <button type="submit" class="button is-rounded is-success" name="update" id="save" disabled="disabled">Save Changes</button>
+                </div>
+                <div class="row">
+                    <a href="login-setting.php" class="button is-info is-rounded is-hovered" id="back"> Back </a>
+                </div>
 
-        </form>
+            </form>
+        </div>
+
     </div>
-
-</div>
 </section>
 <?php
 
@@ -252,6 +225,96 @@ while($row = mysqli_fetch_array($res_data)){
     <p id="alrights">@2019 ZerterraPh</p>
 </div>
 
+<script>
+
+    $(document).ready(function() {
+        $("#currpass").keyup(check);
+        $("#cnewpass").keyup(newpass);
+
+    });
+    function check() {
+
+
+        var password1 = $("#oldpass").val();
+        var password2 = $("#currpass").val();
+        var btncheck = $("#save");
+        var wrning = $("#lblwarning");
+        var icon1 = $("#iconcheck");
+        var icon2 = $("#icontimes");
+
+
+        if(password2 == password1) {
+            icon1.show();  
+            icon2.hide();
+            wrning.text("");  
+            
+            wrning.hide();
+            btncheck.attr("disabled", false);
+
+        }else if(password2==""){
+            icon1.hide(); 
+            icon2.hide();
+            wrning.text(""); 
+            wrning.hide();
+        }else{
+
+            icon1.hide(); 
+            icon2.show();
+            
+            wrning.show();
+            wrning.text("PASSWORD NOT MATCHED!");
+            wrning.css("color","#f14668");
+            btncheck.attr("disabled", true);
+
+
+
+
+        }
+
+    }
+
+      function newpass() {
+
+
+        var password1 = $("#newpass").val();
+        var password2 = $("#cnewpass").val();
+        var btncheck = $("#save");
+        var wrning = $("#lblwarning1");
+        var icon1 = $("#iconcheck1");
+        var icon2 = $("#icontimes1");
+
+
+        if(password2 == password1) {
+            icon1.show();  
+            icon2.hide();
+            wrning.text("PASSWORD MATCHED!");  
+            wrning.css("color","#48c774");
+            wrning.show();
+            btncheck.attr("disabled", false);
+
+        }else if(password2==""){
+            icon1.hide(); 
+            icon2.hide();
+            wrning.text(""); 
+            wrning.hide();
+        }else{
+
+            icon1.hide(); 
+            icon2.show();
+            
+            wrning.show();
+            wrning.text("PASSWORD NOT MATCHED!");
+            wrning.css("color","#f14668");
+            btncheck.attr("disabled", true);
+
+
+
+
+        }
+
+    }
+
+</script>
 
 
 

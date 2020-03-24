@@ -64,68 +64,129 @@ while($row = mysqli_fetch_array($res_data)){
 	<div class="testpass">
 
 		<div class="field">
-			<input class="input" id="oldpassDB" type="text" placeholder="Email" value="<?php echo $pass?>">
+			<input class="input"  type="hidden" value="<?php echo $fname?>">
+			<input class="input" id="oldpassDB" type="hidden" placeholder="Email" value="<?php echo $pass?>">
 			<br><br>
 			<p class="control has-icons-right">
-				<input class="input" id="newpass" type="text" placeholder="new pass" onkeyup='check();'>
+				<input class="input" id="newpass" type="text" placeholder="new pass" onkeyup="check()">
 				<span class="icon is-medium is-right">
 					<i class="fas fa-check" id="iconcheck1" style="display: none;color: #48c774;"></i>
 					<i class="fas fa-times" id="icontimes1" style="display:none;color:#f14668;"></i>
-					<p id="lblpasswrng" style="text-align: center" class="is-size-5"></p>
+					
+					<p class="notification is-danger is-size-6" id="validate-status" style="display:none; text-align: center;" ></p>
+					
+					
 				</span>
 			</p>
 			<br>
-			<a class="button is-primary is-rounded" id="btn">Rounded</a>
+			<a class="button is-primary is-rounded" id="btnSubmit" disabled='disabled'>Rounded</a>
 		</div>
 	</div>
 	<hr>
 
 
 	<script>
-		$(document).ready(function () {
-			
-			function check() {
+		// $(document).ready(function () {
+			// $(document).ready(function() {
+			// 	$("#newpass").keyup(check);
+			// });
 
-				var oldpass = document.getElementById('oldpassDB');
-				var valueoldpass = oldpass.value;
+		// 	function check() {
 
-				var newpass = document.getElementById('newpass');
-				var valuenewpass= newpass.value;
+		// 		var oldpass = document.getElementById('oldpassDB');
+		// 		var valueoldpass = oldpass.value;
 
-				var btncheck = document.getElementById('btn');
-				var icon1 = document.getElementById('iconcheck1');
-				var icon2 = document.getElementById('icontimes1')
+		// 		var newpass = document.getElementById('newpass');
+		// 		var valuenewpass= newpass.value;
 
-				var wrngpass = document.getElementById('lblpasswrng');
+		// 		var btncheck = document.getElementById('btn');
+		// 		var icon1 = document.getElementById('iconcheck1');
+		// 		var icon2 = document.getElementById('icontimes1')
 
-
-
-
-				if (valueoldpass == oldpass) {
+		// 		var wrngpass = document.getElementById('lblpasswrng');
 
 
 
-					wrningpass.style.color = 'green';
-					btncheck.disabled = false;
-					wrngpass.innerHTML = 'matching';
-					icon1.style.display = "block";
-					icon2.style.display = "none";
+
+		// 		if (valuenewpass == valueoldpass) {
 
 
-				} else {
+
+		// 			wrningpass.style.color = 'green';
+		// 			btncheck.disabled = false;
+		// 			wrngpass.innerHTML = 'matching';
+		// 			icon1.style.display = "block";
+		// 			icon2.style.display = "none";
 
 
-					wrningpass.style.color = 'red';
-					btncheck.disabled = true;
-					wrngpass.innerHTML = 'not match!';
-					icon1.style.display = "none";
-					icon2.style.display = "block";
+		// 		} else {
 
-				}
-			}
+
+		// 			wrningpass.style.color = 'red';
+		// 			btncheck.disabled = true;
+		// 			wrngpass.innerHTML = 'not match!';
+		// 			icon1.style.display = "none";
+		// 			icon2.style.display = "block";
+
+		// 		}
+		// 	}
+		// });
+
+		$(document).ready(function() {
+			$("#newpass").keyup(validate);
 		});
 
-		
+
+		function validate() {
+			var password1 = $("#oldpassDB").val();
+			var password2 = $("#newpass").val();
+			var btncheck = $("#btnSubmit");
+			var wrning = $("#validate-status");
+			var icon1 = $("#iconcheck1");
+			var icon2 = $("#icontimes1");
+			var notif = $("#notif");
+
+
+
+			if(password1 == password2) {
+				icon1.show();  
+				icon2.hide();
+
+				wrning.show();
+				// wrning.addClass("is-success");
+				// wrning.removeClass("is-danger");
+
+				wrning.text("Password matched");  
+				wrning.css("background-color","#48c774");
+				btncheck.attr("disabled", false);
+
+
+				
+
+			}else if(password2==""){
+				icon1.hide(); 
+				icon2.hide();
+				wrning.text(""); 
+				wrning.hide();
+
+				
+			}
+			else {
+				icon1.hide(); 
+				icon2.show();
+
+
+				wrning.show();
+				// wrning.addClass("is-danger");
+				// wrning.removeClass("is-success");
+
+				wrning.css("background-color","#f14668");
+				wrning.text("invalid"); 
+				// wrning.css("color","#f14668");
+				btncheck.attr("disabled", true);
+			}
+
+		}
 
 	</script>
 

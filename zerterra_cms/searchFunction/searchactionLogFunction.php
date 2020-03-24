@@ -29,13 +29,13 @@ if ($result->num_rows > 0) {
 
 
 
-  <?php 
+  <?php }
 
-  }
+
+
+
+
 }
-
-
-
 else{
 	$msg='<p style="color: red;" class="is-size-4">NO RECORD FOUND</p>';
     include 'Modals/act_log_alert.php';

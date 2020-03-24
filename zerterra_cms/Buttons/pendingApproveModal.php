@@ -68,7 +68,7 @@
           <input type="hidden" name="orderNum" value="<?php echo $orderNum; ?>"> 
           <input type="hidden" name="edit_id" value="<?php echo $id; ?>">
           <button type="submit" class="button is-danger"  id="btn_decline" name="btn-delete">
-            <i class="fas fa-user-slash"></i>&nbspDECLINED</button> 
+            <i class="fas fa-user-slash"></i>&nbspDECLINE</button> 
           </div>
         </form>
 

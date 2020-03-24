@@ -2,7 +2,7 @@
 
 
 $sql= "SELECT * FROM pending_order_list WHERE CONCAT(`OrderNumber`,`Firstname`, `Lastname`, `Email`,`Contact`) LIKE '%".$searchValue."%'";
-
+ //$sql = "SELECT * FROM request_list WHERE is_approved='0'"   ;
 $result = $con->query($sql);
 if ($result->num_rows > 0) {
   while($row = $result->fetch_assoc()) 
@@ -22,7 +22,6 @@ if ($result->num_rows > 0) {
 
      
 
-<<<<<<< HEAD
      <td>
       <?php echo $orderNum; ?>
     </td>
@@ -30,9 +29,6 @@ if ($result->num_rows > 0) {
     <td>
       <?php echo $fname; ?>
     </td>
-=======
-  
->>>>>>> origin/master
 
     <td>
       <?php echo $lname; ?>

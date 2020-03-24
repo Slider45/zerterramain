@@ -22,7 +22,7 @@ if(isset($_POST['confirm_decline'])){
 			$sqlactionlog = "INSERT INTO tbl_activity_log (AdminName, Description, DateAction) VALUES ('$adminName','DELETED Order [$orderNum]','$dateNow')";
 			if($con->query($sqlactionlog)===TRUE){
 
-				$msg="THIS RECORD CANNOT BE DELETE!";
+				$msg="RECORD DELETED!";
 				// include 'decline_modal_alert.php';
 
 			}else{

@@ -13,7 +13,7 @@
             <i class="fa fa-search"></i></i> &nbspSearch
           </a>
           <a class="button btn-user">
-             <?= $_SESSION['admin']?>&nbsp&nbsp<img src="images/userIcon.png" id="userIcon"></i>
+             <?= $_SESSION['admin']?>&nbsp&nbsp<i class="fas fa-user-tie"></i>
 
           </a>
           <!--<a href="../zerterraph_user/logout.php" class="button btn-logout">-->

@@ -72,7 +72,7 @@ if(isset($_SESSION["admin"]))
             <div class="header">
               <h2> LOGIN </h2>
             </div>
-           
+
             <div class="field">
               <p class="control has-icons-left has-icons-right">
                 <input class="input" type="email" name="email" placeholder="Email" value="<?php if(isset($_COOKIE["member_email"])) { echo $_COOKIE["member_email"]; } ?>">
@@ -86,64 +86,85 @@ if(isset($_SESSION["admin"]))
             </div>
 
             <div class="field">
+              <box class="box" style="padding: 0; border:solid 1px; border-radius: 5px;background-color: #99cc67;">
               <p class="control has-icons-left">
-                <input class="input" type="password" name="password" placeholder="Password"
-                value="<?php if(isset($_COOKIE["member_password"])) { echo $_COOKIE["member_password"]; } ?>">
-                <span class="icon is-small is-left">
-                  <i class="fas fa-lock"></i>
-                </span>
-              </p>
-            </div>
+                  <input class="input" id="pass" type="password" name="password" style="max-width: 310px;  border:none;border-right:solid 1px;border-top-right-radius: 0;border-bottom-right-radius: 0;: " placeholder="Password"
+                  value="<?php if(isset($_COOKIE["member_password"])) { echo $_COOKIE["member_password"]; } ?>">
+                  <span class="icon is-small is-left">
+                    <i class="fas fa-lock"></i>
+                  </span>
 
-            <div class="columns">
-              <div class="column">
-                <label class="checkbox"name="remember">
-                  <input type="checkbox" name="remember"> Remember me
-                </label>
+             <button id="btn" style="background-color:#99cc67;font-size: 13pt; height:36px; border:none; color:white;"><i class="fas fa-eye"></i></button>
+                </p></box>
+
               </div>
-              <div class="column">
-                <a class="forgot" href="">Forgot password?</a>
+
+              <div class="columns">
+                <div class="column">
+                  <label class="checkbox"name="remember">
+                    <input type="checkbox" name="remember"> Remember me
+                  </label>
+                </div>
+                <div class="column">
+                  <a class="forgot" href="">Forgot password?</a>
+                </div>
               </div>
+
+              <div class="buttons">
+                <button class="button is-rounded" type="submit" name="loginUser"  data-target="#modalnotif">LOGIN</button>
+              </div>
+ </form>
+              <div class="last">
+                @2019 ZerterraPh
+              </div>
+
             </div>
 
-            <div class="buttons">
-              <button class="button is-rounded" type="submit" name="loginUser"  data-target="#modalnotif">LOGIN</button>
-            </div>
+            <?php
+            if (isset($_POST['loginUser'])) {
 
-            <div class="last">
-              @2019 ZerterraPh
-            </div>
+
+              include 'PagesFunction/query_login.php';
+
+            }
+
+
+            ?>
+
+
 
           </div>
+       
+      </div>
 
-          <?php
-          if (isset($_POST['loginUser'])) {
 
 
-            include 'PagesFunction/query_login.php';
+      <a class="home" href="index.php"><i class="fa fa-home"></i> </a>
 
+      <script>
+        const btn = document.querySelector('#btn');
+        const pass = document.querySelector('#pass');
+
+        btn.addEventListener('click', function(){
+          if(pass.type == 'text') {
+            pass.type = 'password';
+            btn.innerHTML = '<i class="fas fa-eye"></i>';
+            event.preventDefault();
+            btn.style.border = "none";
+          } else {
+            pass.type = 'text';
+            btn.innerHTML = '<i class="fas fa-eye-slash"></i>';
+            event.preventDefault();
+            btn.style.border = "none";
           }
-
-        
-          ?>
-
-
-
-        </div>
-      </form>
-    </div>
+        });
+      </script>
 
 
 
-    <a class="home" href="index.php"><i class="fa fa-home"></i> </a>
+      <!-- script -->
 
-
-
-
-
-    <!-- script -->
-
-    <!-- <script> -->
+      <!-- <script> -->
    <!-- /*document.querySelectorAll('.modal-button').forEach(function(el) {
       el.addEventListener('click', function() {
         var target = document.querySelector(el.getAttribute('data-target'));
@@ -158,9 +179,9 @@ if(isset($_SESSION["admin"]))
     });*/ -->
 
 
-  <!-- </script> -->
+    <!-- </script> -->
 
-  <script type="text/javascript" src="https://unpkg.com/bulma-modal-fx/dist/js/modal-fx.min.js"></script>
-</body>
+    <script type="text/javascript" src="https://unpkg.com/bulma-modal-fx/dist/js/modal-fx.min.js"></script>
+  </body>
 
-</html>
+  </html>

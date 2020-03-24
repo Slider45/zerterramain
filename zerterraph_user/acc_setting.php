@@ -203,7 +203,7 @@ include '../PagesFunction/connection.php';
 
 
     <div class="row">
-      <button type="submit" name="updated_user" class="button is-rounded" id="save">Save Changes</button>
+      <button type="submit" name="updated_user" class="button is-rounded is-primary" id="save">Save Changes</button>
     </div>
 
   </form>
@@ -264,7 +264,7 @@ if(isset($_POST['updated_user'])){
 
   $(document).ready(function() {
     $("#contact_user").keyup(check);
-    var regx =/^(9)\d{9}/;
+   
 
   });
   function check() {

@@ -173,7 +173,7 @@ while($row = mysqli_fetch_array($res_data)){
       <div class="control">
         <div class="columns">
               <div class="column is-3" id="label">Contact number</div>
-              <div class="column" id="txtbox"><box ><input type="text" placeholder="+63" style="width:43px; border:none;padding-top: 6px;padding-bottom: 11px;padding-left:6px;font-weight: bold;font-family: Montserrat; 7px;border-bottom: solid 1px;" disabled="disabled"><input class="input" name="contact" style="width:552px;padding-left: 2px;" value="<?php echo $contact; ?>"></div>
+              <div class="column" id="txtbox"><box ><input type="text" placeholder="+63" style="width:43px; border:none;padding-top: 6px;padding-bottom: 11px;padding-left:6px;font-weight: bold;font-family: Montserrat; 7px;border-bottom: solid 1px;" disabled="disabled"><input class="input" name="contact" style="width:552px;padding-left: 2px;" value="<?php echo $contact; ?>"></box></div>
          </div>
       </div>
       <div class="control">

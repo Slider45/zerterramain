@@ -18,14 +18,14 @@
         <br> ENTER YOUR PASSWORD TO CONFIRM
 
          <input type="hidden" name="username" value="<?php echo $fname.' '.$lname;?>">
-         <input type="hidden" name="adminEmail" value="<?php echo $_SESSION['admin']; ?>">
-         <input class="input" name="adminpass" type="password" placeholder="Password" required>
+        <input type="hidden" name="adminEmail" value="<?php echo $_SESSION['admin']; ?>">
+        <input class="input" name="adminpass" type="password" placeholder="Password" required>
 
       </div>
       <div class="modal-footer">
       </div>
       <div style = "margin-bottom: 10px; margin-top: 20px;  margin-right: auto;">
-       <button  class="button is-success" name="acnt_remove">
+       <button  class="button is-success" name="apprv_remove">
         <i class="fas fa-user-times"></i>&nbspCONFIRM</button>  </form>
          <button class="button is-danger" onclick="cancelevent()"><i class="fas fa-ban">
       </i>&nbspCancel</button></a>
@@ -39,6 +39,6 @@
 </div>
 <script>
   function cancelevent() {
-    window.location.href="users.php";
+    window.location.href="approved.php";
   }
 </script>

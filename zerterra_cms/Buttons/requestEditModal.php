@@ -7,7 +7,13 @@ button{
 input{
   font-family: Montserrat;
 }
-
+box{
+    border-radius: 5px;
+    padding-bottom: 9px;
+    padding-top: 10px;
+    border-bottom: solid 1px;
+    border-top: solid 1px;
+}
 
 </style>
 
@@ -44,7 +50,7 @@ input{
           <input class="input" type="email" name="edit_email" value="<?php echo $email; ?>" required="">
         </div>
         <div class="control">
-          <input class="input" type="number" name="edit_contact" value="<?php echo $contact; ?>"   required="">
+        <box><input type="text" disabled="disabled" style="width:45px; padding-top: 8px;padding-left:6px;padding-bottom: 6px; font-family: Montserrat; border-bottom-left-radius:5px;border-top-left-radius:5px; border:solid 1px;" placeholder="+63">  <input class="input" type="number" name="edit_contact" value="<?php echo $contact; ?>" style="border-left: 0; padding-left: 0;width: 550px; border-bottom-left-radius:0;border-top-left-radius:0;"  required=""></box>
         </div>
         <div class="control">
           <input class="input" type="text" name="edit_address" value="<?php echo $address; ?>"  required="">

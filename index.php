@@ -234,7 +234,7 @@ include 'PagesFunction/connection.php';
                     border-top-right-radius: 5px;">
                     <span class="icon is-medium is-right">
                       <i class="fas fa-check" id="iconcheck" style="display: none;color: #48c774;margin-top: 20px;"></i>
-                      <i class="fas fa-times" id="icontimes" style="display:none;color:#f14668;margin-top: 20px;"></i>
+                      <i class="fas fa-times" id="icontimes" style="display:none;color:#f14668;margin-top: 10px;"></i>
                       <p id="lblwarning" style="text-align: center" class="is-size-7"></p>
                     </span>
                   </box>

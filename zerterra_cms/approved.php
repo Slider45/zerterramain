@@ -2,7 +2,7 @@
 session_start();
 if(!isset($_SESSION["admin"]))
 {
- header("location:../Log-in.php");
+   header("location:../Log-in.php");
 }
 include '../PagesFunction/connection.php';
 include 'Buttons/approvedQuery.php';
@@ -40,7 +40,7 @@ include 'Buttons/approvedQuery.php';
       <a href="sales.php" class="w3-bar-item w3-button" id="item-hover"><i class="fas fa-hand-holding-usd"></i> &nbsp Sales</a>
       <a href="actionLog.php" class="w3-bar-item w3-button" id="item-hover"><i class="fas fa-clipboard-list"></i> &nbsp Action Log</a>
       <button onclick="document.getElementById('id01').style.display='block'" href="consolidate.php" class="w3-bar-item w3-button" id="item-hover" ><i class="fas fa-print"></i> &nbsp Consolidate</button>
-     <a href="../zerterraph_user/logout.php" class="w3-bar-item w3-button" id="item-hover"><i class="fas fa-sign-out-alt"></i>&nbsp Logout</a> 
+      <a href="../zerterraph_user/logout.php" class="w3-bar-item w3-button" id="item-hover"><i class="fas fa-sign-out-alt"></i>&nbsp Logout</a> 
   </div>
 
   <div class="w3-main" style="margin-left:200px">
@@ -54,117 +54,122 @@ include 'Buttons/approvedQuery.php';
                 <h1 class="button-category">APPROVED</h1>
             </div>
             <div class="column">
-             <div class="columns">
+               <div class="columns">
                 <div class="column">
                     <a href="pending.php">
-                       <button style="margin-top: 30px ; margin-left: 300px; font-family: unset; font-size:16px;" id="btn-add" class="button is-danger is-small">
+                     <button style="margin-top: 30px ; margin-left: 300px; font-family: unset; font-size:16px;" id="btn-add" class="button is-danger is-small">
                         <i class="fas fa-exclamation-circle"></i> &nbspPENDING</button>
                     </a>
                 </div>
                 <div class="column">
                     <a href="delivered.php">
-                     <button style="margin-top: 30px ; font-family: unset; font-size:16px;" id="btn-add" class="button is-primary is-small">
-                      <i class="fas fa-truck"></i> &nbspDELIVERED</button>
-                  </a>
+                       <button style="margin-top: 30px ; font-family: unset; font-size:16px;" id="btn-add" class="button is-primary is-small">
+                          <i class="fas fa-truck"></i> &nbspDELIVERED</button>
+                      </a>
+                  </div>
               </div>
           </div>
+
       </div>
 
-  </div>
-
-  <section class="section">
-    <div class="container">
-        <table class="table">
-            <thead>
-                <tr>
-                    <th>Order #</th>
-                    <th>Serial #</th>
-                    <th>Firstname</th>
-                    <th>Lastname</th>
-                    <th>Email</th>
-                    <th>Contact</th>
-                    <th>Action</th>
-                </tr>
-            </thead>
-
-            <tbody>
-                <?php
-
-                if (isset($_POST['search_btn'])){
-                    $searchValue = $_POST['searchValue'];
-
-                    if ($searchValue===''){
-                        echo '<script>window.location.href="?"</script>';
-                    }else{
-                        include 'searchFunction/searchApprovedFunction.php';
-                    }
-                }else{     
-                    $sql = "SELECT * FROM approved_order_list WHERE is_delivered='0' ORDER BY id DESC LIMIT $offset, $no_of_records_per_page";
-                    $res_data = $con->query($sql);
-                    while($row = mysqli_fetch_array($res_data)) 
-                    {
-                        $id = $row['id'];
-                        $orderNum = $row['OrderNumber'];
-                        $serialNum = $row['SerialNumber'];
-                        $fname = $row['Firstname'];
-                        $lname = $row['Lastname'];
-                        $email = $row['Email'];
-                        $contact = $row['Contact'];
-                        $address = $row['Address'];
-
-                        ?>
-                         <td>
-                            <?php echo $orderNum; ?>
-                        </td>
-                         <td>
-                            <?php echo $serialNum; ?>
-                        </td>
-                        <td>
-                            <?php echo $fname; ?>
-                        </td>
-
-                        <td>
-                            <?php echo $lname; ?>
-                        </td>
-
-                        <td>
-                            <?php echo $email; ?>
-                        </td>
-
-                        <td>
-                            <?php echo $contact; ?>
-                        </td>
-
-
-                        <td>
-                            <button data-target="#delivered<?php echo $id;?>" class="button is-success is-small modal-button" id="btn_update" name="btn-update"><i class="far fa-edit"></i></i>
-                            </button>
-                            <?php
-                            include 'Buttons/markAsDeliveredOrderModal.php';
-                            ?> 
-
-
-                        </td>
-
+      <section class="section">
+        <div class="container">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Order #</th>
+                        <th>Serial #</th>
+                        <th>Firstname</th>
+                        <th>Lastname</th>
+                        <th>Email</th>
+                        <th>Contact</th>
+                        <th>Action</th>
                     </tr>
-                    <?php 
+                </thead>
 
+                <tbody>
+                    <?php
+
+                    if (isset($_POST['search_btn'])){
+                        $searchValue = $_POST['searchValue'];
+
+                        if ($searchValue===''){
+                            echo '<script>window.location.href="?"</script>';
+                        }else{
+                            include 'searchFunction/searchApprovedFunction.php';
+                        }
+                    }else{     
+                        $sql = "SELECT * FROM approved_order_list WHERE is_delivered='0' AND is_removed='0' ORDER BY id DESC LIMIT $offset, $no_of_records_per_page";
+                        $res_data = $con->query($sql);
+                        while($row = mysqli_fetch_array($res_data)) 
+                        {
+                            $id = $row['id'];
+                            $orderNum = $row['OrderNumber'];
+                            $serialNum = $row['SerialNumber'];
+                            $fname = $row['Firstname'];
+                            $lname = $row['Lastname'];
+                            $email = $row['Email'];
+                            $contact = $row['Contact'];
+                            $address = $row['Address'];
+
+                            ?>
+                            <td class="is-size-7">
+                                <?php echo $orderNum; ?>
+                            </td>
+                            <td>
+                                <?php echo $serialNum; ?>
+                            </td>
+                            <td>
+                                <?php echo $fname; ?>
+                            </td>
+
+                            <td>
+                                <?php echo $lname; ?>
+                            </td>
+
+                            <td>
+                                <?php echo $email; ?>
+                            </td>
+
+                            <td>
+                                <?php echo $contact; ?>
+                            </td>
+
+
+                            <td>
+                                <button data-target="#delivered<?php echo $id;?>" class="button is-success is-small modal-button" id="btn_update" name="btn-update"><i class="far fa-edit"></i></i>
+                                </button>
+                                <?php
+                                include 'Buttons/markAsDeliveredOrderModal.php';
+                                ?> 
+                                <button data-target="#delete<?php echo $id;?>" class="button is-danger is-small modal-button"  id="btn_delete" name="acnt_remove"><i class="fas fa-trash-alt"></i>
+                                </button>
+                                <?php
+                                include 'Buttons/approvedRemoveModal.php';
+                                ?>
+
+
+                            </td>
+
+                        </tr>
+                        <?php 
+
+                    }
                 }
-            }
-            ?>
-        </tbody>
-    </table>
-    <nav class="pagination is-small" role="navigation" aria-label="pagination">
-        <a href="<?php if($page <= 1){ echo '#'; } else { echo "?page=".($page - 1); } ?>" class="pagination-previous" >Previous</a>
-        <a href="<?php if($page >= $total_pages){ echo '#'; } else { echo "?page=".($page + 1); } ?>" class="pagination-next">Next page</a>
-        <ul class="pagination-list">
-          <li><a href="?page=1" class="pagination-link" >1</a></li>
-          <li>
-            <span class="pagination-ellipsis">&hellip;</span>
-        </li>
-        <li><a href="?page=<?php echo $total_pages; ?>" class="pagination-link"><?php echo $total_pages; ?></a></li>
-    </ul>
-</nav>
+                ?>
+            </tbody>
+        </table>
+        <nav class="pagination is-small" role="navigation" aria-label="pagination">
+            <a href="<?php if($page <= 1){ echo '#'; } else { echo "?page=".($page - 1); } ?>" class="pagination-previous" >Previous</a>
+            <a href="<?php if($page >= $total_pages){ echo '#'; } else { echo "?page=".($page + 1); } ?>" class="pagination-next">Next page</a>
+            <ul class="pagination-list">
+              <li><a href="?page=1" class="pagination-link" >1</a></li>
+              <li>
+                <span class="pagination-ellipsis">&hellip;</span>
+            </li>
+            <li><a href="?page=<?php echo $total_pages; ?>" class="pagination-link"><?php echo $total_pages; ?></a></li>
+        </ul>
+    </nav>
 </div>
 </section>
 

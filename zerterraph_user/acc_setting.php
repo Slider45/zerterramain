@@ -181,13 +181,13 @@ include '../PagesFunction/connection.php';
                 <span class="icon is-medium is-right">
                   <i class="fas fa-check" id="iconcheck" style="display: none;color: #48c774;margin-top: 10px;"></i>
                   <i class="fas fa-times" id="icontimes" style="display:none;color:#f14668;margin-top: 10px;"></i>
-
+                  <p id="lblwarning" style="text-align: center" class="is-size-7"></p>
                 </span>
               </box>
             </p>
-          </div><p id="lblwarning" style="text-align: center" class="is-size-7"></p>
+          </div>
         </div>
-      </div>
+      
       <div class="control">
         <div class="columns">
           <div class="column is-3" id="label">Address </div>

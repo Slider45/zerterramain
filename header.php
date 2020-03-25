@@ -99,7 +99,7 @@ $serialNum = "";?>
                             <input class="input2" type="email" name="email" placeholder="Email" required>
                           </div>
 
-                          <div class="control2">
+                          <div class="control1">
                               <p class="control has-icons-right">
                                 <box id="box">
                                 <input type="text" placeholder="+63" style="width:43px; border:none;padding-top: 6px;padding-bottom: 11px;padding-left:6px;font-weight: bold;font-family: Montserrat; 7px;border-bottom: solid 1px;" disabled="disabled"><input class="input2"  minlength="10" maxlength="10" placeholder="Contact (919XXXXXXX)" onkeyup="mobileValidation()" id="contactNum" name="contactNum" style="width:788px;height:37px;border-top:0;border-right:0;border-radius:0;border-bottom:0;border-bottom-right-radius: 5px;
@@ -107,10 +107,11 @@ $serialNum = "";?>
                                   <span class="icon is-medium is-right">
                                     <i class="fas fa-check" id="iconcheck" style="display: none;color: #48c774;margin-top: 15px;"></i>
                                     <i class="fas fa-times" id="icontimes" style="display:none;color:#f14668;margin-top: 15px;"></i>
-                                    <p id="lblwarning" style="text-align: center" class="is-size-7"></p>
+                                   
                                   </span>
                                 </box>
                               </p>
+                              <p id="lblwarning" style="text-align: center" class="is-size-7"></p>
                           </div>
             
 

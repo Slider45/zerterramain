@@ -101,17 +101,17 @@ $serialNum = "";?>
 
                           <div class="control1">
                               <p class="control has-icons-right">
-                                <box id="box">
-                                <input type="text" placeholder="+63" style="width:43px; border:none;padding-top: 6px;padding-bottom: 11px;padding-left:6px;font-weight: bold;font-family: Montserrat; 7px;border-bottom: solid 1px;" disabled="disabled"><input class="input2"  minlength="10" maxlength="10" placeholder="Contact (919XXXXXXX)" onkeyup="mobileValidation()" id="contactNum" name="contactNum" style="width:788px;height:37px;border-top:0;border-right:0;border-radius:0;border-bottom:0;border-bottom-right-radius: 5px;
+                                <box id="box1">
+                                <input type="text" placeholder="+63" style="width:54px; border:solid #333 1px; padding-top: 15px;padding-bottom: 12px;border-right:0;padding-left:13px;font-weight: bold;font-family: Montserrat;     border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;;border-bottom: solid 1px;" disabled="disabled"><input class="input2"  minlength="10" maxlength="10" placeholder="Contact (919XXXXXXX)" onkeyup="mobileValidation()" id="contactNum" name="contactNum" style="width:788px;height:45px;border:solid 1px;border-radius:0;border-bottom-right-radius: 5px;
                     border-top-right-radius: 5px;">
                                   <span class="icon is-medium is-right">
-                                    <i class="fas fa-check" id="iconcheck" style="display: none;color: #48c774;margin-top: 15px;"></i>
-                                    <i class="fas fa-times" id="icontimes" style="display:none;color:#f14668;margin-top: 15px;"></i>
-                                   
+                                    <i class="fas fa-check" id="iconcheck" style="display:block;color: #48c774;margin-top: 15px;"></i>
+                                    <i class="fas fa-times" id="icontimes" style="display:block;color:#f14668;margin-top: 15px;"></i>
+                                    <p id="lblwarning" style="text-align: center" class="is-size-7"></p>
                                   </span>
                                 </box>
                               </p>
-                              <p id="lblwarning" style="text-align: center" class="is-size-7"></p>
                           </div>
             
 
@@ -213,49 +213,55 @@ $serialNum = "";?>
 
 <script>
 
-  function mobileValidation() {
-    var myTextBox = document.getElementById('contactNum');
-    var value = myTextBox.value;
-    var btn = document.getElementById('sndRequest');
-    var wrning = document.getElementById('lblwarning');
-    var checkicon = document.getElementById('iconcheck');
-    var erroricon = document.getElementById('icontimes');
-    var boxnumber = document.getElementById('box');
 
 
+  $(document).ready(function() {
+    $("#contactNum").keyup(check);
+   
+
+  });
+  function check() {
 
 
+    var usernum = $("#contactNum").val();
 
-
+    var btncheck = $("#sndRequest");
+    var wrning = $("#lblwarning");
+    var icon1 = $("#iconcheck");
+    var icon2 = $("#icontimes");
     var regx =/^(9)\d{9}/;
 
+    if (regx.test(usernum)){
+      icon1.show();  
+      icon2.hide();
+      wrning.text("");  
+
+      wrning.hide();
+      btncheck.attr("disabled", false);
+
+    }else if(usernum==""){
+      icon1.hide(); 
+      icon2.show();
+      wrning.text("Enter your number!"); 
+      wrning.show();
+      wrning.css("color","#f14668");
+    }else{
+
+      icon1.hide(); 
+      icon2.show();
+
+      wrning.show();
+      wrning.text("INVALID NUMBER!");
+      wrning.css("color","#f14668");
+      btncheck.attr("disabled", true);
 
 
 
-    if (regx.test(value)){
 
-      boxnumber.style.borderColor = "#48c774";
-      checkicon.style.display = "block";
-      erroricon.style.display = "none";
-      btn.disabled = false;
-      wrning.innerHTML="";
+    }
 
-    }else if (value == ""){
-     boxnumber.style.borderColor = "black";
-     checkicon.style.display = "none";
-     erroricon.style.display = "none";
-     btn.disabled = false;
-     wrning.innerHTML="";
-
-
-   }else{
-    boxnumber.style.borderColor = "#f14668";
-    btn.disabled = true;
-    checkicon.style.display = "none";
-    erroricon.style.display = "block";
-    wrning.innerHTML="INVALID NUMBER";
-    wrning.style.color = "#f14668";
   }
-}
-</script>
 
+
+  
+</script>

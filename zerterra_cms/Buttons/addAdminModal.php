@@ -42,7 +42,10 @@
         <input class="input" type="password" name="cpassword" placeholder="Confirm Password" required>
       </div>
       <div class="control">
-        <input class="input" type="number" name="contact" placeholder="Contant Number" required>
+      <box style="border:solid 1px; padding-top:11px; padding-bottom:10px;  border-radius:5px;"> 
+     <input placeholder="+63" style="width:40px; height:40px; font-family:Montserrat; border:0; padding-left:6px; border-right:solid 1px;border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;">
+        <input class="input" type="text" name="contact" placeholder="Contant Number" required style="width:553px; border:0; padding-left:0;">
       </div>
       <div class="control">
         <input class="input" type="email" name="email" placeholder="Email" required>

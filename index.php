@@ -46,8 +46,8 @@ include 'PagesFunction/connection.php';
     background-attachment: fixed;
   }
 
-  box{
-    background:#f2f2f2;
+  #box{
+    background:transparent;
     width:40px;
     border: solid black 1px;
     border-radius:5px;
@@ -107,7 +107,7 @@ include 'PagesFunction/connection.php';
           </p>
           <p class="item-title is-size-3 has-text-centered">
             <span style="font-weight: bold;">EAT</span>
-            <p class="column-content">Different grades of paper are used to produce a range of everyday items – from papers and magazines to advertising leaflets.</p>
+            <p class="column-content">Eating foods such as vegetables that are lower in calories per cup instead of some other higher-calorie food may be useful in helping to lower calorie intake.</p>
           </p>
         </div>
 
@@ -117,7 +117,7 @@ include 'PagesFunction/connection.php';
           </p>
           <p class="item-title is-size-3 has-text-centered">
             <span style="font-weight: bold;">DEPOSIT</span>
-            <p style="text-align: justify; margin-top: 5px;">Different grades of paper are used to produce a range of everyday items – from papers and magazines to advertising leaflets.</p>
+            <p style="text-align: justify; margin-top: 5px;">We can help you with your leftover foods by this machine. Just deposit all your food scraps and with 24 hours your leftover food will become organic fertilizer. </p>
           </p>
         </div>
 
@@ -126,8 +126,8 @@ include 'PagesFunction/connection.php';
             <img src="images\icon\decompost.png" alt="" class="imgg">
           </p>
           <p class="item-title is-size-3 has-text-centered">
-            <span style="font-weight: bold;">DECOMPOST</span>
-            <p style="text-align: justify; margin-top: 5px;">Different grades of paper are used to produce a range of everyday items – from papers and magazines to advertising leaflets.</p>
+            <span style="font-weight: bold;">DECOMPOSE</span>
+            <p style="text-align: justify; margin-top: 5px;">Decomposition is the process by which organic substances are broken down into simpler organic matter. Let us help the community by making your food waste into 100% organic fertilizer. </p>
           </p> 
         </div>
       </div>
@@ -230,12 +230,12 @@ include 'PagesFunction/connection.php';
               <div class="control">
                 <p class="control has-icons-right">
                   <box id="box"><span>+63</span>
-                    <input type="text" id="contact_order" minlength="10" maxlength="10" class="input1" name="contact_order" placeholder="Contact (919XXXXXXX)" required="" onkeyup="mobileValidation()" style="width:910px;height:37px;border-top:0;border-right:0;border-radius:0;border-bottom:0;border-bottom-right-radius: 5px;
+                    <input type="text" id="contact_order" minlength="10" maxlength="10" class="input1" name="contact_order" placeholder="Contact (919XXXXXXX)" required="" onkeyup="mobileValidation()" style="width:910px;height:37px;padding-bottom:12px;border-top:0;border-right:0;border-radius:0;border-bottom:0;border-bottom-right-radius: 5px;
                     border-top-right-radius: 5px;">
                     <span class="icon is-medium is-right">
-                      <i class="fas fa-check" id="iconcheck" style="display: none;color: #48c774;margin-top: 20px;"></i>
-                      <i class="fas fa-times" id="icontimes" style="display:none;color:#f14668;margin-top: 20px;"></i>
-                      <p id="lblwarning" style="text-align: center" class="is-size-7"></p>
+                      <i class="fas fa-check" id="iconcheck2" style="display: none;color: #48c774;margin-top: 20px;"></i>
+                      <i class="fas fa-times" id="icontimes2" style="display:none;color:#f14668;margin-top: 20px;"></i>
+                      <p id="lblwarning2" style="text-align: center" class="is-size-7"></p>
                     </span>
                   </box>
                 </p>
@@ -266,55 +266,60 @@ include 'PagesFunction/connection.php';
 
 
 
-
 <script>
 
-  function mobileValidation() {
-    var myTextBox = document.getElementById('contact_order');
-    var value = myTextBox.value;
-    var btn = document.getElementById('SendOrder');
-    var wrning = document.getElementById('lblwarning');
-    var checkicon = document.getElementById('iconcheck');
-    var erroricon = document.getElementById('icontimes');
-    var boxnumber = document.getElementById('box');
 
 
+  $(document).ready(function() {
+    $("#contact_order").keyup(check);
+   
+
+  });
+  function check() {
 
 
+    var usernum = $("#contact_order").val();
 
-
+    var btncheck = $("#SendOrder");
+    var wrning = $("#lblwarning2");
+    var icon1 = $("#iconcheck2");
+    var icon2 = $("#icontimes2");
     var regx =/^(9)\d{9}/;
 
+    if (regx.test(usernum)){
+      icon1.show();  
+      icon2.hide();
+      wrning.text("");  
+
+      wrning.hide();
+      btncheck.attr("disabled", false);
+
+    }else if(usernum==""){
+      icon1.hide(); 
+      icon2.show();
+      wrning.text("Enter your number!"); 
+      wrning.show();
+      wrning.css("color","#f14668");
+    }else{
+
+      icon1.hide(); 
+      icon2.show();
+
+      wrning.show();
+      wrning.text("INVALID NUMBER!");
+      wrning.css("color","#f14668");
+      btncheck.attr("disabled", true);
 
 
 
-    if (regx.test(value)){
 
-      boxnumber.style.borderColor = "#48c774";
-      checkicon.style.display = "block";
-      erroricon.style.display = "none";
-      btn.disabled = false;
-      wrning.innerHTML="";
+    }
 
-    }else if (value == ""){
-     boxnumber.style.borderColor = "black";
-     checkicon.style.display = "none";
-     erroricon.style.display = "none";
-     btn.disabled = false;
-     wrning.innerHTML="";
-
-
-   }else{
-    boxnumber.style.borderColor = "#f14668";
-    btn.disabled = true;
-    checkicon.style.display = "none";
-    erroricon.style.display = "block";
-    wrning.innerHTML="INVALID NUMBER";
-    wrning.style.color = "#f14668";
   }
-}
-</script>
 
+
+  
+</script>
 
 
 

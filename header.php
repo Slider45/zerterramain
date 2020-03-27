@@ -98,31 +98,33 @@ $serialNum = "";?>
                           <div class="control1">
                             <input class="input2" type="email" name="email" placeholder="Email" required>
                           </div>
-
+                          
                           <div class="control1">
                               <p class="control has-icons-right">
                                 <box id="box1">
-                                <input type="text" placeholder="+63" style="width:54px; border:solid #333 1px; padding-top: 15px;padding-bottom: 12px;border-right:0;padding-left:13px;font-weight: bold;font-family: Montserrat;     border-top-left-radius: 5px;
-    border-bottom-left-radius: 5px;;border-bottom: solid 1px;" disabled="disabled"><input class="input2"  minlength="10" maxlength="10" placeholder="Contact (919XXXXXXX)" onkeyup="mobileValidation()" id="contactNum" name="contactNum" style="width:788px;height:45px;border:solid 1px;border-radius:0;border-bottom-right-radius: 5px;
+                                <input type="text" placeholder="+63" style="width:54px; border:solid #333 1px; padding-top: 15.5px;padding-bottom: 11.5px;border-right:0;padding-left:13px;font-weight: bold;font-family: Montserrat;     border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;;border-bottom: solid 1px;" disabled="disabled"><input class="input2"  minlength="10" maxlength="10" placeholder="Contact (919XXXXXXX)" onkeyup="mobileValidation()" id="contactNum1" name="contactNum" style="width:788px;height:45px;border:solid 1px;border-radius:0;border-bottom-right-radius: 5px;
                     border-top-right-radius: 5px;">
                                   <span class="icon is-medium is-right">
-                                    <i class="fas fa-check" id="iconcheck" style="display:block;color: #48c774;margin-top: 15px;"></i>
-                                    <i class="fas fa-times" id="icontimes" style="display:block;color:#f14668;margin-top: 15px;"></i>
-                                    <p id="lblwarning" style="text-align: center" class="is-size-7"></p>
+                                    <i class="fas fa-check" id="iconcheck1" style="display: none;color: #48c774;margin-top: 15px;"></i>
+                                    <i class="fas fa-times" id="icontimes1" style="display:none;color:#f14668;margin-top: 15px;"></i>
+                                    <p id="lblwarning1" style="text-align: center" class="is-size-7"></p>
                                   </span>
                                 </box>
                               </p>
                           </div>
-            
-
+                          
+                          
                           <div class="control1">
                             <input class="input2" type="text" name="address" placeholder="Address" required>
                           </div>
-                                           
+                          <!-- <div class="control">
+                            <textarea class="textarea1" placeholder="Message"></textarea>
+                          </div> -->                     
                         </div>
                       </section>
                       <footer class="modal-card-foot2">
-                        <button class="btn" name="sndRequest" type="submit">Send Request &nbsp<i class="far fa-paper-plane"></i></button>
+                        <button class="btn" id="sndRequest" name="sndRequest" type="submit">Send Request &nbsp<i class="far fa-paper-plane"></i></button>
                       </footer>  
                     </div></div></div>
                   </div>
@@ -185,7 +187,7 @@ $serialNum = "";?>
                       </div>
                     </section>
                     <footer class="modal-card-foot1" id="modal-card-foot">
-                      <a href="app-debug.apk" download class="button is-success">Download</a>
+                      <a href="zerterra.apk" download class="button is-success">Download</a>
                       <button class="button is-danger" aria-label="close" id="image-modal-close7">Cancel</button>
                     </footer>
                   </div>
@@ -210,50 +212,49 @@ $serialNum = "";?>
 </nav>
 </div>
 
-
 <script>
 
 
 
   $(document).ready(function() {
-    $("#contactNum").keyup(check);
+    $("#contactNum1").keyup(check1);
    
 
   });
-  function check() {
+  function check1() {
 
 
-    var usernum = $("#contactNum").val();
+    var usernum = $("#contactNum1").val();
 
-    var btncheck = $("#sndRequest");
-    var wrning = $("#lblwarning");
-    var icon1 = $("#iconcheck");
-    var icon2 = $("#icontimes");
+    var btncheck1 = $("#sndRequest");
+    var wrning1 = $("#lblwarning1");
+    var icon3 = $("#iconcheck1");
+    var icon4 = $("#icontimes1");
     var regx =/^(9)\d{9}/;
 
     if (regx.test(usernum)){
-      icon1.show();  
-      icon2.hide();
-      wrning.text("");  
+      icon3.show();  
+      icon4.hide();
+      wrning1.text("");  
 
-      wrning.hide();
-      btncheck.attr("disabled", false);
+      wrning1.hide();
+      btncheck1.attr("disabled", false);
 
     }else if(usernum==""){
-      icon1.hide(); 
-      icon2.show();
-      wrning.text("Enter your number!"); 
-      wrning.show();
-      wrning.css("color","#f14668");
+      icon3.hide(); 
+      icon4.show();
+      wrning1.text("Enter your number!"); 
+      wrning1.show();
+      wrning1.css("color","#f14668");
     }else{
 
-      icon1.hide(); 
-      icon2.show();
+      icon3.hide(); 
+      icon4.show();
 
-      wrning.show();
-      wrning.text("INVALID NUMBER!");
-      wrning.css("color","#f14668");
-      btncheck.attr("disabled", true);
+      wrning1.show();
+      wrning1.text("INVALID NUMBER!");
+      wrning1.css("color","#f14668");
+      btncheck1.attr("disabled", true);
 
 
 

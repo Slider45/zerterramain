@@ -44,7 +44,12 @@ include 'connection.php';
  <div class="control">
    <div class="columns">
      <div class="column is-2" id="label">Contact:</div>
-     <div class="column" id="txtbox"> <input class="input" type="number" name="contact" value="<?php echo $contact; ?>" required=""></div>
+     <div class="column" id="txtbox"><box style="border:solid 1px; padding-top:11px; padding-bottom:10px;  border-radius:5px;"> 
+     <input placeholder="+63" style="width:40px; height:40px; font-family:Montserrat; border:0; padding-left:6px; border-right:solid 1px;border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;">
+     <input class="input" type="text" name="contact" value="<?php echo $contact; ?>" required="" style="width:445px; border:0; padding-left:0;">
+     </box>
+     </div>
    </div>
  </div>
  <div class="control" style="margin-top: 10px;">

@@ -153,7 +153,7 @@ $serialNum = "";?>
                           include 'content/termandcondition.php';
                           ?>
                         </section>
-                        <footer class="modal-card-foot3">
+                        <footer class="modal-card-foot3" style="padding-bottom:0; height:100px;">
                         <a href="index.php"><button class="button is-medium btn">Accept &nbsp<i class="far fa-thumbs-up"></i></button></a>
                        </footer>
                      </div>

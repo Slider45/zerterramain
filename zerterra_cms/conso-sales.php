@@ -148,7 +148,7 @@ include '../PagesFunction/connection.php';
                   <?php echo $email; ?>
                 </td>
                 <td>
-                  <?php echo $contact; ?>
+                  (+63)<?php echo $contact; ?>
                 </td>
                 <td>
                   <?php echo $amount; ?>

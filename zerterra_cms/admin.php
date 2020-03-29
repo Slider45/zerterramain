@@ -172,6 +172,9 @@ include 'ordersModal.php';
 include 'consolidate.php';
 ?>
 
+
+
+
 <script>
   function w3_open() {
     document.getElementById("mySidebar").style.display = "block";
@@ -183,15 +186,6 @@ include 'consolidate.php';
 </script>
 
 
-<!-- modal transaction -->
-
-<!-- modal transaction -->
-
-
-<!-- modal script -->
-
-
-<!-- end script -->
 
 <script>
   function w3_open() {
@@ -206,6 +200,7 @@ include 'consolidate.php';
 <script src="jquery.min.js"></script>
 <script src="printThis.js"></script>
 <script>
+
     $('.btnn').click(function(){
         var printme= document.getElementByID('table');
         var wme= window.open("","","width=900","height=700");
@@ -215,6 +210,9 @@ include 'consolidate.php';
         wme.printf();
         wme.close();
     }
-  </script>
+    
+</script>
+
+
 </body>
 </html>

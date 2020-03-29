@@ -36,20 +36,20 @@
             <div class="column is-2" id="label">Contact:</div>
             <p class="control has-icons-right">
               <div class="column" id="txtbox" style="padding-top:0;">
-              <box style="border:solid 1px; padding-top:11px; padding-bottom:10px;  border-radius:5px;">
+              <box id="box" style="border:solid 1px; padding-top:11px; padding-bottom:10px;  border-radius:5px;">
                 <input placeholder="+63" style="width:40px; height:40px; font-family:Montserrat; border:0; padding-left:6px; border-right:solid 1px;border-top-left-radius: 5px;
     border-bottom-left-radius: 5px;">
-    <input minlength="10" maxlength="10" id="contact" name="edit_contact" style="width:375px; border:0; padding-left:0;" value="<?php echo $contact; ?>">
+    <input minlength="10" maxlength="10" onkeyup="mobileValidation()" id="edit_contact"  name="edit_contact" style="width:375px; border:0; padding-left:0;" value="<?php echo $contact; ?>">
                 <span class="icon is-medium is-right">
-                  <i class="fas fa-check" id="iconcheck" style="display:none;color: #48c774;margin-top: 15px;"></i>
-                  <i class="fas fa-times" id="icontimes" style="display:none;color:#f14668;margin-top: 15px;"></i>  
+                  <i class="fas fa-check" id="iconcheck1" style="display:none;color: #48c774;margin-top: 15px;"></i>
+                  <i class="fas fa-times" id="icontimes1" style="display:none;color:#f14668;margin-top: 15px;"></i>  
                 </span>
                 </div>
               </box>
             </p>
           </div>
         </div>
-        <p id="lblwarning" style="text-align:center" class="is-size-7"></p>
+        <p id="lblwarning1" style="text-align:center" class="is-size-7"></p>
 
       
       <div class="control">
@@ -65,7 +65,7 @@
 
     <!-- END OF MODAL EDIT -->
 
-    <button type="submit" id="save" name="updated_id" class="button is-success">
+    <button type="submit" id="save1" name="updated_id" class="button is-success">
       <i class="far fa-save"></i>&nbspSave</button>
     <button class="button is-danger"><i class="fas fa-ban"></i>&nbspCancel</button>
 
@@ -79,7 +79,7 @@
 <script>
 
   $(document).ready(function() {
-    $("#contact").keyup(check);
+    $("#edit_contact").keyup(check);
    
 
   });
@@ -87,12 +87,12 @@
   function check() {
 
 
-    var usernum = $("#contact").val();
+    var usernum = $("#edit_contact").val();
 
-    var btncheck = $("#save");
-    var wrning = $("#lblwarning");
-    var icon1 = $("#iconcheck");
-    var icon2 = $("#icontimes");
+    var btncheck = $("#save1");
+    var wrning = $("#lblwarning1");
+    var icon1 = $("#iconcheck1");
+    var icon2 = $("#icontimes1");
     var regx =/^(9)\d{9}/;
 
     if (regx.test(usernum)){

@@ -85,10 +85,6 @@ $serialNum = "";?>
                             <input class="input2" type="text" name="SerialNumber" placeholder="Serial Number" required >
 
                           </div>
-
-
-
-
                           <div class="control1">
                             <input class="input2" type="text" name="Fname" placeholder="Firstname" required>
                           </div>
@@ -212,8 +208,6 @@ $serialNum = "";?>
 
 
 <script>
-
-
 
   $(document).ready(function() {
     $("#contactNum").keyup(check);

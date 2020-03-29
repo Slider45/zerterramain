@@ -144,6 +144,7 @@ include '../PagesFunction/connection.php';
         ?>
 
         <div id="view<?php echo $id; ?>" role="dialog" class="form-edit">
+        
           <form method="POST" style="padding-bottom: 10px;">
 
             <div class="field">

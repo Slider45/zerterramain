@@ -23,6 +23,8 @@
           <input type="hidden" name="edit_id" value="<?php echo $id; ?>">
         </div>
       </div>
+
+
       <div class="control">
         <div class="columns">
               <div class="column is-2" id="label">Fullname:</div>
@@ -34,10 +36,10 @@
       <div class="control">
           <div class="columns">
             <div class="column is-2" id="label">Contact:</div>
-           
+            
               <div class="column" id="txtbox" style="padding-top:0;">
               <box id="box" style="border:solid 1px; padding-top:11px; padding-bottom:10px;  border-radius:5px;">
-                <input placeholder="+63" style="width:40px; height:40px; font-family:Montserrat; border:0; padding-left:6px; border-right:solid 1px;border-top-left-radius: 5px;
+              <input placeholder="+63" style="width:40px; height:40px; font-family:Montserrat; border:0; padding-left:6px; border-right:solid 1px;border-top-left-radius: 5px;
     border-bottom-left-radius: 5px;">
     <input minlength="10" maxlength="10" onkeyup="validation()" id="edit_contact"  name="edit_contact" style="width:375px; border:0; padding-left:0;" value="<?php echo $contact; ?>">
                
@@ -82,11 +84,9 @@ var editcontact = document.getElementById('edit_contact').value;
 var editcontactpattern = /^(9)\d{9}/;
 
 if(editcontactpattern.test(editcontact)){
-   document.getElementById('edit_contact').style.backgroundColor = '#3ec46d';
+   document.getElementById('box').style.borderColor = '#3ec46d';
 }else{
-  document.getElementById('edit_contact').style.backgroundColor = '#f14668';
-  document.getElementById('edit_contact').text('INVALID NUMBER!');
-  
+  document.getElementById('box').style.borderColor = '#f14668';
 }
 
 

@@ -5,14 +5,6 @@
     align-items: center;
  
   }
-/* 
-  box{
-    border-radius: 5px;
-    padding-bottom: 9px;
-    padding-top: 10px;
-    border-bottom: solid 1px;
-    border-top: solid 1px;
-  } */
 
 </style>
 
@@ -21,7 +13,7 @@
  <div class="modal-card">
   <header class="modal-card-head">
     <p class="modal-card-title">EDIT ACCOUNT</p>
-    <!-- <button class="modal-close" aria-label="close"></button> -->
+  
   </header>
   <form method="POST" class="modal-card-body" style="padding-bottom: 10px;">
 
@@ -43,21 +35,21 @@
           <div class="columns">
             <div class="column is-2" id="label">Contact:</div>
             <p class="control has-icons-right">
-           
-              <div class="column" id="txtbox" style="padding-top:0;"> <box style="border:solid 1px; padding-top:11px; padding-bottom:10px;  border-radius:5px;">
+              <div class="column" id="txtbox" style="padding-top:0;">
+              <box style="border:solid 1px; padding-top:11px; padding-bottom:10px;  border-radius:5px;">
                 <input placeholder="+63" style="width:40px; height:40px; font-family:Montserrat; border:0; padding-left:6px; border-right:solid 1px;border-top-left-radius: 5px;
     border-bottom-left-radius: 5px;">
-    <input  minlength="10" maxlength="10" onkeyup="mobileValidation()"  id="edit_contact" name="edit_contact" style="width:375px; border:0; padding-left:0;" value="<?php echo $contact; ?>">
+    <input minlength="10" maxlength="10" id="contact" name="edit_contact" style="width:375px; border:0; padding-left:0;" value="<?php echo $contact; ?>">
                 <span class="icon is-medium is-right">
-                  <i class="fas fa-check" id="iconcheck4" style="display:none;color: #48c774;margin-top: 10px;"></i>
-                  <i class="fas fa-times" id="icontimes4" style="display:none;color:#f14668;margin-top: 10px;"></i>  
+                  <i class="fas fa-check" id="iconcheck" style="display:none;color: #48c774;margin-top: 15px;"></i>
+                  <i class="fas fa-times" id="icontimes" style="display:none;color:#f14668;margin-top: 15px;"></i>  
                 </span>
                 </div>
               </box>
             </p>
           </div>
         </div>
-        <p id="lblwarning4" style="text-align:center" class="is-size-7"></p>
+        <p id="lblwarning" style="text-align:center" class="is-size-7"></p>
 
       
       <div class="control">
@@ -70,9 +62,10 @@
       <div class="control" style="margin-top: 10px;">
       </div>
     </div>
+
     <!-- END OF MODAL EDIT -->
 
-    <button type="submit" id="save4" name="updated_id" class="button is-success">
+    <button type="submit" id="save" name="updated_id" class="button is-success">
       <i class="far fa-save"></i>&nbspSave</button>
     <button class="button is-danger"><i class="fas fa-ban"></i>&nbspCancel</button>
 
@@ -85,57 +78,50 @@
 
 <script>
 
-
-
   $(document).ready(function() {
-    $("#edit_contact").keyup(check5);
+    $("#contact").keyup(check);
    
 
   });
-  function check5() {
+  
+  function check() {
 
 
-    var usernum5 = $("#edit_contact").val();
+    var usernum = $("#contact").val();
 
-    var btncheck5 = $("#save4");
-    var wrning5 = $("#lblwarning4");
-    var icon5 = $("#iconcheck4");
-    var icon6 = $("#icontimes4");
+    var btncheck = $("#save");
+    var wrning = $("#lblwarning");
+    var icon1 = $("#iconcheck");
+    var icon2 = $("#icontimes");
     var regx =/^(9)\d{9}/;
 
-    if (regx.test(usernum5)){
-      icon5.show();  
-      icon6.hide();
-      wrning5.text("");  
+    if (regx.test(usernum)){
+      icon1.show();  
+      icon2.hide();
+      wrning.text("");  
 
-      wrning5.hide();
-      btncheck5.attr("disabled", false);
+      wrning.hide();
+      btncheck.attr("disabled", false);
 
-    }else if(usernum5==""){
-      icon5.hide(); 
-      icon6.show();
-      wrning5.text("Enter your number!"); 
-      wrning5.show();
-      wrning5.css("color","#f14668");
+    }else if(usernum==""){
+      icon1.hide(); 
+      icon2.show();
+      wrning.text("Enter your number!"); 
+      wrning.show();
+      wrning.css("color","#f14668");
     }else{
 
-      icon5.hide(); 
-      icon6.show();
+      icon1.hide(); 
+      icon2.show();
 
-      wrning5.show();
-      wrning5.text("INVALID NUMBER!");
-      wrning5.css("color","#f14668");
-      btncheck5 .attr("disabled", true);
-
-
+      wrning.show();
+      wrning.text("INVALID NUMBER!");
+      wrning.css("color","#f14668");
+      btncheck.attr("disabled", true);
 
 
     }
 
   }
 
-
-  
 </script>
-
-<!-- dito ako nag edit -->

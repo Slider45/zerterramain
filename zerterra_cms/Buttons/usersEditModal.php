@@ -68,7 +68,7 @@
               <box id="box" style="border:solid 1px; padding-top:11px; padding-bottom:10px;  border-radius:5px;">
                 <input placeholder="+63" style="width:40px; height:40px; font-family:Montserrat; border:0; padding-left:6px; border-right:solid 1px;border-top-left-radius: 5px;
     border-bottom-left-radius: 5px;">
-    <input minlength="10" maxlength="10" onkeyup="mobileValidation()" id="edit_contact"  name="edit_contact" style="width:409px; border:0; padding-left:0;" value="<?php echo $contact; ?>">
+    <input minlength="10" maxlength="10" onkeyup="check()" id="edit_contact"  name="edit_contact" style="width:409px; border:0; padding-left:0;" value="<?php echo $contact; ?>">
                 <span class="icon is-medium is-right">
                   <i class="fas fa-check" id="iconcheck" style="display:none;color: #48c774;margin-top: 15px;"></i>
                   <i class="fas fa-times" id="icontimes" style="display:none;color:#f14668;margin-top: 15px;"></i>  
@@ -99,11 +99,6 @@
 
  <script>
 
-$(document).ready(function(){
-  $("#edit_contact").keyup(check);
- 
-
-});
 
 function check() {
 

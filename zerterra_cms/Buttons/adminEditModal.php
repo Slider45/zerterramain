@@ -34,22 +34,19 @@
       <div class="control">
           <div class="columns">
             <div class="column is-2" id="label">Contact:</div>
-            <p class="control has-icons-right">
+           
               <div class="column" id="txtbox" style="padding-top:0;">
               <box id="box" style="border:solid 1px; padding-top:11px; padding-bottom:10px;  border-radius:5px;">
                 <input placeholder="+63" style="width:40px; height:40px; font-family:Montserrat; border:0; padding-left:6px; border-right:solid 1px;border-top-left-radius: 5px;
     border-bottom-left-radius: 5px;">
-    <input minlength="10" maxlength="10" onkeyup="mobileValidation()" id="edit_contact"  name="edit_contact" style="width:375px; border:0; padding-left:0;" value="<?php echo $contact; ?>">
-                <span class="icon is-medium is-right">
-                  <i class="fas fa-check" id="iconcheck1" style="display:none;color: #48c774;margin-top: 15px;"></i>
-                  <i class="fas fa-times" id="icontimes1" style="display:none;color:#f14668;margin-top: 15px;"></i>  
-                </span>
+    <input minlength="10" maxlength="10" onkeyup="validation()" id="edit_contact"  name="edit_contact" style="width:375px; border:0; padding-left:0;" value="<?php echo $contact; ?>">
+               
                 </div>
               </box>
-            </p>
+            
           </div>
         </div>
-        <p id="lblwarning1" style="text-align:center" class="is-size-7"></p>
+       
 
       
       <div class="control">
@@ -76,52 +73,27 @@
 </div>
 
 
-<script>
+<script type="text/javascript">
 
-  $(document).ready(function() {
-    $("#edit_contact").keyup(check);
-   
+function validation(){
 
-  });
+var editcontact = document.getElementById('edit_contact').value;
+
+var editcontactpattern = /^(9)\d{9}/;
+
+if(editcontactpattern.test(editcontact)){
+   document.getElementById('edit_contact').style.backgroundColor = '#3ec46d';
+}else{
+  document.getElementById('edit_contact').style.backgroundColor = '#f14668';
+  document.getElementById('edit_contact').text('INVALID NUMBER!');
   
-  function check() {
+}
 
 
-    var usernum = $("#edit_contact").val();
 
-    var btncheck = $("#save1");
-    var wrning = $("#lblwarning1");
-    var icon1 = $("#iconcheck1");
-    var icon2 = $("#icontimes1");
-    var regx =/^(9)\d{9}/;
-
-    if (regx.test(usernum)){
-      icon1.show();  
-      icon2.hide();
-      wrning.text("");  
-
-      wrning.hide();
-      btncheck.attr("disabled", false);
-
-    }else if(usernum==""){
-      icon1.hide(); 
-      icon2.show();
-      wrning.text("Enter your number!"); 
-      wrning.show();
-      wrning.css("color","#f14668");
-    }else{
-
-      icon1.hide(); 
-      icon2.show();
-
-      wrning.show();
-      wrning.text("INVALID NUMBER!");
-      wrning.css("color","#f14668");
-      btncheck.attr("disabled", true);
+}
 
 
-    }
 
-  }
 
 </script>

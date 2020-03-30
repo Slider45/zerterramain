@@ -41,7 +41,7 @@
               <box id="box" style="border:solid 1px; padding-top:11px; padding-bottom:10px;  border-radius:5px;">
               <input placeholder="+63" style="width:40px; height:40px; font-family:Montserrat; border:0; padding-left:6px; border-right:solid 1px;border-top-left-radius: 5px;
     border-bottom-left-radius: 5px;">
-    <input minlength="10" maxlength="10" onkeyup="validation()" id="edit_contact"  name="edit_contact" style="width:375px; border:0; padding-left:0;" value="<?php echo $contact; ?>">
+    <input  maxlength="10" onkeyup="validation()" id="edit_contact"  name="edit_contact" style="width:375px; border:0; padding-left:0;" value="<?php echo $contact; ?>">
                
                 </div>
               </box>

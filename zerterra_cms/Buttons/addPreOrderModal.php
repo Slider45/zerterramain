@@ -62,8 +62,13 @@ $orderNum=date("Ymd-His-") . 0 .$pendingCount;
         <input class="input" type="email" name="email" placeholder="Email " required>
       </div>
       <div class="control">
-        <input class="input" type="number" name="contact" placeholder="Contact" required>
+              <box id="box" style="border:solid 1px; padding-top:11px; padding-bottom:10px;  border-radius:5px;">
+              <input placeholder="+63" style="width:40px; height:40px; font-family:Montserrat; border:0; padding-left:6px; border-right:solid 1px;border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;">
+    <input class="input" maxlength="10" onkeyup="validation()" id="edit_contact" placeholder="Contact" name="contact" style="width:553px; border:0; padding-left:0;">
+              </box>
       </div>
+
       <div class="control">
         <input class="input" type="text" name="address" placeholder="Address" required>
       </div>
@@ -122,4 +127,27 @@ if(isset($_POST['preOrder-save'])){
 }
 ?>
 
+
+<script type="text/javascript">
+
+function validation(){
+
+var editcontact = document.getElementById('edit_contact').value;
+
+var editcontactpattern = /^(9)\d{9}/;
+
+if(editcontactpattern.test(editcontact)){
+   document.getElementById('box').style.borderColor = '#3ec46d';
+}else{
+  document.getElementById('box').style.borderColor = '#f14668';
+}
+
+
+
+}
+
+
+
+
+</script>
 

@@ -49,23 +49,22 @@
      <div class="control">
        <input class="input" type="email" name="edit_email" value="<?php echo $email; ?>" required="">
      </div>
-     <div class="control" style="margin-bottom:6px;">
-       <box style="border:solid 1px; padding-top:11px; padding-bottom:10px;  border-radius:5px;">
-           <input type="text" disabled="disabled"style="width:40px; height:40px; background:white;font-family:Montserrat; border:0; padding-left:6px; border-right:solid 1px;border-top-left-radius: 5px;
-   border-bottom-left-radius: 5px;" placeholder="+63">  
-           <input type="number" name="edit_contact" value="<?php echo $contact; ?>"  style="width:553px; border:0; padding-left:0; box-shadow:none;"  required=""></box>
-     </div>
+
+
+     <div class="control">
+              <box id="box" style="border:solid 1px; padding-top:11px; padding-bottom:10px;  border-radius:5px;">
+              <input placeholder="+63" style="width:40px; height:40px; font-family:Montserrat; border:0; padding-left:6px; border-right:solid 1px;border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;">
+    <input class="input" maxlength="10" onkeyup="validation()" id="edit_contact" name="edit_contact" style="width:553px; border:0; padding-left:0;" value="<?php echo $contact; ?>">
+              </box>
+      </div>
+
+
      <div class="control">
        <input class="input" type="text" name="edit_address" value="<?php echo $address; ?>"  required="">
      </div>
      <div class="control" style="margin-top: 10px;">
 
-                      <!-- <div class="select">
-                        <select style="width: 1000px; padding-top:5px; border:solid 1px;" name="role"required="">
-                         <option >Super Admin</option>
-                         <option>Admin</option>
-                        </select>
-                      </div> -->
                     </div>
                   </div>
                   
@@ -76,3 +75,24 @@
 
               </div>
             </div>
+
+
+<script type="text/javascript">
+
+function validation(){
+
+var editcontact = document.getElementById('edit_contact').value;
+
+var editcontactpattern = /^(9)\d{9}/;
+
+if(editcontactpattern.test(editcontact)){
+   document.getElementById('box').style.borderColor = '#3ec46d';
+}else{
+  document.getElementById('box').style.borderColor = '#f14668';
+}
+
+
+
+}
+
+</script>

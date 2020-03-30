@@ -178,7 +178,7 @@ include '../PagesFunction/connection.php';
             <div class="column is-3" id="label">Contact #</div>
             <p class="control has-icons-right">
               <box id="box">
-                <input type="text" placeholder="+63" style="width:38px; border:none;padding-top: 6px;padding-bottom: 11px;margin-left:10px;padding-left:6px;font-weight: bold;font-family: Montserrat; 7px;border-bottom: solid 1px;" disabled="disabled"><input class="input"  minlength="10" maxlength="10"  id="contact_user" name="contact_user" style="width:558px;padding-left:2px;" value="<?php echo $contact; ?>">
+                <input type="text" placeholder="+63" style="width:38px; border:none;padding-top: 6px;padding-bottom: 11px;margin-left:10px;padding-left:6px;font-weight: bold;font-family: Montserrat; 7px;border-bottom: solid 1px;" disabled="disabled"><input class="input" maxlength="10"  id="contact_user" name="contact_user" style="width:558px;padding-left:2px;" value="<?php echo $contact; ?>">
                 <span class="icon is-medium is-right">
                   <i class="fas fa-check" id="iconcheck" style="display: none;color: #48c774;margin-top: 10px;"></i>
                   <i class="fas fa-times" id="icontimes" style="display:none;color:#f14668;margin-top: 10px;"></i>

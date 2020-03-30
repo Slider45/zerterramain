@@ -46,16 +46,11 @@ include 'connection.php';
  <div class="control">
           <div class="columns">
             <div class="column is-2" id="label">Contact:</div>
-            
-            
             <div class="column" id="txtbox">
              <p class="control has-icons-right"> <box id="box" style="border:solid 1px; padding-top:11px; padding-bottom:10px;  border-radius:5px;">
               <input placeholder="+63" style="width:40px; height:40px; font-family:Montserrat; border:0; padding-left:6px; border-right:solid 1px;border-top-left-radius: 5px;
               border-bottom-left-radius: 5px;">
-              <input  minlength="10" maxlength="10" onkeyup="validation()"  id="edit_contact" name="edit_contact" style="width:413px; border:0;" value="<?php echo $contact; ?>">
-              
-
-              
+              <input class="input" minlength="10" maxlength="10" onkeyup="validation()"  id="contact" name="edit_contact" style="width:413px; border:0;" value="<?php echo $contact; ?>">
             </box>
             <span class="icon is-medium is-right">
               <i class="fas fa-check" id="iconcheck1" style="display: none;color: #48c774;"></i>
@@ -68,39 +63,40 @@ include 'connection.php';
         </div>
       </div>
 
-        <div class="control" style="margin-top: 10px;">
 
-        </div>
-        </div>
 
-        <button type="submit" id="save4" name="updated_user" class="button is-success">
-                      <i class="far fa-save"></i>&nbspSave</button>
-        <button class="button is-danger" id="closeMdl"><i class="fas fa-ban"></i>&nbspCancel</button>
+ <div class="control" style="margin-top: 10px;">
 
+ </div>
+</div>
+
+<button type="submit" id="save4" name="updated_id" class="button is-success"><i class="far fa-save"></i>&nbspSave</button>
+<button class="is-danger button" id="closeMdl"><i class="fas fa-ban"></i>&nbspCancel</button>
 </form>
 
 </div>
 </div>
 
 
+
 <script>
 
-var modalDlg2 = document.querySelector('#edit<?php echo $id; ?>');
-var imageModalCloseBtn2 = document.querySelector('#closeMdl');
-imageModalCloseBtn2.addEventListener('click', function(){
-  modalDlg2.classList.remove('is-active');
-});
+  var modalDlg2 = document.querySelector('#edit<?php echo $id; ?>');
+  var imageModalCloseBtn2 = document.querySelector('#closeMdl');
+  imageModalCloseBtn2.addEventListener('click', function(){
+    modalDlg2.classList.remove('is-active');
+  });
 </script>
 
 
-<script type="text/javascript">
+ <script type="text/javascript">
  function cancelevent() {
-  window.location.href="pending.php";
+  window.location.href="admin.php";
 }
 
 function validation(){
 
-  var editcontact = document.getElementById('edit_contact').value;
+  var editcontact = document.getElementById('contact').value;
   var btn = document.getElementById('save4');
   var wrning = document.getElementById('lblwarning1');
   var checkicon = document.getElementById('iconcheck1');
@@ -126,3 +122,4 @@ function validation(){
 
 }
 </script>
+

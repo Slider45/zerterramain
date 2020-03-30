@@ -61,12 +61,25 @@ $orderNum=date("Ymd-His-") . 0 .$pendingCount;
       <div class="control">
         <input class="input" type="email" name="email" placeholder="Email " required>
       </div>
+
+
       <div class="control">
-              <box id="box" style="border:solid 1px; padding-top:11px; padding-bottom:10px;  border-radius:5px;">
+          <div class="columns"> 
+            <div class="column" id="txtbox">
+             <p class="control has-icons-right"> <box id="box" style="border:solid 1px; padding-top:11px; padding-bottom:10px;  border-radius:5px;">
               <input placeholder="+63" style="width:40px; height:40px; font-family:Montserrat; border:0; padding-left:6px; border-right:solid 1px;border-top-left-radius: 5px;
-    border-bottom-left-radius: 5px;">
-    <input class="input" maxlength="10" onkeyup="validation()" id="edit_contact" placeholder="Contact" name="contact" style="width:553px; border:0; padding-left:0;">
-              </box>
+              border-bottom-left-radius: 5px;">
+              <input  minlength="10" maxlength="10" onkeyup="validation()" placeholder="Contact"  id="edit_contact" name="contact" style="width:413px; border:0;">
+            </box>
+            <span class="icon is-medium is-right">
+              <i class="fas fa-check" id="iconcheck2" style="display: none;color: #48c774;"></i>
+              <i class="fas fa-times" id="icontimes2" style="display:none;color:#f14668;"></i>
+              <p id="lblwarning2" style="text-align: center; color:#f14668;" class="is-size-7"></p>
+            </span>
+            <p id="lblwarning2" style="text-align: center" class="is-size-7"></p>
+          </div>
+          
+        </div>
       </div>
 
       <div class="control">
@@ -74,7 +87,7 @@ $orderNum=date("Ymd-His-") . 0 .$pendingCount;
       </div>
       
     </div>         
-    <button class="button is-success" type="submit" name="preOrder-save"><i class="far fa-save"></i>&nbspSave</button>
+    <button class="button is-success" type="submit" id="save5" name="preOrder-save"><i class="far fa-save"></i>&nbspSave</button>
   </form>
 
 </div>
@@ -129,25 +142,35 @@ if(isset($_POST['preOrder-save'])){
 
 
 <script type="text/javascript">
+ function cancelevent() {
+  window.location.href="pending.php";
+}
 
 function validation(){
 
-var editcontact = document.getElementById('edit_contact').value;
+  var editcontact = document.getElementById('edit_contact').value;
+  var btn = document.getElementById('save5');
+  var wrning = document.getElementById('lblwarning2');
+  var checkicon = document.getElementById('iconcheck2');
+  var erroricon = document.getElementById('icontimes2');
 
-var editcontactpattern = /^(9)\d{9}/;
+  var editcontactpattern = /^(9)\d{9}/;
 
-if(editcontactpattern.test(editcontact)){
+  if(editcontactpattern.test(editcontact)){
    document.getElementById('box').style.borderColor = '#3ec46d';
-}else{
+   btn.disabled = false;
+   wrning.innerHTML="";
+   checkicon.style.display = "block";
+   erroricon.style.display = "none";
+   
+ }else{
   document.getElementById('box').style.borderColor = '#f14668';
+  btn.disabled = true;
+  wrning.innerHTML="INVALID NUMBER";
+  checkicon.style.display = "none";
+  erroricon.style.display = "block";
+  
 }
 
-
-
 }
-
-
-
-
 </script>
-

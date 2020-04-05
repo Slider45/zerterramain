@@ -96,9 +96,8 @@ imageModalCloseBtn2.addEventListener('click', function(){
 
 
 
-
 <script type="text/javascript">
- function cancelevent() {
+function cancelevent() {
   window.location.href="admin.php";
 }
 

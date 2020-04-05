@@ -50,7 +50,7 @@ include 'connection.php';
              <p class="control has-icons-right"> <box id="box" style="border:solid 1px; padding-top:11px; padding-bottom:10px;  border-radius:5px;">
               <input placeholder="+63" style="width:40px; height:40px; font-family:Montserrat; border:0; padding-left:6px; border-right:solid 1px;border-top-left-radius: 5px;
               border-bottom-left-radius: 5px;">
-              <input class="input" minlength="10" maxlength="10" onkeyup="validation()"  id="contact" name="edit_contact" style="width:413px; border:0;" value="<?php echo $contact; ?>">
+              <input class="input" minlength="10" maxlength="10" onkeyup="validation()"  id="contact1" name="edit_contact" style="width:413px; border:0;" value="<?php echo $contact; ?>">
             </box>
             <span class="icon is-medium is-right">
               <i class="fas fa-check" id="iconcheck1" style="display: none;color: #48c774;"></i>
@@ -91,12 +91,12 @@ include 'connection.php';
 
  <script type="text/javascript">
  function cancelevent() {
-  window.location.href="admin.php";
+  window.location.href="pending.php";
 }
 
 function validation(){
 
-  var editcontact = document.getElementById('contact').value;
+  var editcontact = document.getElementById('contact1').value;
   var btn = document.getElementById('save4');
   var wrning = document.getElementById('lblwarning1');
   var checkicon = document.getElementById('iconcheck1');

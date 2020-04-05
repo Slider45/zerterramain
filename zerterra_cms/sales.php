@@ -25,6 +25,7 @@ include 'Buttons/adminButtonFunction.php';
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
 <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>  
 <link rel="stylesheet" href="http://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">  
+<link rel="stylesheet" href="globalScript/script.php">  
 <!-- <link href="assets/css/bulma-calendar.min.css" rel="stylesheet">
   <script src="/assets/js/bulma-calendar.min.js"></script> -->
 

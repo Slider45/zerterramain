@@ -21,7 +21,7 @@ include 'Buttons/adminButtonFunction.php';
 <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
 <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
 <link rel="icon" href="../images/plainlogo.png" type="image/x-icon" />
-
+<script rel="stylesheet" href="globalScript/script.php"> </script>
 <link rel="stylesheet" href="sass/admin.css">
 <body>
 

@@ -192,9 +192,9 @@ while($row = mysqli_fetch_array($res_data)){
                     <p class="control has-icons-right">
                     <input type="password" id="newpass" name="newpass" placeholder="" required=""> 
                         <span class="icon is-medium is-right">
-                            <i class="fas fa-check" id="iconcheck1" style="display: none;color: #48c774;margin-top: 10px;"></i> 
-                            <i class="fas fa-times" id="icontimes1" style="display:none;color:#f14668;margin-top: 10px;"></i>
-                            <p id="lblwarning1" style="text-align: center; font-family: 'Montserrat';" class="is-size-6 "></p>
+                            <i class="fas fa-check" id="iconcheck2" style="display: none;color: #48c774;margin-top: 10px;"></i> 
+                            <i class="fas fa-times" id="icontimes2" style="display:none;color:#f14668;margin-top: 10px;"></i>
+                            <p id="lblwarning2" style="text-align: center; font-family: 'Montserrat';" class="is-size-6 "></p>
                         </span>
                     </div>
             </div>
@@ -207,9 +207,9 @@ while($row = mysqli_fetch_array($res_data)){
                     <p class="control has-icons-right">
                         <input type="password" id="cnewpass" name="cnewpass" placeholder="" required="">
                         <span class="icon is-medium is-right">
-                            <i class="fas fa-check" id="iconcheck2" style="display: none;color: #48c774;margin-top: 10px;"></i> 
-                            <i class="fas fa-times" id="icontimes2" style="display:none;color:#f14668;margin-top: 10px;"></i>
-                            <p id="lblwarning2" style="text-align: center; font-family: 'Montserrat';" class="is-size-6 "></p>
+                            <i class="fas fa-check" id="iconcheck1" style="display: none;color: #48c774;margin-top: 10px;"></i> 
+                            <i class="fas fa-times" id="icontimes1" style="display:none;color:#f14668;margin-top: 10px;"></i>
+                            <p id="lblwarning1" style="text-align: center; font-family: 'Montserrat';" class="is-size-6 "></p>
                         </span>
                     </div>
                 </div>
@@ -275,8 +275,6 @@ while($row = mysqli_fetch_array($res_data)){
             btncheck.attr("disabled", true);
 
 
-
-
         }
 
     }
@@ -286,6 +284,7 @@ while($row = mysqli_fetch_array($res_data)){
 
         var password1 = $("#newpass").val();
         var password2 = $("#cnewpass").val();
+        var password3 = $("#oldpass").val();
         var btncheck = $("#save");
         var wrning = $("#lblwarning1");
         var icon1 = $("#iconcheck1");
@@ -300,74 +299,44 @@ while($row = mysqli_fetch_array($res_data)){
             wrning.show();
             btncheck.attr("disabled", false);
 
+        }if(password3 == password2) {
+            icon1.hide();  
+            icon2.show();
+            wrning.text("CANNOT USED OLD PASSWORD!");  
+            wrning.css("color","#f14668");
+            wrning.show();
+            btncheck.attr("disabled", true);
+
         }else if(password2==""){
             icon1.hide(); 
             icon2.hide();
             wrning.text(""); 
             wrning.hide();
-        }else{
 
+        
+
+        }else {
             icon1.hide(); 
             icon2.show();
-            
+
             wrning.show();
             wrning.text("PASSWORD NOT MATCHED!");
             wrning.css("color","#f14668");
             btncheck.attr("disabled", true);
 
+        
 
-
-
-        }
-
-    }
-
-    function newpass1() {
-
-
-var password1 = $("#newpass").val();
-var password2 = $("#cnewpass").val();
-var btncheck = $("#save");
-var wrning = $("#lblwarning2");
-var icon1 = $("#iconcheck2");
-var icon2 = $("#icontimes2");
-
-
-if(password1 == password2) {
-    icon1.show();  
-    icon2.hide();
-    wrning.text("PASSWORD MATCHED!");  
-    wrning.css("color","#48c774");
-    wrning.show();
-    btncheck.attr("disabled", false);
-
-}else if(password2==""){
-    icon1.hide(); 
-    icon2.hide();
-    wrning.text(""); 
-    wrning.hide();
-}else{
-
-    icon1.hide(); 
-    icon2.show();
-    
-    wrning.show();
-    wrning.text("PASSWORD NOT MATCHED!");
-    wrning.css("color","#f14668");
-    btncheck.attr("disabled", true);
+            }
+        
+        
+      }
 
 
 
 
-}
 
-}
-
-    
 
 </script>
-
-
 
 </body>
 

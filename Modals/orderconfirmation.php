@@ -6,7 +6,7 @@ include '../PagesFunction/connection.php';
 
 
 
-// $orderNum = $_GET['SerialNumber'];
+
   $fname_order = $_POST['fname_order'];
   $lname_order = $_POST['lname_order'];
   $email_order = $_POST['email_order'];
@@ -14,16 +14,16 @@ include '../PagesFunction/connection.php';
   $address_order = $_POST['address_order'];
   $message_order = $_POST['message_order'];
 
-  $sql = "SELECT id FROM pending_order_list";
-  $result=mysqli_query($con,$sql);
-  $pendingCount=mysqli_num_rows($result);
-  $pendingCount++;
+  $sql = "SELECT id FROM request_repair_list ";
+	$result=mysqli_query($con,$sql);
+	$requestCount=mysqli_num_rows($result);
+	$requestCount++;
 
 
-  $orderNum=date("Ymd-His-") . 0 .$pendingCount;
+	$requestnum=date("ymd-Hi-") . 0 .$requestCount;
 
 
- // $serialNum = $_POST['SerialNumber'];
+
   ?>
   <!DOCTYPE html>
   <html>

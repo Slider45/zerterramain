@@ -2,13 +2,30 @@
 <?php
 session_start();
 include '../PagesFunction/connection.php';
-$serialNum = $_GET['SerialNumber'];
-$fname = $_GET['Fname'];
-$lname = $_GET['Lname'];
-$email = $_GET['email'];
-$contact = $_GET['contactNum'];
-$address = $_GET['address'];
- // $serialNum = $_POST['SerialNumber'];
+
+
+
+
+$serialNum = $_POST['SerialNumber'];
+$fname = $_POST['Fname'];
+$lname = $_POST['Lname'];
+$email = $_POST['email'];
+$contact = $_POST['contactNum'];
+$address = $_POST['address'];
+
+
+ 
+$sql = "SELECT id FROM request_repair_list ";
+$result=mysqli_query($con,$sql);
+$requestCount=mysqli_num_rows($result);
+$requestCount++;
+
+
+$requestnum=date("ymd-Hi-") . 0 .$requestCount;
+
+
+
+
 ?>
 <!DOCTYPE html>
 <html>

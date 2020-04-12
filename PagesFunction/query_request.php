@@ -78,25 +78,13 @@ if (isset($_POST['saveRequest'])) {
 			$cmdsql= "INSERT INTO request_repair_list(RequestNumber, SerialNumber, Firstname, Lastname, Email, Contact, Address, is_approved) VALUES ('$requestnum','$SNumber','$fname','$lname','$email','$contact','$address','0')";
 			if($con->query($cmdsql) === TRUE)
 			{
-				echo "<script>alert('Return Mail Sent!'); </script>";
-				
-
-			}else{
-				echo "<script>alert('QUERY FAILED!'); </script>";
+				$msg='REQUEST SENT!';
+				include 'Modals/request_alert.php';
+			  }
 			}
-		}else{
 
-			echo "<script>alert('Return Mail Not Sent!'); </script>";
 		}
-	}else{
-
-		echo "<script>alert('Sending Request Failed!'); </script>";
-
-
-	}echo '<script>window.location.href="../"</script>';
-}
-
-
+	}
 
 
 	// $cmdsql= "INSERT INTO request_repair_list(RequestNumber, SerialNumber, Firstname, Lastname, Email, Contact, Address, is_approved) VALUES ('$requestnum','$serialNum','$fname','$lname','$email','$contact','$address','0')";

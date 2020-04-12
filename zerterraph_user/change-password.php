@@ -276,8 +276,8 @@ while($row = mysqli_fetch_array($res_data)){
 
 
         }
-
     }
+
 
       function newpass() {
 
@@ -291,30 +291,28 @@ while($row = mysqli_fetch_array($res_data)){
         var icon2 = $("#icontimes1");
 
 
-        if(password1 == password2) {
+        if(password1 == password2){
             icon1.show();  
             icon2.hide();
+
             wrning.text("PASSWORD MATCHED!");  
             wrning.css("color","#48c774");
             wrning.show();
             btncheck.attr("disabled", false);
-
-        }if(password3 == password2) {
+        }if(password3 == password2){
             icon1.hide();  
             icon2.show();
+
             wrning.text("CANNOT USED OLD PASSWORD!");  
             wrning.css("color","#f14668");
             wrning.show();
             btncheck.attr("disabled", true);
-
         }else if(password2==""){
             icon1.hide(); 
             icon2.hide();
+            
             wrning.text(""); 
             wrning.hide();
-
-        
-
         }else {
             icon1.hide(); 
             icon2.show();
@@ -327,8 +325,6 @@ while($row = mysqli_fetch_array($res_data)){
         
 
             }
-        
-        
       }
 
 
